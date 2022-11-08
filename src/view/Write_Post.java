@@ -23,7 +23,6 @@ public class Write_Post extends javax.swing.JFrame {
     
     public void setaddActionListener(ActionListener listener) {
         jButton1.addActionListener(listener); // 게시글 등록
-        CANCEL.addActionListener(listener); // 게시글 등록 취소
     }
     
     public String getTitle(){ //제목 값 가져오기
@@ -59,6 +58,11 @@ public class Write_Post extends javax.swing.JFrame {
         jButton1.setText("등록");
 
         CANCEL.setText("취소");
+        CANCEL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CANCELActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("제 목");
 
@@ -106,6 +110,11 @@ public class Write_Post extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CANCELActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_CANCELActionPerformed
 
     /**
      * @param args the command line arguments

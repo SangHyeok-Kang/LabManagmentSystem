@@ -5,12 +5,9 @@
  */
 package view;
 
-import java.awt.event.ActionListener;
-
 /**
  *
- * @author 20183150 김부성
- * 클래스 사용 용도 : 게시글 확인 용 클래스
+ * @author User
  */
 public class Notice extends javax.swing.JFrame {
 
@@ -21,9 +18,6 @@ public class Notice extends javax.swing.JFrame {
         initComponents();
     }
 
-    public void setaddActionListener(ActionListener listener) {
-        N_CANCEL_BTN.addActionListener(listener); //취소 버튼 리스너
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,15 +36,23 @@ public class Notice extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        N_TITLE.setEditable(false);
+
         jLabel1.setText("제 목");
 
         jLabel2.setText("내 용 ");
 
+        N_INFO.setEditable(false);
         N_INFO.setColumns(20);
         N_INFO.setRows(5);
         jScrollPane1.setViewportView(N_INFO);
 
         N_CANCEL_BTN.setText("취소");
+        N_CANCEL_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                N_CANCEL_BTNActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,6 +95,11 @@ public class Notice extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void N_CANCEL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_N_CANCEL_BTNActionPerformed
+        // 게시글 작성 취소하기
+        setVisible(false);
+    }//GEN-LAST:event_N_CANCEL_BTNActionPerformed
 
     /**
      * @param args the command line arguments
