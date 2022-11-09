@@ -176,6 +176,16 @@ public class Student_Main extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         DATE = new javax.swing.JComboBox<>();
         SELECT_DATE_BTN = new javax.swing.JButton();
+        TEAM_CHECK = new javax.swing.JCheckBox();
+        INPUT_TEAM = new javax.swing.JPanel();
+        jLabel75 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        TEAM_1 = new javax.swing.JTextField();
+        TEAM_2 = new javax.swing.JTextField();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        TEAM_3 = new javax.swing.JTextField();
+        jLabel76 = new javax.swing.JLabel();
         SELECT_SEAT_P = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -220,6 +230,7 @@ public class Student_Main extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         FINAL_SELECT_RE = new javax.swing.JButton();
         jLabel71 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
         S_INQUIRY_P = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -615,13 +626,13 @@ public class Student_Main extends javax.swing.JFrame {
         jLabel22.setText("시작 시간");
         SELECT_RE_INFO.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, 20));
 
-        START_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 : 00", "2 : 00", "3 : 00", "4 : 00", "5 : 00", "6 : 00", "7 : 00", "8 : 00", "9 : 00", "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00", "23 : 00", "24 : 00" }));
+        START_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9 : 00", "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00" }));
         SELECT_RE_INFO.add(START_TIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 100, 20));
 
         jLabel23.setText("종료시간");
         SELECT_RE_INFO.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, 20));
 
-        END_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 : 00", "2 : 00", "3 : 00", "4 : 00", "5 : 00", "6 : 00", "7 : 00", "8 : 00", "9 : 00", "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00", "23 : 00", "24 : 00" }));
+        END_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00", "23 : 00", " " }));
         SELECT_RE_INFO.add(END_TIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 100, 20));
         SELECT_RE_INFO.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, -1));
 
@@ -658,7 +669,81 @@ public class Student_Main extends javax.swing.JFrame {
         SELECT_DATE_BTN.setText("선택");
         SELECT_RE_INFO.add(SELECT_DATE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 70, -1));
 
-        S_RESERVATION_P.add(SELECT_RE_INFO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 75, 664, 350));
+        TEAM_CHECK.setBackground(new java.awt.Color(255, 255, 255));
+        TEAM_CHECK.setText("조별 학습");
+        TEAM_CHECK.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TEAM_CHECK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TEAM_CHECKActionPerformed(evt);
+            }
+        });
+        SELECT_RE_INFO.add(TEAM_CHECK, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+
+        INPUT_TEAM.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel75.setFont(new java.awt.Font("굴림", 0, 15)); // NOI18N
+        jLabel75.setText("팀원");
+
+        jLabel72.setText("팀원1");
+
+        jLabel73.setText("팀원2");
+
+        jLabel74.setText("팀원3");
+
+        jLabel76.setFont(new java.awt.Font("굴림", 0, 10)); // NOI18N
+        jLabel76.setText("(학번만 작성해 주시기 바랍니다.)");
+
+        javax.swing.GroupLayout INPUT_TEAMLayout = new javax.swing.GroupLayout(INPUT_TEAM);
+        INPUT_TEAM.setLayout(INPUT_TEAMLayout);
+        INPUT_TEAMLayout.setHorizontalGroup(
+            INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_TEAMLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                        .addComponent(jLabel75)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel76))
+                    .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                        .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                                .addComponent(jLabel72)
+                                .addGap(67, 67, 67)
+                                .addComponent(jLabel73))
+                            .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                                .addComponent(TEAM_1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(TEAM_2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(24, 24, 24)
+                        .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel74))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        INPUT_TEAMLayout.setVerticalGroup(
+            INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_TEAMLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel75)
+                    .addComponent(jLabel76))
+                .addGap(5, 5, 5)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel72)
+                    .addComponent(jLabel73)
+                    .addComponent(jLabel74))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TEAM_1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TEAM_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 270, 80));
+
+        S_RESERVATION_P.add(SELECT_RE_INFO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 75, 664, 356));
 
         SELECT_SEAT_P.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -887,7 +972,7 @@ public class Student_Main extends javax.swing.JFrame {
             .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel71)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel47)
                     .addComponent(jLabel48)
@@ -956,7 +1041,8 @@ public class Student_Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        S_RESERVATION_P.add(SELECT_SEAT_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 75, 664, 350));
+        S_RESERVATION_P.add(SELECT_SEAT_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 75, 664, 356));
+        S_RESERVATION_P.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 640, 10));
 
         MAIN_P.add(S_RESERVATION_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 814, 426));
 
@@ -1236,6 +1322,7 @@ public class Student_Main extends javax.swing.JFrame {
         // 예약 조회 패널로 이동
         panelClear();
         S_INQUIRY_P.setVisible(true);
+        INPUT_TEAM.setVisible(false);
         // 컨트롤러에 있는 예약 조회 함수로 테이블 값 채우기
     }//GEN-LAST:event_S_MENU2MouseClicked
 
@@ -1245,8 +1332,18 @@ public class Student_Main extends javax.swing.JFrame {
         LAB_915.setSelected(true);
         S_RESERVATION_P.setVisible(true);
         SELECT_RE_INFO.setVisible(true);
+        INPUT_TEAM.setVisible(false);
         SELECT_SEAT_P.setVisible(false);
     }//GEN-LAST:event_S_MENU1MouseClicked
+
+    private void TEAM_CHECKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TEAM_CHECKActionPerformed
+        // 실습실 예약 패널에서 조별 학습인지 체크하는 체크박스
+        if(TEAM_CHECK.isSelected()){ // 팀 학습을 선택할 시
+            INPUT_TEAM.setVisible(true);
+        }else if(!TEAM_CHECK.isSelected()){ //팀 학습을 선택하지 안았을시
+            INPUT_TEAM.setVisible(false);
+        }
+    }//GEN-LAST:event_TEAM_CHECKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1297,6 +1394,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel Declaration_L;
     private javax.swing.JComboBox<String> END_TIME;
     private javax.swing.JButton FINAL_SELECT_RE;
+    private javax.swing.JPanel INPUT_TEAM;
     private javax.swing.JLabel INQUIRY_L;
     private javax.swing.JRadioButton LAB_911;
     private javax.swing.JRadioButton LAB_915;
@@ -1329,6 +1427,10 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JPanel S_NOTICE_P;
     private javax.swing.JPanel S_RESERVATION_P;
     private javax.swing.JLabel S_WRITE;
+    private javax.swing.JTextField TEAM_1;
+    private javax.swing.JTextField TEAM_2;
+    private javax.swing.JTextField TEAM_3;
+    private javax.swing.JCheckBox TEAM_CHECK;
     private javax.swing.JLabel TITLE;
     private javax.swing.JPanel TITLE_P;
     private javax.swing.JPanel UNDER_P;
@@ -1404,6 +1506,11 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -1417,5 +1524,6 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     // End of variables declaration//GEN-END:variables
 }

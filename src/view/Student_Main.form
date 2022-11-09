@@ -789,7 +789,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="150" y="75" width="664" height="350"/>
+                      <AbsoluteConstraints x="150" y="75" width="664" height="356"/>
                     </Constraint>
                   </Constraints>
 
@@ -874,31 +874,21 @@
                     <Component class="javax.swing.JComboBox" name="START_TIME">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="24">
-                            <StringItem index="0" value="1 : 00"/>
-                            <StringItem index="1" value="2 : 00"/>
-                            <StringItem index="2" value="3 : 00"/>
-                            <StringItem index="3" value="4 : 00"/>
-                            <StringItem index="4" value="5 : 00"/>
-                            <StringItem index="5" value="6 : 00"/>
-                            <StringItem index="6" value="7 : 00"/>
-                            <StringItem index="7" value="8 : 00"/>
-                            <StringItem index="8" value="9 : 00"/>
-                            <StringItem index="9" value="10 : 00"/>
-                            <StringItem index="10" value="11 : 00"/>
-                            <StringItem index="11" value="12 : 00"/>
-                            <StringItem index="12" value="13 : 00"/>
-                            <StringItem index="13" value="14 : 00"/>
-                            <StringItem index="14" value="15 : 00"/>
-                            <StringItem index="15" value="16 : 00"/>
-                            <StringItem index="16" value="17 : 00"/>
-                            <StringItem index="17" value="18 : 00"/>
-                            <StringItem index="18" value="19 : 00"/>
-                            <StringItem index="19" value="20 : 00"/>
-                            <StringItem index="20" value="21 : 00"/>
-                            <StringItem index="21" value="22 : 00"/>
-                            <StringItem index="22" value="23 : 00"/>
-                            <StringItem index="23" value="24 : 00"/>
+                          <StringArray count="14">
+                            <StringItem index="0" value="9 : 00"/>
+                            <StringItem index="1" value="10 : 00"/>
+                            <StringItem index="2" value="11 : 00"/>
+                            <StringItem index="3" value="12 : 00"/>
+                            <StringItem index="4" value="13 : 00"/>
+                            <StringItem index="5" value="14 : 00"/>
+                            <StringItem index="6" value="15 : 00"/>
+                            <StringItem index="7" value="16 : 00"/>
+                            <StringItem index="8" value="17 : 00"/>
+                            <StringItem index="9" value="18 : 00"/>
+                            <StringItem index="10" value="19 : 00"/>
+                            <StringItem index="11" value="20 : 00"/>
+                            <StringItem index="12" value="21 : 00"/>
+                            <StringItem index="13" value="22 : 00"/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -924,31 +914,22 @@
                     <Component class="javax.swing.JComboBox" name="END_TIME">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="24">
-                            <StringItem index="0" value="1 : 00"/>
-                            <StringItem index="1" value="2 : 00"/>
-                            <StringItem index="2" value="3 : 00"/>
-                            <StringItem index="3" value="4 : 00"/>
-                            <StringItem index="4" value="5 : 00"/>
-                            <StringItem index="5" value="6 : 00"/>
-                            <StringItem index="6" value="7 : 00"/>
-                            <StringItem index="7" value="8 : 00"/>
-                            <StringItem index="8" value="9 : 00"/>
-                            <StringItem index="9" value="10 : 00"/>
-                            <StringItem index="10" value="11 : 00"/>
-                            <StringItem index="11" value="12 : 00"/>
-                            <StringItem index="12" value="13 : 00"/>
-                            <StringItem index="13" value="14 : 00"/>
-                            <StringItem index="14" value="15 : 00"/>
-                            <StringItem index="15" value="16 : 00"/>
-                            <StringItem index="16" value="17 : 00"/>
-                            <StringItem index="17" value="18 : 00"/>
-                            <StringItem index="18" value="19 : 00"/>
-                            <StringItem index="19" value="20 : 00"/>
-                            <StringItem index="20" value="21 : 00"/>
-                            <StringItem index="21" value="22 : 00"/>
-                            <StringItem index="22" value="23 : 00"/>
-                            <StringItem index="23" value="24 : 00"/>
+                          <StringArray count="15">
+                            <StringItem index="0" value="10 : 00"/>
+                            <StringItem index="1" value="11 : 00"/>
+                            <StringItem index="2" value="12 : 00"/>
+                            <StringItem index="3" value="13 : 00"/>
+                            <StringItem index="4" value="14 : 00"/>
+                            <StringItem index="5" value="15 : 00"/>
+                            <StringItem index="6" value="16 : 00"/>
+                            <StringItem index="7" value="17 : 00"/>
+                            <StringItem index="8" value="18 : 00"/>
+                            <StringItem index="9" value="19 : 00"/>
+                            <StringItem index="10" value="20 : 00"/>
+                            <StringItem index="11" value="21 : 00"/>
+                            <StringItem index="12" value="22 : 00"/>
+                            <StringItem index="13" value="23 : 00"/>
+                            <StringItem index="14" value=" "/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -1109,6 +1090,139 @@
                         </Constraint>
                       </Constraints>
                     </Component>
+                    <Component class="javax.swing.JCheckBox" name="TEAM_CHECK">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="&#xc870;&#xbcc4; &#xd559;&#xc2b5;"/>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="&#xc190; &#xcee4;&#xc11c;"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TEAM_CHECKActionPerformed"/>
+                      </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="490" y="10" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
+                    </Component>
+                    <Container class="javax.swing.JPanel" name="INPUT_TEAM">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                      </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="120" y="230" width="270" height="80"/>
+                        </Constraint>
+                      </Constraints>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel75" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                          <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="67" pref="67" max="-2" attributes="0"/>
+                                                  <Component id="jLabel73" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="TEAM_1" min="-2" pref="75" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="TEAM_2" min="-2" pref="75" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="TEAM_3" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel76" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel72" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel73" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="TEAM_1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                          <Component id="TEAM_3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TEAM_2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="jLabel75">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="&#xad74;&#xb9bc;" size="15" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="&#xd300;&#xc6d0;"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel72">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="&#xd300;&#xc6d0;1"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="TEAM_1">
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="TEAM_2">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel73">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="&#xd300;&#xc6d0;2"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel74">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="&#xd300;&#xc6d0;3"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="TEAM_3">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabel76">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="&#xad74;&#xb9bc;" size="10" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="(&#xd559;&#xbc88;&#xb9cc; &#xc791;&#xc131;&#xd574; &#xc8fc;&#xc2dc;&#xae30; &#xbc14;&#xb78d;&#xb2c8;&#xb2e4;.)"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="SELECT_SEAT_P">
@@ -1119,7 +1233,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="150" y="75" width="664" height="350"/>
+                      <AbsoluteConstraints x="150" y="75" width="664" height="356"/>
                     </Constraint>
                   </Constraints>
 
@@ -1248,7 +1362,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel71" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
+                              <EmptySpace pref="23" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1680,6 +1794,13 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JSeparator" name="jSeparator7">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="160" y="70" width="640" height="10"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="S_INQUIRY_P">
