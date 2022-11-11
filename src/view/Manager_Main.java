@@ -1337,12 +1337,11 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_HISTORY_P.setVisible(false);
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(true);
+        // 예약된 명단 가져오기
         JLabel [] seat = new JLabel[40];
-        System.out.println(Integer.toString(1)+"\n\n20183150");
         for(int i=0; i<40; i++){
             seat[i] = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+20183150+"</html>",JLabel.CENTER);
             NOW_USING_PANEL.add(seat[i]);
-            //seat[i].setVisible(true);
         }
     }//GEN-LAST:event_USING_NOWMouseClicked
 
