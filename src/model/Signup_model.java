@@ -40,7 +40,7 @@ public class Signup_model {
             }
 
         } catch (SQLException e) {
-            System.out.println(e);
+            System.out.println("잘못된 정보를 입력하셨습니다. 다시 입력해주세요");
             return false;
         }
     }

@@ -1,1 +1,19 @@
+<<<<<<< HEAD
 /build/
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/netbeans
+# Edit at https://www.toptal.com/developers/gitignore?templates=netbeans
+
+### NetBeans ###
+**/nbproject/private/
+**/nbproject/private/private.xml
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+*.build.xml
+# End of https://www.toptal.com/developers/gitignore/api/netbeans
+>>>>>>> ba6e3277a30959d31167acff2dea5234f812233e
