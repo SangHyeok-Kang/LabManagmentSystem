@@ -33,7 +33,6 @@ public class ReserLab_model {
 
     //실습실 현재 사용현황 메소드
     String[][] searchLab(int lab_num, List<Integer> num, String date) {
-        ReserSubject rsj = new ReserSubject();
         try {
             for (int i = 0; i < num.size(); i++) {
                 SQL = "SELECT * "
