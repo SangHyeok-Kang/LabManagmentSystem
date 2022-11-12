@@ -8,7 +8,7 @@ package model;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static labmanagementsystem.DBConnection.dbconnection;
+import static model.DBConnection.dbconnection;
 
 /**
  *
