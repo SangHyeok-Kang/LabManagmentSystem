@@ -5,46 +5,57 @@ import static model.UserSession.log;
 import static model.DBConnection.dbconnection;
 import java.sql.*;
 import java.util.*;
-import java.time.LocalTime;
+import java.time.*;
+
 /**
  *
  * @author 20183109 강상혁 클래스 사용 용도 : 실습실 조회 및 예약 클래스
  */
 public class ReserLab_model {
+
     java.sql.Time time = new java.sql.Time(17, 00, 00); //17시 시간 저장
     LocalTime curtime = LocalTime.now(); //현재 시간 저장
-    LocalTime deadline = LocalTime.of(16,30,00); //예약 마감 시간 저장
-    
-    String[][] lab_info; //실습실 정보 배열
+    //java.sql.Time current = java.sql.Time.valueOf(curtime); //LocalTime to java.sql.Time (형변환)
+    LocalTime deadline = LocalTime.of(16, 30, 00); //예약 마감 시간 저장
+    LocalDate curdate = LocalDate.now(); //현재 날짜 저장
+    String[][] lab_info = new String[100][5];
     boolean[] seat_info; //좌석 정보 배열
-        
     int rand = (int) ((Math.random() * 300) + 100); //난수 생성
     int count = 0; //실습실 이용자수 저장받기 위한 변수
     int number = 0; //2차원배열 위치를 위한 변수
-    
-    String SQL;     
+    String SQL;
     private Connection con = null;
     private Statement st = null;
     private ResultSet rs = null;
-    
+    int[] labnum = {915,916,918,911};
+
     String user_id = log.session;
-    
+
     //실습실 현재 사용현황 메소드
-    String[][] searchLab(int lab_num) {
+    String[][] searchLab(int lab_num, List<Integer> num, String date) {
+        ReserSubject rsj = new ReserSubject();
         try {
-            SQL = "select * from reservation where lab_num = '" + lab_num + "'";
-            st = dbconnection.getInstance().getConnection().createStatement();
-            rs = st.executeQuery(SQL);
-            while (rs.next()) {
-                lab_info[number][0] = rs.getString("reser_num");
-                lab_info[number][1] = rs.getString("seat_num");
-                lab_info[number][2] = rs.getString("date");
-                lab_info[number][3] = rs.getString("start_time");
-                lab_info[number][4] = rs.getString("end_time");
-                number++;
+            for (int i = 0; i < num.size(); i++) {
+                SQL = "SELECT * "
+                        + " from reservation "
+                        + " where ('" + num.get(i) + "' >= hour(start_time)"
+                        + " and hour(end_time) > '" + num.get(i) + "')"
+                        + " and reser_date = '" + date + "'"
+                        + " and lab_num = '" + lab_num + "'"
+                        + " and (access != 'x' or access != 'e')";
+                st = dbconnection.getInstance().getConnection().createStatement();
+                rs = st.executeQuery(SQL);
+                while (rs.next()) {
+                    lab_info[number][0] = rs.getString("reser_num");
+                    lab_info[number][1] = rs.getString("seat_num");
+                    lab_info[number][2] = rs.getString("reser_date");
+                    lab_info[number][3] = rs.getString("start_time");
+                    lab_info[number][4] = rs.getString("end_time");
+                    number++;
+                }
+                rs.close();
+                st.close();
             }
-            rs.close();
-            st.close();
         } catch (SQLException e) {
             System.out.println(e + SQL);
         }
@@ -137,13 +148,14 @@ public class ReserLab_model {
     boolean isFull(int lab_num, List<Integer> num, String date) {
         try {
             //예약 시작시간부터 한시간마다 체크하여 만석여부 확인
-            for (int i = 0; i < num.size(); i++) {;
+            for (int i = 0; i < num.size(); i++) {
                 SQL = "SELECT count(*) count "
                         + " from reservation "
-                        + "where ('" + num.get(i) + "' >= hour(start_time)"
-                        + " or hour(end_time) < '" + num.get(i) + "')and hour(start_time) > hour(now())"
+                        + " where ('" + num.get(i) + "' >= hour(start_time)"
+                        + " and hour(end_time) > '" + num.get(i) + "')"
                         + " and reser_date = '" + date + "'"
                         + " and lab_num = '" + lab_num + "'"
+                        + " and (access != 'x' or access != 'e')"
                         + " group by lab_num;";
                 st = dbconnection.getInstance().getConnection().createStatement();
                 rs = st.executeQuery(SQL);

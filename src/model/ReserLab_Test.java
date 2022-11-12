@@ -6,7 +6,7 @@ import java.util.*;
 public class ReserLab_Test {
 
     public static void main(String[] args) throws ParseException {
-        String reser_date[] = new String[4];
+        /*String reser_date[] = new String[4];
         String start_time[] = new String[4];
         String end_time[] = new String[4];
         List<String> stu_num = new ArrayList<String>();
@@ -15,16 +15,16 @@ public class ReserLab_Test {
         java.sql.Date d_date[] = new java.sql.Date[4];
         java.sql.Time t_start_time[] = new java.sql.Time[4];
         java.sql.Time t_end_time[] = new java.sql.Time[4];
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);*/
         List<Integer> num = new ArrayList<Integer>();
-        //int lab_num = 915;
-        //String date = "2022-11-10";
-        
-        for(int i = 13; i<=17; i++){
+        int lab_num = 915;
+        String date = "2022-11-10";
+
+        for (int i = 13; i <= 17; i++) {
             num.add(i);
         }
-        
-        for (int i = 0; i < 2; i++) {
+
+        /* for (int i = 0; i < 2; i++) {
             System.out.print("insert stunum : ");
             stu_num.add(sc.next());
             System.out.print("insert lab_num : ");
@@ -45,12 +45,18 @@ public class ReserLab_Test {
             end_time[i] = sc.next();
             t_end_time[i] = java.sql.Time.valueOf(end_time[i]);
             System.out.println(t_end_time[i]);
-        }
-         
+        }*/
         if (DBConnection.getInstance().Initailize()) {
             ReserLab_model model = new ReserLab_model();
-           // model.isFull(lab_num, num, date);
-            model.reservation(stu_num, lab_num, seat_num, d_date, t_start_time, t_end_time);
+            model.searchLab(lab_num, num, date);
+            int numb = model.number;
+            for (int i = 0; i < numb; i++) {                   
+                for (int j = 0; j < 5; j++) {
+                    System.out.print(model.lab_info[i][j] + " ");
+                }
+                System.out.println("");
+            }
+            //model.reservation(stu_num, lab_num, seat_num, d_date, t_start_time, t_end_time);
         }
     }
 }
