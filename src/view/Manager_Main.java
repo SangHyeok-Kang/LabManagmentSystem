@@ -99,7 +99,8 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_916 = new javax.swing.JRadioButton();
         USING_918 = new javax.swing.JRadioButton();
         USING_911 = new javax.swing.JRadioButton();
-        NOW_USING_PANEL = new javax.swing.JPanel();
+        NOW_USING_PANEL1 = new javax.swing.JPanel();
+        NOW_USING_PANEL2 = new javax.swing.JPanel();
         REQUEST_RESER_P = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         REQUEST_TABLE = new javax.swing.JTable();
@@ -597,69 +598,45 @@ public class Manager_Main extends javax.swing.JFrame {
         RESERVATION_LIST_P.add(RESERVATION_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 426));
 
         USING_NOW_P.setBackground(new java.awt.Color(255, 255, 255));
+        USING_NOW_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel19.setText("사용 현황 조회");
+        USING_NOW_P.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 22, -1, -1));
 
         USING_915.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_915);
         USING_915.setSelected(true);
         USING_915.setText("915호");
+        USING_915.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_NOW_P.add(USING_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         USING_916.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_916);
         USING_916.setText("916호");
+        USING_916.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_NOW_P.add(USING_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
 
         USING_918.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_918);
         USING_918.setText("918호");
+        USING_918.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_NOW_P.add(USING_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         USING_911.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_911);
         USING_911.setText("911호");
+        USING_911.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_NOW_P.add(USING_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
-        NOW_USING_PANEL.setBackground(new java.awt.Color(255, 255, 255));
-        NOW_USING_PANEL.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
-        NOW_USING_PANEL.setLayout(new java.awt.GridLayout(5, 8, 20, 20));
+        NOW_USING_PANEL1.setBackground(new java.awt.Color(255, 255, 255));
+        NOW_USING_PANEL1.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        NOW_USING_PANEL1.setLayout(new java.awt.GridLayout(5, 8, 15, 15));
+        USING_NOW_P.add(NOW_USING_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
-        javax.swing.GroupLayout USING_NOW_PLayout = new javax.swing.GroupLayout(USING_NOW_P);
-        USING_NOW_P.setLayout(USING_NOW_PLayout);
-        USING_NOW_PLayout.setHorizontalGroup(
-            USING_NOW_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(USING_NOW_PLayout.createSequentialGroup()
-                .addGroup(USING_NOW_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(USING_NOW_PLayout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(jLabel19))
-                    .addGroup(USING_NOW_PLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addGroup(USING_NOW_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NOW_USING_PANEL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(USING_NOW_PLayout.createSequentialGroup()
-                                .addComponent(USING_915)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(USING_916)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(USING_918)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(USING_911)))))
-                .addContainerGap(264, Short.MAX_VALUE))
-        );
-        USING_NOW_PLayout.setVerticalGroup(
-            USING_NOW_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(USING_NOW_PLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel19)
-                .addGap(33, 33, 33)
-                .addGroup(USING_NOW_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(USING_915)
-                    .addComponent(USING_916)
-                    .addComponent(USING_918)
-                    .addComponent(USING_911))
-                .addGap(10, 10, 10)
-                .addComponent(NOW_USING_PANEL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(230, Short.MAX_VALUE))
-        );
+        NOW_USING_PANEL2.setBackground(new java.awt.Color(255, 255, 255));
+        NOW_USING_PANEL2.setLayout(new java.awt.GridLayout(5, 4, 15, 15));
+        USING_NOW_P.add(NOW_USING_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
         RESERVATION_LIST_P.add(USING_NOW_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 426));
 
@@ -1337,11 +1314,31 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_HISTORY_P.setVisible(false);
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(true);
-        // 예약된 명단 가져오기
+        int co =0;
+        int j=0;
         JLabel [] seat = new JLabel[40];
+        
         for(int i=0; i<40; i++){
+            System.out.println("co%4 = " + co%4);
+            System.out.println(" co = "+co);
+            System.out.println("j = " + j);
             seat[i] = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+20183150+"</html>",JLabel.CENTER);
-            NOW_USING_PANEL.add(seat[i]);
+            if(j == 0){
+                NOW_USING_PANEL1.add(seat[i]);
+                System.out.println("패널 1에 추가\n");
+            }else if(j == 1){
+                NOW_USING_PANEL2.add(seat[i]);
+                System.out.println("패널 2에 추가\n");
+            }
+            if( co%4 == 3 ){
+                if(j==0){
+                    j = 1;
+                }else if (j == 1){
+                    j=0;
+                }
+            }
+            
+            co++; 
         }
     }//GEN-LAST:event_USING_NOWMouseClicked
 
@@ -1416,7 +1413,8 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JTable NOTICE_LIST;
     private javax.swing.JPanel NOTICE_M_P;
     private javax.swing.JLabel NOTICE_TITLE;
-    private javax.swing.JPanel NOW_USING_PANEL;
+    private javax.swing.JPanel NOW_USING_PANEL1;
+    private javax.swing.JPanel NOW_USING_PANEL2;
     private javax.swing.JLabel REQUEST_RESER;
     private javax.swing.JPanel REQUEST_RESER_P;
     private javax.swing.JTable REQUEST_TABLE;
