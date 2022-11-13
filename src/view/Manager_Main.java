@@ -5,9 +5,12 @@
  */
 package view;
 
+import Controller.Timetable_controller;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import javax.swing.*;
+
 
 /**
  *
@@ -46,9 +49,10 @@ public class Manager_Main extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
+        INPUT_CLASS_LAB = new javax.swing.ButtonGroup();
+        INPUT_SPECIAL_LAB = new javax.swing.ButtonGroup();
         USING_NOW_LAB = new javax.swing.ButtonGroup();
+        SEMESTER_GROUP = new javax.swing.ButtonGroup();
         UNDER_P = new javax.swing.JPanel();
         MAIN_P = new javax.swing.JPanel();
         M_MENU_P = new javax.swing.JPanel();
@@ -127,36 +131,48 @@ public class Manager_Main extends javax.swing.JFrame {
         CLASS_LAB_918 = new javax.swing.JRadioButton();
         CLASS_LAB_911 = new javax.swing.JRadioButton();
         jLabel22 = new javax.swing.JLabel();
-        CLASS_START_TIME = new javax.swing.JComboBox<>();
+        INPUT_CLASS_STIME = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        CLASS_END_TIME = new javax.swing.JComboBox<>();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        CLASS_date = new javax.swing.JComboBox<>();
+        INPUT_CLASS_ETIME = new javax.swing.JComboBox<>();
+        INPUT_CLASS_DAY = new javax.swing.JComboBox<>();
         CLASS_SELECT_DAY_BTN = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        SEMESTER1 = new javax.swing.JRadioButton();
+        SEMESTER2 = new javax.swing.JRadioButton();
+        jLabel25 = new javax.swing.JLabel();
+        INPUT_CLASS_YEAR = new javax.swing.JComboBox<>();
+        INPUT_CLASS_PRO = new javax.swing.JTextField();
+        INPUT_CLASS_NUM = new javax.swing.JTextField();
+        INPUT_CLASS_NAME = new javax.swing.JTextField();
+        INPUT_CLASS_DIVISON = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
         INPUT_SPECIAL_TIME_P = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        SPECIAL_YEAR = new javax.swing.JComboBox<>();
+        INPUT_SEMINAR_MONTH = new javax.swing.JComboBox<>();
         SPECIAL_LAB_918 = new javax.swing.JRadioButton();
         SPECIAL_SELECT_DAY_BTN = new javax.swing.JButton();
         SPECIAL_LAB_911 = new javax.swing.JRadioButton();
         jLabel24 = new javax.swing.JLabel();
-        SPECIAL_START_TIME = new javax.swing.JComboBox<>();
+        INPUT_SEMINAR_STIME = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
-        SPECIAL_END_TIME = new javax.swing.JComboBox<>();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        INPUT_SEMINAR_ETIME = new javax.swing.JComboBox<>();
         SPECIAL_LAB_915 = new javax.swing.JRadioButton();
-        jSeparator7 = new javax.swing.JSeparator();
         SPECIAL_LAB_916 = new javax.swing.JRadioButton();
-        SPECIAL_MONTH = new javax.swing.JComboBox<>();
-        SPECIAL_DATE = new javax.swing.JComboBox<>();
+        INPUT_SEMINAR_YEAR = new javax.swing.JComboBox<>();
+        INPUT_SEMINAR_DATE = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        INPUT_SEMINAR_ID = new javax.swing.JTextField();
+        INPUT_SEMINAR_NAME = new javax.swing.JTextField();
         TITLE_P = new javax.swing.JPanel();
         TITLE = new javax.swing.JLabel();
         LOGOUT = new javax.swing.JLabel();
@@ -809,275 +825,184 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_TIME_P.add(INPUT_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 426));
 
         INPUT_CLASS_TIME_P.setBackground(new java.awt.Color(255, 255, 255));
+        INPUT_CLASS_TIME_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel13.setText("강의 시간표 입력");
+        INPUT_CLASS_TIME_P.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 10, -1, -1));
 
         CLASS_LAB_915.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup2.add(CLASS_LAB_915);
+        INPUT_CLASS_LAB.add(CLASS_LAB_915);
+        CLASS_LAB_915.setSelected(true);
         CLASS_LAB_915.setText("915호");
+        INPUT_CLASS_TIME_P.add(CLASS_LAB_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, -1, -1));
 
         CLASS_LAB_916.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup2.add(CLASS_LAB_916);
+        INPUT_CLASS_LAB.add(CLASS_LAB_916);
         CLASS_LAB_916.setText("916호");
+        INPUT_CLASS_TIME_P.add(CLASS_LAB_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
         CLASS_LAB_918.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup2.add(CLASS_LAB_918);
+        INPUT_CLASS_LAB.add(CLASS_LAB_918);
         CLASS_LAB_918.setText("918호");
+        INPUT_CLASS_TIME_P.add(CLASS_LAB_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
 
         CLASS_LAB_911.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup2.add(CLASS_LAB_911);
+        INPUT_CLASS_LAB.add(CLASS_LAB_911);
         CLASS_LAB_911.setText("911호");
+        INPUT_CLASS_TIME_P.add(CLASS_LAB_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, -1, -1));
 
         jLabel22.setText("시작 시간");
+        INPUT_CLASS_TIME_P.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, 20));
 
-        CLASS_START_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 : 00", "2 : 00", "3 : 00", "4 : 00", "5 : 00", "6 : 00", "7 : 00", "8 : 00", "9 : 00", "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00", "23 : 00", "24 : 00" }));
+        INPUT_CLASS_STIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", " " }));
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 100, 20));
 
         jLabel23.setText("종료시간");
+        INPUT_CLASS_TIME_P.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, 20));
 
-        CLASS_END_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 : 00", "2 : 00", "3 : 00", "4 : 00", "5 : 00", "6 : 00", "7 : 00", "8 : 00", "9 : 00", "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00", "23 : 00", "24 : 00" }));
+        INPUT_CLASS_ETIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00" }));
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 100, 20));
 
-        jLabel25.setText("요일");
-
-        jLabel26.setText("강의실");
-
-        jLabel27.setText("시간");
-
-        CLASS_date.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "월", "화", "수", "목", "금", "토", "일" }));
+        INPUT_CLASS_DAY.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "월", "화", "수", "목", "금", "토", "일" }));
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_DAY, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 100, -1));
 
         CLASS_SELECT_DAY_BTN.setBackground(new java.awt.Color(255, 255, 255));
         CLASS_SELECT_DAY_BTN.setText("등록");
+        CLASS_SELECT_DAY_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLASS_SELECT_DAY_BTNActionPerformed(evt);
+            }
+        });
+        INPUT_CLASS_TIME_P.add(CLASS_SELECT_DAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 70, -1));
 
-        javax.swing.GroupLayout INPUT_CLASS_TIME_PLayout = new javax.swing.GroupLayout(INPUT_CLASS_TIME_P);
-        INPUT_CLASS_TIME_P.setLayout(INPUT_CLASS_TIME_PLayout);
-        INPUT_CLASS_TIME_PLayout.setHorizontalGroup(
-            INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                        .addGap(225, 225, 225)
-                        .addComponent(jLabel13))
-                    .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel26)
-                                .addGap(148, 148, 148)
-                                .addComponent(jLabel27)
-                                .addGap(132, 132, 132)
-                                .addComponent(jLabel25))
-                            .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                                .addGap(410, 410, 410)
-                                .addComponent(CLASS_SELECT_DAY_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                                    .addGap(40, 40, 40)
-                                    .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(CLASS_LAB_915, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(CLASS_LAB_916, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(CLASS_LAB_918, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(CLASS_LAB_911, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGap(107, 107, 107)
-                                    .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel22)
-                                        .addComponent(CLASS_START_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                                            .addComponent(jLabel23)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(CLASS_date, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(CLASS_END_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(94, Short.MAX_VALUE))
-        );
-        INPUT_CLASS_TIME_PLayout.setVerticalGroup(
-            INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addGap(38, 38, 38)
-                .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel25))
-                .addGap(12, 12, 12)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                        .addComponent(CLASS_LAB_915)
-                        .addGap(3, 3, 3)
-                        .addComponent(CLASS_LAB_916)
-                        .addGap(3, 3, 3)
-                        .addComponent(CLASS_LAB_918)
-                        .addGap(3, 3, 3)
-                        .addComponent(CLASS_LAB_911))
-                    .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(CLASS_START_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(INPUT_CLASS_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(INPUT_CLASS_TIME_PLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(CLASS_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, 0)
-                        .addComponent(CLASS_END_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(34, 34, 34)
-                .addComponent(CLASS_SELECT_DAY_BTN)
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
+        jLabel21.setText("요일");
+        INPUT_CLASS_TIME_P.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
+
+        jLabel32.setText("강의 번호");
+        INPUT_CLASS_TIME_P.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+
+        jLabel33.setText("강의명");
+        INPUT_CLASS_TIME_P.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+
+        jLabel34.setText("교수번호");
+        INPUT_CLASS_TIME_P.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+
+        jLabel35.setText("분반");
+        INPUT_CLASS_TIME_P.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
+
+        jLabel36.setText("학기");
+        INPUT_CLASS_TIME_P.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
+
+        SEMESTER1.setBackground(new java.awt.Color(255, 255, 255));
+        SEMESTER_GROUP.add(SEMESTER1);
+        SEMESTER1.setSelected(true);
+        SEMESTER1.setText("1");
+        INPUT_CLASS_TIME_P.add(SEMESTER1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+
+        SEMESTER2.setBackground(new java.awt.Color(255, 255, 255));
+        SEMESTER_GROUP.add(SEMESTER2);
+        SEMESTER2.setText("2");
+        INPUT_CLASS_TIME_P.add(SEMESTER2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, -1, -1));
+
+        jLabel25.setText("년도");
+        INPUT_CLASS_TIME_P.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+
+        INPUT_CLASS_YEAR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023" }));
+        INPUT_CLASS_YEAR.setSelectedItem(2);
+        INPUT_CLASS_YEAR.setToolTipText("");
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_YEAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 100, -1));
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_PRO, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 100, -1));
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_NUM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 100, -1));
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 100, -1));
+        INPUT_CLASS_TIME_P.add(INPUT_CLASS_DIVISON, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 100, -1));
+
+        jLabel26.setText("강의실");
+        INPUT_CLASS_TIME_P.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
         INPUT_TIME_P.add(INPUT_CLASS_TIME_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 426));
 
         INPUT_SPECIAL_TIME_P.setBackground(new java.awt.Color(255, 255, 255));
+        INPUT_SPECIAL_TIME_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel14.setText("특강 및 세미나 시간표 입력");
+        INPUT_SPECIAL_TIME_P.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 23, -1, -1));
+
+        INPUT_SEMINAR_MONTH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        INPUT_SEMINAR_MONTH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                INPUT_SEMINAR_MONTHActionPerformed(evt);
+            }
+        });
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_MONTH, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 100, 20));
 
         SPECIAL_LAB_918.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup3.add(SPECIAL_LAB_918);
+        INPUT_SPECIAL_LAB.add(SPECIAL_LAB_918);
         SPECIAL_LAB_918.setText("918호");
+        INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, -1));
 
         SPECIAL_SELECT_DAY_BTN.setBackground(new java.awt.Color(255, 255, 255));
-        SPECIAL_SELECT_DAY_BTN.setText("선택");
+        SPECIAL_SELECT_DAY_BTN.setText("등록");
+        SPECIAL_SELECT_DAY_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SPECIAL_SELECT_DAY_BTNActionPerformed(evt);
+            }
+        });
+        INPUT_SPECIAL_TIME_P.add(SPECIAL_SELECT_DAY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 70, -1));
 
         SPECIAL_LAB_911.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup3.add(SPECIAL_LAB_911);
+        INPUT_SPECIAL_LAB.add(SPECIAL_LAB_911);
         SPECIAL_LAB_911.setText("911호");
+        INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
         jLabel24.setText("시작 시간");
+        INPUT_SPECIAL_TIME_P.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, 20));
 
-        SPECIAL_START_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 : 00", "2 : 00", "3 : 00", "4 : 00", "5 : 00", "6 : 00", "7 : 00", "8 : 00", "9 : 00", "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00", "23 : 00", "24 : 00" }));
+        INPUT_SEMINAR_STIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 100, 20));
 
         jLabel28.setText("종료시간");
+        INPUT_SPECIAL_TIME_P.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, 20));
 
-        SPECIAL_END_TIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 : 00", "2 : 00", "3 : 00", "4 : 00", "5 : 00", "6 : 00", "7 : 00", "8 : 00", "9 : 00", "10 : 00", "11 : 00", "12 : 00", "13 : 00", "14 : 00", "15 : 00", "16 : 00", "17 : 00", "18 : 00", "19 : 00", "20 : 00", "21 : 00", "22 : 00", "23 : 00", "24 : 00" }));
-
-        jLabel29.setText("요일");
-
-        jLabel30.setText("강의실");
-
-        jLabel31.setText("시간");
+        INPUT_SEMINAR_ETIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 100, 20));
 
         SPECIAL_LAB_915.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup3.add(SPECIAL_LAB_915);
+        INPUT_SPECIAL_LAB.add(SPECIAL_LAB_915);
         SPECIAL_LAB_915.setSelected(true);
         SPECIAL_LAB_915.setText("915호");
+        INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, -1, -1));
 
         SPECIAL_LAB_916.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroup3.add(SPECIAL_LAB_916);
+        INPUT_SPECIAL_LAB.add(SPECIAL_LAB_916);
         SPECIAL_LAB_916.setText("916호");
+        INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
+
+        INPUT_SEMINAR_YEAR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", " " }));
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_YEAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 100, 20));
+
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_DATE, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 100, 20));
 
         jLabel16.setText("년");
+        INPUT_SPECIAL_TIME_P.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 46, 20));
 
         jLabel17.setText("월");
+        INPUT_SPECIAL_TIME_P.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 46, 20));
 
         jLabel18.setText("일");
+        INPUT_SPECIAL_TIME_P.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 46, 20));
 
-        javax.swing.GroupLayout INPUT_SPECIAL_TIME_PLayout = new javax.swing.GroupLayout(INPUT_SPECIAL_TIME_P);
-        INPUT_SPECIAL_TIME_P.setLayout(INPUT_SPECIAL_TIME_PLayout);
-        INPUT_SPECIAL_TIME_PLayout.setHorizontalGroup(
-            INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
-                .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(172, 172, 172))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                        .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                                    .addGap(40, 40, 40)
-                                    .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(SPECIAL_LAB_915, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(SPECIAL_LAB_916, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(SPECIAL_LAB_918, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(SPECIAL_LAB_911))
-                                    .addGap(107, 107, 107)
-                                    .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel28)
-                                        .addComponent(SPECIAL_START_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel24)
-                                        .addComponent(SPECIAL_END_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                                .addGap(380, 380, 380)
-                                .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                                        .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(SPECIAL_YEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(SPECIAL_DATE, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(SPECIAL_MONTH, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(SPECIAL_SELECT_DAY_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel30)
-                                .addGap(148, 148, 148)
-                                .addComponent(jLabel31)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel29)
-                                .addGap(53, 53, 53)))
-                        .addGap(71, 71, 71))))
-        );
-        INPUT_SPECIAL_TIME_PLayout.setVerticalGroup(
-            INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel14)
-                .addGap(45, 45, 45)
-                .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel30)
-                    .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel31)
-                        .addComponent(jLabel29)))
-                .addGap(12, 12, 12)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel16)
-                .addGap(5, 5, 5)
-                .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                        .addComponent(SPECIAL_LAB_915)
-                        .addGap(3, 3, 3)
-                        .addComponent(SPECIAL_LAB_916)
-                        .addGap(3, 3, 3)
-                        .addComponent(SPECIAL_LAB_918)
-                        .addGap(3, 3, 3)
-                        .addComponent(SPECIAL_LAB_911))
-                    .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(SPECIAL_START_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(SPECIAL_END_TIME, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                        .addComponent(SPECIAL_MONTH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(SPECIAL_YEAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12)
-                        .addGroup(INPUT_SPECIAL_TIME_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addGroup(INPUT_SPECIAL_TIME_PLayout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(SPECIAL_DATE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(14, 14, 14)
-                .addComponent(SPECIAL_SELECT_DAY_BTN)
-                .addContainerGap())
-        );
+        jLabel37.setText("예약자 번호");
+        INPUT_SPECIAL_TIME_P.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+
+        jLabel38.setText("특강 및 세미나 명");
+        INPUT_SPECIAL_TIME_P.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+
+        jLabel39.setText("강의실");
+        INPUT_SPECIAL_TIME_P.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 100, -1));
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 100, -1));
 
         INPUT_TIME_P.add(INPUT_SPECIAL_TIME_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 426));
 
@@ -1244,7 +1169,8 @@ public class Manager_Main extends javax.swing.JFrame {
         //실습실 시간표 입력 메뉴 선택 시
         panelClear();
         INPUT_TIME_P.setVisible(true);
-        INPUT_CLASS.setVisible(true);
+        INPUT_CLASS_TIME_P.setVisible(true);
+        INPUT_SPECIAL_TIME_P.setVisible(false);
     }//GEN-LAST:event_M_MENU3MouseClicked
 
     private void M_MENU2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_M_MENU2MouseClicked
@@ -1328,6 +1254,12 @@ public class Manager_Main extends javax.swing.JFrame {
         // 실습실 시간표 입력 밑 특강 시간표 입력
         INPUT_CLASS_TIME_P.setVisible(false);
         INPUT_SPECIAL_TIME_P.setVisible(true);
+        Calendar cal = Calendar.getInstance();
+        INPUT_SEMINAR_DATE.removeAll();
+        cal.set(Integer.parseInt(INPUT_SEMINAR_YEAR.getSelectedItem().toString()), Integer.parseInt(INPUT_SEMINAR_MONTH.getSelectedItem().toString()), 1);
+        for(int i=0; i<cal.getActualMaximum(Calendar.DAY_OF_MONTH);i++ ){
+            INPUT_SEMINAR_DATE.addItem(Integer.toString(i+1));
+        }
     }//GEN-LAST:event_INPUT_SPECIALMouseClicked
 
     private void STU_TOKENMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_STU_TOKENMouseClicked
@@ -1366,6 +1298,29 @@ public class Manager_Main extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_USING_NOWMouseClicked
+
+    private void CLASS_SELECT_DAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_SELECT_DAY_BTNActionPerformed
+        // 강의 등록 버튼 클릭시
+        Timetable_controller time = new Timetable_controller();
+        time.insertClass();
+    }//GEN-LAST:event_CLASS_SELECT_DAY_BTNActionPerformed
+
+    private void SPECIAL_SELECT_DAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SPECIAL_SELECT_DAY_BTNActionPerformed
+        // 특강 및 세미나 등록 버튼 클릭시
+        Timetable_controller time = new Timetable_controller();
+        time.insertSeminar();
+    }//GEN-LAST:event_SPECIAL_SELECT_DAY_BTNActionPerformed
+
+    private void INPUT_SEMINAR_MONTHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INPUT_SEMINAR_MONTHActionPerformed
+        // 특강입력 월 선택시 해당 일 수 반영
+        Calendar cal = Calendar.getInstance();
+        INPUT_SEMINAR_DATE.removeAllItems();
+        cal.set(Integer.parseInt(INPUT_SEMINAR_YEAR.getSelectedItem().toString()), Integer.parseInt(INPUT_SEMINAR_MONTH.getSelectedItem().toString())-1, 1);
+        System.out.println(cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+        for(int i=0; i<cal.getActualMaximum(Calendar.DAY_OF_MONTH);i++ ){
+            INPUT_SEMINAR_DATE.addItem(Integer.toString(i+1));
+        }
+    }//GEN-LAST:event_INPUT_SEMINAR_MONTHActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1409,22 +1364,36 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JButton APPROVAL_ALL_BTN;
     private javax.swing.JButton APPROVAL_BTN;
     private javax.swing.JLabel CHANGE;
-    private javax.swing.JComboBox<String> CLASS_END_TIME;
     private javax.swing.JRadioButton CLASS_LAB_911;
-    private javax.swing.JRadioButton CLASS_LAB_915;
-    private javax.swing.JRadioButton CLASS_LAB_916;
-    private javax.swing.JRadioButton CLASS_LAB_918;
-    private javax.swing.JButton CLASS_SELECT_DAY_BTN;
-    private javax.swing.JComboBox<String> CLASS_START_TIME;
-    private javax.swing.JComboBox<String> CLASS_date;
+    public javax.swing.JRadioButton CLASS_LAB_915;
+    public javax.swing.JRadioButton CLASS_LAB_916;
+    public javax.swing.JRadioButton CLASS_LAB_918;
+    public javax.swing.JButton CLASS_SELECT_DAY_BTN;
     private javax.swing.JLabel DELETE;
     private javax.swing.JLabel Declaration_L;
     private javax.swing.JTable HISTORY_TALBE;
     private javax.swing.JLabel INPUT_CLASS;
+    public javax.swing.JComboBox<String> INPUT_CLASS_DAY;
+    public javax.swing.JTextField INPUT_CLASS_DIVISON;
+    public javax.swing.JComboBox<String> INPUT_CLASS_ETIME;
+    public javax.swing.ButtonGroup INPUT_CLASS_LAB;
+    public javax.swing.JTextField INPUT_CLASS_NAME;
+    public javax.swing.JTextField INPUT_CLASS_NUM;
+    public javax.swing.JTextField INPUT_CLASS_PRO;
+    public javax.swing.JComboBox<String> INPUT_CLASS_STIME;
     private javax.swing.JPanel INPUT_CLASS_TIME_P;
+    public javax.swing.JComboBox<String> INPUT_CLASS_YEAR;
     private javax.swing.JPanel INPUT_M_P;
+    public javax.swing.JComboBox<String> INPUT_SEMINAR_DATE;
+    public javax.swing.JComboBox<String> INPUT_SEMINAR_ETIME;
+    public javax.swing.JTextField INPUT_SEMINAR_ID;
+    public javax.swing.JComboBox<String> INPUT_SEMINAR_MONTH;
+    public javax.swing.JTextField INPUT_SEMINAR_NAME;
+    public javax.swing.JComboBox<String> INPUT_SEMINAR_STIME;
+    public javax.swing.JComboBox<String> INPUT_SEMINAR_YEAR;
     private javax.swing.JLabel INPUT_SPECIAL;
-    private javax.swing.JPanel INPUT_SPECIAL_TIME_P;
+    private javax.swing.ButtonGroup INPUT_SPECIAL_LAB;
+    public javax.swing.JPanel INPUT_SPECIAL_TIME_P;
     private javax.swing.JPanel INPUT_TIME_P;
     private javax.swing.JButton INPUT_TOKEN;
     private javax.swing.JLabel LOGOUT;
@@ -1446,17 +1415,15 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JTable REQUEST_TABLE;
     private javax.swing.JPanel RESERVATION_LIST_P;
     private javax.swing.JPanel RESERVATION_M_P;
+    public javax.swing.JRadioButton SEMESTER1;
+    private javax.swing.JRadioButton SEMESTER2;
+    public javax.swing.ButtonGroup SEMESTER_GROUP;
     private javax.swing.JLabel SNAME;
-    private javax.swing.JComboBox<String> SPECIAL_DATE;
-    private javax.swing.JComboBox<String> SPECIAL_END_TIME;
-    private javax.swing.JRadioButton SPECIAL_LAB_911;
-    private javax.swing.JRadioButton SPECIAL_LAB_915;
-    private javax.swing.JRadioButton SPECIAL_LAB_916;
-    private javax.swing.JRadioButton SPECIAL_LAB_918;
-    private javax.swing.JComboBox<String> SPECIAL_MONTH;
+    public javax.swing.JRadioButton SPECIAL_LAB_911;
+    public javax.swing.JRadioButton SPECIAL_LAB_915;
+    public javax.swing.JRadioButton SPECIAL_LAB_916;
+    public javax.swing.JRadioButton SPECIAL_LAB_918;
     private javax.swing.JButton SPECIAL_SELECT_DAY_BTN;
-    private javax.swing.JComboBox<String> SPECIAL_START_TIME;
-    private javax.swing.JComboBox<String> SPECIAL_YEAR;
     private javax.swing.JLabel STU_LIST;
     private javax.swing.JPanel STU_LIST_P;
     private javax.swing.JTable STU_LIST_T;
@@ -1479,8 +1446,6 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JPanel USING_NOW_P;
     private javax.swing.JLabel WRITE;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -1496,17 +1461,22 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1521,7 +1491,5 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
     // End of variables declaration//GEN-END:variables
 }

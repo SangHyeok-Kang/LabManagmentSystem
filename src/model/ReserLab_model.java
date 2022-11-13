@@ -1,6 +1,5 @@
 package model;
 
-import static java.lang.Math.random;
 import static model.UserSession.log;
 import static model.DBConnection.dbconnection;
 import java.sql.*;
@@ -90,7 +89,6 @@ public class ReserLab_model {
                     } else {
                         break;
                     }
-
                 }
                 //예약 시작시간이 17시 이전일 경우, 자동 승인
                 if (start_time[i].before(time)) {

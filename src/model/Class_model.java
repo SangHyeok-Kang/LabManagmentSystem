@@ -11,7 +11,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static model.DBConnection.dbconnection;
 
-
 /**
  *
  * @author20183150 김부성
@@ -38,13 +37,11 @@ public class Class_model extends Lecture{
                     + l.getDivision() + "','"
                     + l.getProf_id() + "','"
                     + l.getLab_num() + "','"
-                    + l.getStime() + "','"
-                    + l.getEtime()+ "')";
+                    + l.getStime()+":00" + "','"
+                    + l.getEtime()+":00" + "')";
             con = dbconnection.getConnection();
             st = con.prepareStatement(sql);
             success = st.executeUpdate(sql);
-            if(success == 0 ) System.out.println("insert에 실패하였습니다.");
-            if(success == 1 ) System.out.println("insert에 성공하였습니다.");
         } catch (SQLException ex) {
             System.out.println("insert SQL구문 오류 입니다."+ ex.getMessage());
         }finally{
@@ -89,17 +86,17 @@ public class Class_model extends Lecture{
     
     public boolean searchClass(Lecture l){ // 강의 찾기 함수
         DBConnection.getInstance().Initailize();
-        boolean a= false;
+        boolean a = false;
         try {
-            sql = "select * from class where class_id='" + l.getId() + "'";
+            sql = "select * from class where lab_num= '"+ l.getLab_num() +" ' and day='"+l.getDay()+"' and " //요일 체크
+                    + "(( "+l.getStime()+" <= hour(start_time) and hour(end_time) <="+l.getEtime()+") or " // 겹치는 강의 시간 체크
+                    + "( "+l.getStime()+" >= hour(start_time) and hour(end_time) <="+l.getEtime()+" and hour(end_time) >"+ l.getStime()+")or "
+                    + "( "+l.getStime()+" <= hour(start_time) and hour(end_time) >="+l.getEtime()+" and hour(start_time) <"+ l.getEtime()+") or "
+                    + "( "+l.getStime()+" >= hour(start_time) and hour(end_time) >="+l.getEtime()+"))";
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(sql);
             if(rs.next()){
                 a = true;
-                if(a) System.out.println("search에 성공하였습니다." + rs.getString(1));
-            }else{
-                a = false;
-                if(!a) System.out.println("search에 실패하였습니다.");
             }
         } catch (SQLException ex) {
             System.out.println("search SQL구문 오류 입니다." + ex.getMessage());
@@ -148,6 +145,59 @@ public class Class_model extends Lecture{
         } 
         
         return l;
+    }
+    
+    public int insertSeminar(Lecture l){ //특강 시간표 입력을 위한 함수
+        DBConnection.getInstance().Initailize();
+        try {
+            sql = "insert into seminar values(default,'" 
+                    + l.getProf_id() + "','" //담당자 이름
+                    + l.getName() +"','" //세미나 이름
+                    + l.getLab_num() + "','"// 강의실 번호
+                    + l.getDay() + "','" //날짜
+                    + l.getStime()+":00" + "','" //시작 시간
+                    + l.getEtime()+":00"+ "')"; // 종료 시간
+            con = dbconnection.getConnection();
+            st = con.prepareStatement(sql);
+            success = st.executeUpdate(sql);
+        } catch (SQLException ex) {
+            System.out.println("insert SQL구문 오류 입니다."+ ex.getMessage());
+        }finally{
+            try {
+                if(st!=null){st.close();}
+                if(con!=null){con.close();}
+            } catch (SQLException ex) {
+                System.out.println("insert 구문 JDBC 커넥트 닫기 오류");
+            }
+        } 
+        return success;
+    }
+    
+    public boolean searchSeminar(Lecture l){ // 강의 찾기 함수
+        DBConnection.getInstance().Initailize();
+        boolean a = false;
+        try {
+            sql = "select * from seminar where lab_num= '"+ l.getLab_num() +" ' and day='"+l.getDay()+"' and " //날짜 체크
+                   + "(( "+l.getStime()+" <= hour(start_time) and hour(end_time) <="+l.getEtime()+") or " // 겹치는 강의 시간 체크
+                    + "( "+l.getStime()+" >= hour(start_time) and hour(end_time) <="+l.getEtime()+" and hour(end_time) >"+ l.getStime()+")or "
+                    + "( "+l.getStime()+" <= hour(start_time) and hour(end_time) >="+l.getEtime()+" and hour(start_time) <"+ l.getEtime()+") or "
+                    + "( "+l.getStime()+" >= hour(start_time) and hour(end_time) >="+l.getEtime()+"))";
+            st = dbconnection.getInstance().getConnection().createStatement();
+            rs = st.executeQuery(sql);
+            if(rs.next()){
+                a = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("search SQL구문 오류 입니다." + ex.getMessage());
+        }finally{
+            try {
+                if(st!=null){st.close();}
+                if(con!=null){con.close();}
+            } catch (SQLException ex) {
+                Logger.getLogger(Class_model.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        return a;
     }
     /*
     추후 원하는 분기별 전체 강의 출력 생길시

@@ -9,7 +9,7 @@ public class Signup_model {
     private Statement st = null;
     private ResultSet rs = null;
     String SQL;
-
+    
     public boolean signup(String stunum, String pass,
             String name, String phone_num, String email) {
 
