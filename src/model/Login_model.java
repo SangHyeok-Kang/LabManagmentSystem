@@ -2,6 +2,8 @@
 package model;
 
 import java.sql.*;
+import static model.DBConnection.dbconnection;
+import static model.UserSession.log;
 
 
 public class Login_model {

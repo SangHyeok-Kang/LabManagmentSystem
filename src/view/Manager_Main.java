@@ -284,10 +284,15 @@ public class Manager_Main extends javax.swing.JFrame {
         STU_MANAGEMENT_P.setBackground(new java.awt.Color(255, 255, 255));
         STU_MANAGEMENT_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        STU_M_P.setBackground(new java.awt.Color(255, 255, 255));
+        STU_M_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         STU_M_P.setPreferredSize(new java.awt.Dimension(100, 426));
+        STU_M_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel7.setText("MENU");
+        STU_M_P.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
+        STU_M_P.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
         STU_LIST.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         STU_LIST.setText("학생 명단 관리");
@@ -297,6 +302,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 STU_LISTMouseClicked(evt);
             }
         });
+        STU_M_P.add(STU_LIST, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         STU_TOKEN.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         STU_TOKEN.setText("토큰 관리");
@@ -306,33 +312,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 STU_TOKENMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout STU_M_PLayout = new javax.swing.GroupLayout(STU_M_P);
-        STU_M_P.setLayout(STU_M_PLayout);
-        STU_M_PLayout.setHorizontalGroup(
-            STU_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(STU_M_PLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(STU_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(STU_TOKEN)
-                    .addComponent(jLabel7)
-                    .addComponent(STU_LIST)
-                    .addComponent(jSeparator2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        STU_M_PLayout.setVerticalGroup(
-            STU_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(STU_M_PLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(STU_LIST)
-                .addGap(18, 18, 18)
-                .addComponent(STU_TOKEN)
-                .addContainerGap(280, Short.MAX_VALUE))
-        );
+        STU_M_P.add(STU_TOKEN, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         STU_MANAGEMENT_P.add(STU_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 426));
 
@@ -450,10 +430,14 @@ public class Manager_Main extends javax.swing.JFrame {
         M_NOTICE_P.setVerifyInputWhenFocusTarget(false);
         M_NOTICE_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        NOTICE_M_P.setBackground(new java.awt.Color(255, 255, 255));
+        NOTICE_M_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         NOTICE_M_P.setPreferredSize(new java.awt.Dimension(100, 426));
+        NOTICE_M_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel6.setText("MENU");
+        NOTICE_M_P.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
 
         NOTICE_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         NOTICE_L.setText("공지사항");
@@ -463,7 +447,9 @@ public class Manager_Main extends javax.swing.JFrame {
                 NOTICE_LMouseClicked(evt);
             }
         });
+        NOTICE_M_P.add(NOTICE_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
+        Declaration_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         Declaration_L.setText("신고 및 문의");
         Declaration_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Declaration_L.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -471,36 +457,8 @@ public class Manager_Main extends javax.swing.JFrame {
                 Declaration_LMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout NOTICE_M_PLayout = new javax.swing.GroupLayout(NOTICE_M_P);
-        NOTICE_M_P.setLayout(NOTICE_M_PLayout);
-        NOTICE_M_PLayout.setHorizontalGroup(
-            NOTICE_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NOTICE_M_PLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(NOTICE_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel6)
-                    .addComponent(NOTICE_L)
-                    .addComponent(Declaration_L))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(NOTICE_M_PLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1)
-                .addContainerGap())
-        );
-        NOTICE_M_PLayout.setVerticalGroup(
-            NOTICE_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NOTICE_M_PLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NOTICE_L)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Declaration_L)
-                .addContainerGap(284, Short.MAX_VALUE))
-        );
+        NOTICE_M_P.add(Declaration_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 120, -1, -1));
+        NOTICE_M_P.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
         M_NOTICE_P.add(NOTICE_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 426));
 
@@ -575,10 +533,15 @@ public class Manager_Main extends javax.swing.JFrame {
         RESERVATION_LIST_P.setBackground(new java.awt.Color(255, 255, 255));
         RESERVATION_LIST_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        RESERVATION_M_P.setBackground(new java.awt.Color(255, 255, 255));
+        RESERVATION_M_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         RESERVATION_M_P.setPreferredSize(new java.awt.Dimension(100, 426));
+        RESERVATION_M_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel10.setText("MENU");
+        RESERVATION_M_P.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
+        RESERVATION_M_P.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
         REQUEST_RESER.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         REQUEST_RESER.setText("예약 승인");
@@ -588,6 +551,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 REQUEST_RESERMouseClicked(evt);
             }
         });
+        RESERVATION_M_P.add(REQUEST_RESER, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         USING_HISTORY.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         USING_HISTORY.setText("사용 기록 조회");
@@ -597,6 +561,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 USING_HISTORYMouseClicked(evt);
             }
         });
+        RESERVATION_M_P.add(USING_HISTORY, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 120, -1, -1));
 
         USING_NOW.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         USING_NOW.setText("사용 현황 조회");
@@ -606,36 +571,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 USING_NOWMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout RESERVATION_M_PLayout = new javax.swing.GroupLayout(RESERVATION_M_P);
-        RESERVATION_M_P.setLayout(RESERVATION_M_PLayout);
-        RESERVATION_M_PLayout.setHorizontalGroup(
-            RESERVATION_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RESERVATION_M_PLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(RESERVATION_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(USING_HISTORY)
-                    .addComponent(jLabel10)
-                    .addComponent(REQUEST_RESER)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                    .addComponent(USING_NOW))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-        RESERVATION_M_PLayout.setVerticalGroup(
-            RESERVATION_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RESERVATION_M_PLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(REQUEST_RESER)
-                .addGap(18, 18, 18)
-                .addComponent(USING_HISTORY)
-                .addGap(18, 18, 18)
-                .addComponent(USING_NOW)
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
+        RESERVATION_M_P.add(USING_NOW, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 150, -1, -1));
 
         RESERVATION_LIST_P.add(RESERVATION_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 426));
 
@@ -794,13 +730,15 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_TIME_P.setBackground(new java.awt.Color(255, 255, 255));
         INPUT_TIME_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        INPUT_M_P.setBackground(new java.awt.Color(255, 255, 255));
+        INPUT_M_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         INPUT_M_P.setPreferredSize(new java.awt.Dimension(100, 426));
         INPUT_M_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel12.setText("MENU");
-        INPUT_M_P.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
-        INPUT_M_P.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 106, 10));
+        INPUT_M_P.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
+        INPUT_M_P.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
         INPUT_CLASS.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         INPUT_CLASS.setText("강의 시간표 입력");
@@ -810,7 +748,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 INPUT_CLASSMouseClicked(evt);
             }
         });
-        INPUT_M_P.add(INPUT_CLASS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        INPUT_M_P.add(INPUT_CLASS, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 90, -1, -1));
 
         INPUT_SPECIAL.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         INPUT_SPECIAL.setText("특강 시간표 입력");
@@ -820,7 +758,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 INPUT_SPECIALMouseClicked(evt);
             }
         });
-        INPUT_M_P.add(INPUT_SPECIAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        INPUT_M_P.add(INPUT_SPECIAL, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 120, -1, -1));
 
         INPUT_TIME_P.add(INPUT_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 426));
 
@@ -1189,6 +1127,7 @@ public class Manager_Main extends javax.swing.JFrame {
         panelClear();
         STU_MANAGEMENT_P.setVisible(true);
         STU_LIST_P.setVisible(true);
+        STU_TOKEN_P.setVisible(false);
         // 컨트롤러에서 예약 신청 테이블 띄워주기
     }//GEN-LAST:event_M_MENU1MouseClicked
 
