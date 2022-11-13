@@ -326,50 +326,21 @@ public class Student_Main extends javax.swing.JFrame {
         S_MYPAGE_P.setBackground(new java.awt.Color(255, 255, 255));
         S_MYPAGE_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(150, 426));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel7.setText("MENU");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         jLabel8.setText("개인 정보 수정");
         jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel9))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7))))
-                        .addGap(0, 9, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator2)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel7)
-                .addGap(17, 17, 17)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel9)
-                .addContainerGap(280, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 90, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 150, -1, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
         S_MYPAGE_P.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 430));
 
@@ -412,10 +383,14 @@ public class Student_Main extends javax.swing.JFrame {
         S_NOTICE_P.setVerifyInputWhenFocusTarget(false);
         S_NOTICE_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        S_NOTICE_M_P.setBackground(new java.awt.Color(255, 255, 255));
+        S_NOTICE_M_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         S_NOTICE_M_P.setPreferredSize(new java.awt.Dimension(100, 426));
+        S_NOTICE_M_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel6.setText("MENU");
+        S_NOTICE_M_P.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
 
         NOTICE_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         NOTICE_L.setText("공지사항");
@@ -425,7 +400,9 @@ public class Student_Main extends javax.swing.JFrame {
                 NOTICE_LMouseClicked(evt);
             }
         });
+        S_NOTICE_M_P.add(NOTICE_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 90, -1, -1));
 
+        Declaration_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         Declaration_L.setText("신고 및 문의");
         Declaration_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Declaration_L.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -433,36 +410,8 @@ public class Student_Main extends javax.swing.JFrame {
                 Declaration_LMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout S_NOTICE_M_PLayout = new javax.swing.GroupLayout(S_NOTICE_M_P);
-        S_NOTICE_M_P.setLayout(S_NOTICE_M_PLayout);
-        S_NOTICE_M_PLayout.setHorizontalGroup(
-            S_NOTICE_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(S_NOTICE_M_PLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(S_NOTICE_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel6)
-                    .addComponent(NOTICE_L)
-                    .addComponent(Declaration_L))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(S_NOTICE_M_PLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1)
-                .addContainerGap())
-        );
-        S_NOTICE_M_PLayout.setVerticalGroup(
-            S_NOTICE_M_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(S_NOTICE_M_PLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(NOTICE_L)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Declaration_L)
-                .addContainerGap(284, Short.MAX_VALUE))
-        );
+        S_NOTICE_M_P.add(Declaration_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 120, -1, -1));
+        S_NOTICE_M_P.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
         S_NOTICE_P.add(S_NOTICE_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 426));
 
@@ -537,35 +486,18 @@ public class Student_Main extends javax.swing.JFrame {
         S_RESERVATION_P.setBackground(new java.awt.Color(255, 255, 255));
         S_RESERVATION_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
+
         jLabel19.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel19.setText("MENU");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         jLabel20.setText("실습실 예약");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel20))
-                .addGap(17, 17, 17))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel20)
-                .addContainerGap(319, Short.MAX_VALUE))
-        );
+        jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 90, -1, -1));
 
         S_RESERVATION_P.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 430));
 
@@ -802,35 +734,19 @@ public class Student_Main extends javax.swing.JFrame {
         S_INQUIRY_P.setVerifyInputWhenFocusTarget(false);
         S_INQUIRY_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
+
         jLabel17.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
         jLabel17.setText("MENU");
+        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 41, -1, -1));
 
         INQUIRY_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
         INQUIRY_L.setText("예약 내역 조회");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(INQUIRY_L)
-                    .addComponent(jSeparator3)
-                    .addComponent(jLabel17))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(INQUIRY_L)
-                .addContainerGap(306, Short.MAX_VALUE))
-        );
+        INQUIRY_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(INQUIRY_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 90, -1, -1));
 
         S_INQUIRY_P.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, -1));
 
