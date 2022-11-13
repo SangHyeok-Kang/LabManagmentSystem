@@ -34,7 +34,7 @@ public class Manager_Main extends javax.swing.JFrame {
        APPROVAL_BTN.addActionListener(listener); // 승인하기 버튼 리스너
        SPECIAL_SELECT_DAY_BTN.addActionListener(listener);//특강 시간표 입력
        CLASS_SELECT_DAY_BTN.addActionListener(listener);//강의 시간표 입력
-       
+       INPUT_TOKEN.addActionListener(listener); // 새 토큰 생성
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +74,9 @@ public class Manager_Main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         STU_TOKEN_P = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        TOKEN = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        INPUT_TOKEN = new javax.swing.JButton();
         M_NOTICE_P = new javax.swing.JPanel();
         NOTICE_M_P = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -383,21 +386,44 @@ public class Manager_Main extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel15.setText("토큰 관리");
 
+        TOKEN.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+
+        jLabel20.setText("현재 토큰");
+
+        INPUT_TOKEN.setFont(new java.awt.Font("굴림", 1, 14)); // NOI18N
+        INPUT_TOKEN.setText("새 토큰 생성하기");
+
         javax.swing.GroupLayout STU_TOKEN_PLayout = new javax.swing.GroupLayout(STU_TOKEN_P);
         STU_TOKEN_P.setLayout(STU_TOKEN_PLayout);
         STU_TOKEN_PLayout.setHorizontalGroup(
             STU_TOKEN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, STU_TOKEN_PLayout.createSequentialGroup()
-                .addContainerGap(281, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(274, 274, 274))
+            .addGroup(STU_TOKEN_PLayout.createSequentialGroup()
+                .addContainerGap(186, Short.MAX_VALUE)
+                .addGroup(STU_TOKEN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, STU_TOKEN_PLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(274, 274, 274))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, STU_TOKEN_PLayout.createSequentialGroup()
+                        .addGroup(STU_TOKEN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(STU_TOKEN_PLayout.createSequentialGroup()
+                                .addComponent(TOKEN, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(INPUT_TOKEN))
+                            .addComponent(jLabel20))
+                        .addGap(151, 151, 151))))
         );
         STU_TOKEN_PLayout.setVerticalGroup(
             STU_TOKEN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(STU_TOKEN_PLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15)
-                .addContainerGap(385, Short.MAX_VALUE))
+                .addGap(133, 133, 133)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(STU_TOKEN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(INPUT_TOKEN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TOKEN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         STU_MANAGEMENT_P.add(STU_TOKEN_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 426));
@@ -1228,6 +1254,7 @@ public class Manager_Main extends javax.swing.JFrame {
         RESERVATION_LIST_P.setVisible(true);
         USING_HISTORY_P.setVisible(false);
         REQUEST_RESER_P.setVisible(true);
+        
         // 컨트롤러에 있는 예약 조회 함수로 테이블 값 채우기
     }//GEN-LAST:event_M_MENU2MouseClicked
 
@@ -1277,11 +1304,11 @@ public class Manager_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_REQUEST_RESERMouseClicked
 
     private void USING_HISTORYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USING_HISTORYMouseClicked
-        // 예약내역 관리 메뉴 밑 예약 승인 메뉴 클릭시
+        // 예약내역 관리 메뉴 밑 사용 기록 메뉴 클릭시
         USING_HISTORY_P.setVisible(true);
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(false);
-        // 컨트롤러에서 예약 신청 테이블 띄워주기
+        // 컨트롤러에서 사용기록 테이블 띄워주기
     }//GEN-LAST:event_USING_HISTORYMouseClicked
 
     private void STU_LISTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_STU_LISTMouseClicked
@@ -1314,21 +1341,18 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_HISTORY_P.setVisible(false);
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(true);
+        NOW_USING_PANEL1.removeAll();
+        NOW_USING_PANEL2.removeAll();
         int co =0;
         int j=0;
         JLabel [] seat = new JLabel[40];
         
         for(int i=0; i<40; i++){
-            System.out.println("co%4 = " + co%4);
-            System.out.println(" co = "+co);
-            System.out.println("j = " + j);
             seat[i] = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+20183150+"</html>",JLabel.CENTER);
             if(j == 0){
                 NOW_USING_PANEL1.add(seat[i]);
-                System.out.println("패널 1에 추가\n");
             }else if(j == 1){
                 NOW_USING_PANEL2.add(seat[i]);
-                System.out.println("패널 2에 추가\n");
             }
             if( co%4 == 3 ){
                 if(j==0){
@@ -1337,9 +1361,10 @@ public class Manager_Main extends javax.swing.JFrame {
                     j=0;
                 }
             }
-            
             co++; 
         }
+        
+        
     }//GEN-LAST:event_USING_NOWMouseClicked
 
     /**
@@ -1401,6 +1426,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel INPUT_SPECIAL;
     private javax.swing.JPanel INPUT_SPECIAL_TIME_P;
     private javax.swing.JPanel INPUT_TIME_P;
+    private javax.swing.JButton INPUT_TOKEN;
     private javax.swing.JLabel LOGOUT;
     private javax.swing.JPanel MAIN_P;
     private javax.swing.JPanel M_MENU1;
@@ -1440,6 +1466,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JPanel STU_TOKEN_P;
     private javax.swing.JLabel TITLE;
     private javax.swing.JPanel TITLE_P;
+    private javax.swing.JTextField TOKEN;
     private javax.swing.JPanel UNDER_P;
     private javax.swing.JRadioButton USING_911;
     private javax.swing.JRadioButton USING_915;
@@ -1468,6 +1495,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;

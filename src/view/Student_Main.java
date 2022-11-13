@@ -6,8 +6,11 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -187,49 +190,19 @@ public class Student_Main extends javax.swing.JFrame {
         TEAM_3 = new javax.swing.JTextField();
         jLabel76 = new javax.swing.JLabel();
         SELECT_SEAT_P = new javax.swing.JPanel();
+        SEAT_SELECT = new javax.swing.JComboBox<>();
+        FINAL_SELECT_RE = new javax.swing.JButton();
+        jLabel71 = new javax.swing.JLabel();
+        SEAT_P1 = new javax.swing.JPanel();
+        SEAT_P2 = new javax.swing.JPanel();
+        TEAM_SEAT_P = new javax.swing.JPanel();
+        TEAM_SEAT1 = new javax.swing.JComboBox<>();
+        TEAM_SEAT2 = new javax.swing.JComboBox<>();
+        TEAM_SEAT3 = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
-        jLabel70 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        FINAL_SELECT_RE = new javax.swing.JButton();
-        jLabel71 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         S_INQUIRY_P = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -667,6 +640,11 @@ public class Student_Main extends javax.swing.JFrame {
 
         SELECT_DATE_BTN.setBackground(new java.awt.Color(255, 255, 255));
         SELECT_DATE_BTN.setText("선택");
+        SELECT_DATE_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SELECT_DATE_BTNActionPerformed(evt);
+            }
+        });
         SELECT_RE_INFO.add(SELECT_DATE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 70, -1));
 
         TEAM_CHECK.setBackground(new java.awt.Color(255, 255, 255));
@@ -746,300 +724,74 @@ public class Student_Main extends javax.swing.JFrame {
         S_RESERVATION_P.add(SELECT_RE_INFO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 75, 664, 356));
 
         SELECT_SEAT_P.setBackground(new java.awt.Color(255, 255, 255));
+        SELECT_SEAT_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel31.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel31.setText("1");
-
-        jLabel32.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel32.setText("2");
-
-        jLabel33.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel33.setText("3");
-
-        jLabel34.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel34.setText("4");
-
-        jLabel35.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel35.setText("9");
-
-        jLabel36.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel36.setText("10");
-
-        jLabel37.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel37.setText("11");
-
-        jLabel38.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel38.setText("12");
-
-        jLabel39.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel39.setText("17");
-
-        jLabel40.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel40.setText("18");
-
-        jLabel41.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel41.setText("19");
-
-        jLabel42.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel42.setText("20");
-
-        jLabel43.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel43.setText("25");
-
-        jLabel44.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel44.setText("26");
-
-        jLabel45.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel45.setText("27");
-
-        jLabel46.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel46.setText("28");
-
-        jLabel47.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel47.setText("5");
-
-        jLabel48.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel48.setText("6");
-
-        jLabel49.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel49.setText("7");
-
-        jLabel50.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel50.setText("8");
-
-        jLabel52.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel52.setText("14");
-
-        jLabel53.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel53.setText("15");
-
-        jLabel54.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel54.setText("16");
-
-        jLabel55.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel55.setText("13");
-
-        jLabel56.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel56.setText("22");
-
-        jLabel57.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel57.setText("23");
-
-        jLabel58.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel58.setText("24");
-
-        jLabel59.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel59.setText("21");
-
-        jLabel60.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel60.setText("30");
-
-        jLabel61.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel61.setText("31");
-
-        jLabel62.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel62.setText("32");
-
-        jLabel63.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel63.setText("29");
-
-        jLabel64.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel64.setText("38");
-
-        jLabel65.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel65.setText("39");
-
-        jLabel66.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel66.setText("40");
-
-        jLabel67.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel67.setText("37");
-
-        jLabel51.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel51.setText("33");
-
-        jLabel68.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel68.setText("34");
-
-        jLabel69.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel69.setText("35");
-
-        jLabel70.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
-        jLabel70.setText("36");
+        SELECT_SEAT_P.add(SEAT_SELECT, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, 71, -1));
 
         FINAL_SELECT_RE.setBackground(new java.awt.Color(255, 255, 255));
         FINAL_SELECT_RE.setText("선택");
+        SELECT_SEAT_P.add(FINAL_SELECT_RE, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 77, -1));
 
         jLabel71.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel71.setText("좌석 배치도");
+        SELECT_SEAT_P.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(262, 10, -1, -1));
 
-        javax.swing.GroupLayout SELECT_SEAT_PLayout = new javax.swing.GroupLayout(SELECT_SEAT_P);
-        SELECT_SEAT_P.setLayout(SELECT_SEAT_PLayout);
-        SELECT_SEAT_PLayout.setHorizontalGroup(
-            SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SELECT_SEAT_PLayout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                        .addComponent(jLabel51)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel68)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel69)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel70))
-                    .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel43)
-                            .addComponent(jLabel39)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel31))
-                        .addGap(40, 40, 40)
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel44)
-                            .addComponent(jLabel40)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel32))
-                        .addGap(40, 40, 40)
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel45)
-                            .addComponent(jLabel41)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel33))
-                        .addGap(40, 40, 40)
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel46)
-                            .addComponent(jLabel38)
-                            .addComponent(jLabel42)
-                            .addComponent(jLabel34))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                                .addComponent(jLabel59)
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel56))
-                            .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                                .addComponent(jLabel55)
-                                .addGap(40, 40, 40)
-                                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel48)
-                                    .addComponent(jLabel52)))
-                            .addComponent(jLabel47))
-                        .addGap(40, 40, 40)
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel57, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel53)
-                            .addComponent(jLabel49))
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SELECT_SEAT_PLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jLabel58))
-                            .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel50)
-                                    .addComponent(jLabel54)))))
-                    .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel63)
-                            .addComponent(jLabel67))
-                        .addGap(40, 40, 40)
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel60)
-                            .addComponent(jLabel64))
-                        .addGap(40, 40, 40)
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel61)
-                            .addComponent(jLabel65))
-                        .addGap(40, 40, 40)
-                        .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel66)
-                            .addComponent(jLabel62)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SELECT_SEAT_PLayout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FINAL_SELECT_RE, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(75, 75, 75))
-            .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                .addGap(285, 285, 285)
-                .addComponent(jLabel71)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        SEAT_P1.setBackground(new java.awt.Color(255, 255, 255));
+        SEAT_P1.setLayout(new java.awt.GridLayout(5, 4, 15, 15));
+        SELECT_SEAT_P.add(SEAT_P1, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 69, -1, -1));
+
+        SEAT_P2.setBackground(new java.awt.Color(255, 255, 255));
+        SEAT_P2.setLayout(new java.awt.GridLayout(5, 4, 15, 15));
+        SELECT_SEAT_P.add(SEAT_P2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 69, -1, -1));
+
+        TEAM_SEAT_P.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel31.setText("팀원 1");
+
+        jLabel32.setText("팀원 2");
+
+        jLabel33.setText("팀원 3");
+
+        javax.swing.GroupLayout TEAM_SEAT_PLayout = new javax.swing.GroupLayout(TEAM_SEAT_P);
+        TEAM_SEAT_P.setLayout(TEAM_SEAT_PLayout);
+        TEAM_SEAT_PLayout.setHorizontalGroup(
+            TEAM_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TEAM_SEAT_PLayout.createSequentialGroup()
+                .addGroup(TEAM_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31)
+                    .addComponent(TEAM_SEAT1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TEAM_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(TEAM_SEAT2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TEAM_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TEAM_SEAT_PLayout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(TEAM_SEAT_PLayout.createSequentialGroup()
+                        .addComponent(TEAM_SEAT3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
-        SELECT_SEAT_PLayout.setVerticalGroup(
-            SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel71)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel47)
-                    .addComponent(jLabel48)
-                    .addComponent(jLabel49)
-                    .addComponent(jLabel50))
-                .addGap(30, 30, 30)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel55)
-                    .addComponent(jLabel52)
-                    .addComponent(jLabel53)
-                    .addComponent(jLabel54))
-                .addGap(30, 30, 30)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel59)
-                    .addComponent(jLabel56)
-                    .addComponent(jLabel57)
-                    .addComponent(jLabel58))
-                .addGap(30, 30, 30)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel63)
-                    .addComponent(jLabel60)
-                    .addComponent(jLabel61)
-                    .addComponent(jLabel62))
-                .addGap(18, 18, 18)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel67)
-                    .addComponent(jLabel64)
-                    .addComponent(jLabel65)
-                    .addComponent(jLabel66))
-                .addGap(18, 18, 18)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FINAL_SELECT_RE))
-                .addGap(36, 36, 36))
-            .addGroup(SELECT_SEAT_PLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        TEAM_SEAT_PLayout.setVerticalGroup(
+            TEAM_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TEAM_SEAT_PLayout.createSequentialGroup()
+                .addGroup(TEAM_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(jLabel32)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel34))
-                .addGap(30, 30, 30)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel36)
-                    .addComponent(jLabel37)
-                    .addComponent(jLabel38))
-                .addGap(30, 30, 30)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel39)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel42))
-                .addGap(30, 30, 30)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel44)
-                    .addComponent(jLabel45)
-                    .addComponent(jLabel46))
-                .addGap(18, 18, 18)
-                .addGroup(SELECT_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel51)
-                    .addComponent(jLabel68)
-                    .addComponent(jLabel69)
-                    .addComponent(jLabel70))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(TEAM_SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TEAM_SEAT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEAM_SEAT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEAM_SEAT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
+
+        SELECT_SEAT_P.add(TEAM_SEAT_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 230, 50));
+
+        jLabel34.setText("사용자");
+        SELECT_SEAT_P.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, -1, -1));
 
         S_RESERVATION_P.add(SELECT_SEAT_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 75, 664, 356));
         S_RESERVATION_P.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 640, 10));
@@ -1334,16 +1086,56 @@ public class Student_Main extends javax.swing.JFrame {
         SELECT_RE_INFO.setVisible(true);
         INPUT_TEAM.setVisible(false);
         SELECT_SEAT_P.setVisible(false);
+        TEAM_SEAT_P.setVisible(false);
+        SEAT_P1.removeAll();
+        SEAT_P2.removeAll();
+        TEAM_CHECK.setSelected(false);
     }//GEN-LAST:event_S_MENU1MouseClicked
 
     private void TEAM_CHECKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TEAM_CHECKActionPerformed
         // 실습실 예약 패널에서 조별 학습인지 체크하는 체크박스
         if(TEAM_CHECK.isSelected()){ // 팀 학습을 선택할 시
             INPUT_TEAM.setVisible(true);
-        }else if(!TEAM_CHECK.isSelected()){ //팀 학습을 선택하지 안았을시
+        }else if(!TEAM_CHECK.isSelected()){ //팀 학습을 선택하지 않았을시
             INPUT_TEAM.setVisible(false);
         }
     }//GEN-LAST:event_TEAM_CHECKActionPerformed
+
+    private void SELECT_DATE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SELECT_DATE_BTNActionPerformed
+        // 예약 정보를 입력하면 자리 선택 패널로 이동한다.
+        if(TEAM_CHECK.isSelected()){ // 팀 학습을 선택할 시
+            TEAM_SEAT_P.setVisible(true);
+        }else if(!TEAM_CHECK.isSelected()){ //팀 학습을 선택하지 않았을시
+            TEAM_SEAT_P.setVisible(false);
+        }
+        
+        
+        SELECT_SEAT_P.setVisible(true);
+        SELECT_RE_INFO.setVisible(false);
+        
+        int co =0;
+        int j=0;
+        JLabel [] seat = new JLabel[40];
+        Font font = new Font("굴림", Font.PLAIN, 18);
+        for(int i=0; i<40; i++){
+            seat[i] = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br></html>",JLabel.CENTER);
+            seat[i].setFont(font);
+            if(j == 0){
+                SEAT_P1.add(seat[i]);
+            }else if(j == 1){
+                SEAT_P2.add(seat[i]);
+            }
+            if( co%4 == 3 ){
+                if(j==0){
+                    j = 1;
+                }else if (j == 1){
+                    j=0;
+                }
+            }
+            co++; 
+        }
+        
+    }//GEN-LAST:event_SELECT_DATE_BTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1408,6 +1200,9 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel NOTICE_TITLE;
     private javax.swing.JPasswordField NOW_PW;
     private javax.swing.JTable RESERVATION_TABLE;
+    private javax.swing.JPanel SEAT_P1;
+    private javax.swing.JPanel SEAT_P2;
+    private javax.swing.JComboBox<String> SEAT_SELECT;
     private javax.swing.JButton SELECT_DATE_BTN;
     private javax.swing.JPanel SELECT_RE_INFO;
     private javax.swing.JPanel SELECT_SEAT_P;
@@ -1431,12 +1226,15 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JTextField TEAM_2;
     private javax.swing.JTextField TEAM_3;
     private javax.swing.JCheckBox TEAM_CHECK;
+    private javax.swing.JComboBox<String> TEAM_SEAT1;
+    private javax.swing.JComboBox<String> TEAM_SEAT2;
+    private javax.swing.JComboBox<String> TEAM_SEAT3;
+    private javax.swing.JPanel TEAM_SEAT_P;
     private javax.swing.JLabel TITLE;
     private javax.swing.JPanel TITLE_P;
     private javax.swing.JPanel UNDER_P;
     private javax.swing.JComboBox<String> YEAR;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1465,46 +1263,10 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
