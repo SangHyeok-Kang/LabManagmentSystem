@@ -5,8 +5,8 @@
  */
 package view;
 
-import java.awt.event.ActionListener;
-import java.util.Arrays;
+import Controller.Login_controller;
+import Controller.MemberManage_controller;
 
 /**
  *
@@ -25,44 +25,12 @@ public class Login extends javax.swing.JFrame {
         LOGIN_P.setVisible(true);
     }
     
-    public void setaddActionListener(ActionListener listener) {
-        LOGIN_BTN.addActionListener(listener); // 로그인 버튼 리스너
-        SIGN_UP_BTN.addActionListener(listener); //회원 가입 버튼 리스너
-        CANCEL_BTN.addActionListener(listener); //취소 버튼 리스너
-    }
-    
     public void panelClear(){ //패널들 전부 안보이게하는 함수
         LOGIN_P.setVisible(false);
         SIGN_UP_P.setVisible(false);
     }
     
-    public String getID(){ //로그인시 아이디 받기
-        return ID_FIELD.getText();
-    }
-    
-    public String getPW(){ //로그인시 비밀번호 받기
-        return Arrays.toString(PW_FIELD.getPassword());
-    }
-    
-    public String getNumber(){ //회원가입 시 학번 받기
-        return NUMBER.getText();
-    }
-    
-    public String getName(){ //회원 가입 시 이름 받기
-        return NAME.getText();
-    }
-    
-    public String getSIGN_PW(){ //회원 가입 시 비밀 번호 받기
-        return Arrays.toString(SIGN_PW.getPassword());
-    }
-    
-    public String getPhone(){ //회원 가입 시 전화번호 받기
-        return PHONE.getText();
-    }
-    
-    public String getEmail(){ //회원 가입 시 이메일 받기
-        return EMAIL.getText();
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,6 +54,13 @@ public class Login extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         SIGN_UP_BTN = new javax.swing.JButton();
         CANCEL_BTN = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        EMAIL_LIST = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        PHONE1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        PHONE2 = new javax.swing.JTextField();
         LOGIN_P = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         ID_FIELD = new javax.swing.JTextField();
@@ -103,117 +78,104 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         SIGN_UP_P.setBackground(new java.awt.Color(255, 255, 255));
+        SIGN_UP_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        SIGN_UP_P.add(NUMBER, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 89, 25));
+        SIGN_UP_P.add(NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 89, 25));
+
+        PHONE.setEditable(false);
+        PHONE.setText("010");
+        SIGN_UP_P.add(PHONE, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 40, 25));
 
         jLabel3.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel3.setText("회원가입");
+        SIGN_UP_P.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
+        SIGN_UP_P.add(SIGN_PW, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 150, 25));
 
         jLabel5.setText("학번");
+        SIGN_UP_P.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         jLabel6.setText("이름");
+        SIGN_UP_P.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        SIGN_UP_P.add(EMAIL, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 100, 25));
 
         jLabel7.setText("비밀번호");
+        SIGN_UP_P.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
 
         jLabel8.setText("전화번호");
+        SIGN_UP_P.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, -1, -1));
 
         jLabel9.setText("이메일");
+        SIGN_UP_P.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
 
         SIGN_UP_BTN.setText("가입하기");
+        SIGN_UP_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SIGN_UP_BTNActionPerformed(evt);
+            }
+        });
+        SIGN_UP_P.add(SIGN_UP_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, -1, -1));
 
         CANCEL_BTN.setText("취소하기");
+        CANCEL_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CANCEL_BTNActionPerformed(evt);
+            }
+        });
+        SIGN_UP_P.add(CANCEL_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
 
-        javax.swing.GroupLayout SIGN_UP_PLayout = new javax.swing.GroupLayout(SIGN_UP_P);
-        SIGN_UP_P.setLayout(SIGN_UP_PLayout);
-        SIGN_UP_PLayout.setHorizontalGroup(
-            SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                        .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                                .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(NUMBER, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(NAME, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addComponent(PHONE)
-                                    .addComponent(EMAIL, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)))
-                            .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(CANCEL_BTN)
-                                    .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                                        .addComponent(SIGN_PW, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(129, 129, 129)
-                                        .addComponent(SIGN_UP_BTN)))))
-                        .addGap(134, 134, 134))))
-            .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        SIGN_UP_PLayout.setVerticalGroup(
-            SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SIGN_UP_PLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SIGN_UP_PLayout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NUMBER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addGap(4, 4, 4)
-                        .addComponent(NAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SIGN_UP_PLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PHONE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addGap(3, 3, 3)
-                        .addComponent(EMAIL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(SIGN_UP_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SIGN_PW, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SIGN_UP_BTN))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CANCEL_BTN)
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
+        jLabel10.setFont(new java.awt.Font("굴림", 0, 10)); // NOI18N
+        jLabel10.setText("(' - ' 미포함)");
+        SIGN_UP_P.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
+        jLabel11.setText("@");
+        SIGN_UP_P.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, -1, -1));
+
+        EMAIL_LIST.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "naver.com", "gmail.com", "deu.ac.kr", "daum.net" }));
+        SIGN_UP_P.add(EMAIL_LIST, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 100, -1));
+
+        jLabel12.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
+        jLabel12.setText("-");
+        SIGN_UP_P.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 130, -1, 10));
+        SIGN_UP_P.add(PHONE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 65, 25));
+
+        jLabel13.setFont(new java.awt.Font("굴림", 1, 18)); // NOI18N
+        jLabel13.setText("-");
+        SIGN_UP_P.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 130, -1, 10));
+        SIGN_UP_P.add(PHONE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 120, 65, 25));
 
         getContentPane().add(SIGN_UP_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 360));
 
         LOGIN_P.setBackground(new java.awt.Color(255, 255, 255));
+        LOGIN_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("맑은 고딕", 1, 36)); // NOI18N
         jLabel4.setText("S.M.P");
+        LOGIN_P.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 82, -1, -1));
 
         ID_FIELD.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        LOGIN_P.add(ID_FIELD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 187, 30));
 
         jLabel1.setFont(new java.awt.Font("맑은 고딕", 0, 24)); // NOI18N
         jLabel1.setText("ID : ");
+        LOGIN_P.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 141, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("맑은 고딕", 0, 24)); // NOI18N
         jLabel2.setText("PW : ");
+        LOGIN_P.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 195, -1, -1));
 
         PW_FIELD.setFont(new java.awt.Font("맑은 고딕", 0, 18)); // NOI18N
+        LOGIN_P.add(PW_FIELD, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 187, 30));
 
         LOGIN_BTN.setBackground(new java.awt.Color(255, 255, 255));
         LOGIN_BTN.setFont(new java.awt.Font("맑은 고딕", 0, 14)); // NOI18N
         LOGIN_BTN.setText("로그인");
+        LOGIN_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LOGIN_BTNActionPerformed(evt);
+            }
+        });
+        LOGIN_P.add(LOGIN_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, 87, 30));
 
         SIGN_UP.setFont(new java.awt.Font("맑은 고딕", 0, 12)); // NOI18N
         SIGN_UP.setText("회원가입하기");
@@ -222,57 +184,7 @@ public class Login extends javax.swing.JFrame {
                 SIGN_UPMouseClicked(evt);
             }
         });
-
-        javax.swing.GroupLayout LOGIN_PLayout = new javax.swing.GroupLayout(LOGIN_P);
-        LOGIN_P.setLayout(LOGIN_PLayout);
-        LOGIN_PLayout.setHorizontalGroup(
-            LOGIN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LOGIN_PLayout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
-                .addGroup(LOGIN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LOGIN_PLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel4))
-                    .addGroup(LOGIN_PLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel1)
-                        .addGap(6, 6, 6)
-                        .addComponent(ID_FIELD, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(LOGIN_PLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(6, 6, 6)
-                        .addComponent(PW_FIELD, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(LOGIN_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(LOGIN_PLayout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(SIGN_UP)))
-                .addGap(118, 118, 118))
-        );
-        LOGIN_PLayout.setVerticalGroup(
-            LOGIN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LOGIN_PLayout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addComponent(jLabel4)
-                .addGap(10, 10, 10)
-                .addGroup(LOGIN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(LOGIN_PLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(ID_FIELD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15)
-                .addGroup(LOGIN_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LOGIN_PLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel2))
-                    .addGroup(LOGIN_PLayout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(PW_FIELD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LOGIN_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addComponent(SIGN_UP)
-                .addContainerGap(104, Short.MAX_VALUE))
-        );
+        LOGIN_P.add(SIGN_UP, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 250, -1, -1));
 
         getContentPane().add(LOGIN_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 360));
 
@@ -285,6 +197,24 @@ public class Login extends javax.swing.JFrame {
         panelClear();
         SIGN_UP_P.setVisible(true);
     }//GEN-LAST:event_SIGN_UPMouseClicked
+
+    private void CANCEL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCEL_BTNActionPerformed
+        // 회원가입 취소
+        panelClear();
+        LOGIN_P.setVisible(true);
+    }//GEN-LAST:event_CANCEL_BTNActionPerformed
+
+    private void SIGN_UP_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SIGN_UP_BTNActionPerformed
+        // 회원가입 하기
+       MemberManage_controller signup = new MemberManage_controller(this);
+       signup.singUp();
+    }//GEN-LAST:event_SIGN_UP_BTNActionPerformed
+
+    private void LOGIN_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGIN_BTNActionPerformed
+        // 로그인 버튼
+        Login_controller login = new Login_controller(this);
+        login.login();
+    }//GEN-LAST:event_LOGIN_BTNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,6 +243,8 @@ public class Login extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -324,19 +256,26 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CANCEL_BTN;
-    private javax.swing.JTextField EMAIL;
-    private javax.swing.JTextField ID_FIELD;
+    public javax.swing.JTextField EMAIL;
+    public javax.swing.JComboBox<String> EMAIL_LIST;
+    public javax.swing.JTextField ID_FIELD;
     private javax.swing.JButton LOGIN_BTN;
-    private javax.swing.JPanel LOGIN_P;
-    private javax.swing.JTextField NAME;
-    private javax.swing.JTextField NUMBER;
-    private javax.swing.JTextField PHONE;
-    private javax.swing.JPasswordField PW_FIELD;
-    private javax.swing.JPasswordField SIGN_PW;
+    public javax.swing.JPanel LOGIN_P;
+    public javax.swing.JTextField NAME;
+    public javax.swing.JTextField NUMBER;
+    public javax.swing.JTextField PHONE;
+    public javax.swing.JTextField PHONE1;
+    public javax.swing.JTextField PHONE2;
+    public javax.swing.JPasswordField PW_FIELD;
+    public javax.swing.JPasswordField SIGN_PW;
     private javax.swing.JLabel SIGN_UP;
     private javax.swing.JButton SIGN_UP_BTN;
     private javax.swing.JPanel SIGN_UP_P;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
