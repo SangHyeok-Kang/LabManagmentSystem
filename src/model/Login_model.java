@@ -2,8 +2,7 @@
 package model;
 
 import java.sql.*;
-import static model.DBConnection.dbconnection;
-import static model.UserSession.log;
+
 
 public class Login_model {
 
@@ -19,7 +18,6 @@ public class Login_model {
 
         try {
             if (a == 'S') { //학생으로 로그인시
-
                 SQL = "select * from student where stu_num = '" + user_id + "'";
                 st = dbconnection.getInstance().getConnection().createStatement();
                 rs = st.executeQuery(SQL); //db연결
