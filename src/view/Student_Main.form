@@ -396,6 +396,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="CHANGE_NAME">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="280" y="180" width="100" height="-1"/>
