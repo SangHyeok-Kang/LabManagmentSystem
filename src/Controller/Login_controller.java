@@ -19,15 +19,17 @@ public class Login_controller {
     public void login(){
         char id = view.ID_FIELD.getText().charAt(0);
         String answer;
+        String pw = new String(view.PW_FIELD.getPassword());
         if(view.ID_FIELD.getText().isEmpty() || Arrays.toString(view.PW_FIELD.getPassword()).isEmpty()){
             JOptionPane.showMessageDialog(null, "아이디, 비밀번호 모두 입력 해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         }else{
-            if(model.isLogin(view.ID_FIELD.getText(), Arrays.toString(view.PW_FIELD.getPassword()))){
+            System.out.println(view.ID_FIELD.getText()+pw);
+            if(model.isLogin(view.ID_FIELD.getText(), pw)){
                 if(model.isAccess()){
                     if(id=='S'){
                         Student_Main s = new Student_Main();
                         s.setVisible(true);
-                    }else if(id=='M'){
+                    }else if(id=='M' || id=='P'){
                         Manager_Main m = new Manager_Main();
                         m.setVisible(true);
                     }

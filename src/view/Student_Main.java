@@ -362,6 +362,8 @@ public class Student_Main extends javax.swing.JFrame {
 
         CHANGE_NUMBER.setEditable(false);
         S_MYPAGE_P.add(CHANGE_NUMBER, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 100, -1));
+
+        CHANGE_NAME.setEditable(false);
         S_MYPAGE_P.add(CHANGE_NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 100, -1));
         S_MYPAGE_P.add(CHANGE_EMAIL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 180, -1));
         S_MYPAGE_P.add(CHANGE_PHONE, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 180, -1));
