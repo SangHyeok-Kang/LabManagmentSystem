@@ -7,7 +7,6 @@ package view;
 
 import Controller.Login_controller;
 import Controller.MemberManage_controller;
-import model.DBConnection;
 
 /**
  *
@@ -24,7 +23,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         panelClear();
         LOGIN_P.setVisible(true);
-        DBConnection.getInstance().Initailize();
+        //DBConnection.getInstance().Initailize();
     }
     
     public void panelClear(){ //패널들 전부 안보이게하는 함수
@@ -287,4 +286,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
+
 }
