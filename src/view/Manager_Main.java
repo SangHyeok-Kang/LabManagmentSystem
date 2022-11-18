@@ -6,8 +6,11 @@
 package view;
 
 //import Controller.Timetable_controller;
+import Controller.Timetable_controller;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.Calendar;
 import javax.swing.*;
 
@@ -123,8 +126,22 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_CLASS_DIVISON = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         INPUT_SPECIAL_TIME_P = new javax.swing.JPanel();
+        CALENDAR_P = new javax.swing.JPanel();
+        YEAR_L = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        MONTH_L = new javax.swing.JLabel();
+        RIGHT_L = new javax.swing.JLabel();
+        LEFT_L = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jSeparator14 = new javax.swing.JSeparator();
+        DATE_P = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
-        INPUT_SEMINAR_MONTH = new javax.swing.JComboBox<>();
         SPECIAL_LAB_918 = new javax.swing.JRadioButton();
         SPECIAL_SELECT_DAY_BTN = new javax.swing.JButton();
         SPECIAL_LAB_911 = new javax.swing.JRadioButton();
@@ -134,16 +151,13 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_SEMINAR_ETIME = new javax.swing.JComboBox<>();
         SPECIAL_LAB_915 = new javax.swing.JRadioButton();
         SPECIAL_LAB_916 = new javax.swing.JRadioButton();
-        INPUT_SEMINAR_YEAR = new javax.swing.JComboBox<>();
-        INPUT_SEMINAR_DATE = new javax.swing.JComboBox<>();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         INPUT_SEMINAR_ID = new javax.swing.JTextField();
         INPUT_SEMINAR_NAME = new javax.swing.JTextField();
+        SET_DATE_L = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
         RESERVATION_LIST_P = new javax.swing.JPanel();
         RESERVATION_M_P = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -183,8 +197,9 @@ public class Manager_Main extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         STU_LIST_T = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        DELETE_STU_BTN = new javax.swing.JButton();
+        CHANGE_STU_BTN = new javax.swing.JButton();
+        GIVE_WARNING_BTN = new javax.swing.JButton();
         STU_TOKEN_P = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         TOKEN = new javax.swing.JTextField();
@@ -396,7 +411,7 @@ public class Manager_Main extends javax.swing.JFrame {
         M_MENU3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("실습실 시간표 입력 ");
-        M_MENU3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, 34));
+        M_MENU3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, 34));
 
         M_MENU_P.add(M_MENU3, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 0, 205, 34));
 
@@ -582,19 +597,74 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_TIME_P.add(INPUT_CLASS_TIME_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 440));
 
         INPUT_SPECIAL_TIME_P.setBackground(new java.awt.Color(255, 255, 255));
+        INPUT_SPECIAL_TIME_P.setPreferredSize(new java.awt.Dimension(664, 426));
         INPUT_SPECIAL_TIME_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CALENDAR_P.setBackground(new java.awt.Color(245, 245, 245));
+        CALENDAR_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CALENDAR_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        YEAR_L.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        YEAR_L.setText("2022");
+        CALENDAR_P.add(YEAR_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 30, -1));
+
+        jLabel42.setText("-");
+        CALENDAR_P.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 9, -1, -1));
+
+        MONTH_L.setText("11");
+        CALENDAR_P.add(MONTH_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        RIGHT_L.setText("▶");
+        RIGHT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RIGHT_L.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RIGHT_LMouseClicked(evt);
+            }
+        });
+        CALENDAR_P.add(RIGHT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+
+        LEFT_L.setText("◀");
+        LEFT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LEFT_L.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LEFT_LMouseClicked(evt);
+            }
+        });
+        CALENDAR_P.add(LEFT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+
+        jLabel43.setText("월");
+        CALENDAR_P.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+
+        jLabel44.setText("화");
+        CALENDAR_P.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        jLabel45.setText("수");
+        CALENDAR_P.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+
+        jLabel46.setText("목");
+        CALENDAR_P.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
+
+        jLabel47.setText("금");
+        CALENDAR_P.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        jLabel48.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel48.setText("토");
+        CALENDAR_P.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+
+        jLabel49.setForeground(java.awt.Color.red);
+        jLabel49.setText("일");
+        CALENDAR_P.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        CALENDAR_P.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 240, -1));
+
+        DATE_P.setBackground(new java.awt.Color(245, 245, 245));
+        DATE_P.setLayout(new java.awt.GridLayout(0, 7, 17, 17));
+        CALENDAR_P.add(DATE_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        INPUT_SPECIAL_TIME_P.add(CALENDAR_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 270, 270));
 
         jLabel14.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel14.setText("특강 및 세미나 시간표 입력");
         INPUT_SPECIAL_TIME_P.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 23, -1, -1));
-
-        INPUT_SEMINAR_MONTH.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        INPUT_SEMINAR_MONTH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                INPUT_SEMINAR_MONTHActionPerformed(evt);
-            }
-        });
-        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_MONTH, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 100, 20));
 
         SPECIAL_LAB_918.setBackground(new java.awt.Color(255, 255, 255));
         INPUT_SPECIAL_LAB.add(SPECIAL_LAB_918);
@@ -616,16 +686,16 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
         jLabel24.setText("시작 시간");
-        INPUT_SPECIAL_TIME_P.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, 20));
+        INPUT_SPECIAL_TIME_P.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, 20));
 
         INPUT_SEMINAR_STIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" }));
-        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 100, 20));
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 100, 20));
 
         jLabel28.setText("종료시간");
-        INPUT_SPECIAL_TIME_P.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, -1, 20));
+        INPUT_SPECIAL_TIME_P.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, 20));
 
         INPUT_SEMINAR_ETIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" }));
-        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 100, 20));
+        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 170, 100, 20));
 
         SPECIAL_LAB_915.setBackground(new java.awt.Color(255, 255, 255));
         INPUT_SPECIAL_LAB.add(SPECIAL_LAB_915);
@@ -638,20 +708,6 @@ public class Manager_Main extends javax.swing.JFrame {
         SPECIAL_LAB_916.setText("916호");
         INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
 
-        INPUT_SEMINAR_YEAR.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022", "2023", " " }));
-        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_YEAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 100, 20));
-
-        INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_DATE, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 100, 20));
-
-        jLabel16.setText("년");
-        INPUT_SPECIAL_TIME_P.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 46, 20));
-
-        jLabel17.setText("월");
-        INPUT_SPECIAL_TIME_P.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 46, 20));
-
-        jLabel18.setText("일");
-        INPUT_SPECIAL_TIME_P.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 46, 20));
-
         jLabel37.setText("예약자 번호");
         INPUT_SPECIAL_TIME_P.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
@@ -662,6 +718,17 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_SPECIAL_TIME_P.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
         INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 100, -1));
         INPUT_SPECIAL_TIME_P.add(INPUT_SEMINAR_NAME, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 100, -1));
+
+        SET_DATE_L.setText("선택하기");
+        SET_DATE_L.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SET_DATE_LMouseClicked(evt);
+            }
+        });
+        INPUT_SPECIAL_TIME_P.add(SET_DATE_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
+
+        jLabel50.setText("날짜");
+        INPUT_SPECIAL_TIME_P.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
         INPUT_TIME_P.add(INPUT_SPECIAL_TIME_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 426));
 
@@ -921,11 +988,11 @@ public class Manager_Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "학번", "이름", "전화번호", "이메일", "승인 여부"
+                "학번", "이름", "전화번호", "이메일", "승인 여부", "비고"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -936,9 +1003,11 @@ public class Manager_Main extends javax.swing.JFrame {
         STU_LIST_T.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(STU_LIST_T);
 
-        jButton1.setText("삭제");
+        DELETE_STU_BTN.setText("삭제");
 
-        jButton2.setText("정보 수정");
+        CHANGE_STU_BTN.setText("정보 수정");
+
+        GIVE_WARNING_BTN.setText("경고 부여");
 
         javax.swing.GroupLayout STU_LIST_PLayout = new javax.swing.GroupLayout(STU_LIST_P);
         STU_LIST_P.setLayout(STU_LIST_PLayout);
@@ -946,9 +1015,11 @@ public class Manager_Main extends javax.swing.JFrame {
             STU_LIST_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, STU_LIST_PLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(GIVE_WARNING_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CHANGE_STU_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DELETE_STU_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(STU_LIST_PLayout.createSequentialGroup()
                 .addGap(285, 285, 285)
@@ -965,8 +1036,9 @@ public class Manager_Main extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(STU_LIST_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(DELETE_STU_BTN)
+                    .addComponent(CHANGE_STU_BTN)
+                    .addComponent(GIVE_WARNING_BTN))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -1394,12 +1466,7 @@ public class Manager_Main extends javax.swing.JFrame {
         // 실습실 시간표 입력 밑 특강 시간표 입력
         INPUT_CLASS_TIME_P.setVisible(false);
         INPUT_SPECIAL_TIME_P.setVisible(true);
-        Calendar cal = Calendar.getInstance();
-        INPUT_SEMINAR_DATE.removeAll();
-        cal.set(Integer.parseInt(INPUT_SEMINAR_YEAR.getSelectedItem().toString()), Integer.parseInt(INPUT_SEMINAR_MONTH.getSelectedItem().toString()), 1);
-        for(int i=0; i<cal.getActualMaximum(Calendar.DAY_OF_MONTH);i++ ){
-            INPUT_SEMINAR_DATE.addItem(Integer.toString(i+1));
-        }
+        CALENDAR_P.setVisible(false);
     }//GEN-LAST:event_INPUT_SPECIALMouseClicked
 
     private void STU_TOKENMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_STU_TOKENMouseClicked
@@ -1441,26 +1508,15 @@ public class Manager_Main extends javax.swing.JFrame {
 
     private void CLASS_SELECT_DAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_SELECT_DAY_BTNActionPerformed
         // 강의 등록 버튼 클릭시
-       // Timetable_controller time = new Timetable_controller();
-        //time.insertClass();
+       Timetable_controller time = new Timetable_controller(this);
+        time.insertClass();
     }//GEN-LAST:event_CLASS_SELECT_DAY_BTNActionPerformed
 
     private void SPECIAL_SELECT_DAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SPECIAL_SELECT_DAY_BTNActionPerformed
         // 특강 및 세미나 등록 버튼 클릭시
-        //Timetable_controller time = new Timetable_controller();
-       // time.insertSeminar();
+        Timetable_controller time = new Timetable_controller(this);
+        time.insertSeminar();
     }//GEN-LAST:event_SPECIAL_SELECT_DAY_BTNActionPerformed
-
-    private void INPUT_SEMINAR_MONTHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INPUT_SEMINAR_MONTHActionPerformed
-        // 특강입력 월 선택시 해당 일 수 반영
-        Calendar cal = Calendar.getInstance();
-        INPUT_SEMINAR_DATE.removeAllItems();
-        cal.set(Integer.parseInt(INPUT_SEMINAR_YEAR.getSelectedItem().toString()), Integer.parseInt(INPUT_SEMINAR_MONTH.getSelectedItem().toString())-1, 1);
-        System.out.println(cal.getActualMaximum(Calendar.DAY_OF_MONTH));
-        for(int i=0; i<cal.getActualMaximum(Calendar.DAY_OF_MONTH);i++ ){
-            INPUT_SEMINAR_DATE.addItem(Integer.toString(i+1));
-        }
-    }//GEN-LAST:event_INPUT_SEMINAR_MONTHActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // 공지사항 닫기
@@ -1494,6 +1550,106 @@ public class Manager_Main extends javax.swing.JFrame {
         INQUIRY_DIALOG.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void RIGHT_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RIGHT_LMouseClicked
+        // 달력 다음 달 클릭
+        int month = Integer.parseInt(MONTH_L.getText())+1;
+        if(month == 13){
+            YEAR_L.setText(Integer.toString(Integer.parseInt(YEAR_L.getText())+1));
+            month = 1;
+        }
+        MONTH_L.setText(Integer.toString(month));
+        DATE_P.setVisible(false);
+        DATE_P.removeAll();
+        DATE_P.setVisible(true);
+        getCalendar();
+    }//GEN-LAST:event_RIGHT_LMouseClicked
+
+    private void LEFT_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LEFT_LMouseClicked
+        // 달력 이전 달 클릭
+        int month = Integer.parseInt(MONTH_L.getText())-1;
+        if(month == 0){
+            YEAR_L.setText(Integer.toString(Integer.parseInt(YEAR_L.getText())-1));
+            month = 12;
+        }
+        MONTH_L.setText(Integer.toString(month));
+        DATE_P.setVisible(false);
+        DATE_P.removeAll();
+        DATE_P.setVisible(true);
+        getCalendar();
+    }//GEN-LAST:event_LEFT_LMouseClicked
+
+    private void SET_DATE_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SET_DATE_LMouseClicked
+       // 날짜 선택하기 라벨 클릭 시간에 맞는 날짜 출력
+        CALENDAR_P.setVisible(true);
+        
+        Calendar getdate = Calendar.getInstance();
+        
+        YEAR_L.setText(Integer.toString(getdate.get(Calendar.YEAR)));
+        MONTH_L.setText(Integer.toString(getdate.get(Calendar.MONTH)+1));
+        DATE_P.setVisible(false);
+        DATE_P.removeAll();
+        DATE_P.setVisible(true);
+        getCalendar();
+    }//GEN-LAST:event_SET_DATE_LMouseClicked
+
+    public void getCalendar(){ // 달력을 받아오는 함수
+        JLabel day;
+        Calendar getdate = Calendar.getInstance();
+
+        getdate.set(Integer.parseInt(YEAR_L.getText()), Integer.parseInt(MONTH_L.getText())-1, 1);
+        
+        int firstday = getdate.get(Calendar.DAY_OF_WEEK);
+        int lastday = getdate.getActualMaximum(Calendar.DAY_OF_MONTH);
+        
+        for(int i=0; i < firstday-1; i++){
+            DATE_P.add(new JLabel(" "),JLabel.CENTER);
+        }
+        for(int i =  0 ; i <= lastday-1; i++) {
+            day = new JLabel(Integer.toString(i+1),JLabel.CENTER);
+            switch ((firstday+i)%7) {
+                case 0:
+                    DATE_P.add(day).setForeground(Color.blue);
+                    break;
+                case 1:
+                    DATE_P.add(day).setForeground(Color.red);
+                    break;
+                default:
+                    DATE_P.add(day);
+                    break;
+            }
+            day.addMouseListener(new MyMouseListener());
+            day.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        }
+    }
+    class MyMouseListener implements MouseListener{
+    
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            JLabel l = (JLabel) e.getSource();
+            SET_DATE_L.setText(YEAR_L.getText() + "-" + MONTH_L.getText() + "-" + l.getText());
+            CALENDAR_P.setVisible(false);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+          
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+          
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            
+        }
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -1563,15 +1719,20 @@ public class Manager_Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton APPROVAL_ALL_BTN;
     private javax.swing.JButton APPROVAL_BTN;
+    private javax.swing.JPanel CALENDAR_P;
     private javax.swing.JLabel CHANGE;
     private javax.swing.JButton CHANGE_NOTICE_BTN;
+    private javax.swing.JButton CHANGE_STU_BTN;
     private javax.swing.JRadioButton CLASS_LAB_911;
     public javax.swing.JRadioButton CLASS_LAB_915;
     public javax.swing.JRadioButton CLASS_LAB_916;
     public javax.swing.JRadioButton CLASS_LAB_918;
     public javax.swing.JButton CLASS_SELECT_DAY_BTN;
+    public javax.swing.JPanel DATE_P;
     private javax.swing.JLabel DELETE;
+    private javax.swing.JButton DELETE_STU_BTN;
     private javax.swing.JLabel Declaration_L;
+    private javax.swing.JButton GIVE_WARNING_BTN;
     private javax.swing.JTable HISTORY_TALBE;
     private javax.swing.JLabel INPUT_CLASS;
     public javax.swing.JComboBox<String> INPUT_CLASS_DAY;
@@ -1586,13 +1747,10 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> INPUT_CLASS_YEAR;
     private javax.swing.JPanel INPUT_M_P;
     private javax.swing.JButton INPUT_NOTICE_BTN;
-    public javax.swing.JComboBox<String> INPUT_SEMINAR_DATE;
     public javax.swing.JComboBox<String> INPUT_SEMINAR_ETIME;
     public javax.swing.JTextField INPUT_SEMINAR_ID;
-    public javax.swing.JComboBox<String> INPUT_SEMINAR_MONTH;
     public javax.swing.JTextField INPUT_SEMINAR_NAME;
     public javax.swing.JComboBox<String> INPUT_SEMINAR_STIME;
-    public javax.swing.JComboBox<String> INPUT_SEMINAR_YEAR;
     private javax.swing.JLabel INPUT_SPECIAL;
     private javax.swing.ButtonGroup INPUT_SPECIAL_LAB;
     public javax.swing.JPanel INPUT_SPECIAL_TIME_P;
@@ -1601,8 +1759,10 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JDialog INQUIRY_DIALOG;
     public javax.swing.JTextArea INQUIRY_TEXT_F;
     public javax.swing.JTextField INQUIRY_TITLE_F;
+    private javax.swing.JLabel LEFT_L;
     private javax.swing.JLabel LOGOUT;
     private javax.swing.JPanel MAIN_P;
+    public javax.swing.JLabel MONTH_L;
     private javax.swing.JPanel M_MENU1;
     private javax.swing.JPanel M_MENU2;
     private javax.swing.JPanel M_MENU3;
@@ -1623,9 +1783,11 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JTable REQUEST_TABLE;
     private javax.swing.JPanel RESERVATION_LIST_P;
     private javax.swing.JPanel RESERVATION_M_P;
+    private javax.swing.JLabel RIGHT_L;
     public javax.swing.JRadioButton SEMESTER1;
     private javax.swing.JRadioButton SEMESTER2;
     public javax.swing.ButtonGroup SEMESTER_GROUP;
+    public javax.swing.JLabel SET_DATE_L;
     public javax.swing.JLabel SNAME;
     public javax.swing.JRadioButton SPECIAL_LAB_911;
     public javax.swing.JRadioButton SPECIAL_LAB_915;
@@ -1656,9 +1818,8 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup USING_NOW_LAB;
     private javax.swing.JPanel USING_NOW_P;
     private javax.swing.JLabel WRITE;
+    public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1669,9 +1830,6 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1698,7 +1856,16 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel40;
     public javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1716,6 +1883,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator12;
     private javax.swing.JSeparator jSeparator13;
+    private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
