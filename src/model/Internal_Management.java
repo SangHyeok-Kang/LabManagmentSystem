@@ -19,11 +19,11 @@ public class Internal_Management {
         this.board_info = board_info;
     }
 
-    boolean delete_Info() {
+    public boolean delete_Info() {
         user_info.deleteInfo(user_num);
         reser_info.deleteInfo(user_num);
         board_info.deleteInfo(user_num);
-        return false;
+        return true;
     }
     
 }

@@ -10,9 +10,8 @@ import static model.DBConnection.dbconnection;
  */
 //실습실 예약 리스트 출력 클래스
 public class ReserList_model {
-
-    String[][] reserinfo = new String[100][10];
-    int number = 0;
+    public String[][] reserinfo = new String[100][10];
+    public int number = 0;
     String SQL;
     String reser_num, name, start_time, end_time; //예약번호, 예약자, 예약 시작/종료시간
     String user_id = log.session;
@@ -23,7 +22,7 @@ public class ReserList_model {
     private PreparedStatement pstmt = null;
 
     //예약 정보리스트 출력 메소드
-    String[][] reserlist() {
+    public String[][] reserlist() {
         try {
             //DB로부터 예약 정보 불러오는 SQL문
             SQL = "select * from reservation r join student s on r.stu_num = s.stu_num;";

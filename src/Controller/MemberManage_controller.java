@@ -5,14 +5,16 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.Signup_model;
 import model.ChangeInfo_model;
+import model.Internal_Management;
 import view.Login;
 import view.Student_Main;
 
 public class MemberManage_controller {
-
+    Internal_Management immodel;
     Login view;
     Student_Main sm_view;
     Signup_model model = new Signup_model();
+    boolean result;
 
     public MemberManage_controller(Login view) {
         this.view = view;
@@ -76,6 +78,13 @@ public class MemberManage_controller {
             JOptionPane.showMessageDialog(null, "현재 비밀번호가 일치하지 않습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);           
         }else if(result.equals("success")){
             JOptionPane.showMessageDialog(null, "회원정보가 수정되었습니다.");
+        }
+    }
+    
+    public void DeleteUser(){
+        result = immodel.delete_Info();
+        if(result == true){
+            JOptionPane.showMessageDialog(null, "회원탈퇴 완료되었습니다.");
         }
     }
 }

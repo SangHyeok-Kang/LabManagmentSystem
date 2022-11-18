@@ -6,6 +6,7 @@
 package view;
 
 import Controller.MemberManage_controller;
+import Controller.UseLab_controller;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.event.MouseEvent;
@@ -961,11 +962,11 @@ public class Student_Main extends javax.swing.JFrame {
 
             },
             new String [] {
-                "날짜", "강의실", "시작 시간", "종료 시간"
+                "날짜", "강의실", "시작 시간", "종료 시간", "예약 상태"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -979,6 +980,11 @@ public class Student_Main extends javax.swing.JFrame {
         S_INQUIRY_P.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 660, 300));
 
         DELETE_RE_BTN.setText("취소하기");
+        DELETE_RE_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DELETE_RE_BTNActionPerformed(evt);
+            }
+        });
         S_INQUIRY_P.add(DELETE_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 370, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
@@ -1170,6 +1176,8 @@ public class Student_Main extends javax.swing.JFrame {
         S_INQUIRY_P.setVisible(true);
         INPUT_TEAM.setVisible(false);
         // 컨트롤러에 있는 예약 조회 함수로 테이블 값 채우기
+        UseLab_controller ulcontroll = new UseLab_controller(this);
+        ulcontroll.showReser();
     }//GEN-LAST:event_S_MENU2MouseClicked
 
     private void S_MENU1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU1MouseClicked
@@ -1205,6 +1213,8 @@ public class Student_Main extends javax.swing.JFrame {
 
     private void INFO_DEL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INFO_DEL_BTNActionPerformed
         // 탈퇴하기 버튼 클릭
+        MemberManage_controller mc = new MemberManage_controller(this);
+        mc.DeleteUser();    
     }//GEN-LAST:event_INFO_DEL_BTNActionPerformed
 
     private void NOTICE_DEL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_DEL_BTNActionPerformed
@@ -1284,6 +1294,10 @@ public class Student_Main extends javax.swing.JFrame {
         MemberManage_controller mc = new MemberManage_controller(this);
         mc.ChangeInfo();
     }//GEN-LAST:event_INFO_CHANGE_BTNActionPerformed
+
+    private void DELETE_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE_RE_BTNActionPerformed
+        //예약 취소 버튼 선택 시
+    }//GEN-LAST:event_DELETE_RE_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
