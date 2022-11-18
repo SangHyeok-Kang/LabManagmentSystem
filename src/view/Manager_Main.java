@@ -53,6 +53,30 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_SPECIAL_LAB = new javax.swing.ButtonGroup();
         USING_NOW_LAB = new javax.swing.ButtonGroup();
         SEMESTER_GROUP = new javax.swing.ButtonGroup();
+        NOTICE_INFO = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jSeparator12 = new javax.swing.JSeparator();
+        jLabel30 = new javax.swing.JLabel();
+        NOTICE_WRITER_L = new javax.swing.JLabel();
+        NOTICE_NYM_L = new javax.swing.JLabel();
+        TITLE_F = new javax.swing.JTextField();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TEXT_F = new javax.swing.JTextArea();
+        jButton3 = new javax.swing.JButton();
+        INPUT_NOTICE_BTN = new javax.swing.JButton();
+        CHANGE_NOTICE_BTN = new javax.swing.JButton();
+        INQUIRY_DIALOG = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        INQUIRY_TITLE_F = new javax.swing.JTextField();
+        jSeparator13 = new javax.swing.JSeparator();
+        jLabel41 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        INQUIRY_TEXT_F = new javax.swing.JTextArea();
+        jButton5 = new javax.swing.JButton();
         UNDER_P = new javax.swing.JPanel();
         MAIN_P = new javax.swing.JPanel();
         M_MENU_P = new javax.swing.JPanel();
@@ -142,6 +166,7 @@ public class Manager_Main extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         APPROVAL_ALL_BTN = new javax.swing.JButton();
         APPROVAL_BTN = new javax.swing.JButton();
+        TO_GIVE = new javax.swing.JButton();
         USING_HISTORY_P = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -180,11 +205,141 @@ public class Manager_Main extends javax.swing.JFrame {
         WRITE = new javax.swing.JLabel();
         CHANGE = new javax.swing.JLabel();
         DELETE = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         TITLE_P = new javax.swing.JPanel();
         TITLE = new javax.swing.JLabel();
         LOGOUT = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         SNAME = new javax.swing.JLabel();
+
+        NOTICE_INFO.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        NOTICE_INFO.setTitle("공지 사항");
+        NOTICE_INFO.setBackground(new java.awt.Color(255, 255, 255));
+        NOTICE_INFO.setLocation(new java.awt.Point(100, 100));
+        NOTICE_INFO.setModal(true);
+        NOTICE_INFO.setResizable(false);
+        NOTICE_INFO.setSize(new java.awt.Dimension(440, 490));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setPreferredSize(new java.awt.Dimension(440, 490));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel29.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("공지사항 등록");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 160, -1));
+
+        jSeparator12.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 120, 400, -1));
+
+        jLabel30.setText("작성자 : ");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+
+        NOTICE_WRITER_L.setText("관리자");
+        jPanel1.add(NOTICE_WRITER_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 60, 70, -1));
+
+        NOTICE_NYM_L.setText("번호");
+        jPanel1.add(NOTICE_NYM_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, -1));
+
+        TITLE_F.setToolTipText("TITLE");
+        jPanel1.add(TITLE_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 300, -1));
+
+        TEXT_F.setColumns(20);
+        TEXT_F.setRows(5);
+        jScrollPane5.setViewportView(TEXT_F);
+
+        jPanel1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 390, 240));
+
+        jButton3.setText("닫기");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, -1));
+
+        INPUT_NOTICE_BTN.setText("등록");
+        INPUT_NOTICE_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                INPUT_NOTICE_BTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(INPUT_NOTICE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
+
+        CHANGE_NOTICE_BTN.setText("수정");
+        CHANGE_NOTICE_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CHANGE_NOTICE_BTNActionPerformed(evt);
+            }
+        });
+        jPanel1.add(CHANGE_NOTICE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
+
+        javax.swing.GroupLayout NOTICE_INFOLayout = new javax.swing.GroupLayout(NOTICE_INFO.getContentPane());
+        NOTICE_INFO.getContentPane().setLayout(NOTICE_INFOLayout);
+        NOTICE_INFOLayout.setHorizontalGroup(
+            NOTICE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        NOTICE_INFOLayout.setVerticalGroup(
+            NOTICE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        INQUIRY_DIALOG.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        INQUIRY_DIALOG.setTitle("신고 및 문의 내역");
+        INQUIRY_DIALOG.setSize(new java.awt.Dimension(440, 490));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setPreferredSize(new java.awt.Dimension(440, 490));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel27.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
+        jLabel27.setText("신고 및 문의 내역");
+        jPanel2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        jLabel31.setText("작성자 : ");
+        jPanel2.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
+
+        jLabel40.setText("학번 넣기");
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, -1, -1));
+
+        INQUIRY_TITLE_F.setEditable(false);
+        jPanel2.add(INQUIRY_TITLE_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 330, -1));
+        jPanel2.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 132, 400, 10));
+
+        jLabel41.setText("번호");
+        jPanel2.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+
+        INQUIRY_TEXT_F.setEditable(false);
+        INQUIRY_TEXT_F.setColumns(20);
+        INQUIRY_TEXT_F.setRows(5);
+        jScrollPane6.setViewportView(INQUIRY_TEXT_F);
+
+        jPanel2.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 400, 250));
+
+        jButton5.setText("닫기");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+
+        javax.swing.GroupLayout INQUIRY_DIALOGLayout = new javax.swing.GroupLayout(INQUIRY_DIALOG.getContentPane());
+        INQUIRY_DIALOG.getContentPane().setLayout(INQUIRY_DIALOGLayout);
+        INQUIRY_DIALOGLayout.setHorizontalGroup(
+            INQUIRY_DIALOGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(INQUIRY_DIALOGLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        INQUIRY_DIALOGLayout.setVerticalGroup(
+            INQUIRY_DIALOGLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(INQUIRY_DIALOGLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("실습실 관리 시스템");
@@ -631,6 +786,8 @@ public class Manager_Main extends javax.swing.JFrame {
 
         APPROVAL_BTN.setText("승인하기");
 
+        TO_GIVE.setText("책임권한 부여");
+
         javax.swing.GroupLayout REQUEST_RESER_PLayout = new javax.swing.GroupLayout(REQUEST_RESER_P);
         REQUEST_RESER_P.setLayout(REQUEST_RESER_PLayout);
         REQUEST_RESER_PLayout.setHorizontalGroup(
@@ -642,8 +799,10 @@ public class Manager_Main extends javax.swing.JFrame {
             .addComponent(jScrollPane3)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, REQUEST_RESER_PLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TO_GIVE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(APPROVAL_BTN)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(APPROVAL_ALL_BTN)
                 .addGap(25, 25, 25))
         );
@@ -657,7 +816,8 @@ public class Manager_Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(REQUEST_RESER_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(APPROVAL_ALL_BTN)
-                    .addComponent(APPROVAL_BTN))
+                    .addComponent(APPROVAL_BTN)
+                    .addComponent(TO_GIVE))
                 .addGap(24, 24, 24))
         );
 
@@ -934,7 +1094,7 @@ public class Manager_Main extends javax.swing.JFrame {
         NOTICE_LIST.setShowGrid(true);
         jScrollPane1.setViewportView(NOTICE_LIST);
 
-        M_NOTICE_P.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 666, 370));
+        M_NOTICE_P.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 660, 300));
 
         NOTICE_TITLE.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         NOTICE_TITLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -967,6 +1127,14 @@ public class Manager_Main extends javax.swing.JFrame {
             }
         });
         M_NOTICE_P.add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
+
+        jButton4.setText("확인하기");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        M_NOTICE_P.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, -1, -1));
 
         MAIN_P.add(M_NOTICE_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 440));
 
@@ -1158,25 +1326,39 @@ public class Manager_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_DELETEMouseClicked
 
     private void CHANGEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CHANGEMouseClicked
-        // 글 수정 화면 띄우기(본인 글에 한해서)
-        
+        // 공지사항 수정 가능
+        INPUT_NOTICE_BTN.setVisible(false);
+        jLabel30.setVisible(false);
+        NOTICE_WRITER_L.setVisible(false);
+        NOTICE_NYM_L.setVisible(true);
+        CHANGE_NOTICE_BTN.setVisible(true);
+        NOTICE_INFO.setVisible(true);
     }//GEN-LAST:event_CHANGEMouseClicked
 
     private void WRITEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WRITEMouseClicked
         // 글 작성 화면 띄우기
-        ;
+        INPUT_NOTICE_BTN.setVisible(true);
+        jLabel30.setVisible(false);
+        NOTICE_WRITER_L.setVisible(false);
+        NOTICE_NYM_L.setVisible(false);
+        CHANGE_NOTICE_BTN.setVisible(false);
+        NOTICE_INFO.setVisible(true);
     }//GEN-LAST:event_WRITEMouseClicked
 
     private void Declaration_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Declaration_LMouseClicked
         // 메뉴에 신고 및 문의 클릭시 신고 및 문의 내용 출력
         // 컨트롤러에 있는 신고 및 문의사항 출력 함수 사용
         NOTICE_TITLE.setText("신고 및 문의");
+        WRITE.setVisible(false);
+        CHANGE.setVisible(false);
     }//GEN-LAST:event_Declaration_LMouseClicked
 
     private void NOTICE_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NOTICE_LMouseClicked
         // 메뉴에 공지사항 클릭시 공지사항 내용 출력
         // 컨트롤러에 있는 공지사항 출력 함수 사용
         NOTICE_TITLE.setText("공지사항");
+        WRITE.setVisible(true);
+        CHANGE.setVisible(true);
     }//GEN-LAST:event_NOTICE_LMouseClicked
 
     private void REQUEST_RESERMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_REQUEST_RESERMouseClicked
@@ -1280,6 +1462,38 @@ public class Manager_Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_INPUT_SEMINAR_MONTHActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // 공지사항 닫기
+        NOTICE_INFO.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void INPUT_NOTICE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INPUT_NOTICE_BTNActionPerformed
+        // 공지사항 등록
+    }//GEN-LAST:event_INPUT_NOTICE_BTNActionPerformed
+
+    private void CHANGE_NOTICE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CHANGE_NOTICE_BTNActionPerformed
+        // 공지사항 수정
+    }//GEN-LAST:event_CHANGE_NOTICE_BTNActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // 게시물 확인하기
+        if(NOTICE_TITLE.getText().equals("공지사항")){
+            INPUT_NOTICE_BTN.setVisible(false);
+            jLabel30.setVisible(true);
+            NOTICE_WRITER_L.setVisible(true);
+            NOTICE_NYM_L.setVisible(true);
+            CHANGE_NOTICE_BTN.setVisible(false);
+            NOTICE_INFO.setVisible(true);
+        }else if(NOTICE_TITLE.getText().equals("신고 및 문의")){
+            INQUIRY_DIALOG.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // 신고 및 문의 사항 닫기
+        INQUIRY_DIALOG.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1350,6 +1564,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JButton APPROVAL_ALL_BTN;
     private javax.swing.JButton APPROVAL_BTN;
     private javax.swing.JLabel CHANGE;
+    private javax.swing.JButton CHANGE_NOTICE_BTN;
     private javax.swing.JRadioButton CLASS_LAB_911;
     public javax.swing.JRadioButton CLASS_LAB_915;
     public javax.swing.JRadioButton CLASS_LAB_916;
@@ -1370,6 +1585,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JPanel INPUT_CLASS_TIME_P;
     public javax.swing.JComboBox<String> INPUT_CLASS_YEAR;
     private javax.swing.JPanel INPUT_M_P;
+    private javax.swing.JButton INPUT_NOTICE_BTN;
     public javax.swing.JComboBox<String> INPUT_SEMINAR_DATE;
     public javax.swing.JComboBox<String> INPUT_SEMINAR_ETIME;
     public javax.swing.JTextField INPUT_SEMINAR_ID;
@@ -1382,6 +1598,9 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JPanel INPUT_SPECIAL_TIME_P;
     private javax.swing.JPanel INPUT_TIME_P;
     private javax.swing.JButton INPUT_TOKEN;
+    private javax.swing.JDialog INQUIRY_DIALOG;
+    public javax.swing.JTextArea INQUIRY_TEXT_F;
+    public javax.swing.JTextField INQUIRY_TITLE_F;
     private javax.swing.JLabel LOGOUT;
     private javax.swing.JPanel MAIN_P;
     private javax.swing.JPanel M_MENU1;
@@ -1390,10 +1609,13 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JPanel M_MENU4;
     private javax.swing.JPanel M_MENU_P;
     private javax.swing.JPanel M_NOTICE_P;
+    private javax.swing.JDialog NOTICE_INFO;
     private javax.swing.JLabel NOTICE_L;
     private javax.swing.JTable NOTICE_LIST;
     private javax.swing.JPanel NOTICE_M_P;
+    private javax.swing.JLabel NOTICE_NYM_L;
     private javax.swing.JLabel NOTICE_TITLE;
+    private javax.swing.JLabel NOTICE_WRITER_L;
     private javax.swing.JPanel NOW_USING_PANEL1;
     private javax.swing.JPanel NOW_USING_PANEL2;
     private javax.swing.JLabel REQUEST_RESER;
@@ -1417,9 +1639,12 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JPanel STU_M_P;
     private javax.swing.JLabel STU_TOKEN;
     private javax.swing.JPanel STU_TOKEN_P;
+    private javax.swing.JTextArea TEXT_F;
     private javax.swing.JLabel TITLE;
+    private javax.swing.JTextField TITLE_F;
     private javax.swing.JPanel TITLE_P;
     private javax.swing.JTextField TOKEN;
+    private javax.swing.JButton TO_GIVE;
     private javax.swing.JPanel UNDER_P;
     private javax.swing.JRadioButton USING_911;
     private javax.swing.JRadioButton USING_915;
@@ -1434,6 +1659,9 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1453,8 +1681,12 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -1464,18 +1696,26 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel40;
+    public javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator12;
+    private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
