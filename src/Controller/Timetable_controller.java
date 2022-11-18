@@ -19,8 +19,9 @@ import view.Manager_Main;
 public class Timetable_controller {
     private Manager_Main view;
     private Class_model model;
-    public Timetable_controller(){
-        this.view = new Manager_Main();
+    
+    public Timetable_controller(Manager_Main view){
+        this.view = view;
         this.model = new Class_model();
     }
 
@@ -81,14 +82,10 @@ public class Timetable_controller {
         Lecture l = new Lecture();
         String lab = "911";
         
+        
+        
         String stime = view.INPUT_SEMINAR_STIME.getSelectedItem().toString().substring(0,view.INPUT_SEMINAR_STIME.getSelectedItem().toString().indexOf(":"));
         String etime = view.INPUT_SEMINAR_ETIME.getSelectedItem().toString().substring(0,view.INPUT_SEMINAR_ETIME.getSelectedItem().toString().indexOf(":"));
-        
-        LocalDate date = LocalDate.of(Integer.parseInt(view.INPUT_SEMINAR_YEAR.getSelectedItem().toString()), Integer.parseInt(view.INPUT_SEMINAR_MONTH.getSelectedItem().toString()), Integer.parseInt(view.INPUT_SEMINAR_DATE.getSelectedItem().toString()));
-        DayOfWeek dayOfWeek = date.getDayOfWeek();
-        String day = dayOfWeek.getDisplayName(TextStyle.NARROW, Locale.KOREAN);
-        
-        String set_date = view.INPUT_SEMINAR_YEAR.getSelectedItem().toString() + "-" + view.INPUT_SEMINAR_MONTH.getSelectedItem().toString() + "-" + view.INPUT_SEMINAR_DATE.getSelectedItem().toString();
         
         if(view.SPECIAL_LAB_915.isSelected())
             lab = "915";
@@ -96,11 +93,16 @@ public class Timetable_controller {
             lab = "916";
         else if(view.SPECIAL_LAB_918.isSelected())
             lab = "918";
-        if(view.INPUT_SEMINAR_ID.getText().isEmpty() || view.INPUT_SEMINAR_NAME.getText().isEmpty()){
+        if(view.INPUT_SEMINAR_ID.getText().isEmpty() || view.INPUT_SEMINAR_NAME.getText().isEmpty() || view.SET_DATE_L.getText().equals("선택하기")){
             JOptionPane.showMessageDialog(null, "작성되지 않은 항목이 존재합니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         }else if(view.INPUT_SEMINAR_ID.getText().length() != 9){
             JOptionPane.showMessageDialog(null, "예약자 번호의 자릿 수를 확인하세요(9자리)", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         }else{
+            String [] str = view.SET_DATE_L.getText().split("-");
+            LocalDate date = LocalDate.of(Integer.parseInt(str[0]), Integer.parseInt(str[1]), Integer.parseInt(str[2]));
+            DayOfWeek dayOfWeek = date.getDayOfWeek();
+            String day = dayOfWeek.getDisplayName(TextStyle.NARROW, Locale.KOREAN);
+            String set_date = view.SET_DATE_L.getText();
             l.setName(view.INPUT_SEMINAR_ID.getText());
             l.setDay(day);
             l.setProf_id(view.INPUT_SEMINAR_NAME.getText());
