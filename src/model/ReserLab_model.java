@@ -17,11 +17,11 @@ public class ReserLab_model {
     //java.sql.Time current = java.sql.Time.valueOf(curtime); //LocalTime to java.sql.Time (형변환)
     LocalTime deadline = LocalTime.of(16, 30, 00); //예약 마감 시간 저장
     LocalDate curdate = LocalDate.now(); //현재 날짜 저장
-    String[][] lab_info = new String[100][5];
+    public String[][] lab_info = new String[100][5];
     boolean[] seat_info; //좌석 정보 배열
     int rand = (int) ((Math.random() * 300) + 100); //난수 생성
     int count = 0; //실습실 이용자수 저장받기 위한 변수
-    int number = 0; //2차원배열 위치를 위한 변수
+    public int number = 0; //2차원배열 위치를 위한 변수
     String SQL;
     private Connection con = null;
     private Statement st = null;
@@ -31,7 +31,7 @@ public class ReserLab_model {
     String user_id = log.session;
 
     //실습실 현재 사용현황 메소드
-    String[][] searchLab(int lab_num, List<Integer> num, String date) {
+    public String[][] searchLab(int lab_num, List<Integer> num, String date) {
         try {
             for (int i = 0; i < num.size(); i++) {
                 SQL = "SELECT * "
@@ -142,7 +142,7 @@ public class ReserLab_model {
     }
 
     //실습실 만석여부 확인 메소드
-    boolean isFull(int lab_num, List<Integer> num, String date) {
+    public boolean isFull(int lab_num, List<Integer> num, String date) {
         try {
             //예약 시작시간부터 한시간마다 체크하여 만석여부 확인
             for (int i = 0; i < num.size(); i++) {
