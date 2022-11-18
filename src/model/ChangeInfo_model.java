@@ -3,6 +3,7 @@ package model;
 import java.sql.*;
 import static model.DBConnection.dbconnection;
 import static model.UserSession.log;
+import model.facade.*;
 
 public class ChangeInfo_model {
 
@@ -13,7 +14,19 @@ public class ChangeInfo_model {
     String user_id = log.session;
     String name;
     public String[] Userinfo = new String[2];
+    Internal_Management facade;
 
+    public ChangeInfo_model(){
+        facade = new Internal_Management(new DeleteUserInfo(), 
+                                         new DeleteReserInfo(), 
+                                         new DeleteBoardInfo()
+                                         );
+    }
+    
+    public void deleteinfo(){
+        facade.delete_Info();
+    }
+    
     public String[] SearchUser() {
         Userinfo[0] = user_id;
         try {

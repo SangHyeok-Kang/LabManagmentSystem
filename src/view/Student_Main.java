@@ -18,8 +18,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author 20183150 김부성
- * 클래스 사용 용도 : 학생 화면 제작 클래스
+ * @author 20183150 김부성 클래스 사용 용도 : 학생 화면 제작 클래스
  */
 public class Student_Main extends javax.swing.JFrame {
 
@@ -31,8 +30,8 @@ public class Student_Main extends javax.swing.JFrame {
         panelClear();
         S_NOTICE_P.setVisible(true); //초기 메인 화면 출력
     }
-    
-    public void panelClear(){ // 모든 패널을 지우는 함수
+
+    public void panelClear() { // 모든 패널을 지우는 함수
         S_NOTICE_P.setVisible(false);
         NOTICE_INPUT_BTN.setVisible(false);
         NOTICE_CHANGE_BTN.setVisible(false);
@@ -41,19 +40,19 @@ public class Student_Main extends javax.swing.JFrame {
         S_INQUIRY_P.setVisible(false);
         S_RESERVATION_P.setVisible(false);
     }
-    
-    public String getChangeName(){ //변경할 이름
+
+    public String getChangeName() { //변경할 이름
         return CHANGE_NAME.getText();
     }
-    
-    public String getChangeEmail(){ //변경할 이메일
+
+    public String getChangeEmail() { //변경할 이메일
         return CHANGE_EMAIL.getText();
     }
-    
-    public String getChangePhone(){ //변경할 전화번호
+
+    public String getChangePhone() { //변경할 전화번호
         return CHANGE_PHONE.getText();
     }
-    
+
     public String getNowPw() { // 현재 비밀번호
         String nowpw = new String(NOW_PW.getPassword());
         return nowpw;
@@ -63,20 +62,21 @@ public class Student_Main extends javax.swing.JFrame {
         String changepw = new String(CHANGE_PW.getPassword());
         return changepw;
     }
-    
-    public String getLabNum(){ // 예약 강의실 선택 값 받아오는 함수
+
+    public String getLabNum() { // 예약 강의실 선택 값 받아오는 함수
         String lab = null;
-        if(LAB_915.isSelected())
+        if (LAB_915.isSelected()) {
             lab = LAB_915.getText();
-        else if(LAB_916.isSelected())
+        } else if (LAB_916.isSelected()) {
             lab = LAB_916.getText();
-        else if(LAB_918.isSelected())
+        } else if (LAB_918.isSelected()) {
             lab = LAB_918.getText();
-        else if(LAB_911.isSelected())
+        } else if (LAB_911.isSelected()) {
             lab = LAB_911.getText();
+        }
         return lab;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1066,56 +1066,56 @@ public class Student_Main extends javax.swing.JFrame {
 
     private void S_MENU4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU4MouseEntered
         // 메뉴 4번 마우스 호버시
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.GRAY);
         jLabel5.setForeground(Color.white);
     }//GEN-LAST:event_S_MENU4MouseEntered
 
     private void S_MENU4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU4MouseExited
         // 메뉴 4번 마우스 밖으로
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.white);
         jLabel5.setForeground(Color.black);
     }//GEN-LAST:event_S_MENU4MouseExited
 
     private void S_MENU3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU3MouseEntered
         // 메뉴 3번 마우스 호버시
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.GRAY);
         jLabel4.setForeground(Color.white);
     }//GEN-LAST:event_S_MENU3MouseEntered
 
     private void S_MENU3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU3MouseExited
         // 메뉴 3번 마우스 밖으로
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.white);
         jLabel4.setForeground(Color.black);
     }//GEN-LAST:event_S_MENU3MouseExited
 
     private void S_MENU2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU2MouseEntered
         // 메뉴 2번 마우스 호버시
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.GRAY);
         jLabel1.setForeground(Color.white);
     }//GEN-LAST:event_S_MENU2MouseEntered
 
     private void S_MENU2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU2MouseExited
         // 메뉴 2번 마우스 밖으로
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.white);
         jLabel1.setForeground(Color.black);
     }//GEN-LAST:event_S_MENU2MouseExited
 
     private void S_MENU1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU1MouseEntered
         // 메뉴 1번 마우스 호버시
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.GRAY);
         jLabel2.setForeground(Color.white);
     }//GEN-LAST:event_S_MENU1MouseEntered
 
     private void S_MENU1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU1MouseExited
         // 메뉴 1번 마우스 밖으로
-        JPanel p = (JPanel)evt.getSource();
+        JPanel p = (JPanel) evt.getSource();
         p.setBackground(Color.white);
         jLabel2.setForeground(Color.black);
     }//GEN-LAST:event_S_MENU1MouseExited
@@ -1213,8 +1213,11 @@ public class Student_Main extends javax.swing.JFrame {
 
     private void INFO_DEL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INFO_DEL_BTNActionPerformed
         // 탈퇴하기 버튼 클릭
+        Login l = new Login();
         MemberManage_controller mc = new MemberManage_controller(this);
-        mc.DeleteUser();    
+        mc.DeleteUser();
+        l.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_INFO_DEL_BTNActionPerformed
 
     private void NOTICE_DEL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_DEL_BTNActionPerformed
@@ -1234,9 +1237,9 @@ public class Student_Main extends javax.swing.JFrame {
 
     private void TEAM_CHECKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TEAM_CHECKActionPerformed
         // 실습실 예약 패널에서 조별 학습인지 체크하는 체크박스
-        if(TEAM_CHECK.isSelected()){ // 팀 학습을 선택할 시
+        if (TEAM_CHECK.isSelected()) { // 팀 학습을 선택할 시
             INPUT_TEAM.setVisible(true);
-        }else if(!TEAM_CHECK.isSelected()){ //팀 학습을 선택하지 않았을시
+        } else if (!TEAM_CHECK.isSelected()) { //팀 학습을 선택하지 않았을시
             INPUT_TEAM.setVisible(false);
         }
     }//GEN-LAST:event_TEAM_CHECKActionPerformed
@@ -1244,23 +1247,23 @@ public class Student_Main extends javax.swing.JFrame {
     private void SET_DATE_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SET_DATE_LMouseClicked
         // 날짜 선택하기 라벨 클릭 시간에 맞는 날짜 출력
         CALENDAR_P.setVisible(true);
-        
+
         Calendar getdate = Calendar.getInstance();
-        
+
         YEAR_L.setText(Integer.toString(getdate.get(Calendar.YEAR)));
-        MONTH_L.setText(Integer.toString(getdate.get(Calendar.MONTH)+1));
+        MONTH_L.setText(Integer.toString(getdate.get(Calendar.MONTH) + 1));
         DATE_P.setVisible(false);
         DATE_P.removeAll();
         DATE_P.setVisible(true);
         getCalendar();
-        
+
     }//GEN-LAST:event_SET_DATE_LMouseClicked
 
     private void LEFT_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LEFT_LMouseClicked
         // 달력 이전 달 클릭
-        int month = Integer.parseInt(MONTH_L.getText())-1;
-        if(month == 0){
-            YEAR_L.setText(Integer.toString(Integer.parseInt(YEAR_L.getText())-1));
+        int month = Integer.parseInt(MONTH_L.getText()) - 1;
+        if (month == 0) {
+            YEAR_L.setText(Integer.toString(Integer.parseInt(YEAR_L.getText()) - 1));
             month = 12;
         }
         MONTH_L.setText(Integer.toString(month));
@@ -1272,9 +1275,9 @@ public class Student_Main extends javax.swing.JFrame {
 
     private void RIGHT_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RIGHT_LMouseClicked
         // 달력 다음 달 클릭
-        int month = Integer.parseInt(MONTH_L.getText())+1;
-        if(month == 13){
-            YEAR_L.setText(Integer.toString(Integer.parseInt(YEAR_L.getText())+1));
+        int month = Integer.parseInt(MONTH_L.getText()) + 1;
+        if (month == 13) {
+            YEAR_L.setText(Integer.toString(Integer.parseInt(YEAR_L.getText()) + 1));
             month = 1;
         }
         MONTH_L.setText(Integer.toString(month));
@@ -1290,7 +1293,7 @@ public class Student_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void INFO_CHANGE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INFO_CHANGE_BTNActionPerformed
-         //회원정보 변경 버튼 선택시
+        //회원정보 변경 버튼 선택시
         MemberManage_controller mc = new MemberManage_controller(this);
         mc.ChangeInfo();
     }//GEN-LAST:event_INFO_CHANGE_BTNActionPerformed
@@ -1298,22 +1301,22 @@ public class Student_Main extends javax.swing.JFrame {
     private void DELETE_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE_RE_BTNActionPerformed
         //예약 취소 버튼 선택 시
     }//GEN-LAST:event_DELETE_RE_BTNActionPerformed
-    
-    public void getCalendar(){ // 달력을 받아오는 함수
+
+    public void getCalendar() { // 달력을 받아오는 함수
         JLabel day;
         Calendar getdate = Calendar.getInstance();
 
-        getdate.set(Integer.parseInt(YEAR_L.getText()), Integer.parseInt(MONTH_L.getText())-1, 1);
-        
+        getdate.set(Integer.parseInt(YEAR_L.getText()), Integer.parseInt(MONTH_L.getText()) - 1, 1);
+
         int firstday = getdate.get(Calendar.DAY_OF_WEEK);
         int lastday = getdate.getActualMaximum(Calendar.DAY_OF_MONTH);
-        
-        for(int i=0; i < firstday-1; i++){
-            DATE_P.add(new JLabel(" "),JLabel.CENTER);
+
+        for (int i = 0; i < firstday - 1; i++) {
+            DATE_P.add(new JLabel(" "), JLabel.CENTER);
         }
-        for(int i =  0 ; i <= lastday-1; i++) {
-            day = new JLabel(Integer.toString(i+1),JLabel.CENTER);
-            switch ((firstday+i)%7) {
+        for (int i = 0; i <= lastday - 1; i++) {
+            day = new JLabel(Integer.toString(i + 1), JLabel.CENTER);
+            switch ((firstday + i) % 7) {
                 case 0:
                     DATE_P.add(day).setForeground(Color.blue);
                     break;
@@ -1328,8 +1331,9 @@ public class Student_Main extends javax.swing.JFrame {
             day.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         }
     }
-    class MyMouseListener implements MouseListener{
-    
+
+    class MyMouseListener implements MouseListener {
+
         @Override
         public void mouseClicked(MouseEvent e) {
             JLabel l = (JLabel) e.getSource();
@@ -1339,12 +1343,12 @@ public class Student_Main extends javax.swing.JFrame {
 
         @Override
         public void mousePressed(MouseEvent e) {
-          
+
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-          
+
         }
 
         @Override
@@ -1353,11 +1357,11 @@ public class Student_Main extends javax.swing.JFrame {
 
         @Override
         public void mouseExited(MouseEvent e) {
-            
+
         }
 
     }
-    
+
     /**
      * @param args the command line arguments
      */

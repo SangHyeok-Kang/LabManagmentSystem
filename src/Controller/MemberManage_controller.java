@@ -10,12 +10,12 @@ import view.Login;
 import view.Student_Main;
 
 public class MemberManage_controller {
-    Internal_Management immodel;
+    ChangeInfo_model cimodel = new ChangeInfo_model();
     Login view;
     Student_Main sm_view;
     Signup_model model = new Signup_model();
     boolean result;
-
+    
     public MemberManage_controller(Login view) {
         this.view = view;
     }
@@ -82,9 +82,7 @@ public class MemberManage_controller {
     }
     
     public void DeleteUser(){
-        result = immodel.delete_Info();
-        if(result == true){
+        cimodel.deleteinfo();
             JOptionPane.showMessageDialog(null, "회원탈퇴 완료되었습니다.");
-        }
     }
 }
