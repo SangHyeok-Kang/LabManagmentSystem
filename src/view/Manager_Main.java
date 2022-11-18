@@ -805,7 +805,6 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_CLASS_DAY.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "월", "화", "수", "목", "금", "토", "일" }));
         INPUT_CLASS_TIME_P.add(INPUT_CLASS_DAY, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 100, -1));
 
-        CLASS_SELECT_DAY_BTN.setBackground(new java.awt.Color(255, 255, 255));
         CLASS_SELECT_DAY_BTN.setText("등록");
         CLASS_SELECT_DAY_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -880,7 +879,6 @@ public class Manager_Main extends javax.swing.JFrame {
         SPECIAL_LAB_918.setText("918호");
         INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, -1));
 
-        SPECIAL_SELECT_DAY_BTN.setBackground(new java.awt.Color(255, 255, 255));
         SPECIAL_SELECT_DAY_BTN.setText("등록");
         SPECIAL_SELECT_DAY_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1357,7 +1355,7 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JRadioButton SEMESTER1;
     private javax.swing.JRadioButton SEMESTER2;
     public javax.swing.ButtonGroup SEMESTER_GROUP;
-    private javax.swing.JLabel SNAME;
+    public javax.swing.JLabel SNAME;
     public javax.swing.JRadioButton SPECIAL_LAB_911;
     public javax.swing.JRadioButton SPECIAL_LAB_915;
     public javax.swing.JRadioButton SPECIAL_LAB_916;

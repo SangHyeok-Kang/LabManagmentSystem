@@ -5,6 +5,7 @@
  */
 package view;
 
+import Controller.MemberManage_controller;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.event.MouseEvent;
@@ -52,12 +53,14 @@ public class Student_Main extends javax.swing.JFrame {
         return CHANGE_PHONE.getText();
     }
     
-    public String getNowPw(){ // 현재 비밀번호
-        return Arrays.toString(NOW_PW.getPassword());
+    public String getNowPw() { // 현재 비밀번호
+        String nowpw = new String(NOW_PW.getPassword());
+        return nowpw;
     }
-    
-    public String getChangePw(){ //변경할 비밀번호
-        return Arrays.toString(CHANGE_PW.getPassword());
+
+    public String getChangePw() { //변경할 비밀번호
+        String changepw = new String(CHANGE_PW.getPassword());
+        return changepw;
     }
     
     public String getLabNum(){ // 예약 강의실 선택 값 받아오는 함수
@@ -464,6 +467,11 @@ public class Student_Main extends javax.swing.JFrame {
         S_MYPAGE_P.add(CHANGE_PW, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, 150, -1));
 
         INFO_CHANGE_BTN.setText("변경하기");
+        INFO_CHANGE_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                INFO_CHANGE_BTNActionPerformed(evt);
+            }
+        });
         S_MYPAGE_P.add(INFO_CHANGE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, -1, -1));
 
         INFO_DEL_BTN.setText("탈퇴하기");
@@ -1063,8 +1071,10 @@ public class Student_Main extends javax.swing.JFrame {
     private void S_MENU3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU3MouseClicked
         // 마이페이지 메뉴 선택 시
         panelClear();
-        S_MYPAGE_P.setVisible(true);
         // 현재 로그인 한 사용자의 정보를 채워준다.
+        MemberManage_controller mc = new MemberManage_controller(this);
+        mc.UserInfo();
+        S_MYPAGE_P.setVisible(true);
     }//GEN-LAST:event_S_MENU3MouseClicked
 
     private void S_MENU2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU2MouseClicked
@@ -1177,6 +1187,12 @@ public class Student_Main extends javax.swing.JFrame {
         DATE_P.setVisible(true);
         getCalendar();
     }//GEN-LAST:event_RIGHT_LMouseClicked
+
+    private void INFO_CHANGE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INFO_CHANGE_BTNActionPerformed
+        //회원정보 변경 버튼 선택시
+        MemberManage_controller mc = new MemberManage_controller(this);
+        mc.ChangeInfo();
+    }//GEN-LAST:event_INFO_CHANGE_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -1284,8 +1300,8 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JPanel CALENDAR_P;
     private javax.swing.JTextField CHANGE_EMAIL;
     private javax.swing.JButton CHANGE_INQUIRY_BTN;
-    private javax.swing.JTextField CHANGE_NAME;
-    private javax.swing.JTextField CHANGE_NUMBER;
+    public javax.swing.JTextField CHANGE_NAME;
+    public javax.swing.JTextField CHANGE_NUMBER;
     private javax.swing.JTextField CHANGE_PHONE;
     private javax.swing.JPasswordField CHANGE_PW;
     private javax.swing.JButton CHANGE_RE_BTN;
@@ -1325,7 +1341,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel RIGHT_L;
     private javax.swing.JPanel SELECT_RE_INFO;
     public javax.swing.JLabel SET_DATE_L;
-    private javax.swing.JLabel STU_NUM;
+    public javax.swing.JLabel STU_NUM;
     private javax.swing.JComboBox<String> STU_RESER_ETIME;
     private javax.swing.JComboBox<String> STU_RESER_STIME;
     private javax.swing.JPanel S_INQUIRY_P;
