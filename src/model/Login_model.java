@@ -11,13 +11,11 @@ public class Login_model {
     private Connection con = null;
     private Statement st = null;
     private ResultSet rs = null;
-    public String auth = null;
-    public String passw = null;
-    public String name;
     String SQL;
 
     public boolean isLogin(String user_id, String pass) { //로그인
-        
+        String auth = null;
+        String passw = null;
         char a = user_id.charAt(0);
 
         try {
@@ -28,16 +26,14 @@ public class Login_model {
                 if (rs.next()) {
                     auth = rs.getString("stu_num");
                     passw = rs.getString("pass");
-                    name = rs.getString("name");
                 }
             } else if (a == 'M' || a == 'P') {
-                SQL = "select * from manager where man_num = '" + user_id + "'";
+                SQL = "select * from manager where  = '" + user_id + "'";
                 st = dbconnection.getInstance().getConnection().createStatement();
                 rs = st.executeQuery(SQL);
                 if (rs.next()) {
                     auth = rs.getString("man_num");
                     passw = rs.getString("pass");
-                    name = rs.getString("name");
                 }
             }
 
@@ -56,7 +52,7 @@ public class Login_model {
             }
 
         } catch (SQLException e) {
-            System.out.println("데이터베이스 검색 error :"+e);
+            System.out.println("데이터베이스 검색 error :");
         }
         return false;
 
