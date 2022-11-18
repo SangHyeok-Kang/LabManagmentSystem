@@ -6,6 +6,7 @@
 package view;
 
 //import Controller.Timetable_controller;
+import Controller.MemberManage_controller;
 import Controller.Timetable_controller;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -35,13 +36,7 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_TIME_P.setVisible(false);
         RESERVATION_LIST_P.setVisible(false);
     }
-    public void setaddActionListener(ActionListener listener) {
-       APPROVAL_ALL_BTN.addActionListener(listener); // 일괄 승인 버튼 리스너
-       APPROVAL_BTN.addActionListener(listener); // 승인하기 버튼 리스너
-       SPECIAL_SELECT_DAY_BTN.addActionListener(listener);//특강 시간표 입력
-       CLASS_SELECT_DAY_BTN.addActionListener(listener);//강의 시간표 입력
-       INPUT_TOKEN.addActionListener(listener); // 새 토큰 생성
-    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1049,12 +1044,18 @@ public class Manager_Main extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel15.setText("토큰 관리");
 
+        TOKEN.setEditable(false);
         TOKEN.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
 
         jLabel20.setText("현재 토큰");
 
         INPUT_TOKEN.setFont(new java.awt.Font("굴림", 1, 14)); // NOI18N
         INPUT_TOKEN.setText("새 토큰 생성하기");
+        INPUT_TOKEN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                INPUT_TOKENActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout STU_TOKEN_PLayout = new javax.swing.GroupLayout(STU_TOKEN_P);
         STU_TOKEN_P.setLayout(STU_TOKEN_PLayout);
@@ -1451,7 +1452,7 @@ public class Manager_Main extends javax.swing.JFrame {
 
     private void STU_LISTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_STU_LISTMouseClicked
         // 학생 명단 관리 메뉴 밑 학생 명단 관리 메뉴 클릭시
-        //토큰관리 패널 false
+       STU_TOKEN_P.setVisible(false);
         STU_LIST_P.setVisible(true);
         // 컨트롤러에서 예약 신청 테이블 띄워주기
     }//GEN-LAST:event_STU_LISTMouseClicked
@@ -1473,6 +1474,8 @@ public class Manager_Main extends javax.swing.JFrame {
         // 학생 명단 관리 밑 토큰 관리
         STU_LIST_P.setVisible(false);
         STU_TOKEN_P.setVisible(true);
+        MemberManage_controller m = new MemberManage_controller(this);
+        m.getNowToken();
     }//GEN-LAST:event_STU_TOKENMouseClicked
 
     private void USING_NOWMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USING_NOWMouseClicked
@@ -1592,6 +1595,12 @@ public class Manager_Main extends javax.swing.JFrame {
         getCalendar();
     }//GEN-LAST:event_SET_DATE_LMouseClicked
 
+    private void INPUT_TOKENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INPUT_TOKENActionPerformed
+        // 새토큰 생성하기
+        MemberManage_controller m = new MemberManage_controller(this);
+        m.setNewToken();
+    }//GEN-LAST:event_INPUT_TOKENActionPerformed
+
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
         Calendar getdate = Calendar.getInstance();
@@ -1675,6 +1684,38 @@ public class Manager_Main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Manager_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1805,7 +1846,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel TITLE;
     private javax.swing.JTextField TITLE_F;
     private javax.swing.JPanel TITLE_P;
-    private javax.swing.JTextField TOKEN;
+    public javax.swing.JTextField TOKEN;
     private javax.swing.JButton TO_GIVE;
     private javax.swing.JPanel UNDER_P;
     private javax.swing.JRadioButton USING_911;

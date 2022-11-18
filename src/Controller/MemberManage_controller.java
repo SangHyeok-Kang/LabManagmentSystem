@@ -1,23 +1,28 @@
 package Controller;
 
-import java.util.Arrays;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.Signup_model;
 import model.ChangeInfo_model;
-import model.Internal_Management;
+import model.New_token_model;
 import view.Login;
+import view.Manager_Main;
 import view.Student_Main;
 
 public class MemberManage_controller {
     ChangeInfo_model cimodel = new ChangeInfo_model();
     Login view;
     Student_Main sm_view;
+    Manager_Main m_view;
     Signup_model model = new Signup_model();
+    New_token_model tmodel = new New_token_model();
     boolean result;
     
     public MemberManage_controller(Login view) {
         this.view = view;
+    }
+    
+    public MemberManage_controller(Manager_Main view) {
+        this.m_view = view;
     }
 
     public MemberManage_controller(Student_Main view) {
@@ -84,5 +89,17 @@ public class MemberManage_controller {
     public void DeleteUser(){
         cimodel.deleteinfo();
             JOptionPane.showMessageDialog(null, "회원탈퇴 완료되었습니다.");
+    }
+    
+    public void getNowToken(){
+        String token = tmodel.nowToken();
+        m_view.TOKEN.setText(token);
+    } 
+    
+    public void setNewToken(){
+        if(tmodel.newtoken())
+            getNowToken();
+        else
+            JOptionPane.showMessageDialog(null, "토큰 생성에 실패하였습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);   
     }
 }
