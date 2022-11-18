@@ -9,11 +9,14 @@ import Controller.MemberManage_controller;
 import Controller.ReserLab_controller;
 import Controller.UseLab_controller;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Label;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -893,10 +896,10 @@ public class Student_Main extends javax.swing.JFrame {
                 .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TEAM_SEAT3_F, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 180, 170));
+        SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 180, 190));
 
         SEARCH_CUR_BTN.setLabel("조회하기");
         SEARCH_CUR_BTN.addActionListener(new java.awt.event.ActionListener() {
@@ -921,18 +924,7 @@ public class Student_Main extends javax.swing.JFrame {
         SELECT_RE_INFO.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
 
         SEAT_P.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout SEAT_PLayout = new javax.swing.GroupLayout(SEAT_P);
-        SEAT_P.setLayout(SEAT_PLayout);
-        SEAT_PLayout.setHorizontalGroup(
-            SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
-        );
-        SEAT_PLayout.setVerticalGroup(
-            SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
-
+        SEAT_P.setLayout(new java.awt.GridLayout(5, 8, 10, 10));
         SELECT_RE_INFO.add(SEAT_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 380, 250));
 
         jLabel33.setText("예약 좌석");
@@ -1207,6 +1199,7 @@ public class Student_Main extends javax.swing.JFrame {
         CALENDAR_P.setVisible(false);
         SET_DATE_L.setText("선택하기");
         TEAM_CHECK.setSelected(false);
+        SEAT_P.setVisible(false);
     }//GEN-LAST:event_S_MENU1MouseClicked
 
     private void NOTICE_INQUIRY_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NOTICE_INQUIRY_LMouseClicked
@@ -1319,8 +1312,21 @@ public class Student_Main extends javax.swing.JFrame {
     private void SEARCH_CUR_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCH_CUR_BTNActionPerformed
         //조회하기 버튼 선택 시
         //날짜와 강의실 선택시 가능한 시간 출력
+        Font font = new Font("굴림", Font.BOLD, 15);
+        SEAT_P.removeAll();
         ReserLab_controller rc = new ReserLab_controller(this);
-        rc.SearchPossibleSeat();
+        ArrayList<Integer> list = rc.SearchPossibleSeat();
+        JLabel seat;
+        
+        for(int i = 0; i<40; i++){
+            seat = new JLabel(Integer.toString(i+1), JLabel.CENTER);
+            seat.setFont(font);
+            if(list.get(i) == 1)
+                SEAT_P.add(seat).setForeground(Color.GRAY);
+            else
+                SEAT_P.add(seat).setForeground(Color.BLACK);
+        }
+        SEAT_P.setVisible(true);
     }//GEN-LAST:event_SEARCH_CUR_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수

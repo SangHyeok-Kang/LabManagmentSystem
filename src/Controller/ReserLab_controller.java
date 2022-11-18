@@ -21,12 +21,16 @@ public class ReserLab_controller {
     }
 
     //예약 가능 좌석 조회
-    public List<Integer>  SearchPossibleSeat() {
+    public ArrayList<Integer>  SearchPossibleSeat() {
         String date = sm_view.SET_DATE_L.getText();
         int s_time = Integer.parseInt(sm_view.getStartTime());
         int e_time = Integer.parseInt(sm_view.getEndtime());
-        int lab_num = Integer.parseInt(sm_view.getLabNum());
-        List<Integer> seat = new ArrayList<Integer>();
+        int lab_num = Integer.parseInt(sm_view.getLabNum().substring(0, 3));
+        ArrayList<Integer> seat = new ArrayList<Integer>();
+        for(int i=0; i<40; i++){
+            seat.add(0);
+        }
+       
         for (int i = s_time; i <= e_time; i++) {
             num.add(i);
         }
@@ -36,10 +40,12 @@ public class ReserLab_controller {
                 JOptionPane.showMessageDialog(null, "현재 강의실의 예약 인원이 20명 이상입니다. 계속 예약 진행 하시겠습니까? 그렇지 않다면 다음 강의실로 이동해주세요.");
             }
         }
+        int number;
         model.searchLab(lab_num, num, date);
          for (int i = 0; i < model.number; i++) {
-            seat.add(Integer.parseInt(model.lab_info[i][1]));
-        }         
+            number = Integer.parseInt(model.lab_info[i][1]);
+            seat.set(i, 1);
+        }
          return seat;
     }
 

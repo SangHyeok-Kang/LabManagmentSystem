@@ -32,6 +32,7 @@ public class ReserLab_model {
 
     //실습실 현재 사용현황 메소드
     public String[][] searchLab(int lab_num, List<Integer> num, String date) {
+        DBConnection.getInstance().Initailize();
         try {
             for (int i = 0; i < num.size(); i++) {
                 SQL = "SELECT * "
