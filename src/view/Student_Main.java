@@ -149,7 +149,6 @@ public class Student_Main extends javax.swing.JFrame {
         S_NOTICE_M_P = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         NOTICE_L = new javax.swing.JLabel();
-        REPORT_L = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         NOTICE_INQUIRY_L = new javax.swing.JLabel();
@@ -561,16 +560,6 @@ public class Student_Main extends javax.swing.JFrame {
         });
         S_NOTICE_M_P.add(NOTICE_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 90, -1, -1));
 
-        REPORT_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
-        REPORT_L.setText("신고하기");
-        REPORT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        REPORT_L.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                REPORT_LMouseClicked(evt);
-            }
-        });
-        S_NOTICE_M_P.add(REPORT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 150, -1, -1));
-
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         S_NOTICE_M_P.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
@@ -579,14 +568,14 @@ public class Student_Main extends javax.swing.JFrame {
         S_NOTICE_M_P.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 10, 2, 420));
 
         NOTICE_INQUIRY_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
-        NOTICE_INQUIRY_L.setText("문의하기");
+        NOTICE_INQUIRY_L.setText("신고 및문의");
         NOTICE_INQUIRY_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NOTICE_INQUIRY_L.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NOTICE_INQUIRY_LMouseClicked(evt);
             }
         });
-        S_NOTICE_M_P.add(NOTICE_INQUIRY_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 120, -1, -1));
+        S_NOTICE_M_P.add(NOTICE_INQUIRY_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         S_NOTICE_P.add(S_NOTICE_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 436));
 
@@ -1154,15 +1143,6 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_TITLE.setText("공지사항");
     }//GEN-LAST:event_NOTICE_LMouseClicked
 
-    private void REPORT_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_REPORT_LMouseClicked
-        // 메뉴에 신고 및 문의 클릭시 신고 및 문의 내용 출력
-        // 컨트롤러에 있는 신고 및 문의사항 출력 함수 사용
-        NOTICE_INPUT_BTN.setVisible(true);
-        NOTICE_CHANGE_BTN.setVisible(true);
-        NOTICE_DEL_BTN.setVisible(true);
-        NOTICE_TITLE.setText("신고 및 문의");
-    }//GEN-LAST:event_REPORT_LMouseClicked
-
     private void S_MENU4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU4MouseClicked
         // 게시판 메뉴 선택시
         // 컨트롤러에 있는 공지사항 목록 출력 함수 사용
@@ -1207,7 +1187,7 @@ public class Student_Main extends javax.swing.JFrame {
     private void NOTICE_INQUIRY_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NOTICE_INQUIRY_LMouseClicked
         // 문의하기 클릭
         // 문의 내역 출력
-        NOTICE_TITLE.setText("문의하기");
+        NOTICE_TITLE.setText("신고 및 문의");
         NOTICE_INPUT_BTN.setVisible(true);
         NOTICE_CHANGE_BTN.setVisible(true);
         NOTICE_DEL_BTN.setVisible(true);
@@ -1234,7 +1214,6 @@ public class Student_Main extends javax.swing.JFrame {
     private void NOTICE_INPUT_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_INPUT_BTNActionPerformed
         // 문의사항 등록 버튼 클릭 시
         INQUIRY_DIALOG.setVisible(true);
-        INQUIRY_TITLE.setText("문의 등록");
         INPUT_INQUIRY_BTN.setVisible(true);
         CHANGE_INQUIRY_BTN.setVisible(false);
     }//GEN-LAST:event_NOTICE_INPUT_BTNActionPerformed
@@ -1458,7 +1437,6 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel NOTICE_TITLE;
     private javax.swing.JLabel NOTICE_WRITER_L;
     public javax.swing.JPasswordField NOW_PW;
-    private javax.swing.JLabel REPORT_L;
     public javax.swing.JRadioButton REPORT_RADIO;
     private javax.swing.JTable RESERVATION_TABLE;
     private javax.swing.JLabel RIGHT_L;

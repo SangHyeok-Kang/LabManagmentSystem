@@ -936,25 +936,6 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="REPORT_L">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="&#xad74;&#xb9bc;" size="16" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="&#xc2e0;&#xace0;&#xd558;&#xae30;"/>
-                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="&#xc190; &#xcee4;&#xc11c;"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="REPORT_LMouseClicked"/>
-                      </Events>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="43" y="150" width="-1" height="-1"/>
-                        </Constraint>
-                      </Constraints>
-                    </Component>
                     <Component class="javax.swing.JSeparator" name="jSeparator1">
                       <Properties>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -985,7 +966,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="&#xad74;&#xb9bc;" size="16" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="&#xbb38;&#xc758;&#xd558;&#xae30;"/>
+                        <Property name="text" type="java.lang.String" value="&#xc2e0;&#xace0; &#xbc0f;&#xbb38;&#xc758;"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                           <Color id="&#xc190; &#xcee4;&#xc11c;"/>
                         </Property>
@@ -995,7 +976,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="43" y="120" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="30" y="120" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
