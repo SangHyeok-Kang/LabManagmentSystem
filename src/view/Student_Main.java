@@ -884,7 +884,7 @@ public class Student_Main extends javax.swing.JFrame {
                 .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TEAM_SEAT3_F, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 180, 170));
@@ -1456,7 +1456,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel NOTICE_WRITER_L;
     public javax.swing.JPasswordField NOW_PW;
     public javax.swing.JRadioButton REPORT_RADIO;
-    private javax.swing.JTable RESERVATION_TABLE;
+    public javax.swing.JTable RESERVATION_TABLE;
     private javax.swing.JLabel RIGHT_L;
     public javax.swing.JTextField SEAT_F;
     private javax.swing.JPanel SEAT_P;
