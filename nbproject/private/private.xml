@@ -3,7 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tdkgu/OneDrive/바탕%20화면/LabManagmentSystem/src/model/ChangeInfo_model.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/Controller/ReserLab_controller.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/view/Manager_Main.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/model/Lecture.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/model/ChangeInfo_model.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/view/Student_Main.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/Controller/Timetable_controller.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/model/Login_model.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/model/ReserLab_model.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/view/Login.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/Controller/UseLab_controller.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/model/ReserList_model.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/Controller/MemberManage_controller.java</file>
+            <file>file:/C:/Users/User/Desktop/LabManagmentSystem/src/model/Internal_Management.java</file>
         </group>
     </open-files>
 </project-private>

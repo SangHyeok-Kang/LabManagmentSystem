@@ -97,8 +97,21 @@ public class Student_Main extends javax.swing.JFrame {
         EXIT_INQUIRY_BTN = new javax.swing.JButton();
         INPUT_INQUIRY_BTN = new javax.swing.JButton();
         CHANGE_INQUIRY_BTN = new javax.swing.JButton();
+        REPORT_RADIO = new javax.swing.JRadioButton();
+        INQUIRY_RADIO = new javax.swing.JRadioButton();
         NOTICE_INFO = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel29 = new javax.swing.JLabel();
+        NOTICE_WRITER_L = new javax.swing.JLabel();
+        NOTICE_NYM_L = new javax.swing.JLabel();
+        TITLE_F = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TEXT_F = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        INQUIRY_GROUP = new javax.swing.ButtonGroup();
         UNDER_P = new javax.swing.JPanel();
         MAIN_P = new javax.swing.JPanel();
         S_MENU_P = new javax.swing.JPanel();
@@ -136,7 +149,6 @@ public class Student_Main extends javax.swing.JFrame {
         S_NOTICE_M_P = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         NOTICE_L = new javax.swing.JLabel();
-        REPORT_L = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         NOTICE_INQUIRY_L = new javax.swing.JLabel();
@@ -189,11 +201,20 @@ public class Student_Main extends javax.swing.JFrame {
         jLabel74 = new javax.swing.JLabel();
         TEAM_3 = new javax.swing.JTextField();
         jLabel76 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        TEAM_SEAT1_F = new javax.swing.JTextField();
+        TEAM_SEAT2_F = new javax.swing.JTextField();
+        TEAM_SEAT3_F = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         STU_RESER_ETIME = new javax.swing.JComboBox<>();
         STU_RESER_STIME = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        SEAT_P = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        SEAT_F = new javax.swing.JTextField();
         S_INQUIRY_P = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -202,7 +223,6 @@ public class Student_Main extends javax.swing.JFrame {
         jSeparator11 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         RESERVATION_TABLE = new javax.swing.JTable();
-        CHANGE_RE_BTN = new javax.swing.JButton();
         DELETE_RE_BTN = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         TITLE_P = new javax.swing.JPanel();
@@ -225,22 +245,22 @@ public class Student_Main extends javax.swing.JFrame {
 
         INQUIRY_TITLE.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         INQUIRY_TITLE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        INQUIRY_TITLE.setText("문의 내용");
-        INQUIRY_P.add(INQUIRY_TITLE, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 20, 110, -1));
+        INQUIRY_TITLE.setText("등록하기");
+        INQUIRY_P.add(INQUIRY_TITLE, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 110, -1));
 
         jLabel42.setText("제목");
-        INQUIRY_P.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
-        INQUIRY_P.add(INPUT_INQUIRY_TITLE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 300, -1));
+        INQUIRY_P.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        INQUIRY_P.add(INPUT_INQUIRY_TITLE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 300, -1));
 
         jLabel43.setText("내용");
-        INQUIRY_P.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        INQUIRY_P.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         INPUT_INQUIRY_CONTENT1.setColumns(20);
         INPUT_INQUIRY_CONTENT1.setRows(5);
         INPUT_INQUIRY_CONTENT1.setTabSize(4);
         jScrollPane5.setViewportView(INPUT_INQUIRY_CONTENT1);
 
-        INQUIRY_P.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 300, 200));
+        INQUIRY_P.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 300, 200));
 
         EXIT_INQUIRY_BTN.setText("닫기");
         EXIT_INQUIRY_BTN.addActionListener(new java.awt.event.ActionListener() {
@@ -248,13 +268,23 @@ public class Student_Main extends javax.swing.JFrame {
                 EXIT_INQUIRY_BTNActionPerformed(evt);
             }
         });
-        INQUIRY_P.add(EXIT_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 60, -1));
+        INQUIRY_P.add(EXIT_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 60, -1));
 
         INPUT_INQUIRY_BTN.setText("등록");
-        INQUIRY_P.add(INPUT_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 60, -1));
+        INQUIRY_P.add(INPUT_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 60, -1));
 
         CHANGE_INQUIRY_BTN.setText("수정");
-        INQUIRY_P.add(CHANGE_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 60, -1));
+        INQUIRY_P.add(CHANGE_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 60, -1));
+
+        REPORT_RADIO.setBackground(new java.awt.Color(255, 255, 255));
+        INQUIRY_GROUP.add(REPORT_RADIO);
+        REPORT_RADIO.setText("신고");
+        INQUIRY_P.add(REPORT_RADIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+
+        INQUIRY_RADIO.setBackground(new java.awt.Color(255, 255, 255));
+        INQUIRY_GROUP.add(INQUIRY_RADIO);
+        INQUIRY_RADIO.setText("문의");
+        INQUIRY_P.add(INQUIRY_RADIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
 
         javax.swing.GroupLayout INQUIRY_DIALOGLayout = new javax.swing.GroupLayout(INQUIRY_DIALOG.getContentPane());
         INQUIRY_DIALOG.getContentPane().setLayout(INQUIRY_DIALOGLayout);
@@ -273,37 +303,60 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_INFO.setLocation(new java.awt.Point(100, 100));
         NOTICE_INFO.setModal(true);
         NOTICE_INFO.setResizable(false);
-        NOTICE_INFO.setSize(new java.awt.Dimension(400, 430));
+        NOTICE_INFO.setSize(new java.awt.Dimension(430, 450));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 430));
+        jPanel1.setPreferredSize(new java.awt.Dimension(430, 450));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
-        );
+        jLabel28.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("공지사항");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 110, -1));
+
+        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 120, 400, -1));
+
+        jLabel29.setText("작성자 : ");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+
+        NOTICE_WRITER_L.setText("관리자");
+        jPanel1.add(NOTICE_WRITER_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 60, 70, -1));
+
+        NOTICE_NYM_L.setText("번호");
+        jPanel1.add(NOTICE_NYM_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, -1));
+
+        TITLE_F.setEditable(false);
+        jPanel1.add(TITLE_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 300, -1));
+
+        TEXT_F.setEditable(false);
+        TEXT_F.setColumns(20);
+        TEXT_F.setRows(5);
+        jScrollPane3.setViewportView(TEXT_F);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 390, 240));
+
+        jButton2.setText("닫기");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, -1));
 
         javax.swing.GroupLayout NOTICE_INFOLayout = new javax.swing.GroupLayout(NOTICE_INFO.getContentPane());
         NOTICE_INFO.getContentPane().setLayout(NOTICE_INFOLayout);
         NOTICE_INFOLayout.setHorizontalGroup(
             NOTICE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NOTICE_INFOLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         NOTICE_INFOLayout.setVerticalGroup(
             NOTICE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NOTICE_INFOLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jTextField1.setText("jTextField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("실습실 관리 시스템");
@@ -507,16 +560,6 @@ public class Student_Main extends javax.swing.JFrame {
         });
         S_NOTICE_M_P.add(NOTICE_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 90, -1, -1));
 
-        REPORT_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
-        REPORT_L.setText("신고하기");
-        REPORT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        REPORT_L.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                REPORT_LMouseClicked(evt);
-            }
-        });
-        S_NOTICE_M_P.add(REPORT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 150, -1, -1));
-
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
         S_NOTICE_M_P.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 73, 110, 10));
 
@@ -525,14 +568,14 @@ public class Student_Main extends javax.swing.JFrame {
         S_NOTICE_M_P.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 10, 2, 420));
 
         NOTICE_INQUIRY_L.setFont(new java.awt.Font("굴림", 0, 16)); // NOI18N
-        NOTICE_INQUIRY_L.setText("문의하기");
+        NOTICE_INQUIRY_L.setText("신고 및문의");
         NOTICE_INQUIRY_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         NOTICE_INQUIRY_L.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NOTICE_INQUIRY_LMouseClicked(evt);
             }
         });
-        S_NOTICE_M_P.add(NOTICE_INQUIRY_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 120, -1, -1));
+        S_NOTICE_M_P.add(NOTICE_INQUIRY_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         S_NOTICE_P.add(S_NOTICE_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 436));
 
@@ -700,7 +743,7 @@ public class Student_Main extends javax.swing.JFrame {
         DATE_P.setLayout(new java.awt.GridLayout(0, 7, 17, 17));
         CALENDAR_P.add(DATE_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        SELECT_RE_INFO.add(CALENDAR_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 270, 270));
+        SELECT_RE_INFO.add(CALENDAR_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 270, 270));
 
         LAB_915.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(LAB_915);
@@ -764,6 +807,12 @@ public class Student_Main extends javax.swing.JFrame {
         jLabel76.setFont(new java.awt.Font("굴림", 0, 10)); // NOI18N
         jLabel76.setText("(학번만 작성해 주시기 바랍니다.)");
 
+        jLabel30.setText("좌석1");
+
+        jLabel31.setText("좌석3");
+
+        jLabel32.setText("좌석2");
+
         javax.swing.GroupLayout INPUT_TEAMLayout = new javax.swing.GroupLayout(INPUT_TEAM);
         INPUT_TEAM.setLayout(INPUT_TEAMLayout);
         INPUT_TEAMLayout.setHorizontalGroup(
@@ -771,60 +820,109 @@ public class Student_Main extends javax.swing.JFrame {
             .addGroup(INPUT_TEAMLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel74)
                     .addGroup(INPUT_TEAMLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel73))
-                    .addComponent(TEAM_2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(INPUT_TEAMLayout.createSequentialGroup()
-                        .addComponent(jLabel75)
-                        .addGap(0, 0, 0)
+                        .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel73))
+                            .addComponent(jLabel75))
+                        .addGap(282, 282, 282)
                         .addComponent(jLabel76))
-                    .addComponent(jLabel72)
-                    .addComponent(TEAM_1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                            .addComponent(jLabel74)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel31))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, INPUT_TEAMLayout.createSequentialGroup()
+                            .addComponent(jLabel72)
+                            .addGap(57, 57, 57)
+                            .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel32)
+                                .addComponent(jLabel30))))
+                    .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                        .addComponent(TEAM_1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TEAM_SEAT1_F, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                        .addComponent(TEAM_2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TEAM_SEAT2_F, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(INPUT_TEAMLayout.createSequentialGroup()
+                        .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TEAM_SEAT3_F, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         INPUT_TEAMLayout.setVerticalGroup(
             INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_TEAMLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
+            .addGroup(INPUT_TEAMLayout.createSequentialGroup()
                 .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel75)
                     .addComponent(jLabel76))
                 .addGap(5, 5, 5)
-                .addComponent(jLabel72)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel72)
+                    .addComponent(jLabel30))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEAM_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TEAM_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEAM_SEAT1_F, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel73)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel73)
+                    .addComponent(jLabel32))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEAM_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TEAM_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEAM_SEAT2_F, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel74)
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74)
+                    .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TEAM_SEAT3_F, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 180, 170));
+        SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 180, 170));
 
-        jButton1.setText("jButton1");
-        SELECT_RE_INFO.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, -1, -1));
+        jButton1.setText("예약하기");
+        SELECT_RE_INFO.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
 
         STU_RESER_ETIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", " " }));
-        SELECT_RE_INFO.add(STU_RESER_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 48, -1, -1));
+        SELECT_RE_INFO.add(STU_RESER_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         STU_RESER_STIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", " " }));
-        SELECT_RE_INFO.add(STU_RESER_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 48, -1, -1));
+        SELECT_RE_INFO.add(STU_RESER_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("굴림", 1, 15)); // NOI18N
         jLabel22.setText("시작");
-        SELECT_RE_INFO.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+        SELECT_RE_INFO.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("굴림", 1, 15)); // NOI18N
         jLabel27.setText("종료");
-        SELECT_RE_INFO.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
+        SELECT_RE_INFO.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+
+        SEAT_P.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout SEAT_PLayout = new javax.swing.GroupLayout(SEAT_P);
+        SEAT_P.setLayout(SEAT_PLayout);
+        SEAT_PLayout.setHorizontalGroup(
+            SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+        );
+        SEAT_PLayout.setVerticalGroup(
+            SEAT_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+
+        SELECT_RE_INFO.add(SEAT_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 380, 250));
+
+        jLabel33.setText("예약 좌석");
+        SELECT_RE_INFO.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
+        SELECT_RE_INFO.add(SEAT_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 80, -1));
 
         S_RESERVATION_P.add(SELECT_RE_INFO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 664, 360));
 
@@ -879,9 +977,6 @@ public class Student_Main extends javax.swing.JFrame {
         jScrollPane2.setViewportView(RESERVATION_TABLE);
 
         S_INQUIRY_P.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 660, 300));
-
-        CHANGE_RE_BTN.setText("수정하기");
-        S_INQUIRY_P.add(CHANGE_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
 
         DELETE_RE_BTN.setText("취소하기");
         S_INQUIRY_P.add(DELETE_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 370, -1, -1));
@@ -1048,15 +1143,6 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_TITLE.setText("공지사항");
     }//GEN-LAST:event_NOTICE_LMouseClicked
 
-    private void REPORT_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_REPORT_LMouseClicked
-        // 메뉴에 신고 및 문의 클릭시 신고 및 문의 내용 출력
-        // 컨트롤러에 있는 신고 및 문의사항 출력 함수 사용
-        NOTICE_INPUT_BTN.setVisible(true);
-        NOTICE_CHANGE_BTN.setVisible(true);
-        NOTICE_DEL_BTN.setVisible(true);
-        NOTICE_TITLE.setText("신고 및 문의");
-    }//GEN-LAST:event_REPORT_LMouseClicked
-
     private void S_MENU4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU4MouseClicked
         // 게시판 메뉴 선택시
         // 컨트롤러에 있는 공지사항 목록 출력 함수 사용
@@ -1075,6 +1161,7 @@ public class Student_Main extends javax.swing.JFrame {
         MemberManage_controller mc = new MemberManage_controller(this);
         mc.UserInfo();
         S_MYPAGE_P.setVisible(true);
+        // 현재 로그인 한 사용자의 정보를 채워준다.
     }//GEN-LAST:event_S_MENU3MouseClicked
 
     private void S_MENU2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU2MouseClicked
@@ -1100,7 +1187,7 @@ public class Student_Main extends javax.swing.JFrame {
     private void NOTICE_INQUIRY_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NOTICE_INQUIRY_LMouseClicked
         // 문의하기 클릭
         // 문의 내역 출력
-        NOTICE_TITLE.setText("문의하기");
+        NOTICE_TITLE.setText("신고 및 문의");
         NOTICE_INPUT_BTN.setVisible(true);
         NOTICE_CHANGE_BTN.setVisible(true);
         NOTICE_DEL_BTN.setVisible(true);
@@ -1127,7 +1214,6 @@ public class Student_Main extends javax.swing.JFrame {
     private void NOTICE_INPUT_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_INPUT_BTNActionPerformed
         // 문의사항 등록 버튼 클릭 시
         INQUIRY_DIALOG.setVisible(true);
-        INQUIRY_TITLE.setText("문의 등록");
         INPUT_INQUIRY_BTN.setVisible(true);
         CHANGE_INQUIRY_BTN.setVisible(false);
     }//GEN-LAST:event_NOTICE_INPUT_BTNActionPerformed
@@ -1188,15 +1274,19 @@ public class Student_Main extends javax.swing.JFrame {
         getCalendar();
     }//GEN-LAST:event_RIGHT_LMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // 공지사항 닫기
+        NOTICE_INFO.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void INFO_CHANGE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INFO_CHANGE_BTNActionPerformed
-        //회원정보 변경 버튼 선택시
+         //회원정보 변경 버튼 선택시
         MemberManage_controller mc = new MemberManage_controller(this);
         mc.ChangeInfo();
     }//GEN-LAST:event_INFO_CHANGE_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
-        String number;
         Calendar getdate = Calendar.getInstance();
 
         getdate.set(Integer.parseInt(YEAR_L.getText()), Integer.parseInt(MONTH_L.getText())-1, 1);
@@ -1287,6 +1377,14 @@ public class Student_Main extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1298,13 +1396,12 @@ public class Student_Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CALENDAR_P;
-    private javax.swing.JTextField CHANGE_EMAIL;
+    public javax.swing.JTextField CHANGE_EMAIL;
     private javax.swing.JButton CHANGE_INQUIRY_BTN;
     public javax.swing.JTextField CHANGE_NAME;
     public javax.swing.JTextField CHANGE_NUMBER;
-    private javax.swing.JTextField CHANGE_PHONE;
-    private javax.swing.JPasswordField CHANGE_PW;
-    private javax.swing.JButton CHANGE_RE_BTN;
+    public javax.swing.JTextField CHANGE_PHONE;
+    public javax.swing.JPasswordField CHANGE_PW;
     public javax.swing.JPanel DATE_P;
     private javax.swing.JButton DELETE_RE_BTN;
     private javax.swing.JButton EXIT_INQUIRY_BTN;
@@ -1315,8 +1412,10 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JTextField INPUT_INQUIRY_TITLE1;
     private javax.swing.JPanel INPUT_TEAM;
     private javax.swing.JDialog INQUIRY_DIALOG;
+    private javax.swing.ButtonGroup INQUIRY_GROUP;
     private javax.swing.JLabel INQUIRY_L;
     private javax.swing.JPanel INQUIRY_P;
+    private javax.swing.JRadioButton INQUIRY_RADIO;
     private javax.swing.JLabel INQUIRY_TITLE;
     private javax.swing.JRadioButton LAB_911;
     private javax.swing.JRadioButton LAB_915;
@@ -1334,11 +1433,15 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel NOTICE_INQUIRY_L;
     private javax.swing.JLabel NOTICE_L;
     private javax.swing.JTable NOTICE_LIST;
+    private javax.swing.JLabel NOTICE_NYM_L;
     private javax.swing.JLabel NOTICE_TITLE;
-    private javax.swing.JPasswordField NOW_PW;
-    private javax.swing.JLabel REPORT_L;
+    private javax.swing.JLabel NOTICE_WRITER_L;
+    public javax.swing.JPasswordField NOW_PW;
+    public javax.swing.JRadioButton REPORT_RADIO;
     private javax.swing.JTable RESERVATION_TABLE;
     private javax.swing.JLabel RIGHT_L;
+    public javax.swing.JTextField SEAT_F;
+    private javax.swing.JPanel SEAT_P;
     private javax.swing.JPanel SELECT_RE_INFO;
     public javax.swing.JLabel SET_DATE_L;
     public javax.swing.JLabel STU_NUM;
@@ -1360,12 +1463,18 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JTextField TEAM_2;
     private javax.swing.JTextField TEAM_3;
     private javax.swing.JCheckBox TEAM_CHECK;
+    public javax.swing.JTextField TEAM_SEAT1_F;
+    public javax.swing.JTextField TEAM_SEAT2_F;
+    private javax.swing.JTextField TEAM_SEAT3_F;
+    private javax.swing.JTextArea TEXT_F;
     private javax.swing.JLabel TITLE;
+    private javax.swing.JTextField TITLE_F;
     private javax.swing.JPanel TITLE_P;
     private javax.swing.JPanel UNDER_P;
     public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1386,7 +1495,13 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1411,6 +1526,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
@@ -1420,7 +1536,9 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
