@@ -99,6 +99,15 @@ public class Student_Main extends javax.swing.JFrame {
         CHANGE_INQUIRY_BTN = new javax.swing.JButton();
         NOTICE_INFO = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel29 = new javax.swing.JLabel();
+        NOTICE_WRITER_L = new javax.swing.JLabel();
+        NOTICE_NYM_L = new javax.swing.JLabel();
+        TITLE_F = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TEXT_F = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
         UNDER_P = new javax.swing.JPanel();
         MAIN_P = new javax.swing.JPanel();
         S_MENU_P = new javax.swing.JPanel();
@@ -155,21 +164,6 @@ public class Student_Main extends javax.swing.JFrame {
         jSeparator10 = new javax.swing.JSeparator();
         jLabel21 = new javax.swing.JLabel();
         SELECT_RE_INFO = new javax.swing.JPanel();
-        CALENDAR_P = new javax.swing.JPanel();
-        YEAR_L = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        MONTH_L = new javax.swing.JLabel();
-        RIGHT_L = new javax.swing.JLabel();
-        LEFT_L = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        DATE_P = new javax.swing.JPanel();
         LAB_915 = new javax.swing.JRadioButton();
         LAB_916 = new javax.swing.JRadioButton();
         LAB_918 = new javax.swing.JRadioButton();
@@ -194,6 +188,21 @@ public class Student_Main extends javax.swing.JFrame {
         STU_RESER_STIME = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        CALENDAR_P = new javax.swing.JPanel();
+        YEAR_L = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        MONTH_L = new javax.swing.JLabel();
+        RIGHT_L = new javax.swing.JLabel();
+        LEFT_L = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        DATE_P = new javax.swing.JPanel();
         S_INQUIRY_P = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -273,36 +282,57 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_INFO.setLocation(new java.awt.Point(100, 100));
         NOTICE_INFO.setModal(true);
         NOTICE_INFO.setResizable(false);
-        NOTICE_INFO.setSize(new java.awt.Dimension(400, 430));
+        NOTICE_INFO.setSize(new java.awt.Dimension(430, 450));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 430));
+        jPanel1.setPreferredSize(new java.awt.Dimension(430, 450));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
-        );
+        jLabel28.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("공지사항");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 110, -1));
+
+        jSeparator7.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 120, 400, -1));
+
+        jLabel29.setText("작성자 : ");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+
+        NOTICE_WRITER_L.setText("관리자");
+        jPanel1.add(NOTICE_WRITER_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 60, 70, -1));
+
+        NOTICE_NYM_L.setText("번호");
+        jPanel1.add(NOTICE_NYM_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, -1));
+
+        TITLE_F.setEditable(false);
+        jPanel1.add(TITLE_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 300, -1));
+
+        TEXT_F.setEditable(false);
+        TEXT_F.setColumns(20);
+        TEXT_F.setRows(5);
+        jScrollPane3.setViewportView(TEXT_F);
+
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 390, 240));
+
+        jButton2.setText("닫기");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, -1));
 
         javax.swing.GroupLayout NOTICE_INFOLayout = new javax.swing.GroupLayout(NOTICE_INFO.getContentPane());
         NOTICE_INFO.getContentPane().setLayout(NOTICE_INFOLayout);
         NOTICE_INFOLayout.setHorizontalGroup(
             NOTICE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NOTICE_INFOLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         NOTICE_INFOLayout.setVerticalGroup(
             NOTICE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NOTICE_INFOLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -640,68 +670,6 @@ public class Student_Main extends javax.swing.JFrame {
         SELECT_RE_INFO.setBackground(new java.awt.Color(255, 255, 255));
         SELECT_RE_INFO.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CALENDAR_P.setBackground(new java.awt.Color(245, 245, 245));
-        CALENDAR_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        CALENDAR_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        YEAR_L.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        YEAR_L.setText("2022");
-        CALENDAR_P.add(YEAR_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 30, -1));
-
-        jLabel23.setText("-");
-        CALENDAR_P.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 9, -1, -1));
-
-        MONTH_L.setText("11");
-        CALENDAR_P.add(MONTH_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
-
-        RIGHT_L.setText("▶");
-        RIGHT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        RIGHT_L.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RIGHT_LMouseClicked(evt);
-            }
-        });
-        CALENDAR_P.add(RIGHT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
-
-        LEFT_L.setText("◀");
-        LEFT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LEFT_L.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LEFT_LMouseClicked(evt);
-            }
-        });
-        CALENDAR_P.add(LEFT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
-
-        jLabel38.setText("월");
-        CALENDAR_P.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
-
-        jLabel39.setText("화");
-        CALENDAR_P.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
-
-        jLabel40.setText("수");
-        CALENDAR_P.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
-
-        jLabel41.setText("목");
-        CALENDAR_P.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
-
-        jLabel44.setText("금");
-        CALENDAR_P.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
-
-        jLabel45.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel45.setText("토");
-        CALENDAR_P.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
-
-        jLabel46.setForeground(java.awt.Color.red);
-        jLabel46.setText("일");
-        CALENDAR_P.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
-        CALENDAR_P.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 240, -1));
-
-        DATE_P.setBackground(new java.awt.Color(245, 245, 245));
-        DATE_P.setLayout(new java.awt.GridLayout(0, 7, 17, 17));
-        CALENDAR_P.add(DATE_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
-
-        SELECT_RE_INFO.add(CALENDAR_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 270, 270));
-
         LAB_915.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(LAB_915);
         LAB_915.setText("915호");
@@ -777,18 +745,16 @@ public class Student_Main extends javax.swing.JFrame {
                         .addGap(3, 3, 3)
                         .addComponent(jLabel73))
                     .addComponent(TEAM_2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(INPUT_TEAMLayout.createSequentialGroup()
-                        .addComponent(jLabel75)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel76))
+                    .addComponent(jLabel75)
                     .addComponent(jLabel72)
                     .addComponent(TEAM_1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(282, 282, 282)
+                .addComponent(jLabel76)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         INPUT_TEAMLayout.setVerticalGroup(
             INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, INPUT_TEAMLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
+            .addGroup(INPUT_TEAMLayout.createSequentialGroup()
                 .addGroup(INPUT_TEAMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel75)
                     .addComponent(jLabel76))
@@ -804,27 +770,89 @@ public class Student_Main extends javax.swing.JFrame {
                 .addComponent(jLabel74)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TEAM_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, 180, 170));
+        SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 180, 170));
 
         jButton1.setText("jButton1");
-        SELECT_RE_INFO.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, -1, -1));
+        SELECT_RE_INFO.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, -1, -1));
 
         STU_RESER_ETIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", " " }));
-        SELECT_RE_INFO.add(STU_RESER_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 48, -1, -1));
+        SELECT_RE_INFO.add(STU_RESER_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         STU_RESER_STIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", " " }));
-        SELECT_RE_INFO.add(STU_RESER_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 48, -1, -1));
+        SELECT_RE_INFO.add(STU_RESER_STIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("굴림", 1, 15)); // NOI18N
         jLabel22.setText("시작");
-        SELECT_RE_INFO.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+        SELECT_RE_INFO.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("굴림", 1, 15)); // NOI18N
         jLabel27.setText("종료");
-        SELECT_RE_INFO.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, -1, -1));
+        SELECT_RE_INFO.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+
+        CALENDAR_P.setBackground(new java.awt.Color(245, 245, 245));
+        CALENDAR_P.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CALENDAR_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        YEAR_L.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        YEAR_L.setText("2022");
+        CALENDAR_P.add(YEAR_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 30, -1));
+
+        jLabel23.setText("-");
+        CALENDAR_P.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 9, -1, -1));
+
+        MONTH_L.setText("11");
+        CALENDAR_P.add(MONTH_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        RIGHT_L.setText("▶");
+        RIGHT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        RIGHT_L.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RIGHT_LMouseClicked(evt);
+            }
+        });
+        CALENDAR_P.add(RIGHT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+
+        LEFT_L.setText("◀");
+        LEFT_L.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LEFT_L.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LEFT_LMouseClicked(evt);
+            }
+        });
+        CALENDAR_P.add(LEFT_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+
+        jLabel38.setText("월");
+        CALENDAR_P.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+
+        jLabel39.setText("화");
+        CALENDAR_P.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        jLabel40.setText("수");
+        CALENDAR_P.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+
+        jLabel41.setText("목");
+        CALENDAR_P.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
+
+        jLabel44.setText("금");
+        CALENDAR_P.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        jLabel45.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel45.setText("토");
+        CALENDAR_P.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+
+        jLabel46.setForeground(java.awt.Color.red);
+        jLabel46.setText("일");
+        CALENDAR_P.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        CALENDAR_P.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 240, -1));
+
+        DATE_P.setBackground(new java.awt.Color(245, 245, 245));
+        DATE_P.setLayout(new java.awt.GridLayout(0, 7, 17, 17));
+        CALENDAR_P.add(DATE_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        SELECT_RE_INFO.add(CALENDAR_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 270, 270));
 
         S_RESERVATION_P.add(SELECT_RE_INFO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 664, 360));
 
@@ -1075,6 +1103,7 @@ public class Student_Main extends javax.swing.JFrame {
         MemberManage_controller mc = new MemberManage_controller(this);
         mc.UserInfo();
         S_MYPAGE_P.setVisible(true);
+        // 현재 로그인 한 사용자의 정보를 채워준다.
     }//GEN-LAST:event_S_MENU3MouseClicked
 
     private void S_MENU2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU2MouseClicked
@@ -1188,15 +1217,19 @@ public class Student_Main extends javax.swing.JFrame {
         getCalendar();
     }//GEN-LAST:event_RIGHT_LMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // 공지사항 닫기
+        NOTICE_INFO.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void INFO_CHANGE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INFO_CHANGE_BTNActionPerformed
-        //회원정보 변경 버튼 선택시
+         //회원정보 변경 버튼 선택시
         MemberManage_controller mc = new MemberManage_controller(this);
         mc.ChangeInfo();
     }//GEN-LAST:event_INFO_CHANGE_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
-        String number;
         Calendar getdate = Calendar.getInstance();
 
         getdate.set(Integer.parseInt(YEAR_L.getText()), Integer.parseInt(MONTH_L.getText())-1, 1);
@@ -1287,6 +1320,14 @@ public class Student_Main extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1298,12 +1339,12 @@ public class Student_Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CALENDAR_P;
-    private javax.swing.JTextField CHANGE_EMAIL;
+    public javax.swing.JTextField CHANGE_EMAIL;
     private javax.swing.JButton CHANGE_INQUIRY_BTN;
     public javax.swing.JTextField CHANGE_NAME;
     public javax.swing.JTextField CHANGE_NUMBER;
-    private javax.swing.JTextField CHANGE_PHONE;
-    private javax.swing.JPasswordField CHANGE_PW;
+    public javax.swing.JTextField CHANGE_PHONE;
+    public javax.swing.JPasswordField CHANGE_PW;
     private javax.swing.JButton CHANGE_RE_BTN;
     public javax.swing.JPanel DATE_P;
     private javax.swing.JButton DELETE_RE_BTN;
@@ -1334,8 +1375,10 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel NOTICE_INQUIRY_L;
     private javax.swing.JLabel NOTICE_L;
     private javax.swing.JTable NOTICE_LIST;
+    private javax.swing.JLabel NOTICE_NYM_L;
     private javax.swing.JLabel NOTICE_TITLE;
-    private javax.swing.JPasswordField NOW_PW;
+    private javax.swing.JLabel NOTICE_WRITER_L;
+    public javax.swing.JPasswordField NOW_PW;
     private javax.swing.JLabel REPORT_L;
     private javax.swing.JTable RESERVATION_TABLE;
     private javax.swing.JLabel RIGHT_L;
@@ -1360,12 +1403,15 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JTextField TEAM_2;
     private javax.swing.JTextField TEAM_3;
     private javax.swing.JCheckBox TEAM_CHECK;
+    private javax.swing.JTextArea TEXT_F;
     private javax.swing.JLabel TITLE;
+    private javax.swing.JTextField TITLE_F;
     private javax.swing.JPanel TITLE_P;
     private javax.swing.JPanel UNDER_P;
     public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1386,6 +1432,8 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -1411,6 +1459,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
@@ -1420,6 +1469,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     // End of variables declaration//GEN-END:variables
