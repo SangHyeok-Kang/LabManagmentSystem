@@ -54,7 +54,7 @@ public class Class_model extends Lecture{
         } 
         return success;
     }
- 
+ /*
     public int deleteClass(Lecture l){ //강의 시간표 삭제를 위한 함수
         DBConnection.getInstance().Initailize();
         try {
@@ -83,7 +83,7 @@ public class Class_model extends Lecture{
             success = insertClass(new_l);
         return success;
     }
-    
+    */
     public boolean searchClass(Lecture l){ // 강의 찾기 함수
         DBConnection.getInstance().Initailize();
         boolean a = false;
@@ -199,11 +199,42 @@ public class Class_model extends Lecture{
         } 
         return a;
     }
-    /*
-    추후 원하는 분기별 전체 강의 출력 생길시
-    select * 
-    from class 
-    where year = date_format(now(),'%Y')
-    and semester;*/ 
+    
+    public boolean searchUser(String num){
+        DBConnection.getInstance().Initailize();
+        boolean a = false;
+        String table = null;
+        String search = null;
+        System.out.println(num);
+        if(num.charAt(0) == 'S'){
+            table = "student";
+            search = "stu_num";
+        }else if(num.charAt(0) == 'P' || num.charAt(0) == 'M'){
+            table = "manager";
+            search = "man_num";
+        }else
+            return a;
+        
+        try {
+            sql = "select * from "+ table + " where "+ search+"= '" +num+"'"; 
+            System.out.println(sql);
+            st = dbconnection.getInstance().getConnection().createStatement();
+            rs = st.executeQuery(sql);
+            if(rs.next()){
+                a = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("search SQL구문 오류 입니다." + ex.getMessage());
+        }finally{
+            try {
+                if(st!=null){st.close();}
+                if(con!=null){con.close();}
+            } catch (SQLException ex) {
+                Logger.getLogger(Class_model.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        
+        return a;
+    }
     
 }
