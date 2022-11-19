@@ -7,6 +7,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.ReserLab_model;
 import model.ReserList_model;
+import model.ReserSearch_model;
 import model.ReserState;
 import view.Manager_Main;
 import view.Student_Main;
@@ -17,6 +18,7 @@ public class ReserLab_controller {
     Manager_Main m_view;
     ReserLab_model model = new ReserLab_model();
     ReserList_model rlmodel = new ReserList_model();
+    ReserSearch_model rsmodel = new ReserSearch_model();
     String user;
     List<Integer> num = new ArrayList<Integer>();
 
@@ -177,11 +179,23 @@ public class ReserLab_controller {
 
     //퇴실 및 책임자 이전
     public void ExitLab() {
-        rlmodel.update_manager(rlmodel.user_id);        
+        rlmodel.update_manager(rlmodel.user_id);
         ReserState rs = new ReserState(resernum, "퇴실하기");
-        rs.updateState();       
+        rs.updateState();
         JOptionPane.showMessageDialog(null, "퇴실 완료되었습니다.");
-        
+
     }
-    
+
+    //예약연장
+    public void ExtendReser() {
+        resernum = sm_view.getTable();
+        rsmodel.PossibleExtend();
+        if ((Integer.parseInt(rsmodel.result[1]) - Integer.parseInt(rsmodel.result[0])) < 1) {
+            JOptionPane.showMessageDialog(null, "더 이상 연장하실 수 없습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        } else {
+            boolean result = rsmodel.extendReser(resernum);
+            JOptionPane.showMessageDialog(null, "1시간 더 연장 하였습니다.");
+        }
+    }
+
 }

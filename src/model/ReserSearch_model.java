@@ -23,6 +23,7 @@ public class ReserSearch_model {
     private ResultSet rs = null;
     public int number = 0;
     String posstime;
+    public String[] result = new String[2];
 
     //예약 정보 출력 메소드
     public String[][] reserlist() {
@@ -64,7 +65,7 @@ public class ReserSearch_model {
     }
 
     //예약 연장 가능 시간 조회
-    String PossibleExtend() {
+    public String[] PossibleExtend() {
         try {
             SQL = "select lab_num, seat_num, end_time, reser_date from reservation where stu_num = '" + user_id + "' and access = 'y'";
             st = dbconnection.getInstance().getConnection().createStatement();
@@ -74,7 +75,7 @@ public class ReserSearch_model {
                 seatnum = rs.getString("seat_num");
                 endtime = java.sql.Time.valueOf(rs.getString("end_time"));
                 reserdate = java.sql.Date.valueOf(rs.getString("reser_date"));
-
+                result[0] = rs.getString("end_time");
             }
             st.close();
             rs.close();
@@ -85,23 +86,30 @@ public class ReserSearch_model {
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(SQL);
             if (rs.next()) {
-                posstime = rs.getString("start_time");
+                result[1] = rs.getString("start_time");
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
 
-        return posstime;
+        return result;
     }
 
-    boolean extendReser(String reser_num, String end_time) {
-        endtime = java.sql.Time.valueOf(end_time);
+    public boolean extendReser(String reser_num) {
         try {
-            SQL = "update reservation set end_time = '" + endtime + "' where reser_num = '" + reser_num + "'";
+            SQL = "SELECT DATE_ADD(end_time, INTERVAL 1 HOUR) result from reservation WHERE RESER_NUM ='"+reser_num+"'";
+            st = dbconnection.getInstance().getConnection().createStatement();
+            rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                posstime = rs.getString("result");
+            }
+            rs.close();
+            st.close();
+            
+            SQL = "update reservation set end_time = '" + posstime + "' where reser_num = '" + reser_num + "'";
             con = dbconnection.getConnection();
             st = con.prepareStatement(SQL);
-            st.executeUpdate(SQL);
-            rs.close();
+            st.executeUpdate(SQL);;
             st.close();
 
             return true;

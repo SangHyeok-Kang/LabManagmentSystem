@@ -169,6 +169,7 @@ public class UseLab_controller {
             sm_view.checkin.setEnabled(true);
         }else if(reser_date.isEqual(curdate) && s_time.isBefore(curTime) && acc.equals("u")){
             sm_view.checkout.setEnabled(true);
+            sm_view.extendreser.setEnabled(true);
         }else if(reser_date.isAfter(curdate) || s_time.isAfter(curTime)){
             sm_view.DELETE_RE_BTN.setEnabled(true);
         }

@@ -278,6 +278,7 @@ public class Student_Main extends javax.swing.JFrame {
         checkin = new javax.swing.JButton();
         checkout = new javax.swing.JButton();
         DELETE_RE_BTN = new javax.swing.JButton();
+        extendreser = new javax.swing.JButton();
         TITLE_P = new javax.swing.JPanel();
         TITLE = new javax.swing.JLabel();
         LOGOUT = new javax.swing.JLabel();
@@ -1166,7 +1167,7 @@ public class Student_Main extends javax.swing.JFrame {
                 checkinActionPerformed(evt);
             }
         });
-        S_INQUIRY_P.add(checkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, -1, -1));
+        S_INQUIRY_P.add(checkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, -1, -1));
 
         checkout.setText("퇴실");
         checkout.setEnabled(false);
@@ -1175,7 +1176,7 @@ public class Student_Main extends javax.swing.JFrame {
                 checkoutActionPerformed(evt);
             }
         });
-        S_INQUIRY_P.add(checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, -1, -1));
+        S_INQUIRY_P.add(checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
 
         DELETE_RE_BTN.setText("예약 취소");
         DELETE_RE_BTN.setEnabled(false);
@@ -1184,7 +1185,16 @@ public class Student_Main extends javax.swing.JFrame {
                 DELETE_RE_BTNActionPerformed(evt);
             }
         });
-        S_INQUIRY_P.add(DELETE_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 370, -1, -1));
+        S_INQUIRY_P.add(DELETE_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
+
+        extendreser.setText("예약 연장");
+        extendreser.setEnabled(false);
+        extendreser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                extendreserActionPerformed(evt);
+            }
+        });
+        S_INQUIRY_P.add(extendreser, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 370, -1, -1));
 
         MAIN_P.add(S_INQUIRY_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 815, 436));
 
@@ -1585,6 +1595,12 @@ public class Student_Main extends javax.swing.JFrame {
         ReserLab_controller rc = new ReserLab_controller(this);
         rc.ExitLab();
     }//GEN-LAST:event_checkoutActionPerformed
+
+    private void extendreserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extendreserActionPerformed
+        // TODO add your handling code here:
+        ReserLab_controller rc = new ReserLab_controller(this);
+        rc.ExtendReser();
+    }//GEN-LAST:event_extendreserActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -1802,6 +1818,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     public javax.swing.JButton checkin;
     public javax.swing.JButton checkout;
+    public javax.swing.JButton extendreser;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
