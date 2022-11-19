@@ -8,14 +8,14 @@ import static model.DBConnection.dbconnection;
  * @author 클래스 사용 용도 : 관리자 실습실 사용 현황 조회
  */
 public class m_CurLab_model {
-    String[][] currentlab = new String[160][5];
+    public String[][] currentlab = new String[160][5];
     private Connection con = null;
     private Statement st = null;
     private ResultSet rs = null;
-    int number = 0;
+    public int number = 0;
     String SQL;
 
-    String[][] CurrentLab(int lab_num) {
+    public String[][] CurrentLab(String lab_num) {
         try {
                 SQL = "SELECT * "
                         + " from reservation "
