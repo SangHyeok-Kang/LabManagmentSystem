@@ -1732,16 +1732,16 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="SEARCH_CUR_BTN">
+                    <Component class="javax.swing.JButton" name="NEW_RE_BTN">
                       <Properties>
-                        <Property name="label" type="java.lang.String" value="&#xc870;&#xd68c;&#xd558;&#xae30;"/>
+                        <Property name="text" type="java.lang.String" value="&#xc608;&#xc57d;&#xd558;&#xae30;"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SEARCH_CUR_BTNActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NEW_RE_BTNActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="430" y="310" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="520" y="310" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1872,13 +1872,16 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton3">
+                    <Component class="javax.swing.JButton" name="SEARCH_CUR_BTN1">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="&#xc608;&#xc57d;&#xd558;&#xae30;"/>
+                        <Property name="label" type="java.lang.String" value="&#xc870;&#xd68c;&#xd558;&#xae30;"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SEARCH_CUR_BTN1ActionPerformed"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="520" y="310" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="430" y="310" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2168,7 +2171,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="640" y="100" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="630" y="100" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
