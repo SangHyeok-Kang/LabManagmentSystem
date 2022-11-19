@@ -4,11 +4,14 @@ package Controller;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.util.ArrayList;
 import java.util.Locale;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Class_model;
 import model.Lecture;
 import view.Manager_Main;
+import view.Student_Main;
 
 /*
 *
@@ -17,11 +20,16 @@ import view.Manager_Main;
 *
 */
 public class Timetable_controller {
+    Student_Main sview;
     private Manager_Main view;
     private Class_model model;
     
     public Timetable_controller(Manager_Main view){
         this.view = view;
+        this.model = new Class_model();
+    }
+    public Timetable_controller(Student_Main view){
+        this.sview = view;
         this.model = new Class_model();
     }
 
@@ -135,5 +143,51 @@ public class Timetable_controller {
                 JOptionPane.showMessageDialog(null, "해당 사용자가 존재하지 않습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
             }
         }
+    }
+    
+    public void setTimeTable(String lab){
+        ArrayList<Lecture> class_list = model.searchAllClass(lab);
+        ArrayList<Integer> time = new ArrayList<Integer>();
+        DefaultTableModel dfmodel = new DefaultTableModel();
+        dfmodel.addColumn("구분");
+        dfmodel.addColumn("일");
+        dfmodel.addColumn("월");
+        dfmodel.addColumn("화");
+        dfmodel.addColumn("수");
+        dfmodel.addColumn("목");
+        dfmodel.addColumn("금");
+        dfmodel.addColumn("토");
+        dfmodel.setRowCount(9);
+        
+        for(int i =0; i<9;i++){
+            dfmodel.setValueAt(i+1, i, 0);
+        }
+        for(int i=0; i<class_list.size();i++){
+            int day = 0;
+            
+            if(class_list.get(i).getDay().equals("일"))
+                day = 1;
+            else if(class_list.get(i).getDay().equals("월"))
+                day = 2;
+            else if(class_list.get(i).getDay().equals("화"))
+                day = 3;
+            else if(class_list.get(i).getDay().equals("수"))
+                day = 4;
+            else if(class_list.get(i).getDay().equals("목"))
+                day = 5;
+            else if(class_list.get(i).getDay().equals("금"))
+                day = 6;
+            else if(class_list.get(i).getDay().equals("토"))
+                day = 7;
+            int stime = Integer.parseInt(class_list.get(i).getStime().substring(0,class_list.get(i).getStime().indexOf(":")));
+            int etime = Integer.parseInt(class_list.get(i).getEtime().substring(0,class_list.get(i).getEtime().indexOf(":")));
+            for(int k= stime; k < etime; k++){
+                dfmodel.setValueAt(class_list.get(i).getName(), k-9, day);
+            }
+            
+                
+        }
+        sview.TIME_TABLE.setModel(dfmodel);
+        sview.STU_MAIN_P.setVisible(true);
     }
 }

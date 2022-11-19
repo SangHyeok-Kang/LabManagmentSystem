@@ -7,6 +7,7 @@ package model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static model.DBConnection.dbconnection;
@@ -17,7 +18,7 @@ import static model.DBConnection.dbconnection;
  * 클래스 사용 용도 : 강의 시간표 입력, 수정, 조회
  */
 
-public class Class_model extends Lecture{
+public class Class_model {
     
     private Connection con = null;
     private Statement st = null;
@@ -77,12 +78,6 @@ public class Class_model extends Lecture{
         return success;
     }
     
-    public int changeClass(Lecture old_l, Lecture new_l){ //강의 시간표 수정을 위한 함수
-        success = deleteClass(old_l);
-        if(success == 1)
-            success = insertClass(new_l);
-        return success;
-    }
     */
     public boolean searchClass(Lecture l){ // 강의 찾기 함수
         DBConnection.getInstance().Initailize();
@@ -111,27 +106,45 @@ public class Class_model extends Lecture{
         return a;
     }
     
-    public ArrayList<Lecture> searchAllClass(String year, String semester){ //전체 강의 출력
+    public ArrayList<Lecture> searchAllClass(String lab){ //전체 강의 출력
         ArrayList<Lecture> l = new ArrayList<Lecture>();
-        DBConnection.getInstance().Initailize();
-        boolean a= false;
-        int i=0;
+        String year = Integer.toString(Calendar.getInstance().get(Calendar.YEAR));
+        String semester;
+        int month = Calendar.getInstance().get(Calendar.MONTH)+1;
+        if(month>=1 && month<=6){
+            semester = "1";
+        }else
+            semester = "2";
         try {
-            sql = "select * from class";
+            sql = "select * from class where year='"+year+"' and semester ='"+semester+"'"+"and lab_num='"+lab+"'";
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(sql);
             while(rs.next()){
-                l.get(i).setId(rs.getString(1));
-                l.get(i).setName(rs.getString(2));
-                l.get(i).setYear(rs.getString(3));
-                l.get(i).setSemester(rs.getString(4));
-                l.get(i).setDay(rs.getString(5));
-                l.get(i).setDivision(rs.getString(6));
-                l.get(i).setProf_id(rs.getString(7));
-                l.get(i).setLab_num(rs.getString(8));
-                l.get(i).setStime(rs.getString(9));
-                l.get(i).setEtime(rs.getString(10));
-                i++;
+                l.add(new Lecture(rs.getString(1),rs.getString(2),rs.getString(5),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10)));
+            }
+        } catch (SQLException ex) {
+            System.out.println("search SQL구문 오류 입니다." + ex.getMessage());
+        }finally{
+            try {
+                if(st!=null){st.close();}
+                if(con!=null){con.close();}
+            } catch (SQLException ex) {
+                Logger.getLogger(Class_model.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
+        
+        return l;
+    }
+    public ArrayList<Lecture> searchAllSeminar(){ //한 주의 강의 출력
+        ArrayList<Lecture> l = new ArrayList<Lecture>();
+        DBConnection.getInstance().Initailize();
+        int i=0;
+        try {
+            sql = "select * from ";
+            st = dbconnection.getInstance().getConnection().createStatement();
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+                l.add(new Lecture(rs.getString(1),rs.getString(3),rs.getString(5),rs.getString(2),rs.getString(4),rs.getString(6),rs.getString(7)));
             }
         } catch (SQLException ex) {
             System.out.println("search SQL구문 오류 입니다." + ex.getMessage());
