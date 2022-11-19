@@ -9,7 +9,6 @@ package view;
 import Controller.Board_controller;
 import Controller.MemberManage_controller;
 import Controller.Timetable_controller;
-import Controller.UseLab_controller;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -1176,9 +1175,8 @@ public class Manager_Main extends javax.swing.JFrame {
             }
         });
         NOTICE_LIST.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        NOTICE_LIST.setGridColor(new java.awt.Color(255, 255, 255));
+        NOTICE_LIST.setGridColor(new java.awt.Color(153, 153, 153));
         NOTICE_LIST.setPreferredSize(new java.awt.Dimension(660, 280));
-        NOTICE_LIST.setSelectionBackground(new java.awt.Color(0, 0, 0));
         NOTICE_LIST.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         NOTICE_LIST.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         NOTICE_LIST.setShowGrid(true);
@@ -1416,8 +1414,6 @@ public class Manager_Main extends javax.swing.JFrame {
         REQUEST_RESER_P.setVisible(true);
         
         // 컨트롤러에 있는 예약 조회 함수로 테이블 값 채우기
-        UseLab_controller uc = new UseLab_controller(this);
-        uc.to_m_showReser();
     }//GEN-LAST:event_M_MENU2MouseClicked
 
     private void M_MENU1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_M_MENU1MouseClicked
@@ -1480,8 +1476,6 @@ public class Manager_Main extends javax.swing.JFrame {
         REQUEST_RESER_P.setVisible(true);
         USING_NOW_P.setVisible(false);
         // 컨트롤러에서 예약 신청 테이블 띄워주기
-        UseLab_controller uc = new UseLab_controller(this);
-        uc.to_m_showReser();
     }//GEN-LAST:event_REQUEST_RESERMouseClicked
 
     private void USING_HISTORYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USING_HISTORYMouseClicked
@@ -1490,8 +1484,6 @@ public class Manager_Main extends javax.swing.JFrame {
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(false);
         // 컨트롤러에서 사용기록 테이블 띄워주기
-        UseLab_controller uc = new UseLab_controller(this);
-        uc.m_showReser();
     }//GEN-LAST:event_USING_HISTORYMouseClicked
 
     private void STU_LISTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_STU_LISTMouseClicked
@@ -1728,6 +1720,134 @@ public class Manager_Main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Manager_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
