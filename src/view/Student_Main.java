@@ -5,6 +5,7 @@
  */
 package view;
 
+import Controller.Board_controller;
 import Controller.MemberManage_controller;
 import Controller.ReserLab_controller;
 import Controller.UseLab_controller;
@@ -34,14 +35,12 @@ public class Student_Main extends javax.swing.JFrame {
     public Student_Main() {
         initComponents();
         panelClear();
-        S_NOTICE_P.setVisible(true); //초기 메인 화면 출력
+        //초기 메인 화면 시간표 출력
     }
     
     public void panelClear(){ // 모든 패널을 지우는 함수
         S_NOTICE_P.setVisible(false);
-        NOTICE_INPUT_BTN.setVisible(false);
-        NOTICE_CHANGE_BTN.setVisible(false);
-        NOTICE_DEL_BTN.setVisible(false);
+        //시간표 패널
         S_MYPAGE_P.setVisible(false);
         S_INQUIRY_P.setVisible(false);
         S_RESERVATION_P.setVisible(false);
@@ -132,6 +131,7 @@ public class Student_Main extends javax.swing.JFrame {
         CHANGE_INQUIRY_BTN = new javax.swing.JButton();
         REPORT_RADIO = new javax.swing.JRadioButton();
         INQUIRY_RADIO = new javax.swing.JRadioButton();
+        WRITER_L = new javax.swing.JLabel();
         NOTICE_INFO = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -143,6 +143,7 @@ public class Student_Main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         TEXT_F = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         INQUIRY_GROUP = new javax.swing.ButtonGroup();
         UNDER_P = new javax.swing.JPanel();
@@ -188,10 +189,10 @@ public class Student_Main extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         NOTICE_LIST = new javax.swing.JTable();
         NOTICE_TITLE = new javax.swing.JLabel();
-        NOTICE_CHECK_BTN = new javax.swing.JButton();
-        NOTICE_INPUT_BTN = new javax.swing.JButton();
-        NOTICE_CHANGE_BTN = new javax.swing.JButton();
-        NOTICE_DEL_BTN = new javax.swing.JButton();
+        WRITE = new javax.swing.JLabel();
+        CHANGE = new javax.swing.JLabel();
+        DELETE = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         S_RESERVATION_P = new javax.swing.JPanel();
         S_RESER_MENU_P = new javax.swing.JPanel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -305,6 +306,11 @@ public class Student_Main extends javax.swing.JFrame {
         INQUIRY_P.add(EXIT_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 60, -1));
 
         INPUT_INQUIRY_BTN.setText("등록");
+        INPUT_INQUIRY_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                INPUT_INQUIRY_BTNActionPerformed(evt);
+            }
+        });
         INQUIRY_P.add(INPUT_INQUIRY_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 60, -1));
 
         CHANGE_INQUIRY_BTN.setText("수정");
@@ -312,6 +318,7 @@ public class Student_Main extends javax.swing.JFrame {
 
         REPORT_RADIO.setBackground(new java.awt.Color(255, 255, 255));
         INQUIRY_GROUP.add(REPORT_RADIO);
+        REPORT_RADIO.setSelected(true);
         REPORT_RADIO.setText("신고");
         INQUIRY_P.add(REPORT_RADIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
 
@@ -319,6 +326,9 @@ public class Student_Main extends javax.swing.JFrame {
         INQUIRY_GROUP.add(INQUIRY_RADIO);
         INQUIRY_RADIO.setText("문의");
         INQUIRY_P.add(INQUIRY_RADIO, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+
+        WRITER_L.setText("jLabel35");
+        INQUIRY_P.add(WRITER_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
 
         javax.swing.GroupLayout INQUIRY_DIALOGLayout = new javax.swing.GroupLayout(INQUIRY_DIALOG.getContentPane());
         INQUIRY_DIALOG.getContentPane().setLayout(INQUIRY_DIALOGLayout);
@@ -336,12 +346,14 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_INFO.setBackground(new java.awt.Color(255, 255, 255));
         NOTICE_INFO.setLocation(new java.awt.Point(100, 100));
         NOTICE_INFO.setModal(true);
+        NOTICE_INFO.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        NOTICE_INFO.setPreferredSize(new java.awt.Dimension(442, 470));
         NOTICE_INFO.setResizable(false);
-        NOTICE_INFO.setSize(new java.awt.Dimension(430, 450));
+        NOTICE_INFO.setSize(new java.awt.Dimension(430, 470));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(430, 450));
+        jPanel1.setPreferredSize(new java.awt.Dimension(442, 470));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel28.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
@@ -357,9 +369,7 @@ public class Student_Main extends javax.swing.JFrame {
 
         NOTICE_WRITER_L.setText("관리자");
         jPanel1.add(NOTICE_WRITER_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 60, 70, -1));
-
-        NOTICE_NYM_L.setText("번호");
-        jPanel1.add(NOTICE_NYM_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 40, -1));
+        jPanel1.add(NOTICE_NYM_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 95, -1, -1));
 
         TITLE_F.setEditable(false);
         jPanel1.add(TITLE_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 300, -1));
@@ -379,6 +389,9 @@ public class Student_Main extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, -1, -1));
 
+        jLabel34.setText("no.");
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 95, -1, -1));
+
         javax.swing.GroupLayout NOTICE_INFOLayout = new javax.swing.GroupLayout(NOTICE_INFO.getContentPane());
         NOTICE_INFO.getContentPane().setLayout(NOTICE_INFOLayout);
         NOTICE_INFOLayout.setHorizontalGroup(
@@ -394,6 +407,7 @@ public class Student_Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("실습실 관리 시스템");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         UNDER_P.setMinimumSize(new java.awt.Dimension(814, 590));
@@ -615,7 +629,7 @@ public class Student_Main extends javax.swing.JFrame {
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(454, 0));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(454, 300));
 
         NOTICE_LIST.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -637,12 +651,14 @@ public class Student_Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        NOTICE_LIST.setGridColor(new java.awt.Color(255, 255, 255));
-        NOTICE_LIST.setPreferredSize(new java.awt.Dimension(660, 0));
-        NOTICE_LIST.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        NOTICE_LIST.setGridColor(new java.awt.Color(153, 153, 153));
+        NOTICE_LIST.setPreferredSize(new java.awt.Dimension(660, 290));
         NOTICE_LIST.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         NOTICE_LIST.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         NOTICE_LIST.setShowGrid(true);
+        NOTICE_LIST.setShowVerticalLines(false);
+        NOTICE_LIST.getTableHeader().setResizingAllowed(false);
+        NOTICE_LIST.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(NOTICE_LIST);
 
         S_NOTICE_P.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 660, 300));
@@ -652,37 +668,40 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_TITLE.setText("공지사항");
         S_NOTICE_P.add(NOTICE_TITLE, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 30, 160, -1));
 
-        NOTICE_CHECK_BTN.setText("확인");
-        NOTICE_CHECK_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NOTICE_CHECK_BTNActionPerformed(evt);
+        WRITE.setText("글쓰기");
+        WRITE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        WRITE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WRITEMouseClicked(evt);
             }
         });
-        S_NOTICE_P.add(NOTICE_CHECK_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 25, -1, -1));
+        S_NOTICE_P.add(WRITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
 
-        NOTICE_INPUT_BTN.setText("등록");
-        NOTICE_INPUT_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NOTICE_INPUT_BTNActionPerformed(evt);
+        CHANGE.setText("수정");
+        CHANGE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CHANGE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CHANGEMouseClicked(evt);
             }
         });
-        S_NOTICE_P.add(NOTICE_INPUT_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, -1, -1));
+        S_NOTICE_P.add(CHANGE, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
 
-        NOTICE_CHANGE_BTN.setText("수정");
-        NOTICE_CHANGE_BTN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NOTICE_CHANGE_BTNActionPerformed(evt);
+        DELETE.setText("삭제");
+        DELETE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        DELETE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DELETEMouseClicked(evt);
             }
         });
-        S_NOTICE_P.add(NOTICE_CHANGE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 370, -1, -1));
+        S_NOTICE_P.add(DELETE, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, -1, -1));
 
-        NOTICE_DEL_BTN.setText("삭제");
-        NOTICE_DEL_BTN.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setText("확인하기");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NOTICE_DEL_BTNActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        S_NOTICE_P.add(NOTICE_DEL_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 370, -1, -1));
+        S_NOTICE_P.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, -1, -1));
 
         MAIN_P.add(S_NOTICE_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 815, 436));
 
@@ -1008,8 +1027,11 @@ public class Student_Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        RESERVATION_TABLE.setGridColor(new java.awt.Color(255, 255, 255));
         RESERVATION_TABLE.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         RESERVATION_TABLE.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        RESERVATION_TABLE.getTableHeader().setResizingAllowed(false);
+        RESERVATION_TABLE.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(RESERVATION_TABLE);
 
         S_INQUIRY_P.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 660, 300));
@@ -1085,11 +1107,7 @@ public class Student_Main extends javax.swing.JFrame {
 
     private void TITLEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TITLEMouseClicked
         //타이틀 클릭시 메인 패널로 이동
-        S_NOTICE_P.setVisible(true);
-        NOTICE_INPUT_BTN.setVisible(false);
-        NOTICE_CHANGE_BTN.setVisible(false);
-        NOTICE_DEL_BTN.setVisible(false);
-        NOTICE_TITLE.setText("공지사항");
+        //시간표 화면
     }//GEN-LAST:event_TITLEMouseClicked
 
     private void LOGOUTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LOGOUTMouseClicked
@@ -1178,10 +1196,12 @@ public class Student_Main extends javax.swing.JFrame {
     private void NOTICE_LMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NOTICE_LMouseClicked
         // 메뉴에 공지사항 클릭시 공지사항 내용 출력
         // 컨트롤러에 있는 공지사항 출력 함수 사용
-        NOTICE_INPUT_BTN.setVisible(false);
-        NOTICE_CHANGE_BTN.setVisible(false);
-        NOTICE_DEL_BTN.setVisible(false);
+        WRITE.setVisible(false);
+        CHANGE.setVisible(false);
+        DELETE.setVisible(false);
         NOTICE_TITLE.setText("공지사항");
+        Board_controller c = new Board_controller(this);
+        c.getSNotice();
     }//GEN-LAST:event_NOTICE_LMouseClicked
 
     private void S_MENU4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU4MouseClicked
@@ -1189,10 +1209,12 @@ public class Student_Main extends javax.swing.JFrame {
         // 컨트롤러에 있는 공지사항 목록 출력 함수 사용
         panelClear();
         S_NOTICE_P.setVisible(true);
-        NOTICE_INPUT_BTN.setVisible(false);
-        NOTICE_CHANGE_BTN.setVisible(false);
-        NOTICE_DEL_BTN.setVisible(false);
+        WRITE.setVisible(false);
+        CHANGE.setVisible(false);
+        DELETE.setVisible(false);
         NOTICE_TITLE.setText("공지사항");
+        Board_controller c = new Board_controller(this);
+        c.getSNotice();
     }//GEN-LAST:event_S_MENU4MouseClicked
 
     private void S_MENU3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_S_MENU3MouseClicked
@@ -1232,15 +1254,12 @@ public class Student_Main extends javax.swing.JFrame {
         // 문의하기 클릭
         // 문의 내역 출력
         NOTICE_TITLE.setText("신고 및 문의");
-        NOTICE_INPUT_BTN.setVisible(true);
-        NOTICE_CHANGE_BTN.setVisible(true);
-        NOTICE_DEL_BTN.setVisible(true);
+        WRITE.setVisible(true);
+        CHANGE.setVisible(true);
+        DELETE.setVisible(true);
+        Board_controller c = new Board_controller(this);
+        c.getSInquiry();
     }//GEN-LAST:event_NOTICE_INQUIRY_LMouseClicked
-
-    private void NOTICE_CHECK_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_CHECK_BTNActionPerformed
-        // 게시물 확인하기
-        NOTICE_INFO.setVisible(true);
-    }//GEN-LAST:event_NOTICE_CHECK_BTNActionPerformed
 
     private void EXIT_INQUIRY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EXIT_INQUIRY_BTNActionPerformed
         // 문의하기 다이어로그 닫기
@@ -1252,21 +1271,6 @@ public class Student_Main extends javax.swing.JFrame {
         MemberManage_controller mc = new MemberManage_controller(this);
         mc.DeleteUser();    
     }//GEN-LAST:event_INFO_DEL_BTNActionPerformed
-
-    private void NOTICE_DEL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_DEL_BTNActionPerformed
-        // 문의 삭제하기
-    }//GEN-LAST:event_NOTICE_DEL_BTNActionPerformed
-
-    private void NOTICE_INPUT_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_INPUT_BTNActionPerformed
-        // 문의사항 등록 버튼 클릭 시
-        INQUIRY_DIALOG.setVisible(true);
-        INPUT_INQUIRY_BTN.setVisible(true);
-        CHANGE_INQUIRY_BTN.setVisible(false);
-    }//GEN-LAST:event_NOTICE_INPUT_BTNActionPerformed
-
-    private void NOTICE_CHANGE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NOTICE_CHANGE_BTNActionPerformed
-        // 수정 버튼 시간 남으면 구현
-    }//GEN-LAST:event_NOTICE_CHANGE_BTNActionPerformed
 
     private void TEAM_CHECKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TEAM_CHECKActionPerformed
         // 실습실 예약 패널에서 조별 학습인지 체크하는 체크박스
@@ -1364,6 +1368,49 @@ public class Student_Main extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_SEARCH_CUR_BTN1ActionPerformed
+
+    private void WRITEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WRITEMouseClicked
+        // 신고 및 문의
+       INQUIRY_DIALOG.setVisible(true);
+       INPUT_INQUIRY_BTN.setVisible(true);
+       CHANGE_INQUIRY_BTN.setVisible(false);
+       REPORT_RADIO.setVisible(false);
+        INQUIRY_RADIO.setVisible(false);
+        WRITER_L.setVisible(false);
+        INPUT_INQUIRY_CONTENT1.setText("");
+       INPUT_INQUIRY_CONTENT1.setEditable(true);
+        INPUT_INQUIRY_TITLE1.setText("");
+         INPUT_INQUIRY_TITLE1.setEditable(true);
+    }//GEN-LAST:event_WRITEMouseClicked
+
+    private void CHANGEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CHANGEMouseClicked
+        // 자신이 작성한 글 수정
+       INQUIRY_DIALOG.setVisible(true);
+       INPUT_INQUIRY_BTN.setVisible(false);
+       CHANGE_INQUIRY_BTN.setVisible(true);
+    }//GEN-LAST:event_CHANGEMouseClicked
+
+    private void DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseClicked
+        //게시글 삭제하기
+        Board_controller c = new Board_controller(this);
+        c.removeStuInqu();
+    }//GEN-LAST:event_DELETEMouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // 게시물 확인하기
+        Board_controller c = new Board_controller(this);
+        if(NOTICE_TITLE.getText().equals("공지사항")){
+            c.setSNoticeInfo();
+        }else if(NOTICE_TITLE.getText().equals("신고 및 문의")){
+            c.setSInquiryInfo();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void INPUT_INQUIRY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INPUT_INQUIRY_BTNActionPerformed
+        // 신고 및 공지사항 등록
+        Board_controller c = new Board_controller(this);
+        c.setInquiry();
+    }//GEN-LAST:event_INPUT_INQUIRY_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -1466,6 +1513,22 @@ public class Student_Main extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1477,27 +1540,29 @@ public class Student_Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CALENDAR_P;
+    private javax.swing.JLabel CHANGE;
     public javax.swing.JTextField CHANGE_EMAIL;
-    private javax.swing.JButton CHANGE_INQUIRY_BTN;
+    public javax.swing.JButton CHANGE_INQUIRY_BTN;
     public javax.swing.JTextField CHANGE_NAME;
     public javax.swing.JTextField CHANGE_NUMBER;
     public javax.swing.JTextField CHANGE_PHONE;
     public javax.swing.JPasswordField CHANGE_PW;
     public javax.swing.JPanel DATE_P;
+    private javax.swing.JLabel DELETE;
     private javax.swing.JButton DELETE_RE_BTN;
     private javax.swing.JButton EXIT_INQUIRY_BTN;
     private javax.swing.JButton INFO_CHANGE_BTN;
     private javax.swing.JButton INFO_DEL_BTN;
-    private javax.swing.JButton INPUT_INQUIRY_BTN;
+    public javax.swing.JButton INPUT_INQUIRY_BTN;
     public javax.swing.JTextArea INPUT_INQUIRY_CONTENT1;
     public javax.swing.JTextField INPUT_INQUIRY_TITLE1;
     private javax.swing.JPanel INPUT_TEAM;
-    private javax.swing.JDialog INQUIRY_DIALOG;
+    public javax.swing.JDialog INQUIRY_DIALOG;
     private javax.swing.ButtonGroup INQUIRY_GROUP;
     private javax.swing.JLabel INQUIRY_L;
     private javax.swing.JPanel INQUIRY_P;
-    private javax.swing.JRadioButton INQUIRY_RADIO;
-    private javax.swing.JLabel INQUIRY_TITLE;
+    public javax.swing.JRadioButton INQUIRY_RADIO;
+    public javax.swing.JLabel INQUIRY_TITLE;
     private javax.swing.JRadioButton LAB_911;
     private javax.swing.JRadioButton LAB_915;
     private javax.swing.JRadioButton LAB_916;
@@ -1507,17 +1572,13 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JPanel MAIN_P;
     public javax.swing.JLabel MONTH_L;
     private javax.swing.JButton NEW_RE_BTN;
-    private javax.swing.JButton NOTICE_CHANGE_BTN;
-    private javax.swing.JButton NOTICE_CHECK_BTN;
-    private javax.swing.JButton NOTICE_DEL_BTN;
-    private javax.swing.JDialog NOTICE_INFO;
-    private javax.swing.JButton NOTICE_INPUT_BTN;
+    public javax.swing.JDialog NOTICE_INFO;
     private javax.swing.JLabel NOTICE_INQUIRY_L;
     private javax.swing.JLabel NOTICE_L;
-    private javax.swing.JTable NOTICE_LIST;
-    private javax.swing.JLabel NOTICE_NYM_L;
+    public javax.swing.JTable NOTICE_LIST;
+    public javax.swing.JLabel NOTICE_NYM_L;
     private javax.swing.JLabel NOTICE_TITLE;
-    private javax.swing.JLabel NOTICE_WRITER_L;
+    public javax.swing.JLabel NOTICE_WRITER_L;
     public javax.swing.JPasswordField NOW_PW;
     public javax.swing.JRadioButton REPORT_RADIO;
     public javax.swing.JTable RESERVATION_TABLE;
@@ -1549,14 +1610,17 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JTextField TEAM_SEAT1_F;
     public javax.swing.JTextField TEAM_SEAT2_F;
     private javax.swing.JTextField TEAM_SEAT3_F;
-    private javax.swing.JTextArea TEXT_F;
+    public javax.swing.JTextArea TEXT_F;
     private javax.swing.JLabel TITLE;
-    private javax.swing.JTextField TITLE_F;
+    public javax.swing.JTextField TITLE_F;
     private javax.swing.JPanel TITLE_P;
     private javax.swing.JPanel UNDER_P;
+    private javax.swing.JLabel WRITE;
+    public javax.swing.JLabel WRITER_L;
     public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1584,6 +1648,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
