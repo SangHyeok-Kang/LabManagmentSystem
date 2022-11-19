@@ -12,6 +12,7 @@ public class ReserLab_controller {
 
     Student_Main sm_view;
     ReserLab_model model = new ReserLab_model();
+    String user;
     List<Integer> num = new ArrayList<Integer>();
 
     //예약 정보 저장
@@ -54,14 +55,15 @@ public class ReserLab_controller {
         model.searchLab(lab_num, num, date);
         for (int i = 0; i < model.number; i++) {
             number = Integer.parseInt(model.lab_info[i][1]);
-            seat.set(i, 1);
+            seat.set(number, 1);
         }
         return seat;
     }
 
     //예약 입력 메소드   
     public void NewReser() {
-        String user = model.user_id;
+        user = model.user_id;
+        System.out.println(user + "3");
         //예약 시작시간 및 종료 시간 저장
         String day = sm_view.SET_DATE_L.getText();
         String s_time = sm_view.getStartTime();
@@ -88,9 +90,11 @@ public class ReserLab_controller {
                 JOptionPane.showMessageDialog(null, "입력한 시작 시간이 현재 시간보다 이전입니다. 다시 선택해 주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
             } else {
                 stu_num.add(user);
-                stu_num.add(team1stdno);
-                stu_num.add(team2stdno);
-                stu_num.add(team3stdno);
+                if (!team1stdno.isEmpty()) {
+                    stu_num.add(team1stdno);
+                    if(!team2stdno.isEmpty()) stu_num.add(team2stdno);
+                    if(!team3stdno.isEmpty()) stu_num.add(team3stdno);
+                }
                 for (int i = 0; i < 4; i++) {
                     lab_num[i] = labnum;
                     date[i] = java.sql.Date.valueOf(day);
@@ -102,7 +106,7 @@ public class ReserLab_controller {
                 seat_num[1] = team1seatnum;
                 seat_num[2] = team2seatnum;
                 seat_num[3] = team3seatnum;
-
+                System.out.println(stu_num.get(0));
                 String result = model.reservation(stu_num, lab_num, seat_num, date, start_time, end_time);
                 if (result.equals("nonstd")) {
                     JOptionPane.showMessageDialog(null, "회원가입 하지 않은 학생이 입력되었습니다. 다시 입력해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);

@@ -61,16 +61,18 @@ public class ReserLab_model {
     }
 
     //실습실 예약 정보 입력 메소드
-    public String reservation(List<String> stu_num, int[] lab_num, String[] seat_num, java.sql.Date[] date, java.sql.Time[] start_time, java.sql.Time[] end_time) {
+    public String reservation(List<String> stu_num, int[] lab_num, String[] seat_num, java.sql.Date[] date, java.sql.Time[] start_time, java.sql.Time[] end_time) {       
         try {
             for (int i = 0; i < stu_num.size(); i++) { //입력받은 학생의 크기만큼 반복
                 //입력받은 학생들이 student 테이블에 존재여부 확인
+                System.out.println(i+ " "+stu_num.get(i));
                 SQL = "select * from student where stu_num = '" + stu_num.get(i) + "'";
+                System.out.println(SQL);
                 st = dbconnection.getInstance().getConnection().createStatement();
                 rs = st.executeQuery(SQL);
                 if (rs.next()) {
                 } else {
-                    System.out.println(SQL);
+                    
                     System.out.println("회원가입 하지 않은 학생이 입력되었습니다. 다시 입력해주세요.");
                     return "nonstd";
                 }
