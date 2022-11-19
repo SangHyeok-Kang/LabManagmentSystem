@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.ReserLab_model;
+import model.ReserList_model;
 import model.ReserState;
 import view.Manager_Main;
 import view.Student_Main;
@@ -15,6 +16,7 @@ public class ReserLab_controller {
     Student_Main sm_view;
     Manager_Main m_view;
     ReserLab_model model = new ReserLab_model();
+    ReserList_model rlmodel = new ReserList_model();
     String user;
     List<Integer> num = new ArrayList<Integer>();
 
@@ -166,18 +168,20 @@ public class ReserLab_controller {
 
     //예약 취소 메소드
     public void CancelReser() {
-        resernum = m_view.getTable();
+        resernum = sm_view.getTable();
         ReserState rs = new ReserState(resernum, "취소하기");
         rs.updateState();
         JOptionPane.showMessageDialog(null, "예약 취소하였습니다.");
 
     }
 
-    //퇴실 메소드
+    //퇴실 및 책임자 이전
     public void ExitLab() {
-        resernum = null;
+        rlmodel.update_manager(rlmodel.user_id);        
         ReserState rs = new ReserState(resernum, "퇴실하기");
-        rs.updateState();
+        rs.updateState();       
         JOptionPane.showMessageDialog(null, "퇴실 완료되었습니다.");
+        
     }
+    
 }

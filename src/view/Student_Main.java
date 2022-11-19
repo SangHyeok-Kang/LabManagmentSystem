@@ -43,6 +43,11 @@ public class Student_Main extends javax.swing.JFrame {
         S_INQUIRY_P.setVisible(false);
         S_RESERVATION_P.setVisible(false);
     }
+    
+    public String getTable() {
+        return resertext.getText();
+    }
+
      public String getTeam1Seatnum(){
         return TEAM_SEAT1_F.getText();    
     }
@@ -266,8 +271,13 @@ public class Student_Main extends javax.swing.JFrame {
         jSeparator11 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         RESERVATION_TABLE = new javax.swing.JTable();
-        DELETE_RE_BTN = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        resertext = new javax.swing.JTextField();
+        setReser = new javax.swing.JButton();
+        checkin = new javax.swing.JButton();
+        checkout = new javax.swing.JButton();
+        DELETE_RE_BTN = new javax.swing.JButton();
         TITLE_P = new javax.swing.JPanel();
         TITLE = new javax.swing.JLabel();
         LOGOUT = new javax.swing.JLabel();
@@ -1133,17 +1143,48 @@ public class Student_Main extends javax.swing.JFrame {
 
         S_INQUIRY_P.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 56, 660, 300));
 
-        DELETE_RE_BTN.setText("취소하기");
+        jLabel18.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
+        jLabel18.setText("예약 내역 조회");
+        S_INQUIRY_P.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 30, -1, -1));
+
+        jLabel36.setText("예약 번호");
+        S_INQUIRY_P.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, 20));
+        S_INQUIRY_P.add(resertext, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 80, -1));
+
+        setReser.setText("선택");
+        setReser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                setReserActionPerformed(evt);
+            }
+        });
+        S_INQUIRY_P.add(setReser, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, -1, -1));
+
+        checkin.setText("입실");
+        checkin.setEnabled(false);
+        checkin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkinActionPerformed(evt);
+            }
+        });
+        S_INQUIRY_P.add(checkin, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, -1, -1));
+
+        checkout.setText("퇴실");
+        checkout.setEnabled(false);
+        checkout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkoutActionPerformed(evt);
+            }
+        });
+        S_INQUIRY_P.add(checkout, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 370, -1, -1));
+
+        DELETE_RE_BTN.setText("예약 취소");
+        DELETE_RE_BTN.setEnabled(false);
         DELETE_RE_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DELETE_RE_BTNActionPerformed(evt);
             }
         });
         S_INQUIRY_P.add(DELETE_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 370, -1, -1));
-
-        jLabel18.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
-        jLabel18.setText("예약 내역 조회");
-        S_INQUIRY_P.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 30, -1, -1));
 
         MAIN_P.add(S_INQUIRY_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 34, 815, 436));
 
@@ -1431,10 +1472,6 @@ public class Student_Main extends javax.swing.JFrame {
         mc.ChangeInfo();
     }//GEN-LAST:event_INFO_CHANGE_BTNActionPerformed
 
-    private void DELETE_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE_RE_BTNActionPerformed
-        //예약 취소 버튼 선택 시
-    }//GEN-LAST:event_DELETE_RE_BTNActionPerformed
-
     private void NEW_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEW_RE_BTNActionPerformed
         ReserLab_controller rl = new ReserLab_controller(this);
         rl.NewReser();
@@ -1524,6 +1561,30 @@ public class Student_Main extends javax.swing.JFrame {
         Timetable_controller t = new Timetable_controller(this);
         t.setTimeTable("911");
     }//GEN-LAST:event_CLASS_LAB_911ActionPerformed
+
+    private void setReserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setReserActionPerformed
+        // 예약번호 입력 후 선택 시.
+        UseLab_controller uc = new UseLab_controller(this);
+        uc.checkReser();
+    }//GEN-LAST:event_setReserActionPerformed
+
+    private void checkinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkinActionPerformed
+        // 입실 버튼 선택 시
+        ReserLab_controller rc = new ReserLab_controller(this);
+        rc.UseLab();
+    }//GEN-LAST:event_checkinActionPerformed
+
+    private void DELETE_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE_RE_BTNActionPerformed
+        //예약 취소 버튼 선택 시
+        ReserLab_controller rc = new ReserLab_controller(this);
+        rc.CancelReser();
+    }//GEN-LAST:event_DELETE_RE_BTNActionPerformed
+
+    private void checkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutActionPerformed
+        // 퇴실 버튼 선택 시
+        ReserLab_controller rc = new ReserLab_controller(this);
+        rc.ExitLab();
+    }//GEN-LAST:event_checkoutActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -1665,7 +1726,7 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JRadioButton CLASS_LAB_918;
     public javax.swing.JPanel DATE_P;
     private javax.swing.JLabel DELETE;
-    private javax.swing.JButton DELETE_RE_BTN;
+    public javax.swing.JButton DELETE_RE_BTN;
     private javax.swing.JButton EXIT_INQUIRY_BTN;
     private javax.swing.JButton INFO_CHANGE_BTN;
     private javax.swing.JButton INFO_DEL_BTN;
@@ -1739,6 +1800,8 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JLabel WRITER_L;
     public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.JButton checkin;
+    public javax.swing.JButton checkout;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -1770,6 +1833,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1810,5 +1874,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField resertext;
+    private javax.swing.JButton setReser;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,5 +1,8 @@
 package Controller;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.ReserList_model;
@@ -14,6 +17,10 @@ public class UseLab_controller {
     ReserSearch_model model = new ReserSearch_model();
     ReserList_model m_model = new ReserList_model();
     String reser_num;
+    LocalDate curdate = LocalDate.now(); //현재 날짜 저장
+    LocalTime curTime = LocalTime.now();
+    LocalDate reser_date;
+    LocalTime s_time;
 
     public UseLab_controller(Student_Main view) {
         this.sm_view = view;
@@ -151,4 +158,19 @@ public class UseLab_controller {
              JOptionPane.showMessageDialog(null, "실패.");
         }
     }
+    //예약 확인
+    public void checkReser(){
+        String resernum = sm_view.getTable();
+        model.reserlist(resernum);
+        reser_date = LocalDate.parse(model.reserinfo2[0], DateTimeFormatter.ISO_DATE);
+        s_time = LocalTime.parse(model.reserinfo2[1]);
+        String acc = model.reserinfo2[3];
+        if(reser_date.isEqual(curdate) && s_time.isBefore(curTime) && acc.equals("y")){
+            sm_view.checkin.setEnabled(true);
+        }else if(reser_date.isEqual(curdate) && s_time.isBefore(curTime) && acc.equals("u")){
+            sm_view.checkout.setEnabled(true);
+        }else if(reser_date.isAfter(curdate) || s_time.isAfter(curTime)){
+            sm_view.DELETE_RE_BTN.setEnabled(true);
+        }
+    }    
 }

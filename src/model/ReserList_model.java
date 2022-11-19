@@ -15,7 +15,7 @@ public class ReserList_model {
     public int number = 0;
     String SQL;
     String reser_num, name, start_time, end_time; //예약번호, 예약자, 예약 시작/종료시간
-    String user_id = log.session;
+    public String user_id = log.session;
     String labnum, stdno;
     private Connection con = null;
     private Statement st = null;
