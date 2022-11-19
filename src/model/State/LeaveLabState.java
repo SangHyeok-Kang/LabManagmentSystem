@@ -12,7 +12,11 @@ public class LeaveLabState implements State {
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
     
-    public void updateState(String reser_num){
+    public LeaveLabState(String resernum){
+        this.reser_num = resernum;
+    }
+    
+    public void updateState(){
         String access = "e";
         
         try {

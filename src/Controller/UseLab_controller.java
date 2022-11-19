@@ -32,7 +32,7 @@ public class UseLab_controller {
         dfmodel.addColumn("시작 시간");
         dfmodel.addColumn("종료 시간");
         dfmodel.addColumn("예약 상태");
-  
+
         for (int i = 0; i < model.number; i++) {
             if (model.reserinfo[i][5].equals("w")) {
                 model.reserinfo[i][5] = "승인 대기";
@@ -63,7 +63,7 @@ public class UseLab_controller {
         dfmodel.addColumn("이름");
         dfmodel.addColumn("강의실");
         dfmodel.addColumn("좌석");
-        dfmodel.addColumn("날짜");      
+        dfmodel.addColumn("날짜");
         dfmodel.addColumn("시작 시간");
         dfmodel.addColumn("종료 시간");
         dfmodel.addColumn("팀장");
@@ -74,8 +74,12 @@ public class UseLab_controller {
                 m_model.reserinfo[i][9] = "승인 대기";
             } else if (m_model.reserinfo[i][9].equals("y")) {
                 m_model.reserinfo[i][9] = "승인 완료";
-            } else if (m_model.reserinfo[i][9].equals("x")) {
+            } else if (m_model.reserinfo[i][9].equals("e")) {
                 m_model.reserinfo[i][9] = "사용 종료";
+            } else if (m_model.reserinfo[i][9].equals("x")) {
+                m_model.reserinfo[i][9] = "예약 취소";
+            } else if (m_model.reserinfo[i][9].equals("u")) {
+                m_model.reserinfo[i][9] = "사용중";
             }
             dfmodel.addRow(new Object[]{m_model.reserinfo[i][0],
                 m_model.reserinfo[i][1],
@@ -102,7 +106,7 @@ public class UseLab_controller {
         dfmodel.addColumn("이름");
         dfmodel.addColumn("강의실");
         dfmodel.addColumn("좌석");
-        dfmodel.addColumn("날짜");      
+        dfmodel.addColumn("날짜");
         dfmodel.addColumn("시작 시간");
         dfmodel.addColumn("종료 시간");
         dfmodel.addColumn("팀장");
@@ -114,6 +118,10 @@ public class UseLab_controller {
             } else if (m_model.reserinfo[i][9].equals("y")) {
                 m_model.reserinfo[i][9] = "승인 완료";
             } else if (m_model.reserinfo[i][9].equals("x")) {
+                m_model.reserinfo[i][9] = "예약 취소";
+            } else if (m_model.reserinfo[i][9].equals("u")) {
+                m_model.reserinfo[i][9] = "사용 중";
+            } else if (m_model.reserinfo[i][9].equals("e")) {
                 m_model.reserinfo[i][9] = "사용 종료";
             }
             dfmodel.addRow(new Object[]{m_model.reserinfo[i][0],

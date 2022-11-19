@@ -10,10 +10,14 @@ public class WaitAccessState implements State {
     private Connection con = null;
     private Statement st =  null;
     private ResultSet rs = null;
-     private PreparedStatement pstmt = null;
-    
-    public void updateState(String reser_num){
-         String access = "e";
+    private PreparedStatement pstmt = null;
+     
+    public WaitAccessState(String resernum){
+        this.reser_num = resernum;
+    }
+     
+    public void updateState(){
+         String access = "w";
         
         try {
             //예약 상태가 대기 되었을 때 대기 상태로 바꿔주는 SQL문

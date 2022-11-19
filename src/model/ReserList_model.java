@@ -27,7 +27,7 @@ public class ReserList_model {
         try {
             //DB로부터 예약 정보 불러오는 SQL문
             if (cat.equals("today")) {
-                SQL = "select * from reservation r join student s on r.stu_num = s.stu_num and r.reser_date = DATE_FORMAT(now(),'%Y-%m-%d');";
+                SQL = "select * from reservation r join student s on r.stu_num = s.stu_num and r.reser_date = DATE_FORMAT(now(),'%Y-%m-%d') and access = 'w';";
                 st = dbconnection.getInstance().getConnection().createStatement();
                 rs = st.executeQuery(SQL);
                 while (rs.next()) {
@@ -106,7 +106,7 @@ public class ReserList_model {
             rs.close();
             st.close();
 
-            SQL = "seelct stu_num, max(endtime) from reservation where lab_num = " + labnum + "and access = 'u'";
+            SQL = "selct stu_num, max(endtime) from reservation where lab_num = " + labnum + "and access = 'u'";
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(SQL);
             if (rs.next()) {
