@@ -11,13 +11,13 @@ public class LeaveLabState implements State {
     private Statement st =  null;
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
-    
+    String access = "e";
     public LeaveLabState(String resernum){
         this.reser_num = resernum;
     }
     
-    public void updateState(){
-        String access = "e";
+    public boolean updateState(){
+        
         
         try {
             //예약 상태가  ... 되었을 때 ... 상태로 바꿔주는 SQL문
@@ -30,8 +30,10 @@ public class LeaveLabState implements State {
 
             rs.close();
             st.close();
+            return true;
     } catch (SQLException e) {
         e.printStackTrace();
+        return false;
     }finally{
             try{
                 if(pstmt !=null)pstmt.close();

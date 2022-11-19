@@ -18,9 +18,8 @@ public class ReserState {
     State UseLabState;
     State state = WaitAccessState;
     
-    String resernum;
-    
     public ReserState(String reser, String butt_contents){
+        System.out.println(reser);
         CancelReserState = new CancelReserState(reser);
         AcceptAccessState = new AcceptAccessState(reser);
         LeaveLabState = new LeaveLabState(reser);
@@ -40,8 +39,12 @@ public class ReserState {
         state = UseLabState;
     }
     
-    public void updateState(){
-        state.updateState();
-    }
-    
+    public boolean updateState(){
+        boolean result = state.updateState();
+        if(result == true){
+            return true;
+        }else{
+            return false;
+        }
+    }   
 }

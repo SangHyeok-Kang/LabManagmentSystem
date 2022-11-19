@@ -12,13 +12,14 @@ public class UseLabState implements State {
     private Statement st = null;
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
+    String access = "u";
 
     public UseLabState(String user_id) {
         this.user_id = user_id;
     }
 
-    public void updateState() {
-        String access = "u";
+    public boolean updateState() {
+
         try {
             SQL = "select reser_num from reservation where stu_num = '" + user_id
                     + "' and hour(now()) >= hour(start_time)"
@@ -43,8 +44,11 @@ public class UseLabState implements State {
 
             rs.close();
             st.close();
+            
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         } finally {
             try {
                 if (pstmt != null) {

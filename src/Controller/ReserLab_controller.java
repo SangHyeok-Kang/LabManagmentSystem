@@ -1,16 +1,12 @@
 package Controller;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import model.ReserLab_model;
 import model.ReserState;
-import model.m_CurLab_model;
 import view.Manager_Main;
 import view.Student_Main;
 
@@ -23,6 +19,7 @@ public class ReserLab_controller {
     List<Integer> num = new ArrayList<Integer>();
 
     //예약 정보 저장
+    String resernum;
     List<String> stu_num = new ArrayList<String>();
     String[] seat_num = new String[4];
     java.sql.Time[] start_time = new java.sql.Time[4];
@@ -39,39 +36,6 @@ public class ReserLab_controller {
     }
     public ReserLab_controller(Manager_Main view) {
         this.m_view = view;
-    }
-    
-    public void usingNow(String lab){
-        m_view.NOW_USING_PANEL.setVisible(false);
-        m_view.NOW_USING_PANEL.removeAll();
-        Font font = new Font("굴림", Font.BOLD, 15);
-        m_CurLab_model curlab = new m_CurLab_model();
-        String[][] list = curlab.CurrentLab(lab);
-        JLabel label = new JLabel();
-        ArrayList<Integer> seat = new ArrayList<Integer>();
-        ArrayList<String> stu_num = new ArrayList<String>();
-        for (int i = 0; i < 40; i++) {
-            seat.add(0);
-            stu_num.add("");
-        }
-        for (int i = 0; i < curlab.number; i++) {
-            seat.set(Integer.parseInt(list[i][2])-1, 1);
-            stu_num.set(Integer.parseInt(list[i][2])-1, list[i][1]);
-            
-        }
-        for (int i = 0; i < 40; i++) {
-            System.out.println("자리번호 = " + Integer.toString(seat.get(i)));
-            System.out.println("학생이름 = "+stu_num.get(i));
-            label.setFont(font);
-            if(seat.get(i) == 1){
-                label = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+stu_num.get(i)+"</html>",JLabel.CENTER);
-                m_view.NOW_USING_PANEL.add(label).setForeground(Color.red);
-            }else{
-                label = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br></html>",JLabel.CENTER);
-                m_view.NOW_USING_PANEL.add(label).setForeground(Color.BLACK);
-            }
-        }
-        m_view.NOW_USING_PANEL.setVisible(true); 
     }
 
     //예약 가능 좌석 조회
@@ -177,7 +141,6 @@ public class ReserLab_controller {
                     JOptionPane.showMessageDialog(null, "현재 시각이 16시 30분이 넘었으므로 예약이 불가합니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
                 } else if (result.equals("success")) {
                     JOptionPane.showMessageDialog(null, "예약 신청되었습니다.");
-                    sm_view.USE_INFO.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "예기치 않은 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
                 }
@@ -187,10 +150,13 @@ public class ReserLab_controller {
     
     //예약 승인 메소드
     public void SignReser(){
-        String resernum = m_view.getTable();
+        resernum = m_view.getTable();
+        System.out.println(resernum);
         ReserState rs = new ReserState(resernum, "승인");
-        rs.updateState();
-        JOptionPane.showMessageDialog(null, "예약 승인 완료되었습니다.");
+        boolean result = rs.updateState();
+        if(result == true){
+            JOptionPane.showMessageDialog(null, "예약 승인 완료되었습니다.");
+        }       
     }
     
     //실습실 사용 메소드
@@ -201,7 +167,7 @@ public class ReserLab_controller {
     }
     //예약 취소 메소드
     public void CancelReser(){
-        String resernum = m_view.getTable();
+        resernum = m_view.getTable();
         ReserState rs = new ReserState(resernum, "취소하기");
         rs.updateState();
         JOptionPane.showMessageDialog(null, "예약 취소하였습니다.");
@@ -209,7 +175,7 @@ public class ReserLab_controller {
     }
     //퇴실 메소드
     public void ExitLab(){
-        String resernum = null;
+        resernum = null;
         ReserState rs = new ReserState(resernum, "퇴실하기");
         rs.updateState();
         JOptionPane.showMessageDialog(null, "퇴실 완료되었습니다.");

@@ -44,14 +44,15 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_TIME_P.setVisible(false);
         RESERVATION_LIST_P.setVisible(false);
     }
+    
     public String getTable(){
-        int row = REQUEST_TABLE.getSelectedRow();
+        /*int row = REQUEST_TABLE.getSelectedRow();
         int col = REQUEST_TABLE.getSelectedColumn();
-        String value = (String)REQUEST_TABLE.getValueAt(row,col);
+        String value = (String)REQUEST_TABLE.getValueAt(row,col);*/
+        String resernum = resertext.getText();
         
-        return value;
+        return resernum;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -184,7 +185,8 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_916 = new javax.swing.JRadioButton();
         USING_918 = new javax.swing.JRadioButton();
         USING_911 = new javax.swing.JRadioButton();
-        NOW_USING_PANEL = new javax.swing.JPanel();
+        NOW_USING_PANEL1 = new javax.swing.JPanel();
+        NOW_USING_PANEL2 = new javax.swing.JPanel();
         REQUEST_RESER_P = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         REQUEST_TABLE = new javax.swing.JTable();
@@ -192,6 +194,8 @@ public class Manager_Main extends javax.swing.JFrame {
         APPROVAL_ALL_BTN = new javax.swing.JButton();
         APPROVAL_BTN = new javax.swing.JButton();
         TO_GIVE = new javax.swing.JButton();
+        resertext = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
         USING_HISTORY_P = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -796,7 +800,6 @@ public class Manager_Main extends javax.swing.JFrame {
         RESERVATION_LIST_P.add(RESERVATION_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 440));
 
         USING_NOW_P.setBackground(new java.awt.Color(255, 255, 255));
-        USING_NOW_P.setPreferredSize(new java.awt.Dimension(664, 440));
         USING_NOW_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
@@ -808,50 +811,34 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_915.setSelected(true);
         USING_915.setText("915호");
         USING_915.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        USING_915.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                USING_915ActionPerformed(evt);
-            }
-        });
         USING_NOW_P.add(USING_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         USING_916.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_916);
         USING_916.setText("916호");
         USING_916.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        USING_916.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                USING_916ActionPerformed(evt);
-            }
-        });
         USING_NOW_P.add(USING_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
 
         USING_918.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_918);
         USING_918.setText("918호");
         USING_918.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        USING_918.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                USING_918ActionPerformed(evt);
-            }
-        });
         USING_NOW_P.add(USING_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         USING_911.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_911);
         USING_911.setText("911호");
         USING_911.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        USING_911.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                USING_911ActionPerformed(evt);
-            }
-        });
         USING_NOW_P.add(USING_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
-        NOW_USING_PANEL.setBackground(new java.awt.Color(255, 255, 255));
-        NOW_USING_PANEL.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
-        NOW_USING_PANEL.setLayout(new java.awt.GridLayout(5, 8, 30, 30));
-        USING_NOW_P.add(NOW_USING_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        NOW_USING_PANEL1.setBackground(new java.awt.Color(255, 255, 255));
+        NOW_USING_PANEL1.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        NOW_USING_PANEL1.setLayout(new java.awt.GridLayout(5, 8, 15, 15));
+        USING_NOW_P.add(NOW_USING_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+
+        NOW_USING_PANEL2.setBackground(new java.awt.Color(255, 255, 255));
+        NOW_USING_PANEL2.setLayout(new java.awt.GridLayout(5, 4, 15, 15));
+        USING_NOW_P.add(NOW_USING_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
 
         RESERVATION_LIST_P.add(USING_NOW_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 440));
 
@@ -893,6 +880,13 @@ public class Manager_Main extends javax.swing.JFrame {
         });
 
         TO_GIVE.setText("책임권한 부여");
+        TO_GIVE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TO_GIVEActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("예약번호");
 
         javax.swing.GroupLayout REQUEST_RESER_PLayout = new javax.swing.GroupLayout(REQUEST_RESER_P);
         REQUEST_RESER_P.setLayout(REQUEST_RESER_PLayout);
@@ -905,6 +899,10 @@ public class Manager_Main extends javax.swing.JFrame {
             .addComponent(jScrollPane3)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, REQUEST_RESER_PLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resertext, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addComponent(TO_GIVE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(APPROVAL_BTN)
@@ -923,7 +921,9 @@ public class Manager_Main extends javax.swing.JFrame {
                 .addGroup(REQUEST_RESER_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(APPROVAL_ALL_BTN)
                     .addComponent(APPROVAL_BTN)
-                    .addComponent(TO_GIVE))
+                    .addComponent(TO_GIVE)
+                    .addComponent(resertext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addGap(24, 24, 24))
         );
 
@@ -1510,6 +1510,7 @@ public class Manager_Main extends javax.swing.JFrame {
         // 컨트롤러에서 예약 신청 테이블 띄워주기
         UseLab_controller uc = new UseLab_controller(this);
         uc.to_m_showReser();
+        
     }//GEN-LAST:event_REQUEST_RESERMouseClicked
 
     private void USING_HISTORYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USING_HISTORYMouseClicked
@@ -1520,6 +1521,7 @@ public class Manager_Main extends javax.swing.JFrame {
         // 컨트롤러에서 사용기록 테이블 띄워주기
         UseLab_controller uc = new UseLab_controller(this);
         uc.m_showReser();
+        
     }//GEN-LAST:event_USING_HISTORYMouseClicked
 
     private void STU_LISTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_STU_LISTMouseClicked
@@ -1527,6 +1529,7 @@ public class Manager_Main extends javax.swing.JFrame {
        STU_TOKEN_P.setVisible(false);
         STU_LIST_P.setVisible(true);
         // 컨트롤러에서 예약 신청 테이블 띄워주기
+        
     }//GEN-LAST:event_STU_LISTMouseClicked
 
     private void INPUT_CLASSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_INPUT_CLASSMouseClicked
@@ -1555,9 +1558,30 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_HISTORY_P.setVisible(false);
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(true);
-        // 915호 현재 상황
-        ReserLab_controller r = new ReserLab_controller(this);
-        r.usingNow("915");
+        NOW_USING_PANEL1.removeAll();
+        NOW_USING_PANEL2.removeAll();
+        int co =0;
+        int j=0;
+        JLabel seat;
+        
+        for(int i=0; i<40; i++){
+            seat = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+20183150+"</html>",JLabel.CENTER);
+            if(j == 0){
+                NOW_USING_PANEL1.add(seat);
+            }else if(j == 1){
+                NOW_USING_PANEL2.add(seat);
+            }
+            if( co%4 == 3 ){
+                if(j==0){
+                    j = 1;
+                }else if (j == 1){
+                    j=0;
+                }
+            }
+            co++; 
+        }
+        
+        
     }//GEN-LAST:event_USING_NOWMouseClicked
 
     private void CLASS_SELECT_DAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_SELECT_DAY_BTNActionPerformed
@@ -1650,32 +1674,12 @@ public class Manager_Main extends javax.swing.JFrame {
         m.setNewToken();
     }//GEN-LAST:event_INPUT_TOKENActionPerformed
 
-    private void USING_915ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_915ActionPerformed
-        // 915호 현재 상황
-        ReserLab_controller r = new ReserLab_controller(this);
-        r.usingNow("915");
-    }//GEN-LAST:event_USING_915ActionPerformed
-
-    private void USING_916ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_916ActionPerformed
-        // 916호 현재 상황
-        ReserLab_controller r = new ReserLab_controller(this);
-        r.usingNow("916");
-    }//GEN-LAST:event_USING_916ActionPerformed
-
-    private void USING_918ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_918ActionPerformed
-        // 918호 현재 상황
-        ReserLab_controller r = new ReserLab_controller(this);
-        r.usingNow("918");
-    }//GEN-LAST:event_USING_918ActionPerformed
-
-    private void USING_911ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_911ActionPerformed
-        // 911호 현재 상황
-        ReserLab_controller r = new ReserLab_controller(this);
-        r.usingNow("911");
-    }//GEN-LAST:event_USING_911ActionPerformed
+    private void TO_GIVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TO_GIVEActionPerformed
+        // 책임권한 부여 버튼
+    }//GEN-LAST:event_TO_GIVEActionPerformed
 
     private void APPROVAL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APPROVAL_BTNActionPerformed
-       // 예약 승인 버튼
+        // 예약 승인 버튼
         ReserLab_controller rc = new ReserLab_controller(this);
         rc.SignReser();
     }//GEN-LAST:event_APPROVAL_BTNActionPerformed
@@ -2091,7 +2095,8 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JLabel NOTICE_NYM_L;
     public javax.swing.JLabel NOTICE_TITLE;
     public javax.swing.JLabel NOTICE_WRITER_L;
-    public javax.swing.JPanel NOW_USING_PANEL;
+    private javax.swing.JPanel NOW_USING_PANEL1;
+    private javax.swing.JPanel NOW_USING_PANEL2;
     private javax.swing.JLabel REQUEST_RESER;
     private javax.swing.JPanel REQUEST_RESER_P;
     public javax.swing.JTable REQUEST_TABLE;
@@ -2123,15 +2128,15 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JTextField TOKEN;
     private javax.swing.JButton TO_GIVE;
     private javax.swing.JPanel UNDER_P;
-    public javax.swing.JRadioButton USING_911;
-    public javax.swing.JRadioButton USING_915;
-    public javax.swing.JRadioButton USING_916;
-    public javax.swing.JRadioButton USING_918;
+    private javax.swing.JRadioButton USING_911;
+    private javax.swing.JRadioButton USING_915;
+    private javax.swing.JRadioButton USING_916;
+    private javax.swing.JRadioButton USING_918;
     private javax.swing.JLabel USING_HISTORY;
     private javax.swing.JPanel USING_HISTORY_P;
     private javax.swing.JLabel USING_NOW;
-    public javax.swing.ButtonGroup USING_NOW_LAB;
-    public javax.swing.JPanel USING_NOW_P;
+    private javax.swing.ButtonGroup USING_NOW_LAB;
+    private javax.swing.JPanel USING_NOW_P;
     private javax.swing.JLabel WRITE;
     public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -2147,6 +2152,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -2207,5 +2213,6 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JTextField resertext;
     // End of variables declaration//GEN-END:variables
 }

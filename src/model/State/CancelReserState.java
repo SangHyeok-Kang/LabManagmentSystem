@@ -11,13 +11,13 @@ public class CancelReserState implements State {
     private Statement st =  null;
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
-    
+    String access = "x";
     public CancelReserState(String resernum){
         this.reser_num = resernum;
     }
     
-    public void updateState(){
-         String access = "x";
+    public boolean updateState(){
+         
         
         try {
             //예약 상태가 취소 되었을 때 취소 상태로 바꿔주는 SQL문
@@ -30,8 +30,10 @@ public class CancelReserState implements State {
 
             rs.close();
             st.close();
+            return true;
     } catch (SQLException e) {
         e.printStackTrace();
+        return false;
     }finally{
             try{
                 if(pstmt !=null)pstmt.close();
