@@ -160,9 +160,9 @@ public class Student_Main extends javax.swing.JFrame {
         STU_MAIN_P = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         LAB_HEAD_L = new javax.swing.JLabel();
+        CLASS_LAB_911 = new javax.swing.JRadioButton();
         CLASS_LAB_915 = new javax.swing.JRadioButton();
         CLASS_LAB_916 = new javax.swing.JRadioButton();
-        CLASS_LAB_917 = new javax.swing.JRadioButton();
         CLASS_LAB_918 = new javax.swing.JRadioButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         TIME_TABLE = new javax.swing.JTable();
@@ -536,25 +536,45 @@ public class Student_Main extends javax.swing.JFrame {
         LAB_HEAD_L.setText("조교");
         STU_MAIN_P.add(LAB_HEAD_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 80, -1));
 
+        CLASS_LAB_911.setBackground(new java.awt.Color(255, 255, 255));
+        LAB_NUM.add(CLASS_LAB_911);
+        CLASS_LAB_911.setText("911호");
+        CLASS_LAB_911.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLASS_LAB_911ActionPerformed(evt);
+            }
+        });
+        STU_MAIN_P.add(CLASS_LAB_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
         CLASS_LAB_915.setBackground(new java.awt.Color(255, 255, 255));
         LAB_NUM.add(CLASS_LAB_915);
-        CLASS_LAB_915.setText("911호");
-        STU_MAIN_P.add(CLASS_LAB_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        CLASS_LAB_915.setSelected(true);
+        CLASS_LAB_915.setText("915호");
+        CLASS_LAB_915.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLASS_LAB_915ActionPerformed(evt);
+            }
+        });
+        STU_MAIN_P.add(CLASS_LAB_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
 
         CLASS_LAB_916.setBackground(new java.awt.Color(255, 255, 255));
         LAB_NUM.add(CLASS_LAB_916);
-        CLASS_LAB_916.setSelected(true);
-        CLASS_LAB_916.setText("915호");
-        STU_MAIN_P.add(CLASS_LAB_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        CLASS_LAB_917.setBackground(new java.awt.Color(255, 255, 255));
-        LAB_NUM.add(CLASS_LAB_917);
-        CLASS_LAB_917.setText("916호");
-        STU_MAIN_P.add(CLASS_LAB_917, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        CLASS_LAB_916.setText("916호");
+        CLASS_LAB_916.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLASS_LAB_916ActionPerformed(evt);
+            }
+        });
+        STU_MAIN_P.add(CLASS_LAB_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         CLASS_LAB_918.setBackground(new java.awt.Color(255, 255, 255));
         LAB_NUM.add(CLASS_LAB_918);
         CLASS_LAB_918.setText("918호");
+        CLASS_LAB_918.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLASS_LAB_918ActionPerformed(evt);
+            }
+        });
         STU_MAIN_P.add(CLASS_LAB_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         TIME_TABLE.setModel(new javax.swing.table.DefaultTableModel(
@@ -1480,6 +1500,30 @@ public class Student_Main extends javax.swing.JFrame {
         Board_controller c = new Board_controller(this);
         c.setInquiry();
     }//GEN-LAST:event_INPUT_INQUIRY_BTNActionPerformed
+
+    private void CLASS_LAB_915ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_LAB_915ActionPerformed
+        //915호 시간표
+        Timetable_controller t = new Timetable_controller(this);
+        t.setTimeTable("915");
+    }//GEN-LAST:event_CLASS_LAB_915ActionPerformed
+
+    private void CLASS_LAB_916ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_LAB_916ActionPerformed
+        //916호 시간표
+        Timetable_controller t = new Timetable_controller(this);
+        t.setTimeTable("916");
+    }//GEN-LAST:event_CLASS_LAB_916ActionPerformed
+
+    private void CLASS_LAB_918ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_LAB_918ActionPerformed
+        //918호 시간표
+        Timetable_controller t = new Timetable_controller(this);
+        t.setTimeTable("918");
+    }//GEN-LAST:event_CLASS_LAB_918ActionPerformed
+
+    private void CLASS_LAB_911ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_LAB_911ActionPerformed
+       //911호 시간표
+        Timetable_controller t = new Timetable_controller(this);
+        t.setTimeTable("911");
+    }//GEN-LAST:event_CLASS_LAB_911ActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -1615,9 +1659,9 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JTextField CHANGE_NUMBER;
     public javax.swing.JTextField CHANGE_PHONE;
     public javax.swing.JPasswordField CHANGE_PW;
+    public javax.swing.JRadioButton CLASS_LAB_911;
     public javax.swing.JRadioButton CLASS_LAB_915;
     public javax.swing.JRadioButton CLASS_LAB_916;
-    public javax.swing.JRadioButton CLASS_LAB_917;
     public javax.swing.JRadioButton CLASS_LAB_918;
     public javax.swing.JPanel DATE_P;
     private javax.swing.JLabel DELETE;
