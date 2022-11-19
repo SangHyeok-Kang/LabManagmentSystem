@@ -46,12 +46,7 @@ public class Manager_Main extends javax.swing.JFrame {
     }
     
     public String getTable(){
-        /*int row = REQUEST_TABLE.getSelectedRow();
-        int col = REQUEST_TABLE.getSelectedColumn();
-        String value = (String)REQUEST_TABLE.getValueAt(row,col);*/
-        String resernum = resertext.getText();
-        
-        return resernum;
+        return resertext.getText();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -191,7 +186,6 @@ public class Manager_Main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         REQUEST_TABLE = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
-        APPROVAL_ALL_BTN = new javax.swing.JButton();
         APPROVAL_BTN = new javax.swing.JButton();
         TO_GIVE = new javax.swing.JButton();
         resertext = new javax.swing.JTextField();
@@ -870,8 +864,6 @@ public class Manager_Main extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
         jLabel8.setText("예약 승인");
 
-        APPROVAL_ALL_BTN.setText("전체 승인");
-
         APPROVAL_BTN.setText("승인하기");
         APPROVAL_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -902,13 +894,11 @@ public class Manager_Main extends javax.swing.JFrame {
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(resertext, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TO_GIVE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(APPROVAL_BTN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(APPROVAL_ALL_BTN)
-                .addGap(25, 25, 25))
+                .addContainerGap())
         );
         REQUEST_RESER_PLayout.setVerticalGroup(
             REQUEST_RESER_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -919,7 +909,6 @@ public class Manager_Main extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(REQUEST_RESER_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(APPROVAL_ALL_BTN)
                     .addComponent(APPROVAL_BTN)
                     .addComponent(TO_GIVE)
                     .addComponent(resertext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1676,6 +1665,8 @@ public class Manager_Main extends javax.swing.JFrame {
 
     private void TO_GIVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TO_GIVEActionPerformed
         // 책임권한 부여 버튼
+        UseLab_controller uc = new UseLab_controller(this);
+        uc.giveMgr();
     }//GEN-LAST:event_TO_GIVEActionPerformed
 
     private void APPROVAL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APPROVAL_BTNActionPerformed
@@ -2035,7 +2026,6 @@ public class Manager_Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton APPROVAL_ALL_BTN;
     private javax.swing.JButton APPROVAL_BTN;
     private javax.swing.JPanel CALENDAR_P;
     private javax.swing.JLabel CHANGE;

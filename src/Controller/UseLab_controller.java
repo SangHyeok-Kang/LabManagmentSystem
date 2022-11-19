@@ -1,5 +1,6 @@
 package Controller;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.ReserList_model;
 import model.ReserSearch_model;
@@ -12,6 +13,7 @@ public class UseLab_controller {
     Manager_Main m_view;
     ReserSearch_model model = new ReserSearch_model();
     ReserList_model m_model = new ReserList_model();
+    String reser_num;
 
     public UseLab_controller(Student_Main view) {
         this.sm_view = view;
@@ -137,5 +139,16 @@ public class UseLab_controller {
         }
         m_view.HISTORY_TALBE.setModel(dfmodel);
         System.out.println("3");
+    }
+    
+    //책임자 부여 연결
+    public void giveMgr(){
+        reser_num = m_view.getTable();
+        boolean result = m_model.appoint_manager(reser_num);
+        if(result){
+             JOptionPane.showMessageDialog(null, "책임자 부여 완료되었습니다.");
+        }else{
+             JOptionPane.showMessageDialog(null, "실패.");
+        }
     }
 }

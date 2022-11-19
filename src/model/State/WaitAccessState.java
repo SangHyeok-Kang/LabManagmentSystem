@@ -18,34 +18,17 @@ public class WaitAccessState implements State {
         this.reser_num = resernum;
     }
 
-    public boolean updateState() {
-
+    public void updateState() {
         try {
             //예약 상태가 대기 되었을 때 대기 상태로 바꿔주는 SQL문
-            SQL = "update reservation set access = ?" + "where reser_num = ?";
+            SQL = "update reservation set access = '" + access + "' where reser_num = '" + reser_num + "'";
             con = dbconnection.getConnection();
             st = con.prepareStatement(SQL);
-            pstmt.setString(1, access);
-            pstmt.setString(2, reser_num);
-            st.executeUpdate(SQL);
+            int addrow = st.executeUpdate(SQL);
 
-            rs.close();
             st.close();
-            return true;
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
-        } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-            }
-
         }
     }
 }

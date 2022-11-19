@@ -34,6 +34,7 @@ public class ReserLab_controller {
     public ReserLab_controller(Student_Main view) {
         this.sm_view = view;
     }
+
     public ReserLab_controller(Manager_Main view) {
         this.m_view = view;
     }
@@ -47,8 +48,7 @@ public class ReserLab_controller {
         String e_time2;
         int lab_num = Integer.parseInt(sm_view.getLabNum().substring(0, 3));
         ArrayList<Integer> seat = new ArrayList<Integer>();
-        
-        
+
         if (s_time >= e_time) {
             JOptionPane.showMessageDialog(null, "종료시간이 시작시간보다 이전입니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -147,34 +147,34 @@ public class ReserLab_controller {
             }
         }
     }
-    
+
     //예약 승인 메소드
-    public void SignReser(){
+    public void SignReser() {
         resernum = m_view.getTable();
-        System.out.println(resernum);
         ReserState rs = new ReserState(resernum, "승인");
-        boolean result = rs.updateState();
-        if(result == true){
-            JOptionPane.showMessageDialog(null, "예약 승인 완료되었습니다.");
-        }       
+        rs.updateState();
+        JOptionPane.showMessageDialog(null, "예약 승인 완료되었습니다.");
+
     }
-    
+
     //실습실 사용 메소드
-    public void UseLab(){
+    public void UseLab() {
         ReserState rs = new ReserState("사용하기");
         rs.updateState();
         JOptionPane.showMessageDialog(null, "체크인 하였습니다.");
     }
+
     //예약 취소 메소드
-    public void CancelReser(){
+    public void CancelReser() {
         resernum = m_view.getTable();
         ReserState rs = new ReserState(resernum, "취소하기");
         rs.updateState();
         JOptionPane.showMessageDialog(null, "예약 취소하였습니다.");
-        
+
     }
+
     //퇴실 메소드
-    public void ExitLab(){
+    public void ExitLab() {
         resernum = null;
         ReserState rs = new ReserState(resernum, "퇴실하기");
         rs.updateState();

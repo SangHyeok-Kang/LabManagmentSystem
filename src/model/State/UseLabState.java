@@ -18,7 +18,7 @@ public class UseLabState implements State {
         this.user_id = user_id;
     }
 
-    public boolean updateState() {
+    public void updateState() {
 
         try {
             SQL = "select reser_num from reservation where stu_num = '" + user_id
@@ -35,30 +35,14 @@ public class UseLabState implements State {
             st.close();
 
             //예약 상태가 사용중이 되었을 때 사용 중 상태로 바꿔주는 SQL문
-            SQL = "update reservation set access = ?" + "where reser_num = ?";
+            SQL = "update reservation set access = '" + access + "' where reser_num = '" + reser_num + "'";
             con = dbconnection.getConnection();
             st = con.prepareStatement(SQL);
-            pstmt.setString(1, access);
-            pstmt.setString(2, reser_num);
-            st.executeUpdate(SQL);
-
-            rs.close();
+            int addrow = st.executeUpdate(SQL);
             st.close();
-            
-            return true;
+
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
-        } finally {
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-            }
         }
     }
 }

@@ -1933,13 +1933,11 @@
                               <Component id="jLabel18" min="-2" pref="57" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="resertext" min="-2" pref="66" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="TO_GIVE" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="APPROVAL_BTN" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="APPROVAL_ALL_BTN" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1952,7 +1950,6 @@
                               <Component id="jScrollPane3" pref="284" max="32767" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="APPROVAL_ALL_BTN" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="APPROVAL_BTN" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="TO_GIVE" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="resertext" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2006,11 +2003,6 @@
                           <Font name="&#xad74;&#xb9bc;" size="24" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="&#xc608;&#xc57d; &#xc2b9;&#xc778;"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="APPROVAL_ALL_BTN">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="&#xc804;&#xccb4; &#xc2b9;&#xc778;"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="APPROVAL_BTN">

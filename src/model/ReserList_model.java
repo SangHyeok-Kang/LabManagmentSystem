@@ -76,8 +76,7 @@ public class ReserList_model {
             SQL = "update reservation set mgr = '1' where reser_num = '" + reser_num + "'";
             con = dbconnection.getConnection();
             st = con.prepareStatement(SQL);
-            st.executeUpdate(SQL);
-            rs.close();
+            int addrow = st.executeUpdate(SQL);
             st.close();
 
             return true;

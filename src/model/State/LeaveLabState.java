@@ -5,41 +5,28 @@ import java.sql.*;
 import static model.DBConnection.dbconnection;
 
 public class LeaveLabState implements State {
+
     String reser_num, end_time;
     String SQL;
     private Connection con = null;
-    private Statement st =  null;
+    private Statement st = null;
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
     String access = "e";
-    public LeaveLabState(String resernum){
+
+    public LeaveLabState(String resernum) {
         this.reser_num = resernum;
     }
-    
-    public boolean updateState(){
-        
-        
+
+    public void updateState() {
         try {
-            //예약 상태가  ... 되었을 때 ... 상태로 바꿔주는 SQL문
-            SQL = "update reservation set access = ?" + "where reser_num = ?";
+            SQL = "update reservation set access = '" + access + "'where reser_num = '" + reser_num + "'";
             con = dbconnection.getConnection();
             st = con.prepareStatement(SQL);
-            pstmt.setString(1,access);
-            pstmt.setString(2,reser_num);
-            st.executeUpdate(SQL);
-
-            rs.close();
+            int addrow = st.executeUpdate(SQL);
             st.close();
-            return true;
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return false;
-    }finally{
-            try{
-                if(pstmt !=null)pstmt.close();
-                if(con!=null)con.close();
-            } catch (SQLException e){ } 
-                
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

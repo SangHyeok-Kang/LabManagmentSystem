@@ -39,12 +39,7 @@ public class ReserState {
         state = UseLabState;
     }
     
-    public boolean updateState(){
-        boolean result = state.updateState();
-        if(result == true){
-            return true;
-        }else{
-            return false;
-        }
+    public void updateState(){
+        state.updateState();
     }   
 }
