@@ -199,7 +199,6 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_LIST = new javax.swing.JTable();
         NOTICE_TITLE = new javax.swing.JLabel();
         WRITE = new javax.swing.JLabel();
-        CHANGE = new javax.swing.JLabel();
         DELETE = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         S_RESERVATION_P = new javax.swing.JPanel();
@@ -762,16 +761,7 @@ public class Student_Main extends javax.swing.JFrame {
                 WRITEMouseClicked(evt);
             }
         });
-        S_NOTICE_P.add(WRITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
-
-        CHANGE.setText("수정");
-        CHANGE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        CHANGE.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CHANGEMouseClicked(evt);
-            }
-        });
-        S_NOTICE_P.add(CHANGE, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
+        S_NOTICE_P.add(WRITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
 
         DELETE.setText("삭제");
         DELETE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1286,7 +1276,6 @@ public class Student_Main extends javax.swing.JFrame {
         // 메뉴에 공지사항 클릭시 공지사항 내용 출력
         // 컨트롤러에 있는 공지사항 출력 함수 사용
         WRITE.setVisible(false);
-        CHANGE.setVisible(false);
         DELETE.setVisible(false);
         NOTICE_TITLE.setText("공지사항");
         Board_controller c = new Board_controller(this);
@@ -1299,7 +1288,6 @@ public class Student_Main extends javax.swing.JFrame {
         panelClear();
         S_NOTICE_P.setVisible(true);
         WRITE.setVisible(false);
-        CHANGE.setVisible(false);
         DELETE.setVisible(false);
         NOTICE_TITLE.setText("공지사항");
         Board_controller c = new Board_controller(this);
@@ -1344,7 +1332,6 @@ public class Student_Main extends javax.swing.JFrame {
         // 문의 내역 출력
         NOTICE_TITLE.setText("신고 및 문의");
         WRITE.setVisible(true);
-        CHANGE.setVisible(true);
         DELETE.setVisible(true);
         Board_controller c = new Board_controller(this);
         c.getSInquiry();
@@ -1471,13 +1458,6 @@ public class Student_Main extends javax.swing.JFrame {
         INPUT_INQUIRY_TITLE1.setText("");
          INPUT_INQUIRY_TITLE1.setEditable(true);
     }//GEN-LAST:event_WRITEMouseClicked
-
-    private void CHANGEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CHANGEMouseClicked
-        // 자신이 작성한 글 수정
-       INQUIRY_DIALOG.setVisible(true);
-       INPUT_INQUIRY_BTN.setVisible(false);
-       CHANGE_INQUIRY_BTN.setVisible(true);
-    }//GEN-LAST:event_CHANGEMouseClicked
 
     private void DELETEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DELETEMouseClicked
         //게시글 삭제하기
@@ -1629,7 +1609,6 @@ public class Student_Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CALENDAR_P;
-    private javax.swing.JLabel CHANGE;
     public javax.swing.JTextField CHANGE_EMAIL;
     public javax.swing.JButton CHANGE_INQUIRY_BTN;
     public javax.swing.JTextField CHANGE_NAME;

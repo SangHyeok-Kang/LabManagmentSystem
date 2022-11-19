@@ -2247,8 +2247,6 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="GIVE_WARNING_BTN" min="-2" pref="95" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="CHANGE_STU_BTN" min="-2" pref="97" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="DELETE_STU_BTN" min="-2" pref="95" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2271,7 +2269,6 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="DELETE_STU_BTN" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CHANGE_STU_BTN" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="GIVE_WARNING_BTN" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="25" max="32767" attributes="0"/>
@@ -2318,11 +2315,6 @@
                     <Component class="javax.swing.JButton" name="DELETE_STU_BTN">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="&#xc0ad;&#xc81c;"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="CHANGE_STU_BTN">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="&#xc815;&#xbcf4; &#xc218;&#xc815;"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="GIVE_WARNING_BTN">
@@ -2638,22 +2630,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="WRITEMouseClicked"/>
-                  </Events>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="680" y="30" width="-1" height="-1"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
-                <Component class="javax.swing.JLabel" name="CHANGE">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="&#xc218;&#xc815;"/>
-                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="&#xc190; &#xcee4;&#xc11c;"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CHANGEMouseClicked"/>
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

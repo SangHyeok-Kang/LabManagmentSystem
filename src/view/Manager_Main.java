@@ -207,7 +207,6 @@ public class Manager_Main extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         STU_LIST_T = new javax.swing.JTable();
         DELETE_STU_BTN = new javax.swing.JButton();
-        CHANGE_STU_BTN = new javax.swing.JButton();
         GIVE_WARNING_BTN = new javax.swing.JButton();
         STU_TOKEN_P = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -227,7 +226,6 @@ public class Manager_Main extends javax.swing.JFrame {
         NOTICE_LIST = new javax.swing.JTable();
         NOTICE_TITLE = new javax.swing.JLabel();
         WRITE = new javax.swing.JLabel();
-        CHANGE = new javax.swing.JLabel();
         DELETE = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         TITLE_P = new javax.swing.JPanel();
@@ -1036,8 +1034,6 @@ public class Manager_Main extends javax.swing.JFrame {
 
         DELETE_STU_BTN.setText("삭제");
 
-        CHANGE_STU_BTN.setText("정보 수정");
-
         GIVE_WARNING_BTN.setText("경고 부여");
 
         javax.swing.GroupLayout STU_LIST_PLayout = new javax.swing.GroupLayout(STU_LIST_P);
@@ -1047,8 +1043,6 @@ public class Manager_Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, STU_LIST_PLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(GIVE_WARNING_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CHANGE_STU_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DELETE_STU_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1068,7 +1062,6 @@ public class Manager_Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(STU_LIST_PLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DELETE_STU_BTN)
-                    .addComponent(CHANGE_STU_BTN)
                     .addComponent(GIVE_WARNING_BTN))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -1219,16 +1212,7 @@ public class Manager_Main extends javax.swing.JFrame {
                 WRITEMouseClicked(evt);
             }
         });
-        M_NOTICE_P.add(WRITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
-
-        CHANGE.setText("수정");
-        CHANGE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        CHANGE.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CHANGEMouseClicked(evt);
-            }
-        });
-        M_NOTICE_P.add(CHANGE, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
+        M_NOTICE_P.add(WRITE, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, -1, -1));
 
         DELETE.setText("삭제");
         DELETE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1452,16 +1436,6 @@ public class Manager_Main extends javax.swing.JFrame {
         c.removeInfo();
     }//GEN-LAST:event_DELETEMouseClicked
 
-    private void CHANGEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CHANGEMouseClicked
-        // 공지사항 수정 가능
-        INPUT_NOTICE_BTN.setVisible(false);
-        jLabel30.setVisible(false);
-        NOTICE_WRITER_L.setVisible(false);
-        NOTICE_NYM_L.setVisible(true);
-        CHANGE_NOTICE_BTN.setVisible(true);
-        NOTICE_INFO.setVisible(true);
-    }//GEN-LAST:event_CHANGEMouseClicked
-
     private void WRITEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WRITEMouseClicked
         // 글 작성 화면 띄우기
         INPUT_NOTICE_BTN.setVisible(true);
@@ -1477,7 +1451,6 @@ public class Manager_Main extends javax.swing.JFrame {
         // 컨트롤러에 있는 신고 및 문의사항 출력 함수 사용
         NOTICE_TITLE.setText("신고 및 문의");
         WRITE.setVisible(false);
-        CHANGE.setVisible(false);
         Board_controller c = new Board_controller(this);
         c.getInquiry();
     }//GEN-LAST:event_Declaration_LMouseClicked
@@ -1486,7 +1459,6 @@ public class Manager_Main extends javax.swing.JFrame {
         // 메뉴에 공지사항 클릭시 공지사항 내용 출력
         NOTICE_TITLE.setText("공지사항");
         WRITE.setVisible(true);
-        CHANGE.setVisible(true);
         Board_controller c = new Board_controller(this);
         c.getNotice();
     }//GEN-LAST:event_NOTICE_LMouseClicked
@@ -2028,9 +2000,7 @@ public class Manager_Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton APPROVAL_BTN;
     private javax.swing.JPanel CALENDAR_P;
-    private javax.swing.JLabel CHANGE;
     public javax.swing.JButton CHANGE_NOTICE_BTN;
-    private javax.swing.JButton CHANGE_STU_BTN;
     private javax.swing.JRadioButton CLASS_LAB_911;
     public javax.swing.JRadioButton CLASS_LAB_915;
     public javax.swing.JRadioButton CLASS_LAB_916;
