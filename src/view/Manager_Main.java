@@ -8,6 +8,7 @@ package view;
 //import Controller.Timetable_controller;
 import Controller.Board_controller;
 import Controller.MemberManage_controller;
+import Controller.ReserLab_controller;
 import Controller.Timetable_controller;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -175,8 +176,7 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_916 = new javax.swing.JRadioButton();
         USING_918 = new javax.swing.JRadioButton();
         USING_911 = new javax.swing.JRadioButton();
-        NOW_USING_PANEL1 = new javax.swing.JPanel();
-        NOW_USING_PANEL2 = new javax.swing.JPanel();
+        NOW_USING_PANEL = new javax.swing.JPanel();
         REQUEST_RESER_P = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         REQUEST_TABLE = new javax.swing.JTable();
@@ -788,6 +788,7 @@ public class Manager_Main extends javax.swing.JFrame {
         RESERVATION_LIST_P.add(RESERVATION_M_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 440));
 
         USING_NOW_P.setBackground(new java.awt.Color(255, 255, 255));
+        USING_NOW_P.setPreferredSize(new java.awt.Dimension(664, 440));
         USING_NOW_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
@@ -799,34 +800,50 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_915.setSelected(true);
         USING_915.setText("915호");
         USING_915.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_915.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                USING_915ActionPerformed(evt);
+            }
+        });
         USING_NOW_P.add(USING_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         USING_916.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_916);
         USING_916.setText("916호");
         USING_916.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_916.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                USING_916ActionPerformed(evt);
+            }
+        });
         USING_NOW_P.add(USING_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, -1, -1));
 
         USING_918.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_918);
         USING_918.setText("918호");
         USING_918.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_918.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                USING_918ActionPerformed(evt);
+            }
+        });
         USING_NOW_P.add(USING_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         USING_911.setBackground(new java.awt.Color(255, 255, 255));
         USING_NOW_LAB.add(USING_911);
         USING_911.setText("911호");
         USING_911.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        USING_911.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                USING_911ActionPerformed(evt);
+            }
+        });
         USING_NOW_P.add(USING_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, -1, -1));
 
-        NOW_USING_PANEL1.setBackground(new java.awt.Color(255, 255, 255));
-        NOW_USING_PANEL1.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
-        NOW_USING_PANEL1.setLayout(new java.awt.GridLayout(5, 8, 15, 15));
-        USING_NOW_P.add(NOW_USING_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
-
-        NOW_USING_PANEL2.setBackground(new java.awt.Color(255, 255, 255));
-        NOW_USING_PANEL2.setLayout(new java.awt.GridLayout(5, 4, 15, 15));
-        USING_NOW_P.add(NOW_USING_PANEL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
+        NOW_USING_PANEL.setBackground(new java.awt.Color(255, 255, 255));
+        NOW_USING_PANEL.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        NOW_USING_PANEL.setLayout(new java.awt.GridLayout(5, 8, 30, 30));
+        USING_NOW_P.add(NOW_USING_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         RESERVATION_LIST_P.add(USING_NOW_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 440));
 
@@ -1519,30 +1536,9 @@ public class Manager_Main extends javax.swing.JFrame {
         USING_HISTORY_P.setVisible(false);
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(true);
-        NOW_USING_PANEL1.removeAll();
-        NOW_USING_PANEL2.removeAll();
-        int co =0;
-        int j=0;
-        JLabel seat;
-        
-        for(int i=0; i<40; i++){
-            seat = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+20183150+"</html>",JLabel.CENTER);
-            if(j == 0){
-                NOW_USING_PANEL1.add(seat);
-            }else if(j == 1){
-                NOW_USING_PANEL2.add(seat);
-            }
-            if( co%4 == 3 ){
-                if(j==0){
-                    j = 1;
-                }else if (j == 1){
-                    j=0;
-                }
-            }
-            co++; 
-        }
-        
-        
+        // 915호 현재 상황
+        ReserLab_controller r = new ReserLab_controller(this);
+        r.usingNow("915");
     }//GEN-LAST:event_USING_NOWMouseClicked
 
     private void CLASS_SELECT_DAY_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLASS_SELECT_DAY_BTNActionPerformed
@@ -1634,6 +1630,30 @@ public class Manager_Main extends javax.swing.JFrame {
         MemberManage_controller m = new MemberManage_controller(this);
         m.setNewToken();
     }//GEN-LAST:event_INPUT_TOKENActionPerformed
+
+    private void USING_915ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_915ActionPerformed
+        // 915호 현재 상황
+        ReserLab_controller r = new ReserLab_controller(this);
+        r.usingNow("915");
+    }//GEN-LAST:event_USING_915ActionPerformed
+
+    private void USING_916ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_916ActionPerformed
+        // 916호 현재 상황
+        ReserLab_controller r = new ReserLab_controller(this);
+        r.usingNow("916");
+    }//GEN-LAST:event_USING_916ActionPerformed
+
+    private void USING_918ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_918ActionPerformed
+        // 918호 현재 상황
+        ReserLab_controller r = new ReserLab_controller(this);
+        r.usingNow("918");
+    }//GEN-LAST:event_USING_918ActionPerformed
+
+    private void USING_911ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_USING_911ActionPerformed
+        // 911호 현재 상황
+        ReserLab_controller r = new ReserLab_controller(this);
+        r.usingNow("911");
+    }//GEN-LAST:event_USING_911ActionPerformed
 
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -2002,7 +2022,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JButton DELETE_STU_BTN;
     private javax.swing.JLabel Declaration_L;
     private javax.swing.JButton GIVE_WARNING_BTN;
-    public javax.swing.JTable HISTORY_TALBE;
+    private javax.swing.JTable HISTORY_TALBE;
     public javax.swing.JLabel INAUIRY_NUM_L;
     private javax.swing.JLabel INPUT_CLASS;
     public javax.swing.JComboBox<String> INPUT_CLASS_DAY;
@@ -2046,11 +2066,10 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JLabel NOTICE_NYM_L;
     public javax.swing.JLabel NOTICE_TITLE;
     public javax.swing.JLabel NOTICE_WRITER_L;
-    private javax.swing.JPanel NOW_USING_PANEL1;
-    private javax.swing.JPanel NOW_USING_PANEL2;
+    public javax.swing.JPanel NOW_USING_PANEL;
     private javax.swing.JLabel REQUEST_RESER;
     private javax.swing.JPanel REQUEST_RESER_P;
-    public javax.swing.JTable REQUEST_TABLE;
+    private javax.swing.JTable REQUEST_TABLE;
     private javax.swing.JPanel RESERVATION_LIST_P;
     private javax.swing.JPanel RESERVATION_M_P;
     private javax.swing.JLabel RIGHT_L;
@@ -2079,15 +2098,15 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JTextField TOKEN;
     private javax.swing.JButton TO_GIVE;
     private javax.swing.JPanel UNDER_P;
-    private javax.swing.JRadioButton USING_911;
-    private javax.swing.JRadioButton USING_915;
-    private javax.swing.JRadioButton USING_916;
-    private javax.swing.JRadioButton USING_918;
+    public javax.swing.JRadioButton USING_911;
+    public javax.swing.JRadioButton USING_915;
+    public javax.swing.JRadioButton USING_916;
+    public javax.swing.JRadioButton USING_918;
     private javax.swing.JLabel USING_HISTORY;
     private javax.swing.JPanel USING_HISTORY_P;
     private javax.swing.JLabel USING_NOW;
-    private javax.swing.ButtonGroup USING_NOW_LAB;
-    private javax.swing.JPanel USING_NOW_P;
+    public javax.swing.ButtonGroup USING_NOW_LAB;
+    public javax.swing.JPanel USING_NOW_P;
     private javax.swing.JLabel WRITE;
     public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;

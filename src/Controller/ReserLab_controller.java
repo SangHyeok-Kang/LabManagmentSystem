@@ -1,12 +1,16 @@
 package Controller;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import model.ReserLab_model;
 import model.ReserState;
+import model.m_CurLab_model;
 import view.Manager_Main;
 import view.Student_Main;
 
@@ -35,6 +39,39 @@ public class ReserLab_controller {
     }
     public ReserLab_controller(Manager_Main view) {
         this.m_view = view;
+    }
+    
+    public void usingNow(String lab){
+        m_view.NOW_USING_PANEL.setVisible(false);
+        m_view.NOW_USING_PANEL.removeAll();
+        Font font = new Font("굴림", Font.BOLD, 15);
+        m_CurLab_model curlab = new m_CurLab_model();
+        String[][] list = curlab.CurrentLab(lab);
+        JLabel label = new JLabel();
+        ArrayList<Integer> seat = new ArrayList<Integer>();
+        ArrayList<String> stu_num = new ArrayList<String>();
+        for (int i = 0; i < 40; i++) {
+            seat.add(0);
+            stu_num.add("");
+        }
+        for (int i = 0; i < curlab.number; i++) {
+            seat.set(Integer.parseInt(list[i][2])-1, 1);
+            stu_num.set(Integer.parseInt(list[i][2])-1, list[i][1]);
+            
+        }
+        for (int i = 0; i < 40; i++) {
+            System.out.println("자리번호 = " + Integer.toString(seat.get(i)));
+            System.out.println("학생이름 = "+stu_num.get(i));
+            label.setFont(font);
+            if(seat.get(i) == 1){
+                label = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+stu_num.get(i)+"</html>",JLabel.CENTER);
+                m_view.NOW_USING_PANEL.add(label).setForeground(Color.red);
+            }else{
+                label = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br></html>",JLabel.CENTER);
+                m_view.NOW_USING_PANEL.add(label).setForeground(Color.BLACK);
+            }
+        }
+        m_view.NOW_USING_PANEL.setVisible(true); 
     }
 
     //예약 가능 좌석 조회
