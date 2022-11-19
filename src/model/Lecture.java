@@ -22,6 +22,21 @@ public class Lecture {
     String stime;
     String etime;
 
+    public Lecture(String id, String name, String day, String prof_id, String lab_num, String stime, String etime) { // 시간표 출력 용
+        this.id = id;
+        this.name = name;
+        this.day = day;
+        this.prof_id = prof_id;
+        this.lab_num = lab_num;
+        this.stime = stime;
+        this.etime = etime;
+    }
+
+    public Lecture() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+
     public void setId(String id) {
         this.id = id;
     }
