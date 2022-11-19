@@ -5,19 +5,13 @@
  */
 package view;
 
-import Controller.Board_controller;
-import Controller.MemberManage_controller;
-import Controller.ReserLab_controller;
-import Controller.UseLab_controller;
+import Controller.*;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Label;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -1463,7 +1457,15 @@ public class Student_Main extends javax.swing.JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             JLabel l = (JLabel) e.getSource();
-            SET_DATE_L.setText(YEAR_L.getText() + "-" + MONTH_L.getText() + "-" + l.getText());
+            String month = MONTH_L.getText();
+            String date = l.getText();
+            if(MONTH_L.getText().length()==1){
+                month = "0" + month;
+            }
+            if(l.getText().length()==1){
+                date = "0" + date;
+            }
+            SET_DATE_L.setText(YEAR_L.getText() + "-" + month + "-" + date);
             CALENDAR_P.setVisible(false);
         }
 
