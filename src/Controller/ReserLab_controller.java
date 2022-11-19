@@ -62,7 +62,6 @@ public class ReserLab_controller {
     //예약 입력 메소드   
     public void NewReser() {
         String user = model.user_id;
-
         //예약 시작시간 및 종료 시간 저장
         String day = sm_view.SET_DATE_L.getText();
         String s_time = sm_view.getStartTime() + ":00:00";
@@ -78,7 +77,6 @@ public class ReserLab_controller {
         String team2seatnum = sm_view.getTeam2Seatnum();
         String team3stdno = sm_view.getTeam2Stdno();
         String team3seatnum = sm_view.getTeam2Seatnum();
-
         if (LocalDate.parse(day, DateTimeFormatter.ISO_DATE).isBefore(currentDate) == true) {
             JOptionPane.showMessageDialog(null, "입력한 날짜가 현재 날짜보다 이전입니다. 다시 선택해 주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         } else if (LocalDate.parse(day, DateTimeFormatter.ISO_DATE).isBefore(currentDate) == true && LocalTime.parse(s_time).isBefore(currentTime)) {
@@ -99,15 +97,15 @@ public class ReserLab_controller {
             seat_num[1] = team1seatnum;
             seat_num[2] = team2seatnum;
             seat_num[3] = team3seatnum;
+            
             String result = model.reservation(stu_num, lab_num, seat_num, date, start_time, end_time);
-
             if (result.equals("nonstd")) {
                 JOptionPane.showMessageDialog(null, "회원가입 하지 않은 학생이 입력되었습니다. 다시 입력해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-            }else if(result.equals("failed16")){
+            } else if (result.equals("failed16")) {
                 JOptionPane.showMessageDialog(null, "현재 시각이 16시 30분이 넘었으므로 예약이 불가합니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-            }else if(result.equals("success")){
+            } else if (result.equals("success")) {
                 JOptionPane.showMessageDialog(null, "예약 신청되었습니다.");
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "예기치 않은 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
             }
         }

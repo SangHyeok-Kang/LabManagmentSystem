@@ -239,7 +239,7 @@ public class Student_Main extends javax.swing.JFrame {
         TEAM_SEAT1_F = new javax.swing.JTextField();
         TEAM_SEAT2_F = new javax.swing.JTextField();
         TEAM_SEAT3_F = new javax.swing.JTextField();
-        SEARCH_CUR_BTN = new javax.swing.JButton();
+        NEW_RE_BTN = new javax.swing.JButton();
         STU_RESER_ETIME = new javax.swing.JComboBox<>();
         STU_RESER_STIME = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
@@ -247,7 +247,7 @@ public class Student_Main extends javax.swing.JFrame {
         SEAT_P = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         SEAT_F = new javax.swing.JTextField();
-        NEW_RE_BTN = new javax.swing.JButton();
+        SEARCH_CUR_BTN1 = new javax.swing.JButton();
         S_INQUIRY_P = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -921,13 +921,13 @@ public class Student_Main extends javax.swing.JFrame {
 
         SELECT_RE_INFO.add(INPUT_TEAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 15, 180, 190));
 
-        SEARCH_CUR_BTN.setLabel("조회하기");
-        SEARCH_CUR_BTN.addActionListener(new java.awt.event.ActionListener() {
+        NEW_RE_BTN.setText("예약하기");
+        NEW_RE_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SEARCH_CUR_BTNActionPerformed(evt);
+                NEW_RE_BTNActionPerformed(evt);
             }
         });
-        SELECT_RE_INFO.add(SEARCH_CUR_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
+        SELECT_RE_INFO.add(NEW_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
 
         STU_RESER_ETIME.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", " " }));
         SELECT_RE_INFO.add(STU_RESER_ETIME, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
@@ -951,13 +951,13 @@ public class Student_Main extends javax.swing.JFrame {
         SELECT_RE_INFO.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
         SELECT_RE_INFO.add(SEAT_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 80, -1));
 
-        NEW_RE_BTN.setText("예약하기");
-        NEW_RE_BTN.addActionListener(new java.awt.event.ActionListener() {
+        SEARCH_CUR_BTN1.setLabel("조회하기");
+        SEARCH_CUR_BTN1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NEW_RE_BTNActionPerformed(evt);
+                SEARCH_CUR_BTN1ActionPerformed(evt);
             }
         });
-        SELECT_RE_INFO.add(NEW_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
+        SELECT_RE_INFO.add(SEARCH_CUR_BTN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, -1, -1));
 
         S_RESERVATION_P.add(SELECT_RE_INFO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 664, 360));
 
@@ -1334,7 +1334,12 @@ public class Student_Main extends javax.swing.JFrame {
         //예약 취소 버튼 선택 시
     }//GEN-LAST:event_DELETE_RE_BTNActionPerformed
 
-    private void SEARCH_CUR_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCH_CUR_BTNActionPerformed
+    private void NEW_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEW_RE_BTNActionPerformed
+        ReserLab_controller rl = new ReserLab_controller(this);
+        rl.NewReser();
+    }//GEN-LAST:event_NEW_RE_BTNActionPerformed
+
+    private void SEARCH_CUR_BTN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCH_CUR_BTN1ActionPerformed
         //조회하기 버튼 선택 시
         //날짜와 강의실 선택시 가능한 시간 출력
         Font font = new Font("굴림", Font.BOLD, 15);
@@ -1352,13 +1357,7 @@ public class Student_Main extends javax.swing.JFrame {
                 SEAT_P.add(seat).setForeground(Color.BLACK);
         }
         SEAT_P.setVisible(true);
-    }//GEN-LAST:event_SEARCH_CUR_BTNActionPerformed
-
-    private void NEW_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEW_RE_BTNActionPerformed
-        //예약하기 버튼 클릭 시
-        ReserLab_controller rl = new ReserLab_controller(this);
-        rl.NewReser();
-    }//GEN-LAST:event_NEW_RE_BTNActionPerformed
+    }//GEN-LAST:event_SEARCH_CUR_BTN1ActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -1517,7 +1516,7 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JRadioButton REPORT_RADIO;
     public javax.swing.JTable RESERVATION_TABLE;
     private javax.swing.JLabel RIGHT_L;
-    private javax.swing.JButton SEARCH_CUR_BTN;
+    private javax.swing.JButton SEARCH_CUR_BTN1;
     public javax.swing.JTextField SEAT_F;
     private javax.swing.JPanel SEAT_P;
     private javax.swing.JPanel SELECT_RE_INFO;
