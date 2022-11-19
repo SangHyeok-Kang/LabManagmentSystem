@@ -247,7 +247,7 @@ public class Student_Main extends javax.swing.JFrame {
         SEAT_P = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         SEAT_F = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        NEW_RE_BTN = new javax.swing.JButton();
         S_INQUIRY_P = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator3 = new javax.swing.JSeparator();
@@ -951,8 +951,13 @@ public class Student_Main extends javax.swing.JFrame {
         SELECT_RE_INFO.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
         SELECT_RE_INFO.add(SEAT_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, 80, -1));
 
-        jButton3.setText("예약하기");
-        SELECT_RE_INFO.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
+        NEW_RE_BTN.setText("예약하기");
+        NEW_RE_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NEW_RE_BTNActionPerformed(evt);
+            }
+        });
+        SELECT_RE_INFO.add(NEW_RE_BTN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
 
         S_RESERVATION_P.add(SELECT_RE_INFO, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 664, 360));
 
@@ -1348,6 +1353,12 @@ public class Student_Main extends javax.swing.JFrame {
         }
         SEAT_P.setVisible(true);
     }//GEN-LAST:event_SEARCH_CUR_BTNActionPerformed
+
+    private void NEW_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NEW_RE_BTNActionPerformed
+        //예약하기 버튼 클릭 시
+        ReserLab_controller rl = new ReserLab_controller(this);
+        rl.NewReser();
+    }//GEN-LAST:event_NEW_RE_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -1490,6 +1501,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel LOGOUT;
     private javax.swing.JPanel MAIN_P;
     public javax.swing.JLabel MONTH_L;
+    private javax.swing.JButton NEW_RE_BTN;
     private javax.swing.JButton NOTICE_CHANGE_BTN;
     private javax.swing.JButton NOTICE_CHECK_BTN;
     private javax.swing.JButton NOTICE_DEL_BTN;
@@ -1540,7 +1552,6 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JLabel YEAR_L;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
