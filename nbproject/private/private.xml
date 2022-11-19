@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/tdkgu/Desktop/LabManagmentSystem/test/test/ReserList_model_test.java</file>
+            <file>file:/C:/Users/tdkgu/Desktop/LabManagmentSystem/src/Controller/LabMainApp.java</file>
             <file>file:/C:/Users/tdkgu/Desktop/LabManagmentSystem/src/Controller/UseLab_controller.java</file>
             <file>file:/C:/Users/tdkgu/Desktop/LabManagmentSystem/src/view/Manager_Main.java</file>
+            <file>file:/C:/Users/tdkgu/Desktop/LabManagmentSystem/src/model/ReserLab_model.java</file>
+            <file>file:/C:/Users/tdkgu/Desktop/LabManagmentSystem/src/Controller/ReserLab_controller.java</file>
+            <file>file:/C:/Users/tdkgu/Desktop/LabManagmentSystem/src/view/Student_Main.java</file>
         </group>
     </open-files>
 </project-private>

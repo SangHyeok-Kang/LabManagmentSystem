@@ -26,7 +26,7 @@ public class ReserLab_model {
     private Connection con = null;
     private Statement st = null;
     private ResultSet rs = null;
-    int[] labnum = {915,916,918,911};
+    int[] labnum = {915, 916, 918, 911};
 
     public String user_id = log.session;
 
@@ -61,18 +61,18 @@ public class ReserLab_model {
     }
 
     //실습실 예약 정보 입력 메소드
-    public String reservation(List<String> stu_num, int[] lab_num, String[] seat_num, java.sql.Date[] date, java.sql.Time[] start_time, java.sql.Time[] end_time) {       
+    public String reservation(List<String> stu_num, int[] lab_num, String[] seat_num, java.sql.Date[] date, java.sql.Time[] start_time, java.sql.Time[] end_time) {
         try {
             for (int i = 0; i < stu_num.size(); i++) { //입력받은 학생의 크기만큼 반복
                 //입력받은 학생들이 student 테이블에 존재여부 확인
-                System.out.println(i+ " "+stu_num.get(i));
+                System.out.println(i + " " + stu_num.get(i));
                 SQL = "select * from student where stu_num = '" + stu_num.get(i) + "'";
                 System.out.println(SQL);
                 st = dbconnection.getInstance().getConnection().createStatement();
                 rs = st.executeQuery(SQL);
                 if (rs.next()) {
                 } else {
-                    
+
                     System.out.println("회원가입 하지 않은 학생이 입력되었습니다. 다시 입력해주세요.");
                     return "nonstd";
                 }
@@ -112,29 +112,24 @@ public class ReserLab_model {
                     st.close();
                 } //예약 시작 시간이 17시부터일 경우, 예약 승인 대기 상태 
                 else {
-                    if (curtime.isAfter(deadline)) { //현재 시간이 16시30분 이후일 경우, 예약 불가 추후 컨트롤러에서 팝업창으로 예약 불가능시간 출력
-                        System.out.println("Reservation failed");
-                        return "failed16";
-                    } else { //현재 시간이 16시30분 이전일 경우 예약 가능
-                        SQL = "insert into reservation(reser_num, stu_num, lab_num, mgr, "
-                                + "seat_num, reser_date, start_time, end_time, tl_num, access) "
-                                + "values(" + rand + ",'"
-                                + stu_num.get(i) + "',"
-                                + lab_num[i] + ","
-                                + "default" + ",'"
-                                + seat_num[i] + "','"
-                                + date[i] + "','"
-                                + start_time[i] + "','"
-                                + end_time[i] + "','"
-                                + user_id + "',"
-                                + "'w'" + ")";
-                        con = dbconnection.getConnection();
-                        st = con.prepareStatement(SQL);
-                        st.executeUpdate(SQL);
-                        st.close();
-                    }
-                    rs.close();
+                    SQL = "insert into reservation(reser_num, stu_num, lab_num, mgr, "
+                            + "seat_num, reser_date, start_time, end_time, tl_num, access) "
+                            + "values(" + rand + ",'"
+                            + stu_num.get(i) + "',"
+                            + lab_num[i] + ","
+                            + "default" + ",'"
+                            + seat_num[i] + "','"
+                            + date[i] + "','"
+                            + start_time[i] + "','"
+                            + end_time[i] + "','"
+                            + user_id + "',"
+                            + "'w'" + ")";
+                    con = dbconnection.getConnection();
+                    st = con.prepareStatement(SQL);
+                    st.executeUpdate(SQL);
+                    st.close();
                 }
+                rs.close();
             }
             return "success";
         } catch (SQLException e) {
@@ -143,7 +138,7 @@ public class ReserLab_model {
         }
     }
 
-     //실습실 만석여부 확인 메소드
+    //실습실 만석여부 확인 메소드
     public boolean isFull(int lab_num, List<Integer> num, String date) {
         try {
             //예약 시작시간부터 한시간마다 체크하여 만석여부 확인
