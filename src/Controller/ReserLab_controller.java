@@ -177,6 +177,7 @@ public class ReserLab_controller {
                     JOptionPane.showMessageDialog(null, "현재 시각이 16시 30분이 넘었으므로 예약이 불가합니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
                 } else if (result.equals("success")) {
                     JOptionPane.showMessageDialog(null, "예약 신청되었습니다.");
+                    sm_view.USE_INFO.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "예기치 않은 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
                 }
