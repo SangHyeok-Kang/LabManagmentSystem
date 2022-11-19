@@ -18,6 +18,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -1072,7 +1073,7 @@ public class Student_Main extends javax.swing.JFrame {
 
         STU_NUM.setFont(new java.awt.Font("맑은 고딕", 1, 14)); // NOI18N
         STU_NUM.setText("20183109");
-        TITLE_P.add(STU_NUM, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, -1, -1));
+        TITLE_P.add(STU_NUM, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 100, -1, -1));
 
         UNDER_P.add(TITLE_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 815, 130));
 
@@ -1343,20 +1344,25 @@ public class Student_Main extends javax.swing.JFrame {
         //조회하기 버튼 선택 시
         //날짜와 강의실 선택시 가능한 시간 출력
         Font font = new Font("굴림", Font.BOLD, 15);
+        SEAT_P.setVisible(false);
         SEAT_P.removeAll();
         ReserLab_controller rc = new ReserLab_controller(this);
         ArrayList<Integer> list = rc.SearchPossibleSeat();
-        JLabel seat;
-        
-        for(int i = 0; i<40; i++){
-            seat = new JLabel(Integer.toString(i+1), JLabel.CENTER);
-            seat.setFont(font);
-            if(list.get(i) == 1)
-                SEAT_P.add(seat).setForeground(Color.GRAY);
-            else
-                SEAT_P.add(seat).setForeground(Color.BLACK);
+        JLabel seat = null;
+        if(SET_DATE_L.getText().equals("선택하기")){
+            JOptionPane.showMessageDialog(null, "날짜를 선택해주세요");
+        }else{
+            for(int i = 0; i<40; i++){
+                seat = new JLabel(Integer.toString(i+1), JLabel.CENTER);
+                seat.setFont(font);
+                if(list.get(i) == 1)
+                    SEAT_P.add(seat).setForeground(Color.red);
+                else
+                    SEAT_P.add(seat).setForeground(Color.BLACK);
+            }   
+            SEAT_P.setVisible(true);
         }
-        SEAT_P.setVisible(true);
+        
     }//GEN-LAST:event_SEARCH_CUR_BTN1ActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
