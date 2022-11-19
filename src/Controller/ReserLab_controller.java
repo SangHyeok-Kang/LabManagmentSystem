@@ -54,7 +54,8 @@ public class ReserLab_controller {
         int number;
         model.searchLab(lab_num, num, date);
         for (int i = 0; i < model.number; i++) {
-            number = Integer.parseInt(model.lab_info[i][1]);
+            System.out.println(model.lab_info[i][1]);
+            number = Integer.parseInt(model.lab_info[i][1])-1;
             seat.set(number, 1);
         }
         return seat;
