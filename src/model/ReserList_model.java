@@ -10,6 +10,7 @@ import static model.DBConnection.dbconnection;
  */
 //실습실 예약 리스트 출력 클래스
 public class ReserList_model {
+
     public String[][] reserinfo = new String[100][10];
     public int number = 0;
     String SQL;
@@ -22,25 +23,45 @@ public class ReserList_model {
     private PreparedStatement pstmt = null;
 
     //예약 정보리스트 출력 메소드
-    public String[][] reserlist() {
+    public String[][] reserlist(String cat) {
         try {
             //DB로부터 예약 정보 불러오는 SQL문
-            SQL = "select * from reservation r join student s on r.stu_num = s.stu_num;";
-            st = dbconnection.getInstance().getConnection().createStatement();
-            rs = st.executeQuery(SQL);
-            while (rs.next()) {
-                reserinfo[number][0] = rs.getString("reser_num");//예약 번호 불러와 reserinfo배열에 저장
-                reserinfo[number][1] = rs.getString("stu_num");//예약 번호 불러와 reserinfo배열에 저장
-                reserinfo[number][2] = rs.getString("name");//예약 번호 불러와 reserinfo배열에 저장
-                reserinfo[number][3] = rs.getString("lab_num");
-                reserinfo[number][4] = rs.getString("seat_num");
-                reserinfo[number][5] = rs.getString("reser_date");
-                reserinfo[number][6] = rs.getString("start_time");//예약 번호 불러와 reserinfo배열에 저장
-                reserinfo[number][7] = rs.getString("end_time");//예약 번호 불러와 reserinfo배열에 저장
-                reserinfo[number][8] = rs.getString("tl_num");
-                reserinfo[number][9] = rs.getString("access");
-                number++;
+            if (cat.equals("today")) {
+                SQL = "select * from reservation r join student s on r.stu_num = s.stu_num and r.reser_date = DATE_FORMAT(now(),'%Y-%m-%d');";
+                st = dbconnection.getInstance().getConnection().createStatement();
+                rs = st.executeQuery(SQL);
+                while (rs.next()) {
+                    reserinfo[number][0] = rs.getString("reser_num");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][1] = rs.getString("stu_num");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][2] = rs.getString("name");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][3] = rs.getString("lab_num");
+                    reserinfo[number][4] = rs.getString("seat_num");
+                    reserinfo[number][5] = rs.getString("reser_date");
+                    reserinfo[number][6] = rs.getString("start_time");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][7] = rs.getString("end_time");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][8] = rs.getString("tl_num");
+                    reserinfo[number][9] = rs.getString("access");
+                    number++;
+                }
+            } else {
+                SQL = "select * from reservation r join student s on r.stu_num = s.stu_num;";
+                st = dbconnection.getInstance().getConnection().createStatement();
+                rs = st.executeQuery(SQL);
+                while (rs.next()) {
+                    reserinfo[number][0] = rs.getString("reser_num");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][1] = rs.getString("stu_num");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][2] = rs.getString("name");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][3] = rs.getString("lab_num");
+                    reserinfo[number][4] = rs.getString("seat_num");
+                    reserinfo[number][5] = rs.getString("reser_date");
+                    reserinfo[number][6] = rs.getString("start_time");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][7] = rs.getString("end_time");//예약 번호 불러와 reserinfo배열에 저장
+                    reserinfo[number][8] = rs.getString("tl_num");
+                    reserinfo[number][9] = rs.getString("access");
+                    number++;
+                }
             }
+
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -49,7 +70,7 @@ public class ReserList_model {
     }
 
     //책임자 부여 메소드
-    boolean appoint_manager(String reser_num) {
+    public boolean appoint_manager(String reser_num) {
         try {
             //예약 상태가 취소 되었을 때 취소 상태로 바꿔주는 SQL문
             SQL = "update reservation set mgr = '1' where reser_num = '" + reser_num + "'";
@@ -67,7 +88,7 @@ public class ReserList_model {
     }
 
     //책임자 이전 메소드
-    boolean update_manager(String user_id) {
+    public boolean update_manager(String user_id) {
         try {
             SQL = "select lab_num from reservation where mgr ='1' and stu_num = '" + user_id + "'";
             st = dbconnection.getInstance().getConnection().createStatement();
@@ -100,7 +121,7 @@ public class ReserList_model {
             st.executeUpdate(SQL);
             rs.close();
             st.close();
-            
+
             return true;
         } catch (SQLException e) {
             return false;

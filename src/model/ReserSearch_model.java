@@ -9,7 +9,7 @@ import static model.DBConnection.dbconnection;
  * @author 20183125 송준섭 클래스 사용 용도 : 예약 정보확인 및 예약 연장 클래스
  */
 public class ReserSearch_model {
-    public String[][] reserinfo = new String[100][5];
+    public String[][] reserinfo = new String[100][6];
     String[][] reser_info; //예약 정보 배열
     String SQL;
     String labnum, seatnum;
@@ -30,11 +30,12 @@ public class ReserSearch_model {
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(SQL);
             while (rs.next()) {             
-                reserinfo[number][0] = rs.getString("reser_date"); //날짜 번호 불러와 reserinfo배열에 저장
-                reserinfo[number][1] = rs.getString("lab_num");//강의실 번호 불러와 reserinfo배열에 저장
-                reserinfo[number][2] = rs.getString("start_time");//예약 시작 시간 불러와 reserinfo배열에 저장
-                reserinfo[number][3] = rs.getString("end_time");//예약 종료시간 불러와 reserinfo배열에 저장
-                reserinfo[number][4] = rs.getString("access");//예약 상태 불러와 reserinfo배열에 저장
+                reserinfo[number][0] = rs.getString("reser_num");
+                reserinfo[number][1] = rs.getString("reser_date"); //날짜 번호 불러와 reserinfo배열에 저장
+                reserinfo[number][2] = rs.getString("lab_num");//강의실 번호 불러와 reserinfo배열에 저장
+                reserinfo[number][3] = rs.getString("start_time");//예약 시작 시간 불러와 reserinfo배열에 저장
+                reserinfo[number][4] = rs.getString("end_time");//예약 종료시간 불러와 reserinfo배열에 저장
+                reserinfo[number][5] = rs.getString("access");//예약 상태 불러와 reserinfo배열에 저장
                 number++;
             }
         } catch (SQLException e) {
