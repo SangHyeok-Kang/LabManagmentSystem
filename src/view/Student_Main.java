@@ -45,7 +45,27 @@ public class Student_Main extends javax.swing.JFrame {
         S_INQUIRY_P.setVisible(false);
         S_RESERVATION_P.setVisible(false);
     }
-    
+     public String getTeam1Seatnum(){
+        return TEAM_1.getText();    
+    }
+    public String getTeam1Stdno(){
+        return TEAM_SEAT1_F.getText();
+    }
+    public String getTeam2Seatnum(){
+        return TEAM_2.getText();    
+    }
+    public String getTeam2Stdno(){
+        return TEAM_SEAT2_F.getText();
+    }
+    public String getTeam3Seatnum(){
+        return TEAM_3.getText();    
+    }
+    public String getTeam3Stdno(){
+        return TEAM_SEAT3_F.getText();
+    }
+    public String getSeat(){
+        return SEAT_F.getText();
+    }
     public String getChangeName(){ //변경할 이름
         return CHANGE_NAME.getText();
     }
