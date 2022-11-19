@@ -27,7 +27,7 @@ public class ReserList_model {
         try {
             //DB로부터 예약 정보 불러오는 SQL문
             if (cat.equals("today")) {
-                SQL = "select * from reservation r join student s on r.stu_num = s.stu_num and r.reser_date = DATE_FORMAT(now(),'%Y-%m-%d') and access = 'w';";
+                SQL = "select * from reservation r join student s on r.stu_num = s.stu_num and r.reser_date = DATE_FORMAT(now(),'%Y-%m-%d') and r.access = 'w';";
                 st = dbconnection.getInstance().getConnection().createStatement();
                 rs = st.executeQuery(SQL);
                 while (rs.next()) {

@@ -2005,6 +2005,9 @@
                               <TableHeader reorderingAllowed="false" resizingAllowed="false"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -2025,6 +2028,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="&#xc2b9;&#xc778;&#xd558;&#xae30;"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="APPROVAL_BTNActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="TO_GIVE">
                       <Properties>
@@ -2107,6 +2113,9 @@
                               <TableHeader reorderingAllowed="false" resizingAllowed="false"/>
                             </Property>
                           </Properties>
+                          <AuxValues>
+                            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                          </AuxValues>
                         </Component>
                       </SubComponents>
                     </Container>

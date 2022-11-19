@@ -10,6 +10,7 @@ import Controller.Board_controller;
 import Controller.MemberManage_controller;
 import Controller.ReserLab_controller;
 import Controller.Timetable_controller;
+import Controller.UseLab_controller;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -42,6 +43,13 @@ public class Manager_Main extends javax.swing.JFrame {
         STU_MANAGEMENT_P.setVisible(false);
         INPUT_TIME_P.setVisible(false);
         RESERVATION_LIST_P.setVisible(false);
+    }
+    public String getTable(){
+        int row = REQUEST_TABLE.getSelectedRow();
+        int col = REQUEST_TABLE.getSelectedColumn();
+        String value = (String)REQUEST_TABLE.getValueAt(row,col);
+        
+        return value;
     }
 
     /**
@@ -878,6 +886,11 @@ public class Manager_Main extends javax.swing.JFrame {
         APPROVAL_ALL_BTN.setText("전체 승인");
 
         APPROVAL_BTN.setText("승인하기");
+        APPROVAL_BTN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                APPROVAL_BTNActionPerformed(evt);
+            }
+        });
 
         TO_GIVE.setText("책임권한 부여");
 
@@ -1431,6 +1444,8 @@ public class Manager_Main extends javax.swing.JFrame {
         REQUEST_RESER_P.setVisible(true);
         
         // 컨트롤러에 있는 예약 조회 함수로 테이블 값 채우기
+        UseLab_controller uc = new UseLab_controller(this);
+        uc.to_m_showReser();
     }//GEN-LAST:event_M_MENU2MouseClicked
 
     private void M_MENU1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_M_MENU1MouseClicked
@@ -1493,6 +1508,8 @@ public class Manager_Main extends javax.swing.JFrame {
         REQUEST_RESER_P.setVisible(true);
         USING_NOW_P.setVisible(false);
         // 컨트롤러에서 예약 신청 테이블 띄워주기
+        UseLab_controller uc = new UseLab_controller(this);
+        uc.to_m_showReser();
     }//GEN-LAST:event_REQUEST_RESERMouseClicked
 
     private void USING_HISTORYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_USING_HISTORYMouseClicked
@@ -1501,6 +1518,8 @@ public class Manager_Main extends javax.swing.JFrame {
         REQUEST_RESER_P.setVisible(false);
         USING_NOW_P.setVisible(false);
         // 컨트롤러에서 사용기록 테이블 띄워주기
+        UseLab_controller uc = new UseLab_controller(this);
+        uc.m_showReser();
     }//GEN-LAST:event_USING_HISTORYMouseClicked
 
     private void STU_LISTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_STU_LISTMouseClicked
@@ -1654,6 +1673,12 @@ public class Manager_Main extends javax.swing.JFrame {
         ReserLab_controller r = new ReserLab_controller(this);
         r.usingNow("911");
     }//GEN-LAST:event_USING_911ActionPerformed
+
+    private void APPROVAL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APPROVAL_BTNActionPerformed
+       // 예약 승인 버튼
+        ReserLab_controller rc = new ReserLab_controller(this);
+        rc.SignReser();
+    }//GEN-LAST:event_APPROVAL_BTNActionPerformed
 
     public void getCalendar(){ // 달력을 받아오는 함수
         JLabel day;
@@ -2022,7 +2047,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JButton DELETE_STU_BTN;
     private javax.swing.JLabel Declaration_L;
     private javax.swing.JButton GIVE_WARNING_BTN;
-    private javax.swing.JTable HISTORY_TALBE;
+    public javax.swing.JTable HISTORY_TALBE;
     public javax.swing.JLabel INAUIRY_NUM_L;
     private javax.swing.JLabel INPUT_CLASS;
     public javax.swing.JComboBox<String> INPUT_CLASS_DAY;
@@ -2069,7 +2094,7 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JPanel NOW_USING_PANEL;
     private javax.swing.JLabel REQUEST_RESER;
     private javax.swing.JPanel REQUEST_RESER_P;
-    private javax.swing.JTable REQUEST_TABLE;
+    public javax.swing.JTable REQUEST_TABLE;
     private javax.swing.JPanel RESERVATION_LIST_P;
     private javax.swing.JPanel RESERVATION_M_P;
     private javax.swing.JLabel RIGHT_L;
