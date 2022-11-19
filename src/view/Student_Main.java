@@ -149,6 +149,13 @@ public class Student_Main extends javax.swing.JFrame {
         jLabel34 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         INQUIRY_GROUP = new javax.swing.ButtonGroup();
+        USE_INFO = new javax.swing.JDialog();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
         UNDER_P = new javax.swing.JPanel();
         MAIN_P = new javax.swing.JPanel();
         S_MENU_P = new javax.swing.JPanel();
@@ -350,7 +357,6 @@ public class Student_Main extends javax.swing.JFrame {
         NOTICE_INFO.setLocation(new java.awt.Point(100, 100));
         NOTICE_INFO.setModal(true);
         NOTICE_INFO.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
-        NOTICE_INFO.setPreferredSize(new java.awt.Dimension(442, 470));
         NOTICE_INFO.setResizable(false);
         NOTICE_INFO.setSize(new java.awt.Dimension(430, 470));
 
@@ -407,6 +413,63 @@ public class Student_Main extends javax.swing.JFrame {
         );
 
         jTextField1.setText("jTextField1");
+
+        USE_INFO.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        USE_INFO.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel35.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
+        jLabel35.setText("사용 방법");
+
+        jLabel36.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        jLabel36.setText("1. 실습실에서는 마스크를 절대 벗지 않도록 한다.");
+
+        jLabel37.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        jLabel37.setText("2. 실습실에서는 음식물을 섭취하지 않는다.");
+
+        jLabel47.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        jLabel47.setText("3. 사용한 자리는 반드시 정리후 퇴실한다.");
+
+        jLabel48.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        jLabel48.setText("4. 사용한 컴퓨터는 반드시 종료한 후 퇴실한다.");
+
+        jLabel49.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
+        jLabel49.setText("5. 실내에서 흡연을 하지 않는다.");
+
+        javax.swing.GroupLayout USE_INFOLayout = new javax.swing.GroupLayout(USE_INFO.getContentPane());
+        USE_INFO.getContentPane().setLayout(USE_INFOLayout);
+        USE_INFOLayout.setHorizontalGroup(
+            USE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(USE_INFOLayout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(jLabel35)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, USE_INFOLayout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addGroup(USE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel49)
+                    .addComponent(jLabel48)
+                    .addComponent(jLabel47)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel36))
+                .addGap(23, 23, 23))
+        );
+        USE_INFOLayout.setVerticalGroup(
+            USE_INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(USE_INFOLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel35)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel36)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel37)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel47)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel48)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel49)
+                .addContainerGap(171, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("실습실 관리 시스템");
@@ -1633,6 +1696,7 @@ public class Student_Main extends javax.swing.JFrame {
     public javax.swing.JTextField TITLE_F;
     private javax.swing.JPanel TITLE_P;
     private javax.swing.JPanel UNDER_P;
+    public javax.swing.JDialog USE_INFO;
     private javax.swing.JLabel WRITE;
     public javax.swing.JLabel WRITER_L;
     public javax.swing.JLabel YEAR_L;
@@ -1667,6 +1731,9 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1677,6 +1744,9 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
