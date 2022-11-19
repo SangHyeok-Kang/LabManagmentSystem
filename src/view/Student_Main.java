@@ -1385,7 +1385,6 @@ public class Student_Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_SEARCH_CUR_BTN1ActionPerformed
 
-<<<<<<< HEAD
     private void WRITEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WRITEMouseClicked
         // 신고 및 문의
        INQUIRY_DIALOG.setVisible(true);
@@ -1430,9 +1429,6 @@ public class Student_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_INPUT_INQUIRY_BTNActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수
-=======
-    public void getCalendar() { // 달력을 받아오는 함수
->>>>>>> 90bf5c1ec5e59ca076fb8d8e271e977b34fbbb46
         JLabel day;
         Calendar getdate = Calendar.getInstance();
 
