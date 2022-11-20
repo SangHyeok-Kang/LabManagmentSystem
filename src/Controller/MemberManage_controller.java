@@ -5,12 +5,14 @@ import javax.swing.table.DefaultTableModel;
 import model.Signup_model;
 import model.ChangeInfo_model;
 import model.New_token_model;
+import model.ReportHistory_model;
 import model.StudentList;
 import view.Login;
 import view.Manager_Main;
 import view.Student_Main;
 
 public class MemberManage_controller {
+    ReportHistory_model rhmodel = new ReportHistory_model();
     ChangeInfo_model cimodel = new ChangeInfo_model();
     StudentList stmodel = new StudentList();
     Login view;
@@ -19,11 +21,11 @@ public class MemberManage_controller {
     Signup_model model = new Signup_model();
     New_token_model tmodel = new New_token_model();
     boolean result;
-    
+
     public MemberManage_controller(Login view) {
         this.view = view;
     }
-    
+
     public MemberManage_controller(Manager_Main view) {
         this.m_view = view;
     }
@@ -82,37 +84,39 @@ public class MemberManage_controller {
         System.out.println(phone_num);
         if (result.equals("null")) {
             JOptionPane.showMessageDialog(null, "변경할 내용을 입력해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
-        } else if(result.equals("failed")){
-            JOptionPane.showMessageDialog(null, "현재 비밀번호가 일치하지 않습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);           
-        }else if(result.equals("success")){
+        } else if (result.equals("failed")) {
+            JOptionPane.showMessageDialog(null, "현재 비밀번호가 일치하지 않습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        } else if (result.equals("success")) {
             JOptionPane.showMessageDialog(null, "회원정보가 수정되었습니다.");
         }
     }
-    
-    public void DeleteUser(){
+
+    public void DeleteUser() {
         cimodel.deleteinfo();
-            JOptionPane.showMessageDialog(null, "회원탈퇴 완료되었습니다.");
+        JOptionPane.showMessageDialog(null, "회원탈퇴 완료되었습니다.");
     }
-    public void m_DeleteUser(){
+
+    public void m_DeleteUser() {
         String stunum = m_view.getStdno();
         cimodel.deleteinfo(stunum);
-            JOptionPane.showMessageDialog(null, "삭제 완료되었습니다.");
+        JOptionPane.showMessageDialog(null, "삭제 완료되었습니다.");
     }
-    
-    public void getNowToken(){
+
+    public void getNowToken() {
         String token = tmodel.nowToken();
         m_view.TOKEN.setText(token);
-    } 
-    
-    public void setNewToken(){
-        if(tmodel.newtoken())
-            getNowToken();
-        else
-            JOptionPane.showMessageDialog(null, "토큰 생성에 실패하였습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);   
     }
-    
+
+    public void setNewToken() {
+        if (tmodel.newtoken()) {
+            getNowToken();
+        } else {
+            JOptionPane.showMessageDialog(null, "토큰 생성에 실패하였습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     //학생 명단 출력
-    public void PrintStdList(){
+    public void PrintStdList() {
         stmodel.CountStd();
         stmodel.StdList();
         DefaultTableModel dfmodel = new DefaultTableModel();
@@ -136,5 +140,37 @@ public class MemberManage_controller {
                 stmodel.stdlist[i][5],});
         }
         m_view.STU_LIST_T.setModel(dfmodel);
+    }
+
+    //학생 조회 후 출력
+    public void PrintUserList() {
+        String stdno = m_view.getStdno();
+        stmodel.SearchStd(stdno);
+        DefaultTableModel dfmodel = new DefaultTableModel();
+        dfmodel.addColumn("학번");
+        dfmodel.addColumn("이름");
+        dfmodel.addColumn("전화번호");
+        dfmodel.addColumn("이메일");
+        dfmodel.addColumn("승인여부");
+        dfmodel.addColumn("제제 종료일");
+        if (stmodel.userlist[4].equals("1")) {
+            stmodel.userlist[4] = "승인 대기";
+        } else if (stmodel.userlist[4].equals("0")) {
+            stmodel.userlist[4] = "승인 완료";
+        }
+        dfmodel.addRow(new Object[]{stmodel.userlist[0],
+            stmodel.userlist[1],
+            stmodel.userlist[2],
+            stmodel.userlist[3],
+            stmodel.userlist[4],
+            stmodel.userlist[5],});
+
+        m_view.STU_LIST_T.setModel(dfmodel);
+    }
+    
+    public void givelimit(){
+        String stdno = m_view.getStdno();
+        rhmodel.GiveLimit(stdno);
+        JOptionPane.showMessageDialog(null, "경고 부여 완료");
     }
 }

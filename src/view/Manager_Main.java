@@ -1706,13 +1706,16 @@ public class Manager_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_USING_911ActionPerformed
 
     private void SearchStdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchStdActionPerformed
-        // TODO add your handling code here:
+        //학생 조회 버튼 클릭
+        MemberManage_controller mc = new MemberManage_controller(this);
+        mc.PrintUserList();
     }//GEN-LAST:event_SearchStdActionPerformed
 
     private void GIVE_WARNING_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GIVE_WARNING_BTNActionPerformed
         //경고부여 메소드
         MemberManage_controller mc = new MemberManage_controller(this);
-        mc.PrintStdList();
+        mc.givelimit();
+        mc.PrintUserList();
     }//GEN-LAST:event_GIVE_WARNING_BTNActionPerformed
 
     private void DELETE_STU_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE_STU_BTNActionPerformed

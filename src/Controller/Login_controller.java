@@ -26,7 +26,7 @@ public class Login_controller {
             JOptionPane.showMessageDialog(null, "아이디, 비밀번호 모두 입력 해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         } else {
             System.out.println(view.ID_FIELD.getText() + pw);
-            if (model.isLogin(view.ID_FIELD.getText(), pw)) {
+            if ((model.isLogin(view.ID_FIELD.getText(), pw).equals("success"))) {
                 if (id == 'S') {
                     if (model.isAccess()) {
                         Student_Main s = new Student_Main();
@@ -51,8 +51,14 @@ public class Login_controller {
                     view.dispose();
                 }
                 view.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "로그인에 실패하셨습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            } else if((model.isLogin(view.ID_FIELD.getText(), pw).equals("noid"))){
+                JOptionPane.showMessageDialog(null, "등록되지 않은 사용자 입니다. 다시 시도해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            }else if((model.isLogin(view.ID_FIELD.getText(), pw).equals("nopass"))){
+                JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다. 다시 시도해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            }else if((model.isLogin(view.ID_FIELD.getText(), pw).equals("limit"))){
+                JOptionPane.showMessageDialog(null, model.end_limit+" 까지 제한된 상태입니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null, "로그인 실패", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
             }
         }
     }

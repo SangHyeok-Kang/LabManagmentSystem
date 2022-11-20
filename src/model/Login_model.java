@@ -1,23 +1,27 @@
-
 package model;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import static model.DBConnection.dbconnection;
 import static model.UserSession.log;
-
 
 public class Login_model {
 
     private Connection con = null;
     private Statement st = null;
     private ResultSet rs = null;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:00:00");
     public String auth = null;
     public String passw = null;
     public String name;
+    public String endlimit;
+    public LocalDateTime end_limit;
+    public LocalDateTime curdate = LocalDateTime.now();
     String SQL;
 
-    public boolean isLogin(String user_id, String pass) { //로그인
-        
+    public String isLogin(String user_id, String pass) { //로그인            
         char a = user_id.charAt(0);
 
         try {
@@ -29,7 +33,9 @@ public class Login_model {
                     auth = rs.getString("stu_num");
                     passw = rs.getString("pass");
                     name = rs.getString("name");
+                    endlimit = rs.getString("end_limit");
                 }
+                end_limit = LocalDateTime.parse(endlimit, formatter);
             } else if (a == 'M' || a == 'P') {
                 SQL = "select * from manager where man_num = '" + user_id + "'";
                 st = dbconnection.getInstance().getConnection().createStatement();
@@ -40,26 +46,25 @@ public class Login_model {
                     name = rs.getString("name");
                 }
             }
-
-            if (user_id.equals(auth) && pass.equals(passw)) { //아이디 패스워드 일치할 경우
+            if (end_limit.isBefore(curdate)) {
+                return "limit";
+            } else if (user_id.equals(auth) && pass.equals(passw)) { //아이디 패스워드 일치할 경우
                 System.out.println("로그인 on");
                 log.setSession(auth);//사용자 로그인 정보를 세션으로 저장
                 System.out.println("session 생성 : " + log.session);
-                return true;
-
+                return "success";
             } else if (!user_id.equals(auth)) { // 아이디 존재하지않을경우
                 System.out.println("등록되지 않은 사용자 입니다. try 아이디를 확인해 주세요");
-                return false;
+                return "noid";
             } else { // 암호 불일치
                 System.out.println("암호가 wrong.   다시 확인해주세요");
-                return false;
+                return "nopass";
             }
 
         } catch (SQLException e) {
-            System.out.println("데이터베이스 검색 error :"+e);
-        }
-        return false;
-
+            System.out.println("데이터베이스 검색 error :" + e);
+            return "failed";
+        }      
     }
 
     public boolean isAccess() { //토큰값 비교
@@ -106,7 +111,7 @@ public class Login_model {
                 st.executeUpdate(SQL);
                 System.out.println("save 성공");
                 return true;
-            }else{
+            } else {
                 System.out.println("토큰 값을 잘못 입력하셨습니다.");
                 return false;
             }
