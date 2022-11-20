@@ -18,11 +18,13 @@ public class Login_model {
     public String name;
     public String endlimit;
     public LocalDateTime end_limit;
-    public LocalDateTime curdate = LocalDateTime.now();
+    public LocalDateTime curdate;
     String SQL;
 
     public String isLogin(String user_id, String pass) { //로그인            
         char a = user_id.charAt(0);
+        String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:00:00"));
+        curdate = LocalDateTime.parse( now , formatter);
 
         try {
             if (a == 'S') { //학생으로 로그인시
@@ -35,7 +37,11 @@ public class Login_model {
                     name = rs.getString("name");
                     endlimit = rs.getString("end_limit");
                 }
+                
                 end_limit = LocalDateTime.parse(endlimit, formatter);
+                if (end_limit.isBefore(curdate)) 
+                    return "limit";
+                    
             } else if (a == 'M' || a == 'P') {
                 SQL = "select * from manager where man_num = '" + user_id + "'";
                 st = dbconnection.getInstance().getConnection().createStatement();
@@ -46,9 +52,7 @@ public class Login_model {
                     name = rs.getString("name");
                 }
             }
-            if (end_limit.isBefore(curdate)) {
-                return "limit";
-            } else if (user_id.equals(auth) && pass.equals(passw)) { //아이디 패스워드 일치할 경우
+            if (user_id.equals(auth) && pass.equals(passw)) { //아이디 패스워드 일치할 경우
                 System.out.println("로그인 on");
                 log.setSession(auth);//사용자 로그인 정보를 세션으로 저장
                 System.out.println("session 생성 : " + log.session);
