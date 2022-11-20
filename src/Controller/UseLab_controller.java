@@ -48,8 +48,13 @@ public class UseLab_controller {
             } else if (model.reserinfo[i][5].equals("y")) {
                 model.reserinfo[i][5] = "승인 완료";
             } else if (model.reserinfo[i][5].equals("x")) {
+                model.reserinfo[i][5] = "예약 취소";
+            }else if (model.reserinfo[i][5].equals("e")) {
                 model.reserinfo[i][5] = "사용 종료";
+            }else if (model.reserinfo[i][5].equals("u")) {
+                model.reserinfo[i][5] = "사용 중";
             }
+            
             dfmodel.addRow(new Object[]{model.reserinfo[i][0],
                 model.reserinfo[i][1],
                 model.reserinfo[i][2],
@@ -164,14 +169,20 @@ public class UseLab_controller {
         model.reserlist(resernum);
         reser_date = LocalDate.parse(model.reserinfo2[0], DateTimeFormatter.ISO_DATE);
         s_time = LocalTime.parse(model.reserinfo2[1]);
-        String acc = model.reserinfo2[3];
-        if(reser_date.isEqual(curdate) && s_time.isBefore(curTime) && acc.equals("y")){
-            sm_view.checkin.setEnabled(true);
-        }else if(reser_date.isEqual(curdate) && s_time.isBefore(curTime) && acc.equals("u")){
-            sm_view.checkout.setEnabled(true);
-            sm_view.extendreser.setEnabled(true);
-        }else if(reser_date.isAfter(curdate) || s_time.isAfter(curTime)){
-            sm_view.DELETE_RE_BTN.setEnabled(true);
+        String acc = model.reserinfo2[2];
+        if(acc.equals("x")){
+            sm_view.DELETE_RE_BTN.setEnabled(false);
         }
+        //예약 날짜가 오늘이고 시작시간이 현재시간보다 이전이며 예약 상태가 y인 상태
+        else if(reser_date.isEqual(curdate) && s_time.isBefore(curTime) && acc.equals("y")){
+            sm_view.checkin.setEnabled(true);//입실 버튼 활성화
+         //예약 날짜가 오늘이고 시작시간이 현재시간보다 이전이며 예약 상태가 u인 상태    
+        }else if(reser_date.isEqual(curdate) && s_time.isBefore(curTime) && acc.equals("u")){
+            sm_view.checkout.setEnabled(true); //퇴실버튼 활성화
+            sm_view.extendreser.setEnabled(true); //예약연장 활성화
+         //예약 날짜가 오늘 이후이거나 시작시간이 현재시간보다 이후인 상태
+        }else if(reser_date.isAfter(curdate) || s_time.isAfter(curTime)){
+            sm_view.DELETE_RE_BTN.setEnabled(true); //예약취소 버튼 활성화
+        } 
     }    
 }

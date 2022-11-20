@@ -24,10 +24,9 @@ public class CancelReserState implements State {
             SQL = "update reservation set access = '" + access + "' where reser_num = '" + reser_num + "'";
             con = dbconnection.getConnection();
             st = con.prepareStatement(SQL);
-            pstmt.setString(1, access);
-            pstmt.setString(2, reser_num);
             int addrow = st.executeUpdate(SQL);
             st.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
