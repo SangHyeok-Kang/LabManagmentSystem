@@ -138,8 +138,8 @@ public class ReserLab_controller {
         String team1seatnum = sm_view.getTeam1Seatnum();
         String team2stdno = sm_view.getTeam2Stdno();
         String team2seatnum = sm_view.getTeam2Seatnum();
-        String team3stdno = sm_view.getTeam2Stdno();
-        String team3seatnum = sm_view.getTeam2Seatnum();
+        String team3stdno = sm_view.getTeam3Stdno();
+        String team3seatnum = sm_view.getTeam3Seatnum();
         if (Integer.parseInt(s_time) >= Integer.parseInt(e_time)) {
             JOptionPane.showMessageDialog(null, "종료시간이 시작시간보다 이전입니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         } else {
