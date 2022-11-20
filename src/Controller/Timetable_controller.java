@@ -130,6 +130,15 @@ public class Timetable_controller {
             l.setLab_num(lab);
             l.setStime(stime);
             l.setEtime(etime);
+            System.out.println(view.INPUT_SEMINAR_NAME.getText());
+            System.out.println(day);
+            System.out.println(view.INPUT_SEMINAR_ID.getText());
+            System.out.println(lab);
+            System.out.println(stime);
+            System.out.println(etime);
+            System.out.println(set_date);
+          
+            
             
             if(model.searchUser(l.getProf_id())){
                 if(!model.searchClass(l)){ //시간에 겹치는 강의가 있는지 비교
