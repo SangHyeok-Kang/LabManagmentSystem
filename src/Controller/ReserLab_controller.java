@@ -183,7 +183,9 @@ public class ReserLab_controller {
                 } else if (result.equals("success")) {
                     JOptionPane.showMessageDialog(null, "예약 신청되었습니다.");
                     sm_view.INFO.setVisible(true);
-                } else {
+                } else if(result.equals("exist")){
+                    JOptionPane.showMessageDialog(null, "해당 시간에 이미 예약이 되어있습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+                }else {
                     JOptionPane.showMessageDialog(null, "예기치 않은 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
                 }
             }
