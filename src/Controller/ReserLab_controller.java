@@ -217,7 +217,7 @@ public class ReserLab_controller {
 
     //퇴실 및 책임자 이전
     public void ExitLab() {
-        rlmodel.update_manager(rlmodel.user_id);
+        rlmodel.update_manager();
         resernum = sm_view.getTable();
         ReserState rs = new ReserState(resernum, "퇴실하기");
         rs.updateState();

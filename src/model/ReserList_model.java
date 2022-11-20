@@ -87,40 +87,52 @@ public class ReserList_model {
     }
 
     //책임자 이전 메소드
-    public boolean update_manager(String user_id) {
+    public boolean update_manager() {
         try {
             SQL = "select lab_num from reservation where mgr ='1' and stu_num = '" + user_id + "'";
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(SQL);
             if (rs.next()) {
                 labnum = rs.getString("lab_num");
+                System.out.println(labnum);
             }
-            st.close();
-            rs.close();
-
-            SQL = "update reservation set mgr ='0' where std_num = '" + user_id + "' and mgr = '1'";
-            con = dbconnection.getConnection();
-            st = con.prepareStatement(SQL);
-            st.executeUpdate(SQL);
+            
             rs.close();
             st.close();
-
-            SQL = "selct stu_num, max(endtime) from reservation where lab_num = " + labnum + "and access = 'u'";
+            
+            System.out.println("success1");
+            System.out.println(user_id);
+            SQL = "update reservation set mgr ='0' where stu_num = '" + user_id + "' and mgr = '1'";            
+            con = dbconnection.getConnection();            
+            st = con.prepareStatement(SQL);            
+            int addrow = st.executeUpdate(SQL);            
+            System.out.println("success2");
+            st.close();
+            
+            SQL = "select stu_num, max(end_time) from reservation where lab_num = " + labnum + " and access = 'u'";
+                       
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(SQL);
+            
             if (rs.next()) {
                 stdno = rs.getString("stu_num");
-            }
+                System.out.println(stdno);
+            }          
+            System.out.println("success3");
             rs.close();
             st.close();
-
-            SQL = "update reservation set mgr = '1' where lab_num = " + labnum + "and stu_num = '" + stdno + "' and access = 'u'";
-            con = dbconnection.getConnection();
+            
+            SQL = "update reservation set mgr = '1' where lab_num = " + labnum + " and stu_num = '" + stdno + "' and access = 'u'";
+            System.out.println(SQL); 
+            con = dbconnection.getConnection();        
             st = con.prepareStatement(SQL);
-            st.executeUpdate(SQL);
+             System.out.println("2");
+            addrow = st.executeUpdate(SQL);
+            System.out.println("3");
             rs.close();
             st.close();
-
+            System.out.println("success4");
+            
             return true;
         } catch (SQLException e) {
             return false;
