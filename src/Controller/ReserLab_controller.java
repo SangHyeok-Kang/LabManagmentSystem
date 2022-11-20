@@ -51,7 +51,7 @@ public class ReserLab_controller {
     public void usingNow(String lab){
         m_view.NOW_USING_PANEL.setVisible(false);
         m_view.NOW_USING_PANEL.removeAll();
-        Font font = new Font("굴림", Font.BOLD, 13);
+        Font font = new Font("굴림", Font.BOLD, 17);
         m_CurLab_model curlab = new m_CurLab_model();
         String[][] list = curlab.CurrentLab(lab);
         JLabel label = new JLabel();
@@ -63,12 +63,9 @@ public class ReserLab_controller {
         }
         for (int i = 0; i < curlab.number; i++) {
             seat.set(Integer.parseInt(list[i][2])-1, 1);
-            stu_num.set(Integer.parseInt(list[i][2])-1, list[i][1]);
-            
+            stu_num.set(Integer.parseInt(list[i][2])-1, list[i][1]);   
         }
         for (int i = 0; i < 40; i++) {
-            System.out.println("자리번호 = " + Integer.toString(seat.get(i)));
-            System.out.println("학생이름 = "+stu_num.get(i));
             label.setFont(font);
             if(seat.get(i) == 1){
                 label = new JLabel("<html><body style='text-align:center;'> "+Integer.toString(i+1)+"<br>"+stu_num.get(i)+"</html>",JLabel.CENTER);

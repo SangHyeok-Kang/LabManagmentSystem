@@ -949,9 +949,6 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="CLASS_SELECT_DAY_BTN">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="&#xb4f1;&#xb85d;"/>
                       </Properties>
                       <Events>
@@ -1403,9 +1400,6 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="SPECIAL_SELECT_DAY_BTN">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="text" type="java.lang.String" value="&#xb4f1;&#xb85d;"/>
                       </Properties>
                       <Events>
@@ -1902,9 +1896,9 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                         <Property name="columns" type="int" value="8"/>
-                        <Property name="horizontalGap" type="int" value="15"/>
+                        <Property name="horizontalGap" type="int" value="30"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="verticalGap" type="int" value="15"/>
+                        <Property name="verticalGap" type="int" value="30"/>
                       </Layout>
                     </Container>
                   </SubComponents>
