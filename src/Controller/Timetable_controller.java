@@ -37,8 +37,10 @@ public class Timetable_controller {
     
     public void insertClass(){ // 수업 입력
         Lecture l = new Lecture();
-        String stime = view.INPUT_SEMINAR_STIME.getSelectedItem().toString().substring(0,view.INPUT_SEMINAR_STIME.getSelectedItem().toString().indexOf(":"));
-        String etime = view.INPUT_SEMINAR_ETIME.getSelectedItem().toString().substring(0,view.INPUT_SEMINAR_ETIME.getSelectedItem().toString().indexOf(":"));
+        String stime;
+        stime = view.INPUT_CLASS_STIME.getSelectedItem().toString().substring(0,view.INPUT_CLASS_STIME.getSelectedItem().toString().indexOf(":"));
+        String etime;
+        etime = view.INPUT_CLASS_ETIME.getSelectedItem().toString().substring(0,view.INPUT_CLASS_ETIME.getSelectedItem().toString().indexOf(":"));
         
         if(view.INPUT_CLASS_NUM.getText().isEmpty() || view.INPUT_CLASS_NAME.getText().isEmpty() || view.INPUT_CLASS_DIVISON.getText().isEmpty() ||view.INPUT_CLASS_PRO.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "작성되지 않은 항목이 존재합니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
@@ -52,16 +54,20 @@ public class Timetable_controller {
             // 종료 시간보다 시작 시간이 늦을 경우
             JOptionPane.showMessageDialog(null, "시작, 종료 시간을 다시 입력하세요", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         }else{
-            String semester = "2";
-            String lab = "911";
+            String semester = null;
+            String lab = null;
             if(view.SEMESTER1.isSelected())
                 semester = "1";
+            else if(view.SEMESTER2.isSelected())
+                semester = "2";
             if(view.CLASS_LAB_915.isSelected())
                 lab = "915";
             else if(view.CLASS_LAB_916.isSelected())
                 lab = "916";
             else if(view.CLASS_LAB_918.isSelected())
                 lab = "918";
+            else if(view.CLASS_LAB_911.isSelected())
+                lab = "911";
             /*수업 객체 정보 저장 */
             l.setId(view.INPUT_CLASS_NUM.getText());
             l.setName(view.INPUT_CLASS_NAME.getText());
@@ -73,6 +79,7 @@ public class Timetable_controller {
             l.setLab_num(lab);
             l.setStime(stime);
             l.setEtime(etime);
+            
             if(l.getProf_id().charAt(0)=='P'){
                 if(model.searchUser(l.getProf_id())){
                     if(!model.searchClass(l)){
