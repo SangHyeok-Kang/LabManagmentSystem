@@ -147,10 +147,17 @@ public class Student_Main extends javax.swing.JFrame {
         TEXT_F = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         INQUIRY_GROUP = new javax.swing.ButtonGroup();
         jPanel3 = new javax.swing.JPanel();
         LAB_NUM = new javax.swing.ButtonGroup();
+        INFO = new javax.swing.JDialog();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
         UNDER_P = new javax.swing.JPanel();
         MAIN_P = new javax.swing.JPanel();
         S_MENU_P = new javax.swing.JPanel();
@@ -421,8 +428,6 @@ public class Student_Main extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTextField1.setText("jTextField1");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -432,6 +437,79 @@ public class Student_Main extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        INFO.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        INFO.setLocation(new java.awt.Point(100, 100));
+        INFO.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+        INFO.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
+        INFO.setPreferredSize(new java.awt.Dimension(399, 414));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel37.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
+        jLabel37.setText("사용 방법");
+
+        jLabel47.setFont(new java.awt.Font("굴림", 0, 15)); // NOI18N
+        jLabel47.setText("1. 실습실에서는 마스크를 절대 벗지 않도록 한다.");
+
+        jLabel48.setFont(new java.awt.Font("굴림", 0, 15)); // NOI18N
+        jLabel48.setText("2. 실습실에서는 음식물을 섭취하지 않는다.");
+
+        jLabel49.setFont(new java.awt.Font("굴림", 0, 15)); // NOI18N
+        jLabel49.setText("3. 사용한 자리는 반드시 정리후 퇴실한다.");
+
+        jLabel50.setFont(new java.awt.Font("굴림", 0, 15)); // NOI18N
+        jLabel50.setText("4. 사용한 컴퓨터는 반드시 종료한 후 퇴실한다.");
+
+        jLabel51.setFont(new java.awt.Font("굴림", 0, 15)); // NOI18N
+        jLabel51.setText("5. 실내에서 흡연을 하지 않는다.");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabel37)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel37)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel47)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel48)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel49)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel50)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel51)
+                .addContainerGap(183, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout INFOLayout = new javax.swing.GroupLayout(INFO.getContentPane());
+        INFO.getContentPane().setLayout(INFOLayout);
+        INFOLayout.setHorizontalGroup(
+            INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        INFOLayout.setVerticalGroup(
+            INFOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1803,6 +1881,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel DELETE;
     public javax.swing.JButton DELETE_RE_BTN;
     private javax.swing.JButton EXIT_INQUIRY_BTN;
+    public javax.swing.JDialog INFO;
     private javax.swing.JButton INFO_CHANGE_BTN;
     private javax.swing.JButton INFO_DEL_BTN;
     public javax.swing.JButton INPUT_INQUIRY_BTN;
@@ -1910,6 +1989,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -1920,7 +2000,12 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel72;
@@ -1933,6 +2018,7 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1949,7 +2035,6 @@ public class Student_Main extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField resertext;
     private javax.swing.JButton setReser;
     // End of variables declaration//GEN-END:variables

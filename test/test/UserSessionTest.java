@@ -1,5 +1,7 @@
+package test;
 
-package model;
+
+
 import static model.UserSession.log;
 
 public class UserSessionTest {
