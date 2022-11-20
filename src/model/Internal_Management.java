@@ -26,4 +26,12 @@ public class Internal_Management {
         return true;
     }
     
+    public boolean delete_Info(String stunum){
+        user_info.deleteInfo(stunum);
+        reser_info.deleteInfo(stunum);
+        board_info.deleteInfo(stunum);
+        return true;
+    }
+
+    
 }

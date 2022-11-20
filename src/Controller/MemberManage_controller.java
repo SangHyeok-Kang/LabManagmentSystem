@@ -1,15 +1,18 @@
 package Controller;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Signup_model;
 import model.ChangeInfo_model;
 import model.New_token_model;
+import model.StudentList;
 import view.Login;
 import view.Manager_Main;
 import view.Student_Main;
 
 public class MemberManage_controller {
     ChangeInfo_model cimodel = new ChangeInfo_model();
+    StudentList stmodel = new StudentList();
     Login view;
     Student_Main sm_view;
     Manager_Main m_view;
@@ -90,6 +93,11 @@ public class MemberManage_controller {
         cimodel.deleteinfo();
             JOptionPane.showMessageDialog(null, "회원탈퇴 완료되었습니다.");
     }
+    public void m_DeleteUser(){
+        String stunum = m_view.getStdno();
+        cimodel.deleteinfo(stunum);
+            JOptionPane.showMessageDialog(null, "삭제 완료되었습니다.");
+    }
     
     public void getNowToken(){
         String token = tmodel.nowToken();
@@ -101,5 +109,32 @@ public class MemberManage_controller {
             getNowToken();
         else
             JOptionPane.showMessageDialog(null, "토큰 생성에 실패하였습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);   
+    }
+    
+    //학생 명단 출력
+    public void PrintStdList(){
+        stmodel.CountStd();
+        stmodel.StdList();
+        DefaultTableModel dfmodel = new DefaultTableModel();
+        dfmodel.addColumn("학번");
+        dfmodel.addColumn("이름");
+        dfmodel.addColumn("전화번호");
+        dfmodel.addColumn("이메일");
+        dfmodel.addColumn("승인여부");
+        dfmodel.addColumn("제제 종료일");
+        for (int i = 0; i < stmodel.number; i++) {
+            if (stmodel.stdlist[i][4].equals("1")) {
+                stmodel.stdlist[i][4] = "승인 대기";
+            } else if (stmodel.stdlist[i][4].equals("0")) {
+                stmodel.stdlist[i][4] = "승인 완료";
+            }
+            dfmodel.addRow(new Object[]{stmodel.stdlist[i][0],
+                stmodel.stdlist[i][1],
+                stmodel.stdlist[i][2],
+                stmodel.stdlist[i][3],
+                stmodel.stdlist[i][4],
+                stmodel.stdlist[i][5],});
+        }
+        m_view.STU_LIST_T.setModel(dfmodel);
     }
 }

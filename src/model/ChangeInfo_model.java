@@ -26,6 +26,9 @@ public class ChangeInfo_model {
     public void deleteinfo(){
         facade.delete_Info();
     }
+    public void deleteinfo(String stunum){
+        facade.delete_Info(stunum);
+    }
     
     public String[] SearchUser() {
         Userinfo[0] = user_id;
