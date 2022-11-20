@@ -35,11 +35,13 @@ public class Board_controller {
     
     public void setNotice(){
         if(mview.TITLE_F.getText().isEmpty() || mview.TEXT_F.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "제목과 내용을 모두 입력해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }else{
             n_model.insertNotice( mview.TITLE_F.getText(), mview.TEXT_F.getText());
             JOptionPane.showMessageDialog(null, "공지사항을 등록하였습니다.");
             mview.NOTICE_INFO.dispose();
-        }else
-            JOptionPane.showMessageDialog(null, "제목과 내용을 모두 입력해주세요.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
+        }
+            
     }
     
     public void setInquiry(){
