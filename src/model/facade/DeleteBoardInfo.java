@@ -11,7 +11,7 @@ public class DeleteBoardInfo {
 
     public boolean deleteInfo(String stunum) {
         try {
-            SQL = "delete from board where stu_num = '" + stunum + "'";
+            SQL = "delete from stu_limit where stu_num = '" + stunum + "'";
             con = dbconnection.getConnection();
             st = con.prepareStatement(SQL);
             st.executeUpdate(SQL);

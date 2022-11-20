@@ -2150,7 +2150,7 @@ public class Manager_Main extends javax.swing.JFrame {
     public javax.swing.JLabel STU_L;
     private javax.swing.JLabel STU_LIST;
     private javax.swing.JPanel STU_LIST_P;
-    private javax.swing.JTable STU_LIST_T;
+    public javax.swing.JTable STU_LIST_T;
     private javax.swing.JPanel STU_MANAGEMENT_P;
     private javax.swing.JPanel STU_M_P;
     private javax.swing.JLabel STU_TOKEN;
