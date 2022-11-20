@@ -3,6 +3,8 @@ package Controller;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -10,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Class_model;
 import model.Lecture;
+import model.ReserList_model;
 import view.Manager_Main;
 import view.Student_Main;
 
@@ -23,6 +26,7 @@ public class Timetable_controller {
     Student_Main sview;
     private Manager_Main view;
     private Class_model model;
+    ReserList_model r_model = new ReserList_model();
     
     public Timetable_controller(Manager_Main view){
         this.view = view;
@@ -163,7 +167,19 @@ public class Timetable_controller {
     
     public void setTimeTable(String lab){
         ArrayList<Lecture> class_list = model.searchAllClass(lab);
-        ArrayList<Integer> time = new ArrayList<Integer>();
+        String manager = r_model.get_manager(lab);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH");
+        String now = LocalTime.now().format(formatter);
+        if(9 <= Integer.parseInt(now) && Integer.parseInt(now) < 17){
+            sview.LAB_HEAD_L.setText("관리자");
+        }else{
+            if(manager.equals("Empty")){
+                sview.LAB_HEAD_L.setText(manager);
+            }else{
+                String [] a = manager.split("/");
+                sview.LAB_HEAD_L.setText(a[0] +" "+a[1]);
+            }
+        }
         DefaultTableModel dfmodel = new DefaultTableModel();
         dfmodel.addColumn("구분");
         dfmodel.addColumn("일");

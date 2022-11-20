@@ -541,11 +541,11 @@ public class Student_Main extends javax.swing.JFrame {
         STU_MAIN_P.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel35.setText("실습실 책임자 :");
-        STU_MAIN_P.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+        STU_MAIN_P.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         LAB_HEAD_L.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LAB_HEAD_L.setText("조교");
-        STU_MAIN_P.add(LAB_HEAD_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 80, -1));
+        STU_MAIN_P.add(LAB_HEAD_L, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 130, -1));
 
         CLASS_LAB_911.setBackground(new java.awt.Color(255, 255, 255));
         LAB_NUM.add(CLASS_LAB_911);
@@ -1708,6 +1708,38 @@ public class Student_Main extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Student_Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

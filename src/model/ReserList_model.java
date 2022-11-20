@@ -1,6 +1,9 @@
 package model;
 
 import java.sql.*;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static model.UserSession.log;
 import static model.DBConnection.dbconnection;
 
@@ -21,7 +24,7 @@ public class ReserList_model {
     private Statement st = null;
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
-
+    
     //예약 정보리스트 출력 메소드
     public String[][] reserlist(String cat) {
         try {
@@ -68,27 +71,18 @@ public class ReserList_model {
         return reserinfo;
 
     }
-
+    
     //책임자 부여 메소드
     public boolean appoint_manager(String reser_num) {
         try {
             //예약 상태가 취소 되었을 때 취소 상태로 바꿔주는 SQL문
-            SQL = "select * from reservation where mgr = '1' and lab_num = (select lab_num from reservation where reser_num = '" + reser_num + "');";
-            System.out.println(SQL);
-            st = dbconnection.getInstance().getConnection().createStatement();
-            rs = st.executeQuery(SQL);
-            if (rs.next()) {
-                return false;
-            } else {
-                SQL = "update reservation set mgr = '1' where reser_num = '" + reser_num + "'";
-                con = dbconnection.getConnection();
-                st = con.prepareStatement(SQL);
-                int addrow = st.executeUpdate(SQL);
-                st.close();
+            SQL = "update reservation set mgr = '1' where reser_num = '" + reser_num + "'";
+            con = dbconnection.getConnection();
+            st = con.prepareStatement(SQL);
+            int addrow = st.executeUpdate(SQL);
+            st.close();
 
-                return true;
-            }
-
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -146,5 +140,25 @@ public class ReserList_model {
         } catch (SQLException e) {
             return false;
         }
+    }
+    
+    //책임자 찾기
+    public String get_manager(String lab){
+        Calendar c = Calendar.getInstance();
+        String date = Integer.toString(c.get(Calendar.YEAR)) + "-" + Integer.toString(c.get(Calendar.MONTH)+1) + "-" + Integer.toString(c.get(Calendar.DATE));
+        System.out.println(date);
+        String manager=null;
+        SQL = "select s.stu_num, s.name from student s join reservation r on s.stu_num = r.stu_num where mgr='1' and reser_date='"+ date +"' and lab_num='"+lab+"'";
+        try {
+              st = dbconnection.getInstance().getConnection().createStatement();
+            rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                manager = rs.getString(1)+"/"+rs.getString(2);
+            }else
+                manager = "Empty";
+        } catch (SQLException ex) {
+            Logger.getLogger(ReserList_model.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return manager;
     }
 }
