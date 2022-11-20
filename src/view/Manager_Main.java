@@ -1639,12 +1639,15 @@ public class Manager_Main extends javax.swing.JFrame {
         // 책임권한 부여 버튼
         UseLab_controller uc = new UseLab_controller(this);
         uc.giveMgr();
+        uc.to_m_showReser();
     }//GEN-LAST:event_TO_GIVEActionPerformed
 
     private void APPROVAL_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_APPROVAL_BTNActionPerformed
-        // 예약 승인 버튼
+        // 예약 승인 버튼      
         ReserLab_controller rc = new ReserLab_controller(this);
         rc.SignReser();
+        UseLab_controller uc = new UseLab_controller(this);
+        uc.to_m_showReser();
     }//GEN-LAST:event_APPROVAL_BTNActionPerformed
 
     public void getCalendar(){ // 달력을 받아오는 함수

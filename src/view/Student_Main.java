@@ -1574,6 +1574,10 @@ public class Student_Main extends javax.swing.JFrame {
 
     private void setReserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setReserActionPerformed
         // 예약번호 입력 후 선택 시.
+        checkin.setEnabled(false);
+        checkout.setEnabled(false);
+        extendreser.setEnabled(false);
+        DELETE_RE_BTN.setEnabled(false);
         UseLab_controller uc = new UseLab_controller(this);
         uc.checkReser();
     }//GEN-LAST:event_setReserActionPerformed
