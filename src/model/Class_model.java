@@ -6,8 +6,12 @@
 package model;
 
 import java.sql.*;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static model.DBConnection.dbconnection;
@@ -135,16 +139,26 @@ public class Class_model {
         
         return l;
     }
-    public ArrayList<Lecture> searchAllSeminar(){ //한 주의 강의 출력
+    public ArrayList<Lecture> searchAllSeminar(String lab){ //한 주의 강의 출력
         ArrayList<Lecture> l = new ArrayList<Lecture>();
-        DBConnection.getInstance().Initailize();
-        int i=0;
+        int i =1;
         try {
-            sql = "select * from ";
+            sql = "select * from seminar where date in (ADDDATE( CURDATE(), - WEEKDAY(CURDATE()) + -1 ),"
+                    + "ADDDATE( CURDATE(), - WEEKDAY(CURDATE()) + 0 ),"
+                    + "ADDDATE( CURDATE(), - WEEKDAY(CURDATE()) + 1 ),"
+                    + "ADDDATE( CURDATE(), - WEEKDAY(CURDATE()) + 2 ),"
+                    + "ADDDATE( CURDATE(), - WEEKDAY(CURDATE()) + 3 ),"
+                    + "ADDDATE( CURDATE(), - WEEKDAY(CURDATE()) + 4 ),"
+                    + "ADDDATE( CURDATE(), - WEEKDAY(CURDATE()) + 5 ))"
+                    + "and lab_num = '"+ lab +"'order by date";
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(sql);
             while(rs.next()){
-                l.add(new Lecture(rs.getString(1),rs.getString(3),rs.getString(5),rs.getString(2),rs.getString(4),rs.getString(6),rs.getString(7)));
+                String [] date_data = rs.getString(5).split("-");
+                LocalDate day = LocalDate.of(Integer.parseInt(date_data[0]), Integer.parseInt(date_data[1]),Integer.parseInt(date_data[2]));
+                DayOfWeek dayOfWeek = day.getDayOfWeek();
+                l.add(new Lecture(rs.getString(1),rs.getString(3),dayOfWeek.getDisplayName(TextStyle.SHORT, Locale.KOREAN),rs.getString(2),rs.getString(4),rs.getString(6),rs.getString(7)));
+                
             }
         } catch (SQLException ex) {
             System.out.println("search SQL구문 오류 입니다." + ex.getMessage());

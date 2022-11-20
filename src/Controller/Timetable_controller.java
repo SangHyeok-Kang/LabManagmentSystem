@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Locale;
+import javafx.scene.paint.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Class_model;
@@ -167,6 +168,7 @@ public class Timetable_controller {
     
     public void setTimeTable(String lab){
         ArrayList<Lecture> class_list = model.searchAllClass(lab);
+        ArrayList<Lecture> seminar_list = model.searchAllSeminar(lab);
         String manager = r_model.get_manager(lab);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH");
         String now = LocalTime.now().format(formatter);
@@ -189,11 +191,12 @@ public class Timetable_controller {
         dfmodel.addColumn("목");
         dfmodel.addColumn("금");
         dfmodel.addColumn("토");
-        dfmodel.setRowCount(9);
+        dfmodel.setRowCount(14);
         
-        for(int i =0; i<9;i++){
+        for(int i =0; i<14;i++){
             dfmodel.setValueAt(i+1, i, 0);
         }
+        //강의 추가
         for(int i=0; i<class_list.size();i++){
             int day = 0;
             
@@ -214,10 +217,32 @@ public class Timetable_controller {
             int stime = Integer.parseInt(class_list.get(i).getStime().substring(0,class_list.get(i).getStime().indexOf(":")));
             int etime = Integer.parseInt(class_list.get(i).getEtime().substring(0,class_list.get(i).getEtime().indexOf(":")));
             for(int k= stime; k < etime; k++){
-                dfmodel.setValueAt(class_list.get(i).getName(), k-9, day);
-            }
+                dfmodel.setValueAt(class_list.get(i).getName(), k-9, day);;
+            }    
+        }
+        //세미나 추가
+        for(int i=0; i<seminar_list.size();i++){
+            int day = 0;
             
-                
+            if(seminar_list.get(i).getDay().equals("일"))
+                day = 1;
+            else if(seminar_list.get(i).getDay().equals("월"))
+                day = 2;
+            else if(seminar_list.get(i).getDay().equals("화"))
+                day = 3;
+            else if(seminar_list.get(i).getDay().equals("수"))
+                day = 4;
+            else if(seminar_list.get(i).getDay().equals("목"))
+                day = 5;
+            else if(seminar_list.get(i).getDay().equals("금"))
+                day = 6;
+            else if(seminar_list.get(i).getDay().equals("토"))
+                day = 7;
+            int stime = Integer.parseInt(seminar_list.get(i).getStime().substring(0,seminar_list.get(i).getStime().indexOf(":")));
+            int etime = Integer.parseInt(seminar_list.get(i).getEtime().substring(0,seminar_list.get(i).getEtime().indexOf(":")));
+            for(int k= stime; k < etime; k++){
+                dfmodel.setValueAt(seminar_list.get(i).getName(), k-9, day);;
+            }    
         }
         sview.TIME_TABLE.setModel(dfmodel);
         sview.STU_MAIN_P.setVisible(true);

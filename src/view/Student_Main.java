@@ -598,6 +598,11 @@ public class Student_Main extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
@@ -612,6 +617,7 @@ public class Student_Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TIME_TABLE.setEnabled(false);
         TIME_TABLE.setGridColor(new java.awt.Color(204, 204, 204));
         TIME_TABLE.setRowHeight(60);
         TIME_TABLE.setSelectionBackground(new java.awt.Color(255, 255, 255));
