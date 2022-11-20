@@ -94,6 +94,7 @@ public class MemberManage_controller {
     public void DeleteUser() {
         cimodel.deleteinfo();
         JOptionPane.showMessageDialog(null, "회원탈퇴 완료되었습니다.");
+        sm_view.dispose();
     }
 
     public void m_DeleteUser() {
