@@ -1582,24 +1582,41 @@ public class Student_Main extends javax.swing.JFrame {
         // 입실 버튼 선택 시
         ReserLab_controller rc = new ReserLab_controller(this);
         rc.UseLab();
+        UseLab_controller ulcontroll = new UseLab_controller(this);
+        ulcontroll.showReser();
+        checkin.setEnabled(false);
+        checkout.setEnabled(true);
+        extendreser.setEnabled(true);
     }//GEN-LAST:event_checkinActionPerformed
 
     private void DELETE_RE_BTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE_RE_BTNActionPerformed
         //예약 취소 버튼 선택 시
         ReserLab_controller rc = new ReserLab_controller(this);
         rc.CancelReser();
+        UseLab_controller ulcontroll = new UseLab_controller(this);
+        ulcontroll.showReser();
+        DELETE_RE_BTN.setEnabled(false);
     }//GEN-LAST:event_DELETE_RE_BTNActionPerformed
 
     private void checkoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutActionPerformed
         // 퇴실 버튼 선택 시
         ReserLab_controller rc = new ReserLab_controller(this);
         rc.ExitLab();
+        UseLab_controller ulcontroll = new UseLab_controller(this);
+        ulcontroll.showReser();
+        checkin.setEnabled(false);
+        checkout.setEnabled(false);
+        extendreser.setEnabled(false);
     }//GEN-LAST:event_checkoutActionPerformed
 
     private void extendreserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extendreserActionPerformed
-        // TODO add your handling code here:
+        // 예약 연장 버튼 클릭 시
+        DELETE_RE_BTN.setEnabled(false);
+        checkin.setEnabled(false);
         ReserLab_controller rc = new ReserLab_controller(this);
         rc.ExtendReser();
+        UseLab_controller ulcontroll = new UseLab_controller(this);
+        ulcontroll.showReser();
     }//GEN-LAST:event_extendreserActionPerformed
     
     public void getCalendar(){ // 달력을 받아오는 함수

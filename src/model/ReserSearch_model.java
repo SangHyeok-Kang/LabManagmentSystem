@@ -15,8 +15,8 @@ public class ReserSearch_model {
     String[][] reser_info; //예약 정보 배열
     String SQL;
     String labnum, seatnum;
-    java.sql.Time endtime;
-    java.sql.Date reserdate;
+    String endtime;
+    String reserdate;
     String user_id = log.session;
     private Connection con = null;
     private Statement st = null;
@@ -67,26 +67,28 @@ public class ReserSearch_model {
     //예약 연장 가능 시간 조회
     public String[] PossibleExtend() {
         try {
-            SQL = "select lab_num, seat_num, end_time, reser_date from reservation where stu_num = '" + user_id + "' and access = 'y'";
+            SQL = "select lab_num, seat_num, end_time, reser_date, hour(end_time) e_time from reservation where stu_num = '" + user_id + "' and access = 'u'";
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(SQL);
             if (rs.next()) {
                 labnum = rs.getString("lab_num");
                 seatnum = rs.getString("seat_num");
-                endtime = java.sql.Time.valueOf(rs.getString("end_time"));
-                reserdate = java.sql.Date.valueOf(rs.getString("reser_date"));
-                result[0] = rs.getString("end_time");
+                endtime = rs.getString("end_time");
+                reserdate = rs.getString("reser_date");
+                result[0] = rs.getString("e_time");
             }
             st.close();
             rs.close();
-            SQL = "select start_time from reservation where lab_num = " + labnum
+            SQL = "select hour(start_time) s_time from reservation where lab_num = " + labnum
                     + " and seat_num = '" + seatnum + "'"
                     + " and reser_date = '" + reserdate + "'"
-                    + " and (hour(" + endtime + ") <= hour(start_time))";
+                    + " and (hour('"+ endtime + "') <= hour(start_time))";
             st = dbconnection.getInstance().getConnection().createStatement();
             rs = st.executeQuery(SQL);
             if (rs.next()) {
-                result[1] = rs.getString("start_time");
+                result[1] = rs.getString("s_time");
+            }else{
+                result[1] = "23";
             }
         } catch (SQLException e) {
             System.out.println(e);

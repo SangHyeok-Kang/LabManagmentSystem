@@ -163,6 +163,7 @@ public class ReserLab_controller {
 
     //실습실 사용 메소드
     public void UseLab() {
+        resernum = sm_view.getTable();
         ReserState rs = new ReserState("사용하기");
         rs.updateState();
         JOptionPane.showMessageDialog(null, "체크인 하였습니다.");
@@ -180,6 +181,7 @@ public class ReserLab_controller {
     //퇴실 및 책임자 이전
     public void ExitLab() {
         rlmodel.update_manager(rlmodel.user_id);
+        resernum = sm_view.getTable();
         ReserState rs = new ReserState(resernum, "퇴실하기");
         rs.updateState();
         JOptionPane.showMessageDialog(null, "퇴실 완료되었습니다.");
@@ -190,7 +192,14 @@ public class ReserLab_controller {
     public void ExtendReser() {
         resernum = sm_view.getTable();
         rsmodel.PossibleExtend();
-        if ((Integer.parseInt(rsmodel.result[1]) - Integer.parseInt(rsmodel.result[0])) < 1) {
+        System.out.println(rsmodel.result[0]);
+        System.out.println(rsmodel.result[1]);
+        int result1 = Integer.parseInt(rsmodel.result[0]);
+        
+        int result2 = Integer.parseInt(rsmodel.result[1]);
+        System.out.println(result2);
+        int sum = result2 - result1;
+        if (sum < 1) {
             JOptionPane.showMessageDialog(null, "더 이상 연장하실 수 없습니다.", "ERROR_MESSAGE", JOptionPane.ERROR_MESSAGE);
         } else {
             boolean result = rsmodel.extendReser(resernum);
