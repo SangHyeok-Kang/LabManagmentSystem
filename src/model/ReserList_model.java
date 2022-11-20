@@ -73,13 +73,22 @@ public class ReserList_model {
     public boolean appoint_manager(String reser_num) {
         try {
             //예약 상태가 취소 되었을 때 취소 상태로 바꿔주는 SQL문
-            SQL = "update reservation set mgr = '1' where reser_num = '" + reser_num + "'";
-            con = dbconnection.getConnection();
-            st = con.prepareStatement(SQL);
-            int addrow = st.executeUpdate(SQL);
-            st.close();
+            SQL = "select * from reservation where mgr = '1' and lab_num = (select lab_num from reservation where reser_num = '" + reser_num + "');";
+            System.out.println(SQL);
+            st = dbconnection.getInstance().getConnection().createStatement();
+            rs = st.executeQuery(SQL);
+            if (rs.next()) {
+                return false;
+            } else {
+                SQL = "update reservation set mgr = '1' where reser_num = '" + reser_num + "'";
+                con = dbconnection.getConnection();
+                st = con.prepareStatement(SQL);
+                int addrow = st.executeUpdate(SQL);
+                st.close();
 
-            return true;
+                return true;
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

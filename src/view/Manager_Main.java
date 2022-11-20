@@ -844,8 +844,8 @@ public class Manager_Main extends javax.swing.JFrame {
 
         NOW_USING_PANEL.setBackground(new java.awt.Color(255, 255, 255));
         NOW_USING_PANEL.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
-        NOW_USING_PANEL.setLayout(new java.awt.GridLayout(5, 8, 15, 15));
-        USING_NOW_P.add(NOW_USING_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        NOW_USING_PANEL.setLayout(new java.awt.GridLayout(5, 8, 10, 10));
+        USING_NOW_P.add(NOW_USING_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         RESERVATION_LIST_P.add(USING_NOW_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 440));
 

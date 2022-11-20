@@ -160,7 +160,7 @@ public class UseLab_controller {
         if(result){
              JOptionPane.showMessageDialog(null, "책임자 부여 완료되었습니다.");
         }else{
-             JOptionPane.showMessageDialog(null, "실패.");
+             JOptionPane.showMessageDialog(null, "해당 강의실에 이미 책임자가 존재합니다.");
         }
     }
     //예약 확인

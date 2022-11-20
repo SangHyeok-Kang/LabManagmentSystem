@@ -51,7 +51,7 @@ public class ReserLab_controller {
     public void usingNow(String lab){
         m_view.NOW_USING_PANEL.setVisible(false);
         m_view.NOW_USING_PANEL.removeAll();
-        Font font = new Font("굴림", Font.BOLD, 15);
+        Font font = new Font("굴림", Font.BOLD, 13);
         m_CurLab_model curlab = new m_CurLab_model();
         String[][] list = curlab.CurrentLab(lab);
         JLabel label = new JLabel();
