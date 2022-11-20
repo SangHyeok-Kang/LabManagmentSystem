@@ -444,6 +444,7 @@ public class Student_Main extends javax.swing.JFrame {
         INFO.setModalExclusionType(java.awt.Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
         INFO.setModalityType(java.awt.Dialog.ModalityType.APPLICATION_MODAL);
         INFO.setPreferredSize(new java.awt.Dimension(399, 414));
+        INFO.setSize(new java.awt.Dimension(399, 414));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
