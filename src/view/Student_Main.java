@@ -555,7 +555,7 @@ public class Student_Main extends javax.swing.JFrame {
                 CLASS_LAB_911ActionPerformed(evt);
             }
         });
-        STU_MAIN_P.add(CLASS_LAB_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        STU_MAIN_P.add(CLASS_LAB_911, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         CLASS_LAB_915.setBackground(new java.awt.Color(255, 255, 255));
         LAB_NUM.add(CLASS_LAB_915);
@@ -566,7 +566,7 @@ public class Student_Main extends javax.swing.JFrame {
                 CLASS_LAB_915ActionPerformed(evt);
             }
         });
-        STU_MAIN_P.add(CLASS_LAB_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        STU_MAIN_P.add(CLASS_LAB_915, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         CLASS_LAB_916.setBackground(new java.awt.Color(255, 255, 255));
         LAB_NUM.add(CLASS_LAB_916);
@@ -576,7 +576,7 @@ public class Student_Main extends javax.swing.JFrame {
                 CLASS_LAB_916ActionPerformed(evt);
             }
         });
-        STU_MAIN_P.add(CLASS_LAB_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        STU_MAIN_P.add(CLASS_LAB_916, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         CLASS_LAB_918.setBackground(new java.awt.Color(255, 255, 255));
         LAB_NUM.add(CLASS_LAB_918);
@@ -586,7 +586,7 @@ public class Student_Main extends javax.swing.JFrame {
                 CLASS_LAB_918ActionPerformed(evt);
             }
         });
-        STU_MAIN_P.add(CLASS_LAB_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        STU_MAIN_P.add(CLASS_LAB_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         TIME_TABLE.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
