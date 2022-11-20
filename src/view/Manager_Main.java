@@ -556,7 +556,6 @@ public class Manager_Main extends javax.swing.JFrame {
         INPUT_CLASS_DAY.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "월", "화", "수", "목", "금", "토", "일" }));
         INPUT_CLASS_TIME_P.add(INPUT_CLASS_DAY, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 100, -1));
 
-        CLASS_SELECT_DAY_BTN.setBackground(new java.awt.Color(255, 255, 255));
         CLASS_SELECT_DAY_BTN.setText("등록");
         CLASS_SELECT_DAY_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -686,7 +685,6 @@ public class Manager_Main extends javax.swing.JFrame {
         SPECIAL_LAB_918.setText("918호");
         INPUT_SPECIAL_TIME_P.add(SPECIAL_LAB_918, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, -1));
 
-        SPECIAL_SELECT_DAY_BTN.setBackground(new java.awt.Color(255, 255, 255));
         SPECIAL_SELECT_DAY_BTN.setText("등록");
         SPECIAL_SELECT_DAY_BTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -851,7 +849,7 @@ public class Manager_Main extends javax.swing.JFrame {
 
         NOW_USING_PANEL.setBackground(new java.awt.Color(255, 255, 255));
         NOW_USING_PANEL.setFont(new java.awt.Font("굴림", 0, 18)); // NOI18N
-        NOW_USING_PANEL.setLayout(new java.awt.GridLayout(5, 8, 15, 15));
+        NOW_USING_PANEL.setLayout(new java.awt.GridLayout(5, 8, 30, 30));
         USING_NOW_P.add(NOW_USING_PANEL, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         RESERVATION_LIST_P.add(USING_NOW_P, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 664, 440));
