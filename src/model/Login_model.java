@@ -37,11 +37,12 @@ public class Login_model {
                     name = rs.getString("name");
                     endlimit = rs.getString("end_limit");
                 }
-                
-                end_limit = LocalDateTime.parse(endlimit, formatter);
-                if (end_limit.isBefore(curdate)) 
-                    return "limit";
-                    
+                System.out.println(endlimit);
+                if(endlimit!=null){
+                    end_limit = LocalDateTime.parse(endlimit, formatter);
+                    if (end_limit.isBefore(curdate)) 
+                        return "limit";
+                }
             } else if (a == 'M' || a == 'P') {
                 SQL = "select * from manager where man_num = '" + user_id + "'";
                 st = dbconnection.getInstance().getConnection().createStatement();
