@@ -2001,7 +2001,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JButton APPROVAL_BTN;
     private javax.swing.JPanel CALENDAR_P;
     public javax.swing.JButton CHANGE_NOTICE_BTN;
-    private javax.swing.JRadioButton CLASS_LAB_911;
+    public javax.swing.JRadioButton CLASS_LAB_911;
     public javax.swing.JRadioButton CLASS_LAB_915;
     public javax.swing.JRadioButton CLASS_LAB_916;
     public javax.swing.JRadioButton CLASS_LAB_918;
@@ -2064,7 +2064,7 @@ public class Manager_Main extends javax.swing.JFrame {
     private javax.swing.JPanel RESERVATION_M_P;
     private javax.swing.JLabel RIGHT_L;
     public javax.swing.JRadioButton SEMESTER1;
-    private javax.swing.JRadioButton SEMESTER2;
+    public javax.swing.JRadioButton SEMESTER2;
     public javax.swing.ButtonGroup SEMESTER_GROUP;
     public javax.swing.JLabel SET_DATE_L;
     public javax.swing.JLabel SNAME;

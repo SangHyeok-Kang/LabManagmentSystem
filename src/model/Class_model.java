@@ -161,7 +161,6 @@ public class Class_model {
     }
     
     public int insertSeminar(Lecture l){ //특강 시간표 입력을 위한 함수
-        DBConnection.getInstance().Initailize();
         try {
             sql = "insert into seminar values(default,'" 
                     + l.getProf_id() + "','" //담당자 이름
@@ -187,10 +186,9 @@ public class Class_model {
     }
     
     public boolean searchSeminar(Lecture l){ // 강의 찾기 함수
-        DBConnection.getInstance().Initailize();
         boolean a = false;
         try {
-            sql = "select * from seminar where lab_num= '"+ l.getLab_num() +" ' and day='"+l.getDay()+"' and " //날짜 체크
+            sql = "select * from seminar where lab_num= '"+ l.getLab_num() +" ' and date='"+l.getDay()+"' and " //날짜 체크
                    + "(( "+l.getStime()+" <= hour(start_time) and hour(end_time) <="+l.getEtime()+") or " // 겹치는 강의 시간 체크
                     + "( "+l.getStime()+" >= hour(start_time) and hour(end_time) <="+l.getEtime()+" and hour(end_time) >"+ l.getStime()+")or "
                     + "( "+l.getStime()+" <= hour(start_time) and hour(end_time) >="+l.getEtime()+" and hour(start_time) <"+ l.getEtime()+") or "
