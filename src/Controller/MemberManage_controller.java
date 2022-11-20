@@ -127,9 +127,9 @@ public class MemberManage_controller {
         dfmodel.addColumn("승인여부");
         dfmodel.addColumn("제제 종료일");
         for (int i = 0; i < stmodel.number; i++) {
-            if (stmodel.stdlist[i][4].equals("1")) {
+            if (stmodel.stdlist[i][4].equals("0")) {
                 stmodel.stdlist[i][4] = "승인 대기";
-            } else if (stmodel.stdlist[i][4].equals("0")) {
+            } else if (stmodel.stdlist[i][4].equals("1")) {
                 stmodel.stdlist[i][4] = "승인 완료";
             }
             dfmodel.addRow(new Object[]{stmodel.stdlist[i][0],
