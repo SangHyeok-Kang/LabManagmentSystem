@@ -1743,7 +1743,16 @@ public class Student_Main extends javax.swing.JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             JLabel l = (JLabel) e.getSource();
-            SET_DATE_L.setText(YEAR_L.getText() + "-" + MONTH_L.getText() + "-" + l.getText());
+             SET_DATE_L.setText(YEAR_L.getText() + "-" + MONTH_L.getText() + "-" + l.getText());
+            String month = MONTH_L.getText();
+            String date = l.getText();
+            if(MONTH_L.getText().length()==1){
+                month = "0" + month;
+            }
+            if(l.getText().length()==1){
+                date = "0" + date;
+            }
+            SET_DATE_L.setText(YEAR_L.getText() + "-" + month + "-" + date);
             CALENDAR_P.setVisible(false);
         }
 
