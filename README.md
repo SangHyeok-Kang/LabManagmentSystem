@@ -1,7 +1,7 @@
 # 실습실 관리 시스템
 
 <div align = "center">
-  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/1fd67fe9920a46367a035fbe80e5919e695d54ad/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/banner.png">
+  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/banner.png">
 </div>
 
 <br>
