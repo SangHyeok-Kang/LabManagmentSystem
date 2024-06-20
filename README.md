@@ -65,8 +65,16 @@
 </div>
 
 ## 📘 ERD
-<div align = "center">
-  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/erd.png">
+> **테이블 구조도**
+<div align="center">
+   <img src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%ED%85%8C%EC%9D%B4%EB%B8%94%20%EA%B5%AC%EC%A1%B0%EB%8F%84.png"  width="70%"/>&nbsp;&nbsp;
+</div>
+
+<br>
+
+> **ER 다이어그램**
+<div align="center">
+   <img src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/erd.png"  width="70%"/>&nbsp;&nbsp;
 </div>
 
 ## 📲 UI
@@ -75,15 +83,15 @@
   
 | 메인 페이지 | 강의 시간표 등록 |
 | :---: | :---: |
-| <img width="350" alt="메인 페이지" src=""> | <img width="350" alt="강의 시간표 등록" src=""> |
+| <img width="350" alt="메인 페이지" src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png"> | <img width="350" alt="강의 시간표 등록" src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EA%B0%95%EC%9D%98%20%EC%8B%9C%EA%B0%84%ED%91%9C%20%EB%93%B1%EB%A1%9D.png"> |
 
 | 실습실 예약 | 예약 승인 |
 | :---: | :---: |
-| <img width="350" alt="" src=""> | <img width="350" alt="" src=""> |
+| <img width="350" alt="실습실 예약" src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EC%98%88%EC%95%BD.png"> | <img width="350" alt="예약 승인" src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EC%98%88%EC%95%BD%20%EC%8A%B9%EC%9D%B8.png"> |
 
 | 예약 연장 | 학생명단 관리 |
 | :---: | :---: |
-| <img width="350" alt="" src=""> | <img width="350" alt="" src=""> |
+| <img width="350" alt="예약 연장" src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EC%98%88%EC%95%BD%20%EC%97%B0%EC%9E%A5.png"> | <img width="350" alt="학생명단 관리" src="https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%ED%95%99%EC%83%9D%20%EB%AA%85%EB%8B%A8%20%EA%B4%80%EB%A6%AC.png"> |
 
 </div>
 
@@ -97,7 +105,4 @@
 |<img src="https://avatars.githubusercontent.com/u/93811002?v=4" width=130>| <img src="https://avatars.githubusercontent.com/u/104892909?s=400&v=4" width=130> | <img src="https://avatars.githubusercontent.com/u/115469010?v=4" width=130> |
 |[@Bu-Sung](https://github.com/Bu-Sung)| [@SangHyeok-Kang](https://github.com/SangHyeok-Kang)| [@JunSeop-Song](https://github.com/Junseop-Song)|
 
-|박채빈 ``` Backend Dev ```|이수진 ```Frontend Dev``` |
-|:-:|:-:|
-|<img src="https://avatars.githubusercontent.com/u/93811002?v=4" width=130>| <img src="https://avatars.githubusercontent.com/u/104892909?s=400&v=4" width=130> |
-|[@parkchaebin](https://github.com/parkchaebin)| [@SUJ11V](https://github.com/SUJ11V)|
+</div>
