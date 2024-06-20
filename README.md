@@ -8,27 +8,28 @@
 
 ## 💡 주제
 
-- 오프라인 교육 보조 웹 사이트
-- 강의 등록 및 수강 신청 보조
+- 동의대학교 컴퓨터소프트웨어공학과 실습실 관리 시스템
+- 실습실 등록, 예약 기능 제공
 
 <br>
 
 ## 📝 설명
 
-- ***오프라인 교육 보조 시스템***은 **디지털 새싹 교육캠프**를 진행하며 **기존 시스템의 단점**을 보완하고 개선하기 위해 구축한 플랫폼 입니다. 
-- **강의 등록, 수강 신청, 설문 조사** 등  오프라인 교육 정보에 대한 정보를 제공하여 교육의 다양성을 높이고 질 높은 교육을 받을 수 있는 플랫폼을 제공합니다.
+- **실습실 관리 시스템**은 기존에 정해져있지 않던 **실습실 이용 체계**를 확립하고 사용자들이 편리하게 실습실을 사용할 수 있도록 도와주는 시스템 입니다.
+- **시간표 입력, 실습실 예약, 실습실 사용 현황 조회** 등  현재의 실습실 정보에 대한 정보를 제공하여 관리자가 실습실을 관리함에 있어 용이하도록 시스템을 제공합니다.
 
 <br>
 
+<!--
 ## 🖥️ 시스템 구조도
 
 <div align = "center">
   <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/29a3c9595cba646c1ac0ff9333aaf904987aa05f/%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%90%EC%9C%A1%20%EB%B3%B4%EC%A1%B0%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B5%AC%EC%A1%B0%EB%8F%84.png">
 </div>
+-->
 
 ## 🖥️ 기술 스택
-- **Language** : JAVA JDK 11(JSP), HTML5, CSS3, JSP
-- **Server** : Spring Framework 2.7.9, Apache Tomcat 9
+- **Language** : JAVA JDK 11(Swing)
 - **Database** : MySQL 8.0.29
 - **Tools** : Apache NetBeans IDE, Git
 
@@ -36,41 +37,53 @@
 
 ## ✨ 주요 기능
 
-- **강의 개설**
-    - 기관이나 개인이 강의를 개설할 수 있도록 합니다.
-    - 강의 개설에 필요한 강의 명, 강의 시간, 강의 장소 등을 입력하여 강의를 개설합니다.
-- **강의 신청**
-    - 멘토와 멘티는 강의를 신청 할 수 있습니다.
-    - 강의 목록을 조회하여 자신이 참여하고 싶은 강의를 선택하고 회차를 선택하여 강의를 신청합니다.
-- **강의 리뷰**
-    - 사용자는 수료 후 강의에 대한 후기를 작성할 수 있습니다.
-    - 강의 개설자는 후기를 통계로 요약하여 조회할 수 있습니다.
-- **온라인 강의실**
-    - 강의에 대한 공지, 자료 등을 업로드 및 다운로드 할 수 있습니다.
+- **회원 관리**
+    - 관리자는 학기마다 새로운 토큰을 발급할 수 있습니다.
+    - 사용자들은 발급한 토큰을 통해서만 회원가입을 진행하며, 관리자의 승인 하에 시스템을 사용 가능합니다.
+    - 부적절한 사용자에 대해서 관리자는 이용제한 조치를 가할 수 있습니다.
+- **실습실 관리**
+    - 관리자와 교수는 실습실별 정규 시간표를 입력 해야하고, 특강 또는 세미나를 신청할 수 있습니다.
+    - 실습실 사용현황 조회를 하여 현재 실습실 사용 현황을 조회할 수 있습니다.
+- **실습실 조회 및 예약**
+    - 학생은 현재의 실습실 잔여 좌석을 조회할 수 있으며 예약을 할 수 있습니다.
+    - 17시 이전의 예약건의 경우 자동으로 예약 완료 처리가 되며, 17시 이후 예약건의 경우 관리사의 예약 승인 하에 예약 완료가 됩니다.
+    - 학생은 본인이 예약한 좌석에 대해 위치와 남은시간, 연장 가능 시간을 조회 가능하며, 사용 종료 30분 전까지 사용 연장이 가능합니다.
+- **게시판 관리**
+    - 관리자는 공지사항을 등록할 수 있습니다.
+    - 학생은 부적절한 사용자에 대해 신고를 할 수 있습니다.
  
 <br>
 
 ## 📙 WBS
 <div align = "center">
-  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/29a3c9595cba646c1ac0ff9333aaf904987aa05f/%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%90%EC%9C%A1%20%EB%B3%B4%EC%A1%B0%20%ED%94%8C%EB%9E%AB%ED%8F%BC/wbs.png">
+  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/wbs.png">
+</div>
+
+## 📗 Class Diagram
+<div align = "center">
+  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/classdiagram.png">
 </div>
 
 ## 📘 ERD
 <div align = "center">
-  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/29a3c9595cba646c1ac0ff9333aaf904987aa05f/%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%90%EC%9C%A1%20%EB%B3%B4%EC%A1%B0%20%ED%94%8C%EB%9E%AB%ED%8F%BC/erd.png" width="70%">
+  <img src = "https://github.com/SangHyeok-Kang/DataRepository/blob/9959cfde99871c59014f9cb0ef0bd35689999b63/%EC%8B%A4%EC%8A%B5%EC%8B%A4%20%EA%B4%80%EB%A6%AC%20%ED%94%8C%EB%9E%AB%ED%8F%BC/erd.png">
 </div>
 
 ## 📲 UI
 
 <div align = "center">
   
-| 메인 페이지 | 온라인 강의실 |
+| 메인 페이지 | 강의 시간표 등록 |
 | :---: | :---: |
-| <img width="350" alt="메인 페이지" src="https://github.com/SangHyeok-Kang/DataRepository/blob/29a3c9595cba646c1ac0ff9333aaf904987aa05f/%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%90%EC%9C%A1%20%EB%B3%B4%EC%A1%B0%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png"> | <img width="350" alt="온라인 강의" src="https://github.com/SangHyeok-Kang/DataRepository/blob/29a3c9595cba646c1ac0ff9333aaf904987aa05f/%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%90%EC%9C%A1%20%EB%B3%B4%EC%A1%B0%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EA%B0%95%EC%9D%98%20%EB%93%B1%EB%A1%9D.png"> |
+| <img width="350" alt="메인 페이지" src=""> | <img width="350" alt="강의 시간표 등록" src=""> |
 
-| 강의 신청 | 강의 리뷰 |
+| 실습실 예약 | 예약 승인 |
 | :---: | :---: |
-| <img width="350" alt="강의 신청" src="https://github.com/SangHyeok-Kang/DataRepository/blob/29a3c9595cba646c1ac0ff9333aaf904987aa05f/%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%90%EC%9C%A1%20%EB%B3%B4%EC%A1%B0%20%ED%94%8C%EB%9E%AB%ED%8F%BC/%EA%B0%95%EC%9D%98%20%EC%8B%A0%EC%B2%AD.png"> | <img width="350" alt="강의 리뷰" src="https://github.com/SangHyeok-Kang/DataRepository/blob/acee2cffbdf03362a95e1374dc497f82690bd5d7/%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8%20%EA%B5%90%EC%9C%A1%20%EB%B3%B4%EC%A1%B0%20%ED%94%8C%EB%9E%AB%ED%8F%BC/review.png"> |
+| <img width="350" alt="" src=""> | <img width="350" alt="" src=""> |
+
+| 예약 연장 | 학생명단 관리 |
+| :---: | :---: |
+| <img width="350" alt="" src=""> | <img width="350" alt="" src=""> |
 
 </div>
 
